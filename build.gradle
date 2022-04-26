@@ -9,7 +9,7 @@ buildscript {
         Dagger_Hilt = "2.40.5"
         Android_Hilt = "1.0.0-alpha03"
         NavVersion = "2.4.2"
-        Coroutine = "1.6.0"
+        Coroutine = "1.6.1"
         Lifecycle = "2.4.1"
         SwipeRefreshLayout = "1.1.0"
 
