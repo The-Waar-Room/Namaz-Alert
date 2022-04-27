@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    App Theme Color-->
+    <color name="colorPrimaryDark">#101010</color>
+    <color name="colorPrimary">#101010</color>
+    <color name="colorAccent">#7DC4EC</color>
+    <color name="appTheme">#367F7F</color>
+
+    <!--    Activity-->
+    <color name="statusBarColor">#101010</color>
+    <color name="mainBgColor">#171717</color>
+    <color name="bgBoxColor">#171717</color>
+    <color name="headingNormalTextColor">#dae1e7</color>
+    <color name="textLinkColor">#7DC4EC</color>
+
+
+
+
+
+</resources>

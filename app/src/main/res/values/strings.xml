@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Namaz Alert</string>
+
+    <!--  MainActivity  Bottom Toolbar-->
+    <string name="search_optionMenu">Search</string>
+    <string name="refresh_optionMenu">Refresh</string>
+    <string name="send_feedback_text">Send Feedback</string>
 </resources>
