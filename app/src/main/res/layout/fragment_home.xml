@@ -70,7 +70,7 @@
             android:layout_gravity="bottom"
             app:backgroundTint="@color/statusBarColor"
             app:menu="@menu/bottom_toolbar_menu"
-            app:navigationIcon="@drawable/ic_navigation_drawer" />
+           />
 
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton

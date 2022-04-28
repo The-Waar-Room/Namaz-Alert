@@ -2,20 +2,17 @@
 
 buildscript {
     ext {
-        room_version = "2.3.0"
-        retrofit_version = '2.7.1'
-        kotlin_version = '1.4.30'
-        paging_version = "2.1.2"
-        Dagger_Hilt = "2.40.5"
-        Android_Hilt = "1.0.0-alpha03"
-        NavVersion = "2.4.2"
-        Coroutine = "1.6.1"
-        Lifecycle = "2.4.1"
-        SwipeRefreshLayout = "1.1.0"
-
-
-
-
+        Room = '2.4.2'
+        Paging = '3.1.0'
+        Retrofit = '2.9.0'
+        Okhttp = '4.9.3'
+        kotlin = '1.4.30'
+        Dagger_Hilt = '2.40.5'
+        Android_Hilt = '1.0.0-alpha03'
+        NavVersion = '2.4.2'
+        Coroutine = '1.6.1'
+        Lifecycle = '2.4.1'
+        SwipeRefreshLayout = '1.1.0'
 
     }
 

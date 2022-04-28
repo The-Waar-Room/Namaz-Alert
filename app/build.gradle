@@ -37,9 +37,18 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    kotlinOptions {
-        jvmTarget = '1.8'
+    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+        kotlinOptions {
+            freeCompilerArgs += "-opt-in=org.mylibrary.OptInAnnotation"
+            jvmTarget = '1.8'
+        }
     }
+
+    packagingOptions {
+        exclude 'META-INF/atomicfu.kotlin_module'
+    }
+
+
     buildFeatures {
         // Determines whether to support View Binding.
         // Note that the viewBinding.enabled property is now deprecated.
@@ -81,11 +90,28 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:$Lifecycle")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$Lifecycle")
 
+//    Networking
+    implementation("com.squareup.retrofit2:retrofit:$Retrofit")
+    implementation("com.squareup.retrofit2:converter-gson:$Retrofit")
+    implementation("com.squareup.okhttp3:logging-interceptor:$Okhttp")
+    implementation("com.squareup.okhttp3:okhttp:$Okhttp")
+    implementation("com.google.code.gson:gson:2.8.9")
+
+//    Database
+    implementation("androidx.room:room-runtime:$Room")
+    kapt("androidx.room:room-compiler:$Room")
+    implementation("androidx.room:room-ktx:$Room")
+    implementation("androidx.room:room-paging:$Room")
+    implementation("androidx.paging:paging-runtime:$Paging")
+
+
+//    Firebase
     implementation platform('com.google.firebase:firebase-bom:29.3.1')
     implementation 'com.google.firebase:firebase-analytics-ktx'
 
+
 //    External library
-    implementation("com.airbnb.android:lottie:5.0.3")
+    implementation 'com.airbnb.android:lottie:5.0.3'
 
 
     testImplementation 'junit:junit:4.13.2'

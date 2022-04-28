@@ -3,12 +3,14 @@ package com.sudoajay.namaz_alert.ui.home
 import android.graphics.Paint
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,6 +20,8 @@ import com.sudoajay.namaz_alert.ui.BaseActivity.Companion.isSystemDefaultOn
 
 import com.sudoajay.namaz_alert.ui.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -27,6 +31,7 @@ class HomeFragment : BaseFragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
+    private val dailyPrayerAbdulrcsViewModel:DailyPrayerAbdulrcsViewModel by viewModels()
 
 
 
@@ -63,14 +68,19 @@ class HomeFragment : BaseFragment() {
 
 
         //         Setup BottomAppBar Navigation Setup
-        binding.bottomAppBar.navigationIcon?.mutate()?.let {
-            it.setTint(
-                ContextCompat.getColor(requireContext(), R.color.whiteColor)
-            )
-            binding.bottomAppBar.navigationIcon = it
-        }
+
 
         binding.lottieAnimationView.setAnimation(if(isDarkTheme)R.raw.plus_night else R.raw.plus)
+
+        lifecycleScope.launch {
+
+            dailyPrayerAbdulrcsViewModel.getRemoteMediatorWithDataBase()
+                .collectLatest { pagingData ->
+                    Log.e("SomethingNew", "Here")
+                }
+
+        }
+
 
     }
 
