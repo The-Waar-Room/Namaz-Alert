@@ -9,8 +9,10 @@
     <!--    Activity-->
     <color name="statusBarColor">#101010</color>
     <color name="mainBgColor">#171717</color>
-    <color name="bgBoxColor">#171717</color>
+    <color name="bgBoxColor">#101010</color>
     <color name="headingNormalTextColor">#dae1e7</color>
+    <color name="whiteColor">#fff</color>
+
     <color name="textLinkColor">#7DC4EC</color>
 
 

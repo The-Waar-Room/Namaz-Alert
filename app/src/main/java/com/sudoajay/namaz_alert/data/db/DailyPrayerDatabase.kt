@@ -6,25 +6,25 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 
-@Database(entities = [DailyPrayerAbdulrcsDB::class], version = 1 , exportSchema = false)
-abstract class DailyPrayerAbdulrcsDatabase : RoomDatabase() {
+@Database(entities = [DailyPrayerDB::class], version = 1 , exportSchema = false)
+abstract class DailyPrayerDatabase : RoomDatabase() {
 
-    abstract fun itemDoa(): DailyPrayerAbdulrcsDoa
+    abstract fun itemDoa(): DailyPrayerDoa
 
     companion object {
         @Volatile
-        private var INSTANCE: DailyPrayerAbdulrcsDatabase? = null
+        private var INSTANCE: DailyPrayerDatabase? = null
 
         fun getDatabase(
             context: Context
-        ): DailyPrayerAbdulrcsDatabase {
+        ): DailyPrayerDatabase {
             // if the INSTANCE is not null, then return it,
             // if it is, then create the database
             return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
-                    DailyPrayerAbdulrcsDatabase::class.java,
-                    "PersonGsonTable_database"
+                    DailyPrayerDatabase::class.java,
+                    "DailyPrayerTable_database"
                 )
 
                     .build()

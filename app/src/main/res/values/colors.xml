@@ -6,10 +6,12 @@
     <color name="appTheme">#367F7F</color>
     <color name="appThemeDark">#317272</color>
 
-    <color name="statusBarColor">#455862</color>
-    <color name="mainBgColor">#566c79</color>
-    <color name="bgBoxColor">#566c79</color>
-    <color name="headingNormalTextColor">#dae1e7</color>
-    <color name="whiteColor">#dae1e7</color>
+    //566c79 // 455862
+    <color name="statusBarColor">#fcfcfc</color>
+    <color name="mainBgColor">#f2f2f2</color>
+    <color name="bgBoxColor">#fcfcfc</color>
+    <color name="headingNormalTextColor">#353131</color>
+    <color name="whiteColor">#fff</color>
     <color name="textLinkColor">#0277BD</color>
 </resources>
+

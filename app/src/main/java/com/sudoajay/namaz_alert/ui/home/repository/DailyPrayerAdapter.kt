@@ -5,23 +5,23 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import com.sudoajay.namaz_alert.data.db.DailyPrayerAbdulrcsDB
+import com.sudoajay.namaz_alert.data.db.DailyPrayerDB
 import com.sudoajay.namaz_alert.databinding.HolderDailyPrayerItemBinding
 import javax.inject.Inject
 
-class PersonLocalPagingAdapterGson @Inject constructor(
+class DailyPrayerAdapter @Inject constructor(
 ) :
-    PagingDataAdapter<DailyPrayerAbdulrcsDB, PersonViewHolder>(Person_COMPARATOR) {
+    PagingDataAdapter<DailyPrayerDB, DailyPrayerViewHolder>(Person_COMPARATOR) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        PersonViewHolder(
+        DailyPrayerViewHolder(
             parent.context,
             HolderDailyPrayerItemBinding.inflate(
                 LayoutInflater.from(parent.context), parent, false
             )
         )
 
-    override fun onBindViewHolder(holder: PersonViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: DailyPrayerViewHolder, position: Int) {
 
         getItem(position)?.let { holder.bind(it) }
     }
@@ -29,12 +29,12 @@ class PersonLocalPagingAdapterGson @Inject constructor(
 
 
     companion object {
-        private val Person_COMPARATOR = object : DiffUtil.ItemCallback<DailyPrayerAbdulrcsDB>() {
-            override fun areItemsTheSame(oldItem: DailyPrayerAbdulrcsDB, newItem: DailyPrayerAbdulrcsDB): Boolean =
+        private val Person_COMPARATOR = object : DiffUtil.ItemCallback<DailyPrayerDB>() {
+            override fun areItemsTheSame(oldItem: DailyPrayerDB, newItem: DailyPrayerDB): Boolean =
                 oldItem.id == newItem.id
 
             @SuppressLint("DiffUtilEquals")
-            override fun areContentsTheSame(oldItem: DailyPrayerAbdulrcsDB, newItem: DailyPrayerAbdulrcsDB): Boolean =
+            override fun areContentsTheSame(oldItem: DailyPrayerDB, newItem: DailyPrayerDB): Boolean =
                 oldItem == newItem
         }
     }

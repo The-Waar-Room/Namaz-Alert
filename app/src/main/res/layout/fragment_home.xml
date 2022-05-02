@@ -17,7 +17,7 @@
             android:id="@+id/appbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/bgBoxColor"
+            android:background="@color/mainBgColor"
             app:elevation="0dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,6 +28,7 @@
 
                 <TextView
                     android:id="@+id/toolbar_title"
+                    style="@style/TextAppearance.AppTheme.Headline4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/app_name"
@@ -47,15 +48,18 @@
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/swipe_refresh"
             android:layout_width="match_parent"
+            android:layout_marginTop="16dp"
             android:layout_height="match_parent"
             android:layout_marginBottom="?attr/actionBarSize"
 
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_view"
+                android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scrollbars="vertical" />
+                android:scrollbars="vertical"
+                tools:listitem="@layout/holder_daily_prayer_item" />
 
 
 
@@ -68,35 +72,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            app:backgroundTint="@color/statusBarColor"
+            app:backgroundTint="@color/bgBoxColor"
             app:menu="@menu/bottom_toolbar_menu"
+            app:navigationIcon="@drawable/ic_navigation_drawer"
+            app:navigationIconTint="@color/headingNormalTextColor"
            />
-
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/delete_floatingActionButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:alpha="0.0"
-            app:backgroundTint="@color/statusBarColor"
-            app:fabSize="normal"
-            app:layout_anchor="@id/bottomAppBar"
-            />
-
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/lottieAnimationView"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:layout_anchor="@id/bottomAppBar"
-            app:layout_anchorGravity="center|top"
-            app:lottie_rawRes="@raw/plus"
-            />
 
         <ProgressBar
             android:id="@+id/progress_circular"
@@ -104,6 +84,7 @@
             android:layout_height="@dimen/progress_circular_dimension"
             android:layout_gravity="center"
             android:indeterminate="true"
+            android:visibility="gone"
             android:theme="@style/ProgressBarTheme"/>
 
 

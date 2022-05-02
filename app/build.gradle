@@ -37,12 +37,11 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
-        kotlinOptions {
-            freeCompilerArgs += "-opt-in=org.mylibrary.OptInAnnotation"
-            jvmTarget = '1.8'
-        }
+    kotlinOptions {
+        freeCompilerArgs += "-opt-in=kotlin.RequiresOptIn"
+        jvmTarget = '1.8'
     }
+
 
     packagingOptions {
         exclude 'META-INF/atomicfu.kotlin_module'
@@ -81,11 +80,11 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:$NavVersion")
     implementation("androidx.navigation:navigation-ui-ktx:$NavVersion")
 
- //   Coroutine
+    //   Coroutine
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$Coroutine")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$Coroutine")
 
- // Lifecycle
+    // Lifecycle
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$Lifecycle")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:$Lifecycle")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$Lifecycle")
@@ -102,7 +101,7 @@ dependencies {
     kapt("androidx.room:room-compiler:$Room")
     implementation("androidx.room:room-ktx:$Room")
     implementation("androidx.room:room-paging:$Room")
-    implementation("androidx.paging:paging-runtime:$Paging")
+    implementation("androidx.paging:paging-runtime-ktx:$Paging")
 
 
 //    Firebase
@@ -111,7 +110,7 @@ dependencies {
 
 
 //    External library
-    implementation 'com.airbnb.android:lottie:5.0.3'
+//    implementation 'com.airbnb.android:lottie:5.0.3'
 
 
     testImplementation 'junit:junit:4.13.2'

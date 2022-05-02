@@ -6,13 +6,13 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-class DailyPrayerAbdulrcsBuilder {
+class DailyPrayerBuilder {
     companion object {
-        var marvelApiInterface: DailyPrayerAbdulrcslApiInterface? = null
+        var dailyPrayerApiInterface: DailyPrayerApiInterface? = null
         private var okHttpClient: OkHttpClient? = null
 
-        fun getApiInterface(): DailyPrayerAbdulrcslApiInterface? {
-            if (marvelApiInterface == null) {
+        fun getApiInterface(): DailyPrayerApiInterface? {
+            if (dailyPrayerApiInterface == null) {
 
                 val httpLoggingInterceptor = HttpLoggingInterceptor()
                 httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
@@ -26,14 +26,14 @@ class DailyPrayerAbdulrcsBuilder {
                     .build()
 
                 val retrofit = Retrofit.Builder()
-                    .baseUrl(DailyPrayerAbdulrcslApiInterface.Base_URL)
+                    .baseUrl(DailyPrayerApiInterface.Base_URL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .client(okHttpClient!!)
                     .build()
-                marvelApiInterface = retrofit.create(DailyPrayerAbdulrcslApiInterface::class.java)
+                dailyPrayerApiInterface = retrofit.create(DailyPrayerApiInterface::class.java)
 
             }
-            return marvelApiInterface
+            return dailyPrayerApiInterface
         }
 
     }

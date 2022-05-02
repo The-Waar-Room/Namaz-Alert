@@ -26,5 +26,12 @@ open class BaseFragment :Fragment() {
     }
 
     companion object{
+        var fajrName = "Fajr"
+        var dhuhrName = "Dhuhr"
+        var asrName = "Asr"
+        var maghribName = "Maghrib"
+        var ishaName = "Isha"
+        var amText ="am"
+        var pmText ="pm"
     }
 }

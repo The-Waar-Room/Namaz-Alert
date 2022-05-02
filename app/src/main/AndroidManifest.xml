@@ -3,6 +3,7 @@
     package="com.sudoajay.namaz_alert">
 
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".ui.MainApplication"
@@ -23,6 +24,10 @@
         </activity>
 
         <activity android:name=".ui.BaseActivity" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
 
     </application>
 
