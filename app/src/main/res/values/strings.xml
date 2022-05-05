@@ -98,4 +98,8 @@
 
     <!--    Click back to exit-->
     <string name="click_back_text">Click Back Again To Exit</string>
+
+    <!--    Shortcuts-->
+    <string name="shortcut_phone_mode_text">Phone Mode</string>
+    <string name="shortcut_setting_text">Setting</string>
 </resources>

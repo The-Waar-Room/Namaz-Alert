@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import com.sudoajay.namaz_alert.R
 import com.sudoajay.namaz_alert.databinding.ActivityMainBinding
 import com.sudoajay.namaz_alert.ui.BaseActivity
+import com.sudoajay.namaz_alert.ui.setting.SettingsActivity
 import com.sudoajay.namaz_alert.util.Toaster
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
@@ -33,7 +34,9 @@ class MainActivity : BaseActivity() {
             }
 
         }
-
+        if (!intent.action.isNullOrEmpty() && intent.action.toString() == settingShortcutId) {
+            openSetting()
+        }
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
@@ -48,6 +51,10 @@ class MainActivity : BaseActivity() {
     }
 
 
+    private fun openSetting(){
+        val intent = Intent(applicationContext, SettingsActivity::class.java)
+        startActivity(intent)
+    }
 
 
 

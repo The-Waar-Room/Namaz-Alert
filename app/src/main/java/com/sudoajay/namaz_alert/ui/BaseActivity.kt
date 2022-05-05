@@ -51,7 +51,8 @@ open class BaseActivity : AppCompatActivity() {
                     Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES
         }
         const val messageType= "MessageType"
-
+        const val settingShortcutId = "setting"
+        const val phoneModeShortcutId = "phoneMode"
 
     }
 

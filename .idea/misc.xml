@@ -16,13 +16,17 @@
         <entry key="app/src/main/res/drawable/ic_close_window.xml" value="0.298" />
         <entry key="app/src/main/res/drawable/ic_dark_mode.xml" value="0.298" />
         <entry key="app/src/main/res/drawable/ic_fajr_bg.xml" value="0.298" />
+        <entry key="app/src/main/res/drawable/ic_home.xml" value="0.298" />
         <entry key="app/src/main/res/drawable/ic_image_large.xml" value="0.298" />
         <entry key="app/src/main/res/drawable/ic_me.xml" value="0.298" />
         <entry key="app/src/main/res/drawable/ic_navigation_drawer.xml" value="0.298" />
         <entry key="app/src/main/res/drawable/ic_rate_us.xml" value="0.298" />
         <entry key="app/src/main/res/drawable/ic_search.xml" value="0.298" />
         <entry key="app/src/main/res/drawable/ic_send_feedback.xml" value="0.298" />
+        <entry key="app/src/main/res/drawable/ic_setting.xml" value="0.298" />
         <entry key="app/src/main/res/drawable/ic_share_app.xml" value="0.298" />
+        <entry key="app/src/main/res/drawable/ic_vibrate.xml" value="0.298" />
+        <entry key="app/src/main/res/drawable/ic_vibration.xml" value="0.298" />
         <entry key="app/src/main/res/drawable/isha_bg_gradient_drawable.xml" value="0.298" />
         <entry key="app/src/main/res/drawable/isha_home_gradient_drawable.xml" value="0.298" />
         <entry key="app/src/main/res/drawable/maghrib_bg_gradient_drawable.xml" value="0.298" />

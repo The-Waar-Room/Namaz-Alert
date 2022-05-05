@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="settingShortcutId"
+        android:enabled="true"
+        android:icon="@drawable/ic_setting"
+        android:shortcutShortLabel="@string/shortcut_setting_text"
+        android:shortcutLongLabel="@string/shortcut_setting_text"
+        android:shortcutDisabledMessage="@string/shortcut_setting_text">
+        <intent
+            android:action="settingShortcut"
+            android:targetPackage="com.sudoajay.namaz_alert"
+            android:targetClass="com.sudoajay.namaz_alert.ui.mainActivity.MainActivity" />
+    </shortcut>
+
+    <shortcut
+        android:shortcutId="homeShortcutId"
+        android:enabled="true"
+        android:icon="@drawable/ic_vibration"
+        android:shortcutShortLabel="@string/shortcut_phone_mode_text"
+        android:shortcutLongLabel="@string/shortcut_phone_mode_text"
+        android:shortcutDisabledMessage="@string/shortcut_phone_mode_text">
+        <intent
+            android:action="homeShortcut"
+            android:targetPackage="com.sudoajay.namaz_alert"
+            android:targetClass="com.sudoajay.namaz_alert.ui.mainActivity.MainActivity" />
+    </shortcut>
+</shortcuts>
