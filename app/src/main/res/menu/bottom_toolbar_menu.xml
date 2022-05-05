@@ -6,8 +6,9 @@
         android:icon="@drawable/ic_search"
         android:title="@string/search_optionMenu"
         app:iconTint="@color/headingNormalTextColor"
+        app:showAsAction="ifRoom|collapseActionView"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
-        app:showAsAction="ifRoom|collapseActionView" />
+        />
 
     <item
         android:id="@+id/refresh_optionMenu"

@@ -10,5 +10,27 @@
         android:id="@+id/homeFragment"
         android:name="com.sudoajay.namaz_alert.ui.home.HomeFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/fragment_home"/>
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_editDailyPrayerFragment"
+            app:destination="@id/editDailyPrayerFragment"
+            app:enterAnim="@anim/slide_from_top"
+            app:exitAnim="@anim/slide_to_bottom"/>
+
+    </fragment>
+    <fragment
+        android:id="@+id/editDailyPrayerFragment"
+        android:name="com.sudoajay.namaz_alert.ui.editDailyPrayer.EditDailyPrayerFragment"
+        android:label="EditDailyPrayerFragment"
+        tools:layout="@layout/fragment_edit_daily_prayer">
+        <argument
+            android:name="prayerName"
+            android:defaultValue="Fajr"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_editDailyPrayerFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/slide_from_bottom"
+            app:exitAnim="@anim/slide_to_top"/>
+    </fragment>
 </navigation>

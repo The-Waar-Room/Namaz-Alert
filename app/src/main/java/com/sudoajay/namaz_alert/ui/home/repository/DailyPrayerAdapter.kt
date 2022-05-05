@@ -10,6 +10,7 @@ import com.sudoajay.namaz_alert.databinding.HolderDailyPrayerItemBinding
 import javax.inject.Inject
 
 class DailyPrayerAdapter @Inject constructor(
+    private val onClick: (String) -> Unit
 ) :
     PagingDataAdapter<DailyPrayerDB, DailyPrayerViewHolder>(Person_COMPARATOR) {
 
@@ -23,7 +24,9 @@ class DailyPrayerAdapter @Inject constructor(
 
     override fun onBindViewHolder(holder: DailyPrayerViewHolder, position: Int) {
 
-        getItem(position)?.let { holder.bind(it) }
+        getItem(position)?.let { holder.bind(it, onClick) }
+
+
     }
 
 

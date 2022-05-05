@@ -27,8 +27,9 @@ import javax.inject.Inject
 @HiltViewModel
 class DailyPrayerViewModel @Inject constructor(application: Application) : AndroidViewModel(application) {
     private var viewModelApplication = application
+    var searchValue :String = ""
 
-    fun getTodayDate():String {
+    private fun getTodayDate():String {
         val todayDate = Date() // sets date
         val formatDate = SimpleDateFormat("dd-MMM-yyyy", Locale.ENGLISH)
         return formatDate.format(todayDate)
@@ -51,7 +52,7 @@ class DailyPrayerViewModel @Inject constructor(application: Application) : Andro
                 dailyPrayerApiInterface =  apiInterface!!
             )
         ) {
-            itemRepository.pagingSource(getTodayDate())
+            itemRepository.pagingSource(getTodayDate(), searchValue)
         }.flow
     }
 

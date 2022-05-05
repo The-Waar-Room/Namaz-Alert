@@ -15,8 +15,9 @@ interface DailyPrayerDoa {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(users: List<DailyPrayerDB>)
 
-    @Query("SELECT * FROM DailyPrayerTable WHERE Date is :searchDate")
-    fun pagingSource(searchDate:String): PagingSource<Int, DailyPrayerDB>
+//          @Query("SELECT * FROM DailyPrayerTable WHERE (name LIKE '%' || :search || '%') or (time LIKE '%' || :search || '%')")
+    @Query("SELECT * FROM DailyPrayerTable WHERE (name LIKE '%' || :search || '%') or (time LIKE '%' || :search || '%')")
+    fun pagingSource( search: String): PagingSource<Int, DailyPrayerDB>
 
 
 

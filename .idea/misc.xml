@@ -3,13 +3,27 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable-v24/dhuhr_bg_gradient_drawable.xml" value="0.298" />
+        <entry key="app/src/main/res/drawable/asr_bg_gradient_drawable.xml" value="0.298" />
+        <entry key="app/src/main/res/drawable/asr_home_gradient_drawable.xml" value="0.298" />
+        <entry key="app/src/main/res/drawable/dhuhr_bg_gradient_drawable.xml" value="0.298" />
+        <entry key="app/src/main/res/drawable/dhuhr_home_gradient_drawable.xml" value="0.298" />
+        <entry key="app/src/main/res/drawable/fajr_bg_gradient_drawable.xml" value="0.298" />
+        <entry key="app/src/main/res/drawable/fajr_home_gradient_drawable.xml" value="0.298" />
+        <entry key="app/src/main/res/drawable/ic_back.xml" value="0.298" />
         <entry key="app/src/main/res/drawable/ic_dark_mode.xml" value="0.298" />
         <entry key="app/src/main/res/drawable/ic_fajr_bg.xml" value="0.298" />
         <entry key="app/src/main/res/drawable/ic_navigation_drawer.xml" value="0.298" />
         <entry key="app/src/main/res/drawable/ic_search.xml" value="0.298" />
+        <entry key="app/src/main/res/drawable/isha_bg_gradient_drawable.xml" value="0.298" />
+        <entry key="app/src/main/res/drawable/isha_home_gradient_drawable.xml" value="0.298" />
+        <entry key="app/src/main/res/drawable/maghrib_bg_gradient_drawable.xml" value="0.298" />
+        <entry key="app/src/main/res/drawable/maghrib_home_gradient_drawable.xml" value="0.298" />
+        <entry key="app/src/main/res/drawable/my_gradient_drawable.xml" value="0.298" />
         <entry key="app/src/main/res/font/lato.xml" value="0.21197916666666666" />
         <entry key="app/src/main/res/font/nunito.xml" value="0.21197916666666666" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.35625" />
+        <entry key="app/src/main/res/layout/fragment_edit_daily_prayer.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/holder_daily_prayer_item.xml" value="0.3206997084548105" />
         <entry key="app/src/main/res/menu/bottom_toolbar_menu.xml" value="0.35625" />

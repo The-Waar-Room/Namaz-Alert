@@ -9,9 +9,9 @@
 
 <!--    home screen -->
     <string name="fajr_time_text">FAJR \n%1$s%2$s</string>
-    <string name="dhuhr_time_text">Dhuhr \n%1$s%2$s</string>
-    <string name="asr_time_text">Asr \n%1$s%2$s</string>
-    <string name="maghrib_time_text">Maghrib \n%1$s%2$s</string>
-    <string name="isha_time_text">Isha \n%1$s%2$s</string>
+    <string name="dhuhr_time_text">DHUHR \n%1$s%2$s</string>
+    <string name="asr_time_text">ASR \n%1$s%2$s</string>
+    <string name="maghrib_time_text">MAGHRIB \n%1$s%2$s</string>
+    <string name="isha_time_text">ISHA \n%1$s%2$s</string>
 
 </resources>

@@ -13,5 +13,14 @@
     <color name="headingNormalTextColor">#353131</color>
     <color name="whiteColor">#fff</color>
     <color name="textLinkColor">#0277BD</color>
+
+
+<!--    -->
+    <color name="fajr_color">#65BEFF</color>
+    <color name="dhuhr_color">#FF2EAB</color>
+    <color name="asr_color">#FF6A6A</color>
+    <color name="maghrib_color">#FFA113</color>
+    <color name="isha_color">#930696</color>
+
 </resources>
 

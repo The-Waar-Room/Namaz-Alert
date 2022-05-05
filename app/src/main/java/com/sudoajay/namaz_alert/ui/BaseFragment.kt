@@ -33,5 +33,6 @@ open class BaseFragment :Fragment() {
         var ishaName = "Isha"
         var amText ="am"
         var pmText ="pm"
+        var editDailyPrayerNameKey = "prayerName"
     }
 }

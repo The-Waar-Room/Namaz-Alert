@@ -24,7 +24,7 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/toolbar_heigth"
-                app:layout_scrollFlags="scroll|enterAlways|snap">
+                app:layout_scrollFlags="noScroll">
 
                 <TextView
                     android:id="@+id/toolbar_title"
@@ -50,8 +50,7 @@
             android:layout_width="match_parent"
             android:layout_marginTop="16dp"
             android:layout_height="match_parent"
-            android:layout_marginBottom="?attr/actionBarSize"
-
+            android:layout_marginBottom="64dp"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <androidx.recyclerview.widget.RecyclerView
