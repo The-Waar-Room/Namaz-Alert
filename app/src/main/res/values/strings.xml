@@ -14,4 +14,86 @@
     <string name="maghrib_time_text">MAGHRIB \n%1$s%2$s</string>
     <string name="isha_time_text">ISHA \n%1$s%2$s</string>
 
+
+<!--    Edit screen -->
+    <string name="fajr_namaz_time_text">Fajr Namaz \n%1$s%2$s</string>
+    <string name="dhuhr_namaz_time_text">Dhuhr Namaz \n%1$s%2$s</string>
+    <string name="asr_namaz_time_text">Asr Namaz \n%1$s%2$s</string>
+    <string name="maghrib_namaz_time_text">Maghrib Namaz \n%1$s%2$s</string>
+    <string name="isha_namaz_time_text">Isha Namaz \n%1$s%2$s</string>
+
+    <string name="right_hand_side_time_text">%1$s \n To %2$s</string>
+    <string name="left_hand_side_time_text">%1$s \n At %2$s</string>
+
+    <string name="minute_text">Minute</string>
+    <string name="hour_text">Hour</string>
+
+
+    <!--    Send Feedback and help and support -->
+    <string name="add_Screenshot_Small_text">Add Screenshot Small</string>
+    <string name="add_Screenshot_Large_text">Add Screenshot Large</string>
+    <string name="close_Image_text">Close Image</string>
+    <string name="feedbackEditTextHint">Please write your feedback</string>
+    <string name="describe_your_issue_text">Describe your issue</string>
+    <string name="feedbackEditTextError">Please write something in feedback</string>
+    <string name="supportEditTextError">Please write something in issue</string>
+    <string name="systemInfo_text">Your System Info will be send to our developer team</string>
+    <string name="add_screenshot_text">+ Add Screenshot</string>
+    <string name="send_issue_text">Send Issue</string>
+    <string name="feedback_about_app_text">FeedBack about %1$s</string>
+    <string name="issue_in_app_text">Issue in %1$s</string>
+
+    <!--    Network Provider-->
+    <string name="wifi_text">Wifi</string>
+    <string name="mobile_data_text">Mobile Data</string>
+    <string name="vpn_text">Vpn</string>
+    <string name="no_internet_text">No Internet</string>
+
+<!--    Delete cache-->
+    <string name="successfully_cache_data_is_deleted_text">Successfully Cache Data Is Deleted</string>
+
+
+    <!--    System Info-->
+    <string name="system_info_text"> System Info </string>
+    <string name="device_text">Device : </string>
+    <string name="os_api_level_text">Os Api Level : </string>
+    <string name="language_text">Language : </string>
+    <string name="total_memory_text">Total Heap Memory : </string>
+    <string name="free_memory_text">Free Heap Memory : </string>
+    <string name="screen_Text">Screen Size : </string>
+    <string name="network_type_text">Network Type : </string>
+    <string name="app_version_text">App Version : </string>
+    <string name="ok_text">OK</string>
+
+    <!--    Setting Preference-->
+    <string name="system_setting_text">System Settings</string>
+    <string name="clear_cache_text">Clear Cache</string>
+    <string name="help_support_text">Help &amp; Support</string>
+    <string name="send_feedback_summary_text">submit feedback to fix the app bug</string>
+    <string name="privacy_policy_text">Privacy Policy</string>
+    <string name="more_info_text">More Info</string>
+    <string name="share_app_text">Share App</string>
+    <string name="rate_use_text">Rate-Us</string>
+    <string name="more_app_text">More App</string>
+    <string name="about_app_text">About App</string>
+    <string name="share_app_summary_text">share the play store app link</string>
+    <string name="rate_use_summary_text">express your experience through rating</string>
+    <string name="more_app_summary_text">there is more app out there</string>
+    <string name="about_app_summary_text">open github link</string>
+    <string name="setting_text">Setting</string>
+    <string name="shareMessage">Hey, check This App which helps you to Delete Duplicate and Unnecessary Data from the phone -</string>
+    <string name="normal_mode">Normal Mode</string>
+    <string name="vibrate_mode">Vibrate Mode</string>
+    <string name="silent_mode">Silent Mode</string>
+    <string name="phone_mode_text">Phone Mode</string>
+    <string name="app_setting_text">App Setting</string>
+    <string name="change_language_text">"Change Language "</string>
+
+
+    <!--    Navigation Drawer Bottom Sheet-->
+    <string name="developer_name">Created by Sudo Ajay</string>
+    <string name="share_code_text">Share Code</string>
+    <string name="workOnProgress_text">Work On Progress</string>
+
+
 </resources>

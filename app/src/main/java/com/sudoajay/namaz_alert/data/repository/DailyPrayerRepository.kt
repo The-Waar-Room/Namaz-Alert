@@ -10,7 +10,7 @@ class DailyPrayerRepository(private val dailyPrayerDoa: DailyPrayerDoa) {
 
     suspend fun  deleteAll() = dailyPrayerDoa.deleteAll()
 
-    fun pagingSource(searchDate:String,search: String): PagingSource<Int, DailyPrayerDB> = dailyPrayerDoa.pagingSource(search)
+    fun pagingSource(searchDate:String,search: String): PagingSource<Int, DailyPrayerDB> = dailyPrayerDoa.pagingSource(searchDate ,search)
 
 
 }

@@ -27,6 +27,11 @@
             android:name="prayerName"
             android:defaultValue="Fajr"
             app:argType="string" />
+        <argument
+            android:name="prayerTime"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true"/>
         <action
             android:id="@+id/action_editDailyPrayerFragment_to_homeFragment"
             app:destination="@id/homeFragment"

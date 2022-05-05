@@ -1,7 +1,7 @@
 package com.sudoajay.namaz_alert.data.network
 
 
-import com.sudoajay.namaz_alert.data.pojo.DailyPrayer
+import com.sudoajay.namaz_alert.model.pojo.DailyPrayer
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path

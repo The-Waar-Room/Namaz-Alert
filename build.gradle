@@ -13,6 +13,9 @@ buildscript {
         Coroutine = '1.6.1'
         Lifecycle = '2.4.1'
         SwipeRefreshLayout = '1.1.0'
+        PreferencesDataStore = '1.0.0'
+        ProtoDataStore = '1.0.0'
+        Protobuf = '3.19.1'
 
     }
 

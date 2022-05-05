@@ -79,11 +79,11 @@ class DailyPrayerRemoteMediator(
                     DailyPrayerDB(2,response.city,formatDate.format(todayDate), asrName,response.today.Asr),
                     DailyPrayerDB(3,response.city,formatDate.format(todayDate),maghribName,response.today.Maghrib),
                     DailyPrayerDB(4,response.city,formatDate.format(todayDate),ishaName,response.today.Ishaa),
-                    DailyPrayerDB(5,response.city,formatDate.format(nextDate),fajrName,response.today.Fajr),
-                    DailyPrayerDB(6,response.city,formatDate.format(nextDate),dhuhrName,response.today.Dhuhr),
-                    DailyPrayerDB(7,response.city,formatDate.format(nextDate),asrName,response.today.Asr),
-                    DailyPrayerDB(8,response.city,formatDate.format(nextDate),maghribName,response.today.Maghrib),
-                    DailyPrayerDB(9,response.city,formatDate.format(nextDate),ishaName,response.today.Ishaa)
+                    DailyPrayerDB(5,response.city,formatDate.format(nextDate),fajrName,response.tomorrow.Fajr),
+                    DailyPrayerDB(6,response.city,formatDate.format(nextDate),dhuhrName,response.tomorrow.Dhuhr),
+                    DailyPrayerDB(7,response.city,formatDate.format(nextDate),asrName,response.tomorrow.Asr),
+                    DailyPrayerDB(8,response.city,formatDate.format(nextDate),maghribName,response.tomorrow.Maghrib),
+                    DailyPrayerDB(9,response.city,formatDate.format(nextDate),ishaName,response.tomorrow.Ishaa)
                 )
 
                 list.forEach {

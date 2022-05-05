@@ -11,15 +11,10 @@ import com.sudoajay.namaz_alert.data.db.DailyPrayerDB
 import com.sudoajay.namaz_alert.data.db.DailyPrayerDatabase
 import com.sudoajay.namaz_alert.data.network.DailyPrayerBuilder.Companion.getApiInterface
 import com.sudoajay.namaz_alert.data.network.DailyPrayerApiInterface.Companion.NETWORK_PAGE_SIZE
-import com.sudoajay.namaz_alert.data.pojo.DailyPrayer
 import com.sudoajay.namaz_alert.data.repository.DailyPrayerRepository
 import com.sudoajay.namaz_alert.data.repository.DailyPrayerRemoteMediator
-import com.sudoajay.namaz_alert.util.Toaster
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject

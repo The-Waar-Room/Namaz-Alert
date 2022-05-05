@@ -1,8 +1,8 @@
 package com.sudoajay.namaz_alert.data.pojo
 
-import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-import kotlinx.parcelize.Parcelize
+import com.sudoajay.namaz_alert.model.pojo.Today
+import com.sudoajay.namaz_alert.model.pojo.Tomorrow
 import java.io.Serializable
 
 

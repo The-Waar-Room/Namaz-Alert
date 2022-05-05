@@ -11,6 +11,7 @@ import com.sudoajay.namaz_alert.ui.BaseFragment.Companion.amText
 import com.sudoajay.namaz_alert.ui.BaseFragment.Companion.asrName
 import com.sudoajay.namaz_alert.ui.BaseFragment.Companion.dhuhrName
 import com.sudoajay.namaz_alert.ui.BaseFragment.Companion.fajrName
+import com.sudoajay.namaz_alert.ui.BaseFragment.Companion.getAMOrPM
 import com.sudoajay.namaz_alert.ui.BaseFragment.Companion.ishaName
 import com.sudoajay.namaz_alert.ui.BaseFragment.Companion.maghribName
 import com.sudoajay.namaz_alert.ui.BaseFragment.Companion.pmText
@@ -21,11 +22,10 @@ class DailyPrayerViewHolder(
     private val binding: HolderDailyPrayerItemBinding
 ) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(dailyPrayerDB: DailyPrayerDB, onClick: (String) -> Unit) {
+    fun bind(dailyPrayerDB: DailyPrayerDB, onClick: (DailyPrayerDB) -> Unit) {
 
         binding.root.setOnClickListener {
-            onClick.invoke(dailyPrayerDB.Name)
-
+            onClick.invoke(dailyPrayerDB)
         }
         binding.containerConstraintLayout.background = ContextCompat.getDrawable(context,getColor(dailyPrayerDB.Name))
         binding.view.background =ContextCompat.getDrawable(context,getDrawableView(dailyPrayerDB.Name))
@@ -89,10 +89,6 @@ class DailyPrayerViewHolder(
         }
     }
 
-    private fun getAMOrPM(time: String): String {
-        val hour = time.split(":")[0]
-        return if (hour.toInt() < 12) amText else pmText
-    }
 
 
     private fun getSize(width: Int, heigth: Int): String {

@@ -22,5 +22,17 @@
     <color name="maghrib_color">#FFA113</color>
     <color name="isha_color">#930696</color>
 
+    <!--    Send Feedback-->
+    <color name="boxTextColor">#757575</color>
+    <color name="boxHoverColor">#0277BD</color>
+    <color name="errorBoxColor">#F44336</color>
+    <color name="feedbackBoxBgColor">#BEBEBE</color>
+    <color name="dialogBgColorInfo">#2546ABEB</color>
+    <color name="systemInfoBgColor">#f2f2f2</color>
+
+<!--    Drawer Bottom Sheet-->
+    <color name="divider">#E6E6E6</color>
+
+
 </resources>
 

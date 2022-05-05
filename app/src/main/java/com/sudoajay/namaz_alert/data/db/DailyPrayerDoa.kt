@@ -16,8 +16,8 @@ interface DailyPrayerDoa {
     suspend fun insertAll(users: List<DailyPrayerDB>)
 
 //          @Query("SELECT * FROM DailyPrayerTable WHERE (name LIKE '%' || :search || '%') or (time LIKE '%' || :search || '%')")
-    @Query("SELECT * FROM DailyPrayerTable WHERE (name LIKE '%' || :search || '%') or (time LIKE '%' || :search || '%')")
-    fun pagingSource( search: String): PagingSource<Int, DailyPrayerDB>
+    @Query("SELECT * FROM DailyPrayerTable WHERE ( date is :searchDate and name LIKE '%' || :search || '%'  ) or ( date is :searchDate and time LIKE '%' || :search || '%')")
+    fun pagingSource(searchDate:String , search: String): PagingSource<Int, DailyPrayerDB>
 
 
 

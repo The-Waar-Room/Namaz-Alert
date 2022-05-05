@@ -1,5 +1,6 @@
 package com.sudoajay.namaz_alert.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.*
@@ -16,11 +17,14 @@ import com.sudoajay.namaz_alert.R
 import com.sudoajay.namaz_alert.databinding.FragmentHomeBinding
 import com.sudoajay.namaz_alert.ui.BaseActivity.Companion.isSystemDefaultOn
 import com.sudoajay.namaz_alert.ui.BaseFragment
+import com.sudoajay.namaz_alert.ui.bottomSheet.NavigationDrawerBottomSheet
 import com.sudoajay.namaz_alert.ui.home.repository.DailyPrayerAdapter
+import com.sudoajay.namaz_alert.ui.setting.SettingsActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import java.util.*
+import javax.inject.Inject
 
 
 @AndroidEntryPoint
@@ -33,7 +37,8 @@ class HomeFragment : BaseFragment() {
     private val dailyPrayerViewModel: DailyPrayerViewModel by viewModels()
 
     lateinit var dailyPrayerAdapter: DailyPrayerAdapter
-
+    @Inject
+    lateinit var navigationDrawerBottomSheet: NavigationDrawerBottomSheet
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -72,7 +77,10 @@ class HomeFragment : BaseFragment() {
         dailyPrayerAdapter = DailyPrayerAdapter {
             parentFragment?.findNavController()?.navigate(
                 R.id.action_homeFragment_to_editDailyPrayerFragment,
-                bundleOf(editDailyPrayerNameKey to it)
+                bundleOf(
+                    editDailyPrayerNameKey to it.Name ,
+                editDailyPrayerTimeKey to it.Time
+                )
             )
         }
 
@@ -141,19 +149,29 @@ class HomeFragment : BaseFragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
+         when (item.itemId) {
+            android.R.id.home -> showNavigationDrawer()
             R.id.refresh_optionMenu -> {
-                Log.e("SomethingNew", "refresh_optionMenu  +  ")
-                true
-            }
-            R.id.sendFeedBack_optionMenu -> {
-                Log.e("SomethingNew", "sendFeedBack_optionMenu  + ")
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
+                refreshData() }
+            R.id.setting_optionMenu -> {
+                openSetting() }
+            else -> return  super.onOptionsItemSelected(item)
         }
+        return true
     }
 
+    private fun openSetting(){
+        val intent = Intent(requireContext(), SettingsActivity::class.java)
+        startActivity(intent)
+    }
+
+
+    private fun showNavigationDrawer() {
+        navigationDrawerBottomSheet.show(
+            childFragmentManager.beginTransaction(),
+            navigationDrawerBottomSheet.tag
+        )
+    }
 
     private fun refreshData() {
         dailyPrayerAdapter.refresh()
