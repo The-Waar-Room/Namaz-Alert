@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.*
 import android.view.inputmethod.EditorInfo
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat
@@ -20,7 +21,11 @@ import com.sudoajay.namaz_alert.ui.BaseFragment
 import com.sudoajay.namaz_alert.ui.bottomSheet.NavigationDrawerBottomSheet
 import com.sudoajay.namaz_alert.ui.home.repository.DailyPrayerAdapter
 import com.sudoajay.namaz_alert.ui.setting.SettingsActivity
+import com.sudoajay.namaz_alert.util.Toaster
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import java.util.*
@@ -35,6 +40,7 @@ class HomeFragment : BaseFragment() {
     private val binding get() = _binding!!
 
     private val dailyPrayerViewModel: DailyPrayerViewModel by viewModels()
+    private var doubleBackToExitPressedOnce = false
 
     lateinit var dailyPrayerAdapter: DailyPrayerAdapter
     @Inject
@@ -61,6 +67,16 @@ class HomeFragment : BaseFragment() {
 
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        requireActivity().onBackPressedDispatcher.addCallback(
+            viewLifecycleOwner,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    onBack()
+                }
+            })
     }
 
 
@@ -177,6 +193,27 @@ class HomeFragment : BaseFragment() {
         dailyPrayerAdapter.refresh()
     }
 
+
+
+    private fun onBack() {
+        if (doubleBackToExitPressedOnce) {
+            closeApp()
+            return
+        }
+        doubleBackToExitPressedOnce = true
+       throwToaster(getString(R.string.click_back_text))
+        CoroutineScope(Dispatchers.IO).launch {
+            delay(2000L)
+            doubleBackToExitPressedOnce = false
+        }
+    }
+
+    private fun closeApp() {
+        val homeIntent = Intent(Intent.ACTION_MAIN)
+        homeIntent.addCategory(Intent.CATEGORY_HOME)
+        homeIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+        startActivity(homeIntent)
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()

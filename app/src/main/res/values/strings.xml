@@ -96,4 +96,6 @@
     <string name="workOnProgress_text">Work On Progress</string>
 
 
+    <!--    Click back to exit-->
+    <string name="click_back_text">Click Back Again To Exit</string>
 </resources>
