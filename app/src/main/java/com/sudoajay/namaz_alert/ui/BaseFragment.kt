@@ -11,6 +11,8 @@ import com.sudoajay.namaz_alert.R
 import com.sudoajay.namaz_alert.util.Toaster
 import com.sudoajay.namaz_alert.util.proto.ProtoManager
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.*
 import javax.inject.Inject
 
 open class BaseFragment :Fragment() {
@@ -58,6 +60,15 @@ open class BaseFragment :Fragment() {
         var editDailyPrayerNameKey = "prayerName"
         var editDailyPrayerTimeKey = "prayerTime"
 
+
+        fun convertTo12Hours(militaryTime: String): String? {
+            //in => "14:00"
+            //out => "02:00 PM"
+            val inputFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
+            val outputFormat = SimpleDateFormat("hh:mm a", Locale.getDefault())
+            val date = inputFormat.parse(militaryTime)
+            return date?.let { outputFormat.format(it) }
+        }
         fun getAMOrPM(time: String): String {
             val hour = time.split(":")[0]
             return if (hour.toInt() < 12) amText else pmText

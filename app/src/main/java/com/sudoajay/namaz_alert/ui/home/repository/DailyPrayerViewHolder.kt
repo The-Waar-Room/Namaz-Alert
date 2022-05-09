@@ -7,14 +7,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sudoajay.namaz_alert.R
 import com.sudoajay.namaz_alert.data.db.DailyPrayerDB
 import com.sudoajay.namaz_alert.databinding.HolderDailyPrayerItemBinding
-import com.sudoajay.namaz_alert.ui.BaseFragment.Companion.amText
 import com.sudoajay.namaz_alert.ui.BaseFragment.Companion.asrName
+import com.sudoajay.namaz_alert.ui.BaseFragment.Companion.convertTo12Hours
 import com.sudoajay.namaz_alert.ui.BaseFragment.Companion.dhuhrName
 import com.sudoajay.namaz_alert.ui.BaseFragment.Companion.fajrName
-import com.sudoajay.namaz_alert.ui.BaseFragment.Companion.getAMOrPM
 import com.sudoajay.namaz_alert.ui.BaseFragment.Companion.ishaName
 import com.sudoajay.namaz_alert.ui.BaseFragment.Companion.maghribName
-import com.sudoajay.namaz_alert.ui.BaseFragment.Companion.pmText
 
 
 class DailyPrayerViewHolder(
@@ -27,39 +25,38 @@ class DailyPrayerViewHolder(
         binding.root.setOnClickListener {
             onClick.invoke(dailyPrayerDB)
         }
-        binding.containerConstraintLayout.background = ContextCompat.getDrawable(context,getColor(dailyPrayerDB.Name))
-        binding.view.background =ContextCompat.getDrawable(context,getDrawableView(dailyPrayerDB.Name))
+        binding.containerConstraintLayout.background =
+            ContextCompat.getDrawable(context, getColor(dailyPrayerDB.Name))
+        binding.view.background =
+            ContextCompat.getDrawable(context, getDrawableView(dailyPrayerDB.Name))
         binding.itemBgImage.setImageResource(getDrawableImage(dailyPrayerDB.Name))
         when (dailyPrayerDB.Name) {
             fajrName -> binding.itemTextView.text = context.getString(
-                    R.string.fajr_time_text,
-                    dailyPrayerDB.Time,
-                    getAMOrPM(dailyPrayerDB.Time)
-                )
+                R.string.fajr_time_text,
+                convertTo12Hours(dailyPrayerDB.Time)
+            )
             dhuhrName -> binding.itemTextView.text = context.getString(
-                    R.string.dhuhr_time_text,
-                    dailyPrayerDB.Time,
-                    getAMOrPM(dailyPrayerDB.Time)
-                )
+                R.string.dhuhr_time_text,
+
+                convertTo12Hours(dailyPrayerDB.Time)
+            )
             asrName -> binding.itemTextView.text = context.getString(
-                    R.string.asr_time_text,
-                    dailyPrayerDB.Time,
-                    getAMOrPM(dailyPrayerDB.Time)
-                )
+                R.string.asr_time_text,
+
+                convertTo12Hours(dailyPrayerDB.Time)
+            )
             maghribName -> binding.itemTextView.text = context.getString(
-                    R.string.maghrib_time_text,
-                    dailyPrayerDB.Time,
-                    getAMOrPM(dailyPrayerDB.Time)
-                )
+                R.string.maghrib_time_text,
+                convertTo12Hours(dailyPrayerDB.Time)
+            )
             ishaName -> binding.itemTextView.text = context.getString(
-                    R.string.isha_time_text,
-                    dailyPrayerDB.Time,
-                    getAMOrPM(dailyPrayerDB.Time)
-                )
+                R.string.isha_time_text,
+                convertTo12Hours(dailyPrayerDB.Time)
+            )
         }
     }
 
-    private fun getColor(prayerName:String): Int {
+    private fun getColor(prayerName: String): Int {
         return when (prayerName) {
             fajrName -> R.color.fajr_color
             dhuhrName -> R.color.dhuhr_color
@@ -69,7 +66,7 @@ class DailyPrayerViewHolder(
         }
     }
 
-    private fun getDrawableView(prayerName:String): Int {
+    private fun getDrawableView(prayerName: String): Int {
         return when (prayerName) {
             fajrName -> R.drawable.fajr_home_gradient_drawable
             dhuhrName -> R.drawable.dhuhr_home_gradient_drawable
@@ -79,7 +76,7 @@ class DailyPrayerViewHolder(
         }
     }
 
-    private fun getDrawableImage(prayerName:String): Int {
+    private fun getDrawableImage(prayerName: String): Int {
         return when (prayerName) {
             fajrName -> R.drawable.fajr_home_image
             dhuhrName -> R.drawable.dhuhr_home_image
@@ -88,7 +85,6 @@ class DailyPrayerViewHolder(
             else -> R.drawable.isha_home_image
         }
     }
-
 
 
     private fun getSize(width: Int, heigth: Int): String {

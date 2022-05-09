@@ -173,30 +173,25 @@ class EditDailyPrayerFragment : BaseFragment() {
             fajrName ->
                 binding.dailyPrayerTextView.text = getString(
                     R.string.fajr_namaz_time_text,
-                    prayerTime,
-                    getAMOrPM(prayerTime)
+                    convertTo12Hours(prayerTime)
                 )
 
 
             dhuhrName -> binding.dailyPrayerTextView.text = getString(
                 R.string.dhuhr_namaz_time_text,
-                prayerTime,
-                getAMOrPM(prayerTime)
+                convertTo12Hours(prayerTime)
             )
             asrName -> binding.dailyPrayerTextView.text = getString(
                 R.string.asr_namaz_time_text,
-                prayerTime,
-                getAMOrPM(prayerTime)
+                convertTo12Hours(prayerTime)
             )
             maghribName -> binding.dailyPrayerTextView.text = getString(
                 R.string.maghrib_namaz_time_text,
-                prayerTime,
-                getAMOrPM(prayerTime)
+                convertTo12Hours(prayerTime)
             )
             else -> binding.dailyPrayerTextView.text = getString(
                 R.string.isha_namaz_time_text,
-                prayerTime,
-                getAMOrPM(prayerTime)
+                convertTo12Hours(prayerTime)
             )
         }
     }
