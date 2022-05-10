@@ -1,7 +1,7 @@
 package com.sudoajay.namaz_alert.util.di
 
 import android.content.Context
-import com.sudoajay.namaz_alert.util.proto.ProtoManager
+import com.sudoajay.namaz_alert.data.proto.ProtoManager
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

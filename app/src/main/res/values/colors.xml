@@ -17,10 +17,10 @@
 
 <!--    -->
     <color name="fajr_color">#65BEFF</color>
-    <color name="dhuhr_color">#FF2EAB</color>
+    <color name="dhuhr_color">#ED7430</color> //ED7430 FFA113
     <color name="asr_color">#FF6A6A</color>
-    <color name="maghrib_color">#FFA113</color>
-    <color name="isha_color">#930696</color>
+    <color name="maghrib_color">#5A79BB</color> //5A79BB FFA113
+    <color name="isha_color">#8DC1F4</color> //8DC1F4  930696
 
     <!--    Send Feedback-->
     <color name="boxTextColor">#757575</color>

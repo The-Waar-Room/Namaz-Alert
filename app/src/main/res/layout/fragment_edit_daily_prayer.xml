@@ -4,7 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="fragment"
+            type="com.sudoajay.namaz_alert.ui.editDailyPrayer.EditDailyPrayerFragment" />
 
     </data>
 
@@ -12,20 +14,41 @@
         android:id="@+id/mainConstraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/fajr_color">
+        android:background="@color/isha_color">
 
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/materialToolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/fajr_color"
+            android:background="@color/isha_color"
             app:layout_collapseMode="pin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:navigationIcon="@drawable/ic_back"
             app:navigationIconTint="@color/whiteColor">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:layout_editor_absoluteX="72dp">
+
+                <TextView
+                    android:id="@+id/reset_TextView"
+                    style="@style/TextAppearance.AppTheme.Headline4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="24dp"
+                    android:text="@string/reset_text"
+                    android:onClick="@{()->fragment.askAfterResetClick()}"
+                    android:textColor="@color/whiteColor"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </com.google.android.material.appbar.MaterialToolbar>
 
@@ -36,11 +59,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
             android:textColor="@color/whiteColor"
-            android:textSize="26sp"
+            android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/materialToolbar"
-            tools:text="FAJR Namaz \n4:15am" />
+            tools:text="FAJR Namaz\n04:10 pm " />
 
 
         <TextView
@@ -48,31 +72,33 @@
             style="@style/TextAppearance.AppTheme.Headline4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
+            android:layout_marginTop="32dp"
             android:textColor="@color/whiteColor"
-            android:textSize="20sp"
+            android:textSize="22sp"
             app:layout_constraintStart_toStartOf="@+id/dailyPrayer_TextView"
             app:layout_constraintTop_toBottomOf="@+id/dailyPrayer_TextView"
-            tools:text="Vibrate time \n At 4:10am" />
+            tools:text="04:10am" />
 
         <TextView
             android:id="@+id/rightHandSide_TextView"
             style="@style/TextAppearance.AppTheme.Headline4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
+            android:layout_marginStart="32dp"
             android:textColor="@color/whiteColor"
-            android:textSize="20sp"
+            android:textSize="22sp"
             app:layout_constraintBottom_toBottomOf="@+id/leftHandSide_TextView"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/view2"
             app:layout_constraintTop_toTopOf="@+id/leftHandSide_TextView"
-            tools:text="Vibrate time \n For 4:30am" />
+            tools:text="04:30am" />
 
 
         <View
             android:id="@+id/view2"
-            android:layout_width="20dp"
-            android:layout_height="5dp"
+            android:layout_width="15dp"
+            android:layout_height="3dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="16dp"
             android:background="@color/whiteColor"
             app:layout_constraintBottom_toBottomOf="@+id/leftHandSide_TextView"
             app:layout_constraintEnd_toStartOf="@+id/rightHandSide_TextView"
@@ -86,7 +112,7 @@
             android:layout_height="250dp"
             android:contentDescription="@string/app_name"
             android:scaleType="fitXY"
-            android:src="@drawable/fajr_image"
+            android:src="@drawable/isha_image"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -95,7 +121,7 @@
             android:id="@+id/view"
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:background="@drawable/fajr_bg_gradient_drawable"
+            android:background="@drawable/isha_bg_gradient_drawable"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"

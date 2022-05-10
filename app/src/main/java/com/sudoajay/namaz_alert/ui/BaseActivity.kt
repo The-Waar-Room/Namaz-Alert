@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.lifecycleScope
 import com.sudoajay.namaz_alert.util.Toaster
-import com.sudoajay.namaz_alert.util.proto.ProtoManager
+import com.sudoajay.namaz_alert.data.proto.ProtoManager
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -33,7 +33,7 @@ open class BaseActivity : AppCompatActivity() {
     private fun getDataFromProtoDatastore() {
         protoManager.dataStoreStatePreferences.data.asLiveData().observe(this) {
             lifecycleScope.launch {
-                if (it.setPhoneMode == "")
+                if (it.setPhoneMode == "" || it.fajrTiming == "")
                     protoManager.setDefaultValue()
             }
         }

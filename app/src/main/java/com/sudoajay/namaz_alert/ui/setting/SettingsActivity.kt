@@ -15,7 +15,7 @@ import com.sudoajay.namaz_alert.model.MessageType
 import com.sudoajay.namaz_alert.ui.BaseActivity
 import com.sudoajay.namaz_alert.ui.feedbackAndHelp.SendFeedbackAndHelp
 import com.sudoajay.namaz_alert.util.DeleteCache
-import com.sudoajay.namaz_alert.util.proto.ProtoManager
+import com.sudoajay.namaz_alert.data.proto.ProtoManager
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject

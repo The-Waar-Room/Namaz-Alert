@@ -1,4 +1,4 @@
-package com.sudoajay.namaz_alert.util.proto
+package com.sudoajay.namaz_alert.data.proto
 
 import androidx.datastore.core.CorruptionException
 import androidx.datastore.core.Serializer

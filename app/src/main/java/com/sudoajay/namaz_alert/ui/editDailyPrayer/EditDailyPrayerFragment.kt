@@ -2,9 +2,11 @@ package com.sudoajay.namaz_alert.ui.editDailyPrayer
 
 import android.os.Bundle
 import android.util.Log
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.NumberPicker
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AlertDialog
@@ -28,6 +30,7 @@ class EditDailyPrayerFragment : BaseFragment() {
     private var _binding: FragmentEditDailyPrayerBinding? = null
     private val binding get() = _binding!!
 
+
     private var prayerName = fajrName
     private var prayerTime = ""
 
@@ -41,10 +44,7 @@ class EditDailyPrayerFragment : BaseFragment() {
 
         prayerName = arguments?.getString(editDailyPrayerNameKey, fajrName).toString()
         prayerTime = arguments?.getString(editDailyPrayerTimeKey, "").toString()
-        lifecycleScope.launch {
-            getPhoneModeFromProtoDataStore()
 
-        }
         requireActivity().changeStatusBarColor(
             ContextCompat.getColor(
                 requireContext(),
@@ -53,8 +53,9 @@ class EditDailyPrayerFragment : BaseFragment() {
         )
 
         _binding = FragmentEditDailyPrayerBinding.inflate(inflater, container, false)
-
-
+        binding.fragment = this
+        binding.lifecycleOwner = this
+        fetchDataFromProto()
         setUpView()
 
 
@@ -98,9 +99,19 @@ class EditDailyPrayerFragment : BaseFragment() {
     }
 
     private fun leftHandSidePickerCustom() {
-        val arrayTime = prayerTime.split(":")
-        val currentHour = arrayTime[0].toInt()
-        val currentMinute = arrayTime[1].toInt()
+
+        val exactTime = binding.leftHandSideTextView.text.replace("( am| pm)".toRegex(), "")
+        val arrayTime = exactTime.split(":")
+
+
+        val exactHour = arrayTime[0].toInt()
+        val exactMinute = arrayTime[1].toInt()
+
+        val currentTime =
+            convertTo12Hours(prayerTime)?.replace("( am| pm)".toRegex(), "")!!.split(":")
+        val currentHour = currentTime[0].toInt()
+        val currentMinute = currentTime[1].toInt()
+
 
         val d = AlertDialog.Builder(requireContext())
         val inflater = this.layoutInflater
@@ -110,14 +121,14 @@ class EditDailyPrayerFragment : BaseFragment() {
         val hourPicker = dialogView.findViewById<NumberPicker>(R.id.dialog_hour_picker)
         val minutePicker = dialogView.findViewById<NumberPicker>(R.id.dialog_minute_picker)
 
-        hourPicker.maxValue = currentHour
-        hourPicker.minValue = currentHour - 1
-        hourPicker.value = currentHour
+        hourPicker.maxValue = exactHour
+        hourPicker.minValue = exactHour - 1
+        hourPicker.value = exactHour
         hourPicker.wrapSelectorWheel = true
 
         minutePicker.maxValue = 60
         minutePicker.minValue = 1
-        minutePicker.value = currentMinute
+        minutePicker.value = exactMinute
         minutePicker.wrapSelectorWheel = true
 
 
@@ -126,17 +137,19 @@ class EditDailyPrayerFragment : BaseFragment() {
             val selectedHour = hourPicker.value
             val selectedMinute = minutePicker.value
 
-            val lastMinute =
-                if (currentMinute - 30 >= 0) currentMinute - 30 else 60 + (currentMinute - 30)
-            Log.e("NewTag", "lastminite  - $lastMinute")
+            val gapTime =
+                if (currentHour == selectedHour && currentMinute - selectedMinute >= 0) currentMinute - selectedMinute else 60 + (currentMinute - selectedMinute)
+            Log.e("NewTag", "gapTime  - $gapTime  currentMinute $currentMinute selectedMinute $selectedMinute  currentHour $currentHour selectedHour $selectedHour")
 
             if ((currentHour == selectedHour && currentMinute < selectedMinute)) {
                 throwToaster("You can't set time after namaz time")
-            } else if ((currentHour == selectedHour && lastMinute > selectedMinute) || (currentHour > selectedHour && lastMinute > selectedMinute)) {
+            } else if (gapTime > 30) {
                 throwToaster("You can't set time before namaz time 30 min only")
             } else {
                 val time = "$selectedHour:$selectedMinute"
                 setLeftHand(time)
+                val afterTime = prayerGapTime.split(":")[1].toInt()
+                setGapInProto(-gapTime,afterTime)
             }
         }
         d.setNegativeButton("Cancel") { dialogInterface, i -> }
@@ -145,7 +158,7 @@ class EditDailyPrayerFragment : BaseFragment() {
     }
 
     private fun rightHandSidePickerCustom() {
-
+        val getAfterIncrement = prayerGapTime.split(":")[1].toInt()
         val d = AlertDialog.Builder(requireContext())
         val inflater = this.layoutInflater
         val dialogView = inflater.inflate(R.layout.layout_minute_picker_dialog, null)
@@ -154,11 +167,13 @@ class EditDailyPrayerFragment : BaseFragment() {
 
         minutePicker.maxValue = 60
         minutePicker.minValue = 1
-        minutePicker.value = 20
+        minutePicker.value = getAfterIncrement
         minutePicker.wrapSelectorWheel = false
 
         d.setPositiveButton("Set") { _, i ->
             setRightHand(minuteIncrement = minutePicker.value)
+            val beforeTime = prayerGapTime.split(":")[0].toInt()
+            setGapInProto(beforeTime,minutePicker.value)
         }
         d.setNegativeButton("Cancel") { dialogInterface, i -> }
         val alertDialog = d.create()
@@ -167,20 +182,25 @@ class EditDailyPrayerFragment : BaseFragment() {
 
 
     private fun setText() {
-        setLeftHand(prayerTime)
-        setRightHand(minuteIncrement = 20)
+        setLeftHand()
+        setRightHand()
         when (prayerName) {
-            fajrName ->
+            fajrName -> {
                 binding.dailyPrayerTextView.text = getString(
                     R.string.fajr_namaz_time_text,
                     convertTo12Hours(prayerTime)
                 )
+                setImageViewHeight(230f)
+            }
 
+            dhuhrName -> {
+                binding.dailyPrayerTextView.text = getString(
+                    R.string.dhuhr_namaz_time_text,
+                    convertTo12Hours(prayerTime)
+                )
+                setImageViewHeight(300f)
+            }
 
-            dhuhrName -> binding.dailyPrayerTextView.text = getString(
-                R.string.dhuhr_namaz_time_text,
-                convertTo12Hours(prayerTime)
-            )
             asrName -> binding.dailyPrayerTextView.text = getString(
                 R.string.asr_namaz_time_text,
                 convertTo12Hours(prayerTime)
@@ -189,26 +209,88 @@ class EditDailyPrayerFragment : BaseFragment() {
                 R.string.maghrib_namaz_time_text,
                 convertTo12Hours(prayerTime)
             )
-            else -> binding.dailyPrayerTextView.text = getString(
-                R.string.isha_namaz_time_text,
-                convertTo12Hours(prayerTime)
-            )
+            else -> {
+                binding.dailyPrayerTextView.text = getString(
+                    R.string.isha_namaz_time_text,
+                    convertTo12Hours(prayerTime)
+                )
+                setImageViewHeight(280f)
+            }
         }
     }
 
-
-    private fun setLeftHand(time: String) {
-        binding.leftHandSideTextView.text =
-            getString(R.string.left_hand_side_time_text, phoneMode, "$time${getAMOrPM(time)}")
+    private fun fetchDataFromProto(){
+        lifecycleScope.launch {
+            getPrayerGapTime(prayerName)
+            Log.e("NewGapTime", "Prayer Time $prayerGapTime")
+        }
     }
 
-    private fun setRightHand(time: String = prayerTime, minuteIncrement: Int) {
-        Log.e("EditView", "Praeyer Timne $prayerTime - PrayerNmae $prayerName")
-        val incrementTime = getMeIncrementTime(time, minuteIncrement)
+    private fun resetGapTimingPrayer(){
+        prayerGapTime = getString(R.string.default_prayer_time_proto)
+        setLeftHand()
+        setRightHand()
+        setGapInProto(-10,10)
+        fetchDataFromProto()
+
+    }
+
+      fun askAfterResetClick(){
+          AlertDialog.Builder(requireContext())
+              .setTitle("Reset")
+              .setMessage("Do you really want to set the default time?")
+              .setIcon(android.R.drawable.ic_dialog_alert)
+              .setPositiveButton(
+                  R.string.yes_string
+              ) { _, _ ->
+                  resetGapTimingPrayer()
+              }
+              .setNegativeButton(R.string.no_string, null).show()
+     }
+
+    private fun setGapInProto(beforeGap: Int, afterGap: Int) {
+        lifecycleScope.launch {
+            when (prayerName) {
+                fajrName -> protoManager.setFajrTiming("$beforeGap:$afterGap")
+                dhuhrName -> protoManager.setDhuhrTiming("$beforeGap:$afterGap")
+                asrName ->protoManager.setAsrTiming("$beforeGap:$afterGap")
+                maghribName -> protoManager.setMaghribTiming("$beforeGap:$afterGap")
+                else -> protoManager.setIshaTiming("$beforeGap:$afterGap")
+            }
+        }
+    }
+
+    private fun setImageViewHeight(value: Float) {
+        val layout: ImageView = binding.itemBgImage
+        val params: ViewGroup.LayoutParams = layout.layoutParams
+        val dpHeight =
+            TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, value, resources.displayMetrics)
+        params.height = dpHeight.toInt()
+        layout.layoutParams = params
+    }
+
+    private fun setLeftHand(time: String = "") {
+        var newTime = time
+        if (time == "") {
+            val gapBeforePrayer = prayerGapTime.split(":")[0].toInt()
+            newTime = getMeIncrementTime(
+                convertTo12Hours(prayerTime)?.replace("( am| pm)".toRegex(), "")!!,
+                gapBeforePrayer
+            )
+        }
+        binding.leftHandSideTextView.text =
+            getString(R.string.left_hand_side_time_text, convertTo12Hours(newTime))
+    }
+
+    private fun setRightHand(minuteIncrement: Int? = null) {
+        var newMinuteIncrement: Int? = minuteIncrement
+        if (minuteIncrement == null) {
+            newMinuteIncrement = prayerGapTime.split(":")[1].toInt()
+        }
+        val incrementTime = newMinuteIncrement?.let { getMeIncrementTime(prayerTime, it) }
         binding.rightHandSideTextView.text = getString(
             R.string.right_hand_side_time_text,
-            phoneMode,
-            "$incrementTime${getAMOrPM(incrementTime)}"
+            convertTo12Hours(incrementTime!!)
         )
 
     }

@@ -22,12 +22,12 @@
     <string name="maghrib_namaz_time_text">Maghrib Namaz \n%1$s</string>
     <string name="isha_namaz_time_text">Isha Namaz \n%1$s</string>
 
-    <string name="right_hand_side_time_text">%1$s \n To %2$s</string>
-    <string name="left_hand_side_time_text">%1$s \n At %2$s</string>
+    <string name="right_hand_side_time_text">%1$s</string>
+    <string name="left_hand_side_time_text">%1$s</string>
 
     <string name="minute_text">Minute</string>
     <string name="hour_text">Hour</string>
-
+    <string name="reset_text">Reset</string>
 
     <!--    Send Feedback and help and support -->
     <string name="add_Screenshot_Small_text">Add Screenshot Small</string>
@@ -102,4 +102,9 @@
     <!--    Shortcuts-->
     <string name="shortcut_phone_mode_text">Phone Mode</string>
     <string name="shortcut_setting_text">Setting</string>
+
+<!--    Proto Manager-->
+    <string name="default_prayer_time_proto">-10:10</string>
+    <string name="yes_string">Yes</string>
+    <string name="no_string">No</string>
 </resources>

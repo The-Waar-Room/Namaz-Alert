@@ -2,15 +2,11 @@ package com.sudoajay.namaz_alert.ui
 
 import android.app.Activity
 import android.view.WindowManager
-import androidx.core.content.ContextCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.asLiveData
-import androidx.lifecycle.lifecycleScope
 import com.sudoajay.namaz_alert.R
 import com.sudoajay.namaz_alert.util.Toaster
-import com.sudoajay.namaz_alert.util.proto.ProtoManager
-import kotlinx.coroutines.launch
+import com.sudoajay.namaz_alert.data.proto.ProtoManager
 import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
@@ -19,7 +15,7 @@ open class BaseFragment :Fragment() {
 
     @Inject
     lateinit var protoManager: ProtoManager
-    var phoneMode = ""
+    var prayerGapTime = ""
 
     fun Activity.changeStatusBarColor(color: Int, isLight: Boolean) {
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
@@ -38,9 +34,17 @@ open class BaseFragment :Fragment() {
 //        )
     }
 
-     suspend fun getPhoneModeFromProtoDataStore() {
-         phoneMode = protoManager.fetchInitialPreferences().setPhoneMode
-     }
+
+
+    suspend fun getPrayerGapTime(prayerName:String ){
+        prayerGapTime = when (prayerName) {
+            fajrName -> protoManager.fetchInitialPreferences().fajrTiming
+            dhuhrName -> protoManager.fetchInitialPreferences().dhuhrTiming
+            asrName -> protoManager.fetchInitialPreferences().asrTiming
+            maghribName -> protoManager.fetchInitialPreferences().maghribTiming
+            else ->protoManager.fetchInitialPreferences().ishaTiming
+        }
+    }
 
     fun throwToaster(value: String?) {
         Toaster.showToast(requireContext(), value ?: "")
