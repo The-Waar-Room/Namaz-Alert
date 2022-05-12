@@ -1,7 +1,10 @@
 package com.sudoajay.namaz_alert.ui
 
+import android.content.Context
+import android.content.Intent
 import android.content.res.Configuration
 import android.content.res.Resources
+import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -9,6 +12,9 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.lifecycleScope
 import com.sudoajay.namaz_alert.util.Toaster
 import com.sudoajay.namaz_alert.data.proto.ProtoManager
+import com.sudoajay.namaz_alert.ui.notification.AlertNotification
+import com.sudoajay.namaz_alert.ui.notification.NotificationChannels
+import com.sudoajay.namaz_alert.util.Command
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -18,11 +24,20 @@ open class BaseActivity : AppCompatActivity() {
 
     @Inject
     lateinit var protoManager: ProtoManager
+
+    @Inject
+    lateinit var alertNotification: AlertNotification
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setSystemDefaultOn()
         getDataFromProtoDatastore()
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannels.notificationOnCreate(applicationContext)
+        }
+
+
     }
 
     private fun setSystemDefaultOn() {

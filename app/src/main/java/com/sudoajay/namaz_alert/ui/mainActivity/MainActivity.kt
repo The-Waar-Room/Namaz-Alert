@@ -9,6 +9,7 @@ import com.sudoajay.namaz_alert.R
 import com.sudoajay.namaz_alert.databinding.ActivityMainBinding
 import com.sudoajay.namaz_alert.ui.BaseActivity
 import com.sudoajay.namaz_alert.ui.setting.SettingsActivity
+import com.sudoajay.namaz_alert.util.Command
 import com.sudoajay.namaz_alert.util.Toaster
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
@@ -48,6 +49,9 @@ class MainActivity : BaseActivity() {
 
         val am = getSystemService(Context.AUDIO_SERVICE) as AudioManager
         am.ringerMode = AudioManager.RINGER_MODE_SILENT*/
+
+
+
     }
 
 

@@ -1,4 +1,4 @@
-package com.sudoajay.picsum.main.di
+package com.sudoajay.namaz_alert.util.di
 
 import dagger.Module
 import dagger.hilt.InstallIn

@@ -119,6 +119,9 @@ dependencies {
     implementation("androidx.datastore:datastore-core:$ProtoDataStore")
     implementation("com.google.protobuf:protobuf-javalite:$Protobuf")
 
+    // WorkManager dependency
+    implementation "androidx.work:work-runtime-ktx:$WorkManger"
+
 
 
 //    External library

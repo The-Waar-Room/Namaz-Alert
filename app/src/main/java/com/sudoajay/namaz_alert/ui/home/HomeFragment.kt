@@ -1,7 +1,11 @@
 package com.sudoajay.namaz_alert.ui.home
 
+import android.content.ComponentName
+import android.content.Context
 import android.content.Intent
+import android.content.ServiceConnection
 import android.os.Bundle
+import android.os.IBinder
 import android.util.Log
 import android.view.*
 import android.view.inputmethod.EditorInfo
@@ -20,7 +24,9 @@ import com.sudoajay.namaz_alert.ui.BaseActivity.Companion.isSystemDefaultOn
 import com.sudoajay.namaz_alert.ui.BaseFragment
 import com.sudoajay.namaz_alert.ui.bottomSheet.NavigationDrawerBottomSheet
 import com.sudoajay.namaz_alert.ui.home.repository.DailyPrayerAdapter
+import com.sudoajay.namaz_alert.ui.notification.NotificationServices
 import com.sudoajay.namaz_alert.ui.setting.SettingsActivity
+import com.sudoajay.namaz_alert.util.Command
 import com.sudoajay.namaz_alert.util.Toaster
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
@@ -41,6 +47,9 @@ class HomeFragment : BaseFragment() {
 
     private val dailyPrayerViewModel: DailyPrayerViewModel by viewModels()
     private var doubleBackToExitPressedOnce = false
+    // Boolean to check if our activity is bound to service or not
+    var mIsBound: Boolean = false
+    var mService: NotificationServices? = null
 
     lateinit var dailyPrayerAdapter: DailyPrayerAdapter
     @Inject
@@ -64,6 +73,11 @@ class HomeFragment : BaseFragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         setupToolbar()
         setUpView()
+
+        val startIntent = Intent(requireContext(), NotificationServices::class.java)
+        startIntent.putExtra("COMMAND", Command.START.ordinal)
+        requireContext().bindService(startIntent, serviceConnection, Context.BIND_AUTO_CREATE)
+        requireContext().startService(startIntent)
 
 
         return binding.root
@@ -215,9 +229,32 @@ class HomeFragment : BaseFragment() {
         startActivity(homeIntent)
     }
 
+
+    /**
+     * Interface for getting the instance of binder from our service class
+     * So client can get instance of our service class and can directly communicate with it.
+     */
+    private  val serviceConnection = object : ServiceConnection {
+        override fun onServiceConnected(className: ComponentName, iBinder: IBinder) {
+
+            // We've bound to MyService, cast the IBinder and get MyBinder instance
+            val binder = iBinder as NotificationServices.MyBinder
+            mService = binder.service
+            mIsBound = true
+
+        }
+
+        override fun onServiceDisconnected(arg0: ComponentName) {
+            mIsBound = false
+        }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
-
+        if(mIsBound) {
+            requireContext().unbindService(serviceConnection)
+            mIsBound = false
+        }
         _binding = null
     }
 }

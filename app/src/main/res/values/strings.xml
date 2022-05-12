@@ -107,4 +107,15 @@
     <string name="default_prayer_time_proto">-10:10</string>
     <string name="yes_string">Yes</string>
     <string name="no_string">No</string>
+
+<!--  Notification Channels -->
+    <string name="notification_alert_services">Alert Services</string>
+    <string name="notifications_alert_prayer_time">Alert Prayer Time</string>
+    <string name="notifications_running_desc">Notifications to interact with Alert  Prayer Time</string>
+    <string name="notification_title_text">Prayer Alert</string>
+    <string name="notification_context_title_text">%1$s. Expand to see more</string>
+    <string name="notification_sub_title_text">Your phone will be %1$s</string>
+    <string name="notification_setting_text">Setting</string>
+    <string name="notification_stop_text">Stop Alert</string>
+
 </resources>

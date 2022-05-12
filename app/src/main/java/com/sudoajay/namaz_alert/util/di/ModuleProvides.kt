@@ -2,6 +2,7 @@ package com.sudoajay.namaz_alert.util.di
 
 import android.content.Context
 import com.sudoajay.namaz_alert.data.proto.ProtoManager
+import com.sudoajay.namaz_alert.ui.notification.AlertNotification
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,6 +17,10 @@ object ModuleProvides {
     @Singleton
     @Provides
     fun providesProtoManger( @ApplicationContext appContext: Context): ProtoManager = ProtoManager(appContext)
+
+    @Singleton
+    @Provides
+    fun providesAlertNotification( @ApplicationContext appContext: Context): AlertNotification = AlertNotification(appContext)
 
 
 
