@@ -22,12 +22,21 @@
     <string name="maghrib_namaz_time_text">Maghrib Namaz \n%1$s</string>
     <string name="isha_namaz_time_text">Isha Namaz \n%1$s</string>
 
-    <string name="right_hand_side_time_text">%1$s</string>
+    <string name="right_hand_side_time_text">%1$s mins</string>
     <string name="left_hand_side_time_text">%1$s</string>
 
     <string name="minute_text">Minute</string>
     <string name="hour_text">Hour</string>
     <string name="reset_text">Reset</string>
+
+    <string name="successfully_selected_text">Successfully Selected</string>
+    <string name="you_cant_select_30min_text"> You can\'t select past the maximum limit of 30 min</string>
+    <string name="you_cant_select_text"> You can\'t select past the maximum limit </string>
+    <string name="time_reset_successfully_text"> Time Reset Successfully </string>
+
+    <string name="activate_at_text">Activate At :</string>
+    <string name="activate_for_text">Activate For :</string>
+
 
     <!--    Send Feedback and help and support -->
     <string name="add_Screenshot_Small_text">Add Screenshot Small</string>
@@ -104,18 +113,26 @@
     <string name="shortcut_setting_text">Setting</string>
 
 <!--    Proto Manager-->
-    <string name="default_prayer_time_proto">-10:10</string>
+    <string name="default_prayer_time_proto">-10:20</string>
     <string name="yes_string">Yes</string>
     <string name="no_string">No</string>
 
 <!--  Notification Channels -->
-    <string name="notification_alert_services">Alert Services</string>
+    <string name="notification_group_services">Group Services</string>
     <string name="notifications_alert_prayer_time">Alert Prayer Time</string>
-    <string name="notifications_running_desc">Notifications to interact with Alert  Prayer Time</string>
+    <string name="notifications_finish_prayer_time">Finish Or Cancel Prayer</string>
+
+
+    <string name="notifications_alert_desc">Notifications to interact with Alert  Prayer Time</string>
+    <string name="notifications_finish_desc">Notifications to interact with Finish or Cancel Prayer </string>
+
+
     <string name="notification_title_text">Prayer Alert</string>
     <string name="notification_context_title_text">%1$s. Expand to see more</string>
     <string name="notification_sub_title_text">Your phone will be %1$s</string>
     <string name="notification_setting_text">Setting</string>
-    <string name="notification_stop_text">Stop Alert</string>
+    <string name="notification_stop_text">Stop</string>
+
+   
 
 </resources>

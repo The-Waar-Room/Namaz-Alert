@@ -13,6 +13,8 @@ import com.sudoajay.namaz_alert.data.network.DailyPrayerBuilder.Companion.getApi
 import com.sudoajay.namaz_alert.data.network.DailyPrayerApiInterface.Companion.NETWORK_PAGE_SIZE
 import com.sudoajay.namaz_alert.data.repository.DailyPrayerRepository
 import com.sudoajay.namaz_alert.data.repository.DailyPrayerRemoteMediator
+import com.sudoajay.namaz_alert.util.Helper
+import com.sudoajay.namaz_alert.util.Helper.Companion.getTodayDate
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import java.text.SimpleDateFormat
@@ -24,16 +26,12 @@ class DailyPrayerViewModel @Inject constructor(application: Application) : Andro
     private var viewModelApplication = application
     var searchValue :String = ""
 
-    private fun getTodayDate():String {
-        val todayDate = Date() // sets date
-        val formatDate = SimpleDateFormat("dd-MMM-yyyy", Locale.ENGLISH)
-        return formatDate.format(todayDate)
-    }
+
 
     @OptIn(ExperimentalPagingApi::class)
     fun getRemoteMediatorWithDataBase(): Flow<PagingData<DailyPrayerDB>> {
         val database = DailyPrayerDatabase.getDatabase(viewModelApplication)
-        val itemRepository = DailyPrayerRepository(database.itemDoa())
+        val itemRepository = DailyPrayerRepository(database.dailyPrayerDoa())
 
         val apiInterface =
             getApiInterface()

@@ -9,7 +9,7 @@ import androidx.room.RoomDatabase
 @Database(entities = [DailyPrayerDB::class], version = 1 , exportSchema = false)
 abstract class DailyPrayerDatabase : RoomDatabase() {
 
-    abstract fun itemDoa(): DailyPrayerDoa
+    abstract fun dailyPrayerDoa(): DailyPrayerDoa
 
     companion object {
         @Volatile

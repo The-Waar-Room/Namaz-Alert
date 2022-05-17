@@ -2,6 +2,7 @@ package com.sudoajay.namaz_alert.util.di
 
 import android.content.Context
 import com.sudoajay.namaz_alert.data.proto.ProtoManager
+import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask
 import com.sudoajay.namaz_alert.ui.notification.AlertNotification
 import dagger.Module
 import dagger.Provides
@@ -21,6 +22,10 @@ object ModuleProvides {
     @Singleton
     @Provides
     fun providesAlertNotification( @ApplicationContext appContext: Context): AlertNotification = AlertNotification(appContext)
+
+    @Singleton
+    @Provides
+    fun providesWorkManger( @ApplicationContext appContext: Context): WorkMangerForTask = WorkMangerForTask(appContext)
 
 
 

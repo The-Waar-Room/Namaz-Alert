@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="fragment"
             type="com.sudoajay.namaz_alert.ui.editDailyPrayer.EditDailyPrayerFragment" />
@@ -40,8 +41,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="24dp"
-                    android:text="@string/reset_text"
                     android:onClick="@{()->fragment.askAfterResetClick()}"
+                    android:text="@string/reset_text"
+                    android:textAllCaps="true"
                     android:textColor="@color/whiteColor"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -61,50 +63,101 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
             android:textColor="@color/whiteColor"
-            android:textSize="24sp"
+            android:textSize="32sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/materialToolbar"
             tools:text="FAJR Namaz\n04:10 pm " />
 
 
         <TextView
-            android:id="@+id/leftHandSide_TextView"
+            android:id="@+id/leftHandSideText_TextView"
             style="@style/TextAppearance.AppTheme.Headline4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
+            android:text="@string/activate_at_text"
             android:textColor="@color/whiteColor"
             android:textSize="22sp"
             app:layout_constraintStart_toStartOf="@+id/dailyPrayer_TextView"
-            app:layout_constraintTop_toBottomOf="@+id/dailyPrayer_TextView"
-            tools:text="04:10am" />
+            app:layout_constraintTop_toBottomOf="@+id/dailyPrayer_TextView" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/materialCardView_LeftHandSide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:backgroundTint="@android:color/transparent"
+            android:elevation="0dp"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/leftHandSideText_TextView"
+            app:layout_constraintStart_toEndOf="@+id/leftHandSideText_TextView"
+            app:layout_constraintTop_toTopOf="@+id/leftHandSideText_TextView"
+            app:strokeColor="@color/whiteColor"
+            app:strokeWidth="1dp">
+
+            <TextView
+                android:id="@+id/leftHandSide_TextView"
+                style="@style/TextAppearance.AppTheme.Headline4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:textColor="@color/whiteColor"
+                android:textSize="22sp"
+                app:layout_constraintBottom_toBottomOf="@+id/leftHandSideText_TextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/leftHandSideText_TextView"
+                app:layout_constraintTop_toTopOf="@+id/leftHandSideText_TextView"
+                tools:text="04:10am" />
+
+        </com.google.android.material.card.MaterialCardView>
 
         <TextView
-            android:id="@+id/rightHandSide_TextView"
+            android:id="@+id/rightHandSideText_TextView"
             style="@style/TextAppearance.AppTheme.Headline4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:text="@string/activate_for_text"
             android:textColor="@color/whiteColor"
             android:textSize="22sp"
-            app:layout_constraintBottom_toBottomOf="@+id/leftHandSide_TextView"
-            app:layout_constraintStart_toEndOf="@+id/view2"
-            app:layout_constraintTop_toTopOf="@+id/leftHandSide_TextView"
-            tools:text="04:30am" />
+            app:layout_constraintStart_toStartOf="@+id/leftHandSideText_TextView"
+            app:layout_constraintTop_toBottomOf="@+id/leftHandSideText_TextView" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/materialCardView_RightHandSide"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@android:color/transparent"
+            android:elevation="0dp"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/rightHandSideText_TextView"
+            app:layout_constraintEnd_toEndOf="@+id/materialCardView_LeftHandSide"
+            app:layout_constraintStart_toStartOf="@+id/materialCardView_LeftHandSide"
+            app:layout_constraintTop_toTopOf="@+id/rightHandSideText_TextView"
+            app:strokeColor="@color/whiteColor"
+            app:strokeWidth="1dp">
+
+            <TextView
+                android:id="@+id/rightHandSide_TextView"
+                style="@style/TextAppearance.AppTheme.Headline4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:textColor="@color/whiteColor"
+                android:textSize="22sp"
+                android:layout_gravity="center"
+                tools:layout_editor_absoluteX="205dp"
+                tools:layout_editor_absoluteY="262dp"
+                tools:text="15 min" />
+
+        </com.google.android.material.card.MaterialCardView>
 
 
-        <View
-            android:id="@+id/view2"
-            android:layout_width="15dp"
-            android:layout_height="3dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="16dp"
-            android:background="@color/whiteColor"
-            app:layout_constraintBottom_toBottomOf="@+id/leftHandSide_TextView"
-            app:layout_constraintEnd_toStartOf="@+id/rightHandSide_TextView"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/leftHandSide_TextView"
-            app:layout_constraintTop_toTopOf="@+id/rightHandSide_TextView" />
+
 
         <ImageView
             android:id="@+id/item_BgImage"

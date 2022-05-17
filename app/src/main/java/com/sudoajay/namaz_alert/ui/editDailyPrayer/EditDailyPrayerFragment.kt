@@ -17,6 +17,10 @@ import com.sudoajay.namaz_alert.R
 import com.sudoajay.namaz_alert.databinding.FragmentEditDailyPrayerBinding
 import com.sudoajay.namaz_alert.ui.BaseActivity.Companion.isSystemDefaultOn
 import com.sudoajay.namaz_alert.ui.BaseFragment
+import com.sudoajay.namaz_alert.util.Helper.Companion.convertTo12Hours
+import com.sudoajay.namaz_alert.util.Helper.Companion.getMeIncrementTime
+import com.sudoajay.namaz_alert.util.Helper.Companion.getPrayerGapTime
+import com.sudoajay.namaz_alert.util.Helper.Companion.prayerGapTime
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
@@ -87,12 +91,12 @@ class EditDailyPrayerFragment : BaseFragment() {
             openHomeFragment()
         }
 
-        binding.leftHandSideTextView.setOnClickListener {
+        binding.materialCardViewLeftHandSide.setOnClickListener {
             leftHandSidePickerCustom()
 
         }
 
-        binding.rightHandSideTextView.setOnClickListener {
+        binding.materialCardViewRightHandSide.setOnClickListener {
             rightHandSidePickerCustom()
         }
 
@@ -142,14 +146,16 @@ class EditDailyPrayerFragment : BaseFragment() {
             Log.e("NewTag", "gapTime  - $gapTime  currentMinute $currentMinute selectedMinute $selectedMinute  currentHour $currentHour selectedHour $selectedHour")
 
             if ((currentHour == selectedHour && currentMinute < selectedMinute)) {
-                throwToaster("You can't set time after namaz time")
+                throwToaster(getString(R.string.you_cant_select_text))
+
             } else if (gapTime > 30) {
-                throwToaster("You can't set time before namaz time 30 min only")
+                throwToaster(getString(R.string.you_cant_select_30min_text))
             } else {
                 val time = "$selectedHour:$selectedMinute"
                 setLeftHand(time)
                 val afterTime = prayerGapTime.split(":")[1].toInt()
                 setGapInProto(-gapTime,afterTime)
+                throwToaster(getString(R.string.successfully_selected_text))
             }
         }
         d.setNegativeButton("Cancel") { dialogInterface, i -> }
@@ -158,7 +164,7 @@ class EditDailyPrayerFragment : BaseFragment() {
     }
 
     private fun rightHandSidePickerCustom() {
-        val getAfterIncrement = prayerGapTime.split(":")[1].toInt()
+        val getAfterIncrement = binding.rightHandSideTextView.text.toString().replace("mins","").filter { !it.isWhitespace() }.toInt()
         val d = AlertDialog.Builder(requireContext())
         val inflater = this.layoutInflater
         val dialogView = inflater.inflate(R.layout.layout_minute_picker_dialog, null)
@@ -171,7 +177,7 @@ class EditDailyPrayerFragment : BaseFragment() {
         minutePicker.wrapSelectorWheel = false
 
         d.setPositiveButton("Set") { _, i ->
-            setRightHand(minuteIncrement = minutePicker.value)
+            setRightHand(minute = minutePicker.value)
             val beforeTime = prayerGapTime.split(":")[0].toInt()
             setGapInProto(beforeTime,minutePicker.value)
         }
@@ -221,7 +227,7 @@ class EditDailyPrayerFragment : BaseFragment() {
 
     private fun fetchDataFromProto(){
         lifecycleScope.launch {
-            getPrayerGapTime(prayerName)
+            getPrayerGapTime(prayerName, protoManager)
             Log.e("NewGapTime", "Prayer Time $prayerGapTime")
         }
     }
@@ -232,7 +238,7 @@ class EditDailyPrayerFragment : BaseFragment() {
         setRightHand()
         setGapInProto(-10,10)
         fetchDataFromProto()
-
+        throwToaster(getString(R.string.time_reset_successfully_text))
     }
 
       fun askAfterResetClick(){
@@ -282,28 +288,20 @@ class EditDailyPrayerFragment : BaseFragment() {
             getString(R.string.left_hand_side_time_text, convertTo12Hours(newTime))
     }
 
-    private fun setRightHand(minuteIncrement: Int? = null) {
-        var newMinuteIncrement: Int? = minuteIncrement
-        if (minuteIncrement == null) {
-            newMinuteIncrement = prayerGapTime.split(":")[1].toInt()
+    private fun setRightHand(minute: Int? = null) {
+        var newMinute = minute
+        if (minute == null) {
+            newMinute = prayerGapTime.split(":")[1].toInt()
         }
-        val incrementTime = newMinuteIncrement?.let { getMeIncrementTime(prayerTime, it) }
+
         binding.rightHandSideTextView.text = getString(
             R.string.right_hand_side_time_text,
-            convertTo12Hours(incrementTime!!)
+            newMinute.toString()
         )
 
     }
 
-    private fun getMeIncrementTime(time: String, minuteIncrement: Int): String {
-        val sdf = SimpleDateFormat("HH:mm", Locale.ENGLISH)
-        val timeArray = time.split(":")
-        val newDate = Calendar.getInstance()
-        newDate.set(Calendar.HOUR_OF_DAY, timeArray[0].toInt())
-        newDate.set(Calendar.MINUTE, timeArray[1].toInt())
-        newDate.add(Calendar.MINUTE, minuteIncrement)
-        return sdf.format(newDate.time).toString()
-    }
+
 
 
     private fun getColor(): Int {

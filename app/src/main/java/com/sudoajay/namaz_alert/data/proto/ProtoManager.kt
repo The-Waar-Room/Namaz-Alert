@@ -5,6 +5,7 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.dataStore
 import com.sudoajay.namaz_alert.R
 import com.sudoajay.namaz_alert.StatePreferences
+import com.sudoajay.namaz_alert.util.PhoneMode
 import kotlinx.coroutines.flow.first
 import javax.inject.Inject
 
@@ -14,12 +15,13 @@ class ProtoManager @Inject constructor (var context: Context){
     suspend fun setDefaultValue(){
         dataStoreStatePreferences.updateData { preferences->
             preferences.toBuilder()
-                .setSetPhoneMode(context.getString(R.string.vibrate_mode))
+                .setSetPhoneMode(PhoneMode.Vibrate.toString())
                 .setFajrTiming(context.getString(R.string.default_prayer_time_proto))
                 .setDhuhrTiming(context.getString(R.string.default_prayer_time_proto))
                 .setAsrTiming(context.getString(R.string.default_prayer_time_proto))
                 .setMaghribTiming(context.getString(R.string.default_prayer_time_proto))
                 .setIshaTiming(context.getString(R.string.default_prayer_time_proto))
+                .setIsWorkMangerRunning(false)
                 .build()
         }
     }
@@ -67,6 +69,22 @@ class ProtoManager @Inject constructor (var context: Context){
         dataStoreStatePreferences.updateData { preferences ->
             preferences.toBuilder()
                 .setIshaTiming(ishaTiming)
+                .build()
+        }
+    }
+
+    suspend fun setIsWorkMangerRunning(isFirstTime:Boolean){
+        dataStoreStatePreferences.updateData { preferences ->
+            preferences.toBuilder()
+                .setIsWorkMangerRunning(isFirstTime)
+                .build()
+        }
+    }
+
+    suspend fun setPreviousMode(phoneMode: String){
+        dataStoreStatePreferences.updateData { preferences ->
+            preferences.toBuilder()
+                .setPreviousPhoneMode(phoneMode)
                 .build()
         }
     }

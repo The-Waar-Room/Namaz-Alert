@@ -34,10 +34,18 @@
             android:name=".ui.setting.SettingsActivity"
             android:label="@string/setting_text"
             android:theme="@style/SettingAppTheme" />
-        <service android:name=".ui.notification.NotificationServices"/>
+
+        <service android:name=".ui.notification.NotificationServices"
+            android:enabled="true" />
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+      <receiver android:name=".ui.notification.NotificationCancelReceiver"
+          android:exported="true">
+        <intent-filter android:priority="999" >
+            <action android:name="com.example.cancel" />
+        </intent-filter>
+    </receiver>
 
     </application>
 

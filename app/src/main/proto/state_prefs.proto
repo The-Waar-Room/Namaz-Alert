@@ -5,12 +5,13 @@ option java_multiple_files = true;
 
 message StatePreferences {
   string setPhoneMode = 1;
-
   string fajrTiming = 2;
   string dhuhrTiming = 3;
   string asrTiming = 4;
   string maghribTiming = 5;
   string ishaTiming = 6;
+  bool isWorkMangerRunning = 7;
+  string previousPhoneMode = 8;
 
 
 }
