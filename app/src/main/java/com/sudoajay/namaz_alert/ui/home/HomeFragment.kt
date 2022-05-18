@@ -21,9 +21,9 @@ import com.sudoajay.namaz_alert.R
 import com.sudoajay.namaz_alert.databinding.FragmentHomeBinding
 import com.sudoajay.namaz_alert.ui.BaseActivity.Companion.isSystemDefaultOn
 import com.sudoajay.namaz_alert.ui.BaseFragment
+import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask
 import com.sudoajay.namaz_alert.ui.bottomSheet.NavigationDrawerBottomSheet
 import com.sudoajay.namaz_alert.ui.home.repository.DailyPrayerAdapter
-import com.sudoajay.namaz_alert.ui.notification.NotificationServices
 import com.sudoajay.namaz_alert.ui.setting.SettingsActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
@@ -44,9 +44,7 @@ class HomeFragment : BaseFragment() {
 
     private val dailyPrayerViewModel: DailyPrayerViewModel by viewModels()
     private var doubleBackToExitPressedOnce = false
-    // Boolean to check if our activity is bound to service or not
-    var mIsBound: Boolean = false
-    var mService: NotificationServices? = null
+
 
     lateinit var dailyPrayerAdapter: DailyPrayerAdapter
     @Inject
@@ -66,6 +64,7 @@ class HomeFragment : BaseFragment() {
                 R.color.statusBarColor
             ), !isDarkTheme
         )
+
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         setupToolbar()
@@ -232,31 +231,11 @@ class HomeFragment : BaseFragment() {
     }
 
 
-    /**
-     * Interface for getting the instance of binder from our service class
-     * So client can get instance of our service class and can directly communicate with it.
-     */
-    private  val serviceConnection = object : ServiceConnection {
-        override fun onServiceConnected(className: ComponentName, iBinder: IBinder) {
 
-            // We've bound to MyService, cast the IBinder and get MyBinder instance
-            val binder = iBinder as NotificationServices.MyBinder
-            mService = binder.service
-            mIsBound = true
-
-        }
-
-        override fun onServiceDisconnected(arg0: ComponentName) {
-            mIsBound = false
-        }
-    }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        if(mIsBound) {
-            requireContext().unbindService(serviceConnection)
-            mIsBound = false
-        }
+
         _binding = null
     }
 }

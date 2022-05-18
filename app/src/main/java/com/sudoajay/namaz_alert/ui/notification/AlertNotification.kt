@@ -3,18 +3,27 @@ package com.sudoajay.namaz_alert.ui.notification
 
 import android.annotation.SuppressLint
 import android.app.Notification
+import android.app.Notification.DEFAULT_ALL
+import android.app.Notification.FLAG_ONLY_ALERT_ONCE
 import android.app.NotificationManager
 import android.app.PendingIntent
+import android.app.PendingIntent.FLAG_ONE_SHOT
 import android.app.PendingIntent.FLAG_UPDATE_CURRENT
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.icu.text.CaseMap
 import android.media.RingtoneManager
+import android.net.Uri
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import androidx.work.WorkManager
 import com.sudoajay.namaz_alert.R
+import com.sudoajay.namaz_alert.ui.BaseActivity.Companion.openMainActivityID
+import com.sudoajay.namaz_alert.ui.BaseActivity.Companion.settingShortcutId
+import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask.Companion.prayerNameID
 import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask.Companion.previousModeID
+import com.sudoajay.namaz_alert.ui.mainActivity.MainActivity
 import com.sudoajay.namaz_alert.util.Command
 import java.util.*
 import javax.inject.Inject
@@ -60,21 +69,14 @@ class AlertNotification @Inject constructor(var context: Context) {
         prayerName: String,
         prayerTime: String,
         phoneMode: String,
-        beforeTime: String,
-        afterTime: String,
+        timeDiff: String,
         previousMode :String ,
         builder: NotificationCompat.Builder
     ) { // local variable
 
-//        Pending Intent For Setting Action
-        val settingPendingIntent = PendingIntent.getService(
-            context, NOTIFICATION_ALERT_SETTING, Intent(context, NotificationServices::class.java)
-                .putExtra("COMMAND", Command.Setting.ordinal), FLAG_UPDATE_CURRENT
-        )
-
         val cancelIntent = Intent(context,NotificationCancelReceiver::class.java)
         cancelIntent.putExtra(previousModeID, previousMode)
-        cancelIntent.putExtra(notificationAlertID , NOTIFICATION_ALERT_STATE )
+        cancelIntent.putExtra(prayerNameID, prayerName)
 
         val cancelPendingIntent =
             PendingIntent.getBroadcast(context, NOTIFICATION_ALERT_STOP, cancelIntent, PendingIntent.FLAG_CANCEL_CURRENT)
@@ -88,14 +90,14 @@ class AlertNotification @Inject constructor(var context: Context) {
         }
 
         // Default ringtone
-        val uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+        val uri = Uri.parse("android.resource://"+context.packageName +"/"+R.raw.azan_in_islam);
 
         builder
 
             .addAction(
                 R.drawable.ic_setting,
                 context.getString(R.string.notification_setting_text),
-                cancelPendingIntent
+                createPendingIntentSetting()
             )
 
             .addAction(
@@ -105,11 +107,13 @@ class AlertNotification @Inject constructor(var context: Context) {
 
             // Set appropriate defaults for the notification light, sound,
             // and vibration.
-            .setDefaults(Notification.DEFAULT_ALL) // Set required fields, including the small icon, the
-            .setContentTitle(context.getString(R.string.notification_title_text))
-            .setContentText(context.getString(R.string.notification_context_title_text, prayerName))
+            .setDefaults(DEFAULT_ALL) // Set required fields, including the small icon, the
+            .setContentTitle(context.getString(R.string.notification_title_text , prayerName))
+            .setContentText(context.getString(R.string.notification_context_title_text, prayerTime))
             .setOngoing(false)
+            .setVibrate(longArrayOf(1000, 1000, 1000, 1000, 1000))
             .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setLights(Color.RED, 3000, 3000)
             .setSound(uri) // Provide a large icon, shown with the notification in the
             .color = ContextCompat.getColor(context, R.color.appTheme)
         // If this notification relates to a past or upcoming event, you
@@ -119,11 +123,9 @@ class AlertNotification @Inject constructor(var context: Context) {
 
         val iStyle =
             NotificationCompat.InboxStyle()
-        iStyle.addLine(prayerName)
         iStyle.addLine(prayerTime)
         iStyle.addLine("\n")
-        iStyle.addLine(context.getString(R.string.notification_sub_title_text, phoneMode))
-        iStyle.addLine("$beforeTime  -  $afterTime")
+        iStyle.addLine(context.getString(R.string.your_device_will_be_text, phoneMode,timeDiff ))
         builder.setStyle(iStyle)
 
         // check if there ia data with empty
@@ -139,6 +141,16 @@ class AlertNotification @Inject constructor(var context: Context) {
     fun notifyNotification(id:Int,notification: Notification) {
         notificationManager!!.notify(id, notification)
 
+    }
+
+    private fun createPendingIntentSetting(): PendingIntent? {
+        val intent = Intent(context, MainActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        intent.putExtra(openMainActivityID, settingShortcutId)
+        return PendingIntent.getActivity(
+            context, 0, intent,
+            FLAG_UPDATE_CURRENT
+        )
     }
 
     companion object{

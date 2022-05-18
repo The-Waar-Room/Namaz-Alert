@@ -20,11 +20,11 @@ import com.sudoajay.namaz_alert.ui.BaseFragment
 import com.sudoajay.namaz_alert.util.Helper.Companion.convertTo12Hours
 import com.sudoajay.namaz_alert.util.Helper.Companion.getMeIncrementTime
 import com.sudoajay.namaz_alert.util.Helper.Companion.getPrayerGapTime
-import com.sudoajay.namaz_alert.util.Helper.Companion.prayerGapTime
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
-import java.text.SimpleDateFormat
-import java.util.*
 
 
 @AndroidEntryPoint
@@ -34,7 +34,7 @@ class EditDailyPrayerFragment : BaseFragment() {
     private var _binding: FragmentEditDailyPrayerBinding? = null
     private val binding get() = _binding!!
 
-
+    private var prayerGapTime:String = ""
     private var prayerName = fajrName
     private var prayerTime = ""
 
@@ -48,6 +48,7 @@ class EditDailyPrayerFragment : BaseFragment() {
 
         prayerName = arguments?.getString(editDailyPrayerNameKey, fajrName).toString()
         prayerTime = arguments?.getString(editDailyPrayerTimeKey, "").toString()
+        fetchDataFromProto()
 
         requireActivity().changeStatusBarColor(
             ContextCompat.getColor(
@@ -59,7 +60,6 @@ class EditDailyPrayerFragment : BaseFragment() {
         _binding = FragmentEditDailyPrayerBinding.inflate(inflater, container, false)
         binding.fragment = this
         binding.lifecycleOwner = this
-        fetchDataFromProto()
         setUpView()
 
 
@@ -136,14 +136,17 @@ class EditDailyPrayerFragment : BaseFragment() {
         minutePicker.wrapSelectorWheel = true
 
 
-        d.setPositiveButton("Set") { _, i ->
+        d.setPositiveButton("Set") { _, _ ->
 
             val selectedHour = hourPicker.value
             val selectedMinute = minutePicker.value
 
             val gapTime =
                 if (currentHour == selectedHour && currentMinute - selectedMinute >= 0) currentMinute - selectedMinute else 60 + (currentMinute - selectedMinute)
-            Log.e("NewTag", "gapTime  - $gapTime  currentMinute $currentMinute selectedMinute $selectedMinute  currentHour $currentHour selectedHour $selectedHour")
+            Log.e(
+                "NewTag",
+                "gapTime  - $gapTime  currentMinute $currentMinute selectedMinute $selectedMinute  currentHour $currentHour selectedHour $selectedHour"
+            )
 
             if ((currentHour == selectedHour && currentMinute < selectedMinute)) {
                 throwToaster(getString(R.string.you_cant_select_text))
@@ -154,17 +157,18 @@ class EditDailyPrayerFragment : BaseFragment() {
                 val time = "$selectedHour:$selectedMinute"
                 setLeftHand(time)
                 val afterTime = prayerGapTime.split(":")[1].toInt()
-                setGapInProto(-gapTime,afterTime)
+                setGapInProto(-gapTime, afterTime)
                 throwToaster(getString(R.string.successfully_selected_text))
             }
         }
-        d.setNegativeButton("Cancel") { dialogInterface, i -> }
+        d.setNegativeButton("Cancel") { _, _ -> }
         val alertDialog = d.create()
         alertDialog.show()
     }
 
     private fun rightHandSidePickerCustom() {
-        val getAfterIncrement = binding.rightHandSideTextView.text.toString().replace("mins","").filter { !it.isWhitespace() }.toInt()
+        val getAfterIncrement = binding.rightHandSideTextView.text.toString().replace("mins", "")
+            .filter { !it.isWhitespace() }.toInt()
         val d = AlertDialog.Builder(requireContext())
         val inflater = this.layoutInflater
         val dialogView = inflater.inflate(R.layout.layout_minute_picker_dialog, null)
@@ -179,7 +183,7 @@ class EditDailyPrayerFragment : BaseFragment() {
         d.setPositiveButton("Set") { _, i ->
             setRightHand(minute = minutePicker.value)
             val beforeTime = prayerGapTime.split(":")[0].toInt()
-            setGapInProto(beforeTime,minutePicker.value)
+            setGapInProto(beforeTime, minutePicker.value)
         }
         d.setNegativeButton("Cancel") { dialogInterface, i -> }
         val alertDialog = d.create()
@@ -225,41 +229,46 @@ class EditDailyPrayerFragment : BaseFragment() {
         }
     }
 
-    private fun fetchDataFromProto(){
+    private fun fetchDataFromProto() {
         lifecycleScope.launch {
-            getPrayerGapTime(prayerName, protoManager)
-            Log.e("NewGapTime", "Prayer Time $prayerGapTime")
+            val waitFor = CoroutineScope(Dispatchers.IO).async {
+                prayerGapTime = getPrayerGapTime(prayerName, protoManager)
+                Log.e("NewGapTime", "Prayer Time $prayerName $protoManager $prayerGapTime ")
+
+                return@async prayerGapTime
+            }
+            waitFor.await()
         }
     }
 
-    private fun resetGapTimingPrayer(){
+    private fun resetGapTimingPrayer() {
         prayerGapTime = getString(R.string.default_prayer_time_proto)
         setLeftHand()
         setRightHand()
-        setGapInProto(-10,10)
+        setGapInProto(-10, 10)
         fetchDataFromProto()
         throwToaster(getString(R.string.time_reset_successfully_text))
     }
 
-      fun askAfterResetClick(){
-          AlertDialog.Builder(requireContext())
-              .setTitle("Reset")
-              .setMessage("Do you really want to set the default time?")
-              .setIcon(android.R.drawable.ic_dialog_alert)
-              .setPositiveButton(
-                  R.string.yes_string
-              ) { _, _ ->
-                  resetGapTimingPrayer()
-              }
-              .setNegativeButton(R.string.no_string, null).show()
-     }
+    fun askAfterResetClick() {
+        AlertDialog.Builder(requireContext())
+            .setTitle("Reset")
+            .setMessage("Do you really want to set the default time?")
+            .setIcon(android.R.drawable.ic_dialog_alert)
+            .setPositiveButton(
+                R.string.yes_string
+            ) { _, _ ->
+                resetGapTimingPrayer()
+            }
+            .setNegativeButton(R.string.no_string, null).show()
+    }
 
     private fun setGapInProto(beforeGap: Int, afterGap: Int) {
         lifecycleScope.launch {
             when (prayerName) {
                 fajrName -> protoManager.setFajrTiming("$beforeGap:$afterGap")
                 dhuhrName -> protoManager.setDhuhrTiming("$beforeGap:$afterGap")
-                asrName ->protoManager.setAsrTiming("$beforeGap:$afterGap")
+                asrName -> protoManager.setAsrTiming("$beforeGap:$afterGap")
                 maghribName -> protoManager.setMaghribTiming("$beforeGap:$afterGap")
                 else -> protoManager.setIshaTiming("$beforeGap:$afterGap")
             }
@@ -276,8 +285,11 @@ class EditDailyPrayerFragment : BaseFragment() {
     }
 
     private fun setLeftHand(time: String = "") {
+        Log.e("NewGapTime", "Prayer Time $prayerGapTime ")
         var newTime = time
         if (time == "") {
+
+
             val gapBeforePrayer = prayerGapTime.split(":")[0].toInt()
             newTime = getMeIncrementTime(
                 convertTo12Hours(prayerTime)?.replace("( am| pm)".toRegex(), "")!!,
@@ -300,8 +312,6 @@ class EditDailyPrayerFragment : BaseFragment() {
         )
 
     }
-
-
 
 
     private fun getColor(): Int {

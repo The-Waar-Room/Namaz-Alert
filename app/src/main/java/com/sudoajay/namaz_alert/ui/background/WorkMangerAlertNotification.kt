@@ -7,11 +7,10 @@ import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import android.media.AudioManager
 import android.util.Log
 import androidx.core.app.NotificationCompat
-import androidx.core.content.ContextCompat.getSystemService
-import androidx.work.*
+import androidx.work.Worker
+import androidx.work.WorkerParameters
 import com.sudoajay.namaz_alert.R
-import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask.Companion.afterTimeID
-import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask.Companion.beforeTimeID
+import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask.Companion.diffTimeID
 import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask.Companion.phoneModeID
 import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask.Companion.prayerNameID
 import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask.Companion.prayerTimeID
@@ -20,10 +19,11 @@ import com.sudoajay.namaz_alert.ui.mainActivity.MainActivity
 import com.sudoajay.namaz_alert.ui.notification.AlertNotification
 import com.sudoajay.namaz_alert.ui.notification.NotificationChannels
 import com.sudoajay.namaz_alert.util.Helper
+import com.sudoajay.namaz_alert.util.PhoneMode
+import kotlinx.coroutines.*
 
 class WorkMangerAlertNotification(var context: Context, workerParams: WorkerParameters) :
     Worker(context, workerParams) {
-
 
 
     lateinit var alertNotification: AlertNotification
@@ -34,54 +34,72 @@ class WorkMangerAlertNotification(var context: Context, workerParams: WorkerPara
         Log.e(
             "WorkManger", " get data - ${inputData.getString(prayerNameID)}  ," +
                     "${inputData.getString(prayerTimeID)} , ${inputData.getString(phoneModeID)} , " +
-                    "${inputData.getString(beforeTimeID)} , ${inputData.getString(afterTimeID)}  ${inputData.getString(
-                        previousModeID)}"
+                    "${inputData.getString(diffTimeID)} , ${
+                        inputData.getString(
+                            previousModeID
+                        )
+                    }"
         )
-        val am = context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
-        am.ringerMode = Helper.getPhoneMode(inputData.getString(phoneModeID).toString())
-
-        startNotification(inputData.getString(prayerNameID).toString() , inputData.getString(prayerTimeID).toString(),
-            inputData.getString(phoneModeID).toString() , inputData.getString(beforeTimeID).toString(),
-            inputData.getString(afterTimeID).toString(), inputData.getString(
-            previousModeID).toString())
 
 
+        startNotification(
+            inputData.getString(prayerNameID).toString(),
+            inputData.getString(prayerTimeID).toString(),
+            inputData.getString(phoneModeID).toString(),
+            inputData.getString(diffTimeID).toString(),
+            inputData.getString(
+                previousModeID
+            ).toString()
+        )
+        CoroutineScope(Dispatchers.IO).launch {
+            delay(1000*22) // 22 sec
+            val am = context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
+            am.ringerMode = Helper.getPhoneMode(inputData.getString(phoneModeID).toString())
+        }
         return Result.success()
     }
+
+
 
 
     private fun startNotification(
         prayerName: String,
         prayerTime: String,
         phoneMode: String,
-        beforeTime: String,
-        afterTime: String,
-        previousMode:String
+        diffTime: String,
+        previousMode: String
 
     ) {
-        createNotification()
+        createNotification(prayerName,prayerTime)
         alertNotification.notifyCompat(
-            prayerName, prayerTime, phoneMode,
-            beforeTime, afterTime, previousMode,notificationCompat
+            prayerName, Helper.convertTo12Hours(prayerTime).toString(), phoneMode,
+            diffTime, previousMode, notificationCompat
         )
     }
 
 
-
-    private fun createNotification() {
+    private fun createNotification(
+        prayerName: String,
+        prayerTime: String
+    ) {
         notificationCompat =
             NotificationCompat.Builder(applicationContext, NotificationChannels.ALERT_PRAYER_TIME)
         notificationCompat.setSmallIcon(R.drawable.ic_more_app)
-
-        notificationCompat.setContentIntent(createPendingIntent())
+        notificationCompat.setContentIntent(createPendingIntent(prayerName, prayerTime))
     }
 
-    private fun createPendingIntent(): PendingIntent? {
+    private fun createPendingIntent(
+        prayerName: String,
+        prayerTime: String
+    ): PendingIntent? {
         val intent = Intent(context, MainActivity::class.java)
         intent.flags = FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        intent.putExtra(prayerNameID, prayerName)
+        intent.putExtra(prayerTimeID, prayerTime)
+
         return PendingIntent.getActivity(
             context, 0, intent,
-            PendingIntent.FLAG_UPDATE_CURRENT
+            PendingIntent.FLAG_ONE_SHOT
         )
     }
 

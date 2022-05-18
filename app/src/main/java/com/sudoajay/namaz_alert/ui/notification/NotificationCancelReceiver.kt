@@ -11,6 +11,7 @@ import android.media.AudioManager
 import androidx.work.WorkManager
 import com.sudoajay.namaz_alert.R
 import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask
+import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask.Companion.prayerNameID
 import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask.Companion.previousModeID
 import com.sudoajay.namaz_alert.ui.mainActivity.MainActivity
 import com.sudoajay.namaz_alert.util.Helper
@@ -20,7 +21,7 @@ class NotificationCancelReceiver : BroadcastReceiver() {
     private lateinit var notificationBuilder: Notification.Builder
 
     lateinit var alertNotification: AlertNotification
-    lateinit var mContext:Context
+    lateinit var mContext: Context
 
     override fun onReceive(context: Context?, intent: Intent?) {
 
@@ -29,24 +30,31 @@ class NotificationCancelReceiver : BroadcastReceiver() {
 
 
         val manager = context.getSystemService(NOTIFICATION_SERVICE) as NotificationManager
-        manager.cancel(intent!!.getIntExtra(AlertNotification.notificationAlertID, AlertNotification.NOTIFICATION_ALERT_STATE))
+        manager.cancel(AlertNotification.NOTIFICATION_ALERT_STATE)
+
         manager.cancel(AlertNotification.NOTIFICATION_FinishCancel_STATE)
 
         WorkManager.getInstance(context).cancelAllWorkByTag(WorkMangerForTask.alertTAGID)
         WorkManager.getInstance(context).cancelAllWorkByTag(WorkMangerForTask.finishTAGID)
 
 
-        startNotification("You Have Cancel Your  namaz prayer"
-            ,"Click again to start again " )
+        startNotification(
+            context.getString(
+                R.string.cancel_the_notification_prayer, intent!!.getStringExtra(
+                    prayerNameID
+                ).toString()
+            ), context.getString(R.string.click_here_to_setup_text)
+        )
 
         val previousMode = intent.getStringExtra(previousModeID).toString()
         val am = context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
         am.ringerMode = Helper.getPhoneMode(previousMode)
     }
 
-    private fun startNotification(title:String ,subTitle:String ) {
-        createNotification( )
-        alertNotification.notifyBuilder(title,subTitle,notificationBuilder
+    private fun startNotification(title: String, subTitle: String) {
+        createNotification()
+        alertNotification.notifyBuilder(
+            title, subTitle, notificationBuilder
         )
     }
 

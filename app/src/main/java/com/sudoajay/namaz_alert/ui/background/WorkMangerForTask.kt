@@ -12,14 +12,17 @@ import com.sudoajay.namaz_alert.util.Helper.Companion.getMeIncrementTime
 import com.sudoajay.namaz_alert.util.Helper.Companion.getPrayerGapTime
 import com.sudoajay.namaz_alert.util.Helper.Companion.getRingerMode
 import com.sudoajay.namaz_alert.util.Helper.Companion.getTodayDate
-import com.sudoajay.namaz_alert.util.Helper.Companion.prayerGapTime
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import java.text.DateFormat
+import com.sudoajay.namaz_alert.R
+import com.sudoajay.namaz_alert.util.Helper
+
 import java.text.SimpleDateFormat
 import java.util.*
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 class WorkMangerForTask @Inject constructor(var context: Context) {
@@ -27,6 +30,7 @@ class WorkMangerForTask @Inject constructor(var context: Context) {
     private lateinit var protoManager: ProtoManager
     private var dailyPrayerDoa = DailyPrayerDatabase.getDatabase(context).dailyPrayerDoa()
     private lateinit var dailyPrayerRepository: DailyPrayerRepository
+    private var prayerGapTime:String = ""
 
     suspend fun startWorker() {
 
@@ -39,7 +43,7 @@ class WorkMangerForTask @Inject constructor(var context: Context) {
         val previousMode = getRingerMode(context)
 
         val waitFor = CoroutineScope(Dispatchers.IO).async {
-            getPrayerGapTime(dailyPrayerDB.Name, protoManager)
+            prayerGapTime = getPrayerGapTime(dailyPrayerDB.Name, protoManager)
             Log.e("WorkManger", "prayerGapTime sas - $prayerGapTime ")
             protoManager.setPreviousMode(previousMode)
             phoneMode = getPhoneMode()
@@ -51,23 +55,24 @@ class WorkMangerForTask @Inject constructor(var context: Context) {
         val arrayIncrement = prayerGapTime.split(":")
         val beforeTime = getMeIncrementTime(dailyPrayerDB.Time, arrayIncrement[0].toInt())
         val afterTime = getMeIncrementTime(beforeTime, arrayIncrement[1].toInt())
+        val diffTime  = arrayIncrement[1]
 
 
         val alertData = workDataOf(
             prayerNameID to dailyPrayerDB.Name,
             prayerTimeID to dailyPrayerDB.Time,
             phoneModeID to phoneMode,
-            beforeTimeID to beforeTime,
-            afterTimeID to afterTime,
+            diffTimeID to diffTime,
             previousModeID to previousMode
         )
 
         val finishData = workDataOf(
-            titleNotificationID to "You Have Completed Your ${dailyPrayerDB.Name} namaz prayer",
-            subTitleNotificationID to "Now your phone is set to previous mode : Normal mode",
-            previousModeID to previousMode
-
-        )
+            titleNotificationID to context.getString(R.string.completed_the_notification_prayer , dailyPrayerDB.Name ),
+            subTitleNotificationID to context.getString(R.string.your_device_is_now_text , previousMode),
+            previousModeID to previousMode,
+            prayerNameID to dailyPrayerDB.Name,
+            prayerTimeID to dailyPrayerDB.Time,
+            )
 
         val workManager = WorkManager.getInstance(context)
 
@@ -82,7 +87,7 @@ class WorkMangerForTask @Inject constructor(var context: Context) {
 
 
         val finishOneTimeRequest = OneTimeWorkRequestBuilder<WorkMangerFinishNotification>()
-//            .setInitialDelay(getDiffMinute(currentTime,beforeTime), TimeUnit.MINUTES)
+            .setInitialDelay(1, TimeUnit.MINUTES)
             .addTag(finishTAGID)
             .setInputData(finishData)
             .setConstraints(constraints.build())
@@ -111,8 +116,7 @@ class WorkMangerForTask @Inject constructor(var context: Context) {
         const val prayerNameID = "PrayerNameID"
         const val prayerTimeID = "PrayerTimeID"
         const val phoneModeID = "PhoneModeID"
-        const val beforeTimeID = "BeforeTimeID"
-        const val afterTimeID = "AfterTimeID"
+        const val diffTimeID = "DiffTimeID"
         const val titleNotificationID = "TitleNotificationID"
         const val subTitleNotificationID = "SubTitleNotificationID"
         const val previousModeID ="PreviousModeID"

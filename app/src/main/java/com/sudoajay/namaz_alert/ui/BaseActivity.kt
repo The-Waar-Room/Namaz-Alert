@@ -86,7 +86,7 @@ open class BaseActivity : AppCompatActivity() {
             return resources.configuration.uiMode and
                     Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES
         }
-
+        const val openMainActivityID= "OpenMainActivityID"
         const val messageType = "MessageType"
         const val settingShortcutId = "setting"
         const val phoneModeShortcutId = "phoneMode"

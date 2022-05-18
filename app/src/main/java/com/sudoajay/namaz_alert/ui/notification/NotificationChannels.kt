@@ -3,10 +3,14 @@ package com.sudoajay.namaz_alert.ui.notification
 import android.app.NotificationChannel
 import android.app.NotificationChannelGroup
 import android.app.NotificationManager
+import android.content.ContentResolver
 import android.content.Context
+import android.media.AudioAttributes
+import android.net.Uri
 import android.os.Build
 import androidx.annotation.RequiresApi
 import com.sudoajay.namaz_alert.R
+
 
 /**
  * Static class containing IDs of notification channels and code to create them.
@@ -35,11 +39,21 @@ object NotificationChannels {
         val alertPrayerChannel = NotificationChannel(
             ALERT_PRAYER_TIME,
             context.getString(R.string.notifications_alert_prayer_time),
-            NotificationManager.IMPORTANCE_DEFAULT
+            NotificationManager.IMPORTANCE_HIGH
         )
-        alertPrayerChannel.setSound(null , null)
+        val sound: Uri =
+            Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://" + context.packageName + "/" + R.raw.azan_in_islam) //Here is FILE_NAME is the name of file that you want to play
+
+
+        val audioAttributes = AudioAttributes.Builder()
+            .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+            .setUsage(AudioAttributes.USAGE_ALARM)
+            .build()
+        alertPrayerChannel.setSound(sound , audioAttributes)
         alertPrayerChannel.description = context.getString(R.string.notifications_alert_desc)
         alertPrayerChannel.group = GROUP_NOTIFICATION
+        alertPrayerChannel.enableVibration(true)
+        alertPrayerChannel.enableLights(true)
         alertPrayerChannel.setShowBadge(false)
 
         notificationManager.createNotificationChannel(alertPrayerChannel)
@@ -47,12 +61,14 @@ object NotificationChannels {
         val finishCancelPrayerChannel = NotificationChannel(
             FINISH_CANCEL_PRAYER,
             context.getString(R.string.notifications_finish_prayer_time),
-            NotificationManager.IMPORTANCE_DEFAULT
+            NotificationManager.IMPORTANCE_LOW
         )
         finishCancelPrayerChannel.setSound(null , null)
         finishCancelPrayerChannel.description = context.getString(R.string.notifications_finish_desc)
         finishCancelPrayerChannel.group = GROUP_NOTIFICATION
         finishCancelPrayerChannel.setShowBadge(false)
+        alertPrayerChannel.enableVibration(true)
+        alertPrayerChannel.enableLights(true)
         notificationManager.createNotificationChannel(finishCancelPrayerChannel)
 
 

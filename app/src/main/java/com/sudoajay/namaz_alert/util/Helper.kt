@@ -31,7 +31,7 @@ class Helper {
             }
         }
 
-        var prayerGapTime = ""
+
 
         fun convertTo12Hours(militaryTime: String): String? {
             //in => "14:00"
@@ -59,8 +59,8 @@ class Helper {
         }
 
 
-        suspend fun getPrayerGapTime(prayerName:String , protoManager: ProtoManager){
-            prayerGapTime = when (prayerName) {
+        suspend fun getPrayerGapTime(prayerName:String , protoManager: ProtoManager):String{
+            return when (prayerName) {
                 BaseFragment.fajrName -> protoManager.fetchInitialPreferences().fajrTiming
                 BaseFragment.dhuhrName -> protoManager.fetchInitialPreferences().dhuhrTiming
                 BaseFragment.asrName -> protoManager.fetchInitialPreferences().asrTiming
