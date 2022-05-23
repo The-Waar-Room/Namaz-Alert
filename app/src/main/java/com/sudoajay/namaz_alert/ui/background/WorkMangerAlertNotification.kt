@@ -1,5 +1,6 @@
 package com.sudoajay.namaz_alert.ui.background
 
+import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
@@ -7,9 +8,11 @@ import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import android.media.AudioManager
 import android.util.Log
 import androidx.core.app.NotificationCompat
+import androidx.work.WorkManager
 import androidx.work.Worker
 import androidx.work.WorkerParameters
 import com.sudoajay.namaz_alert.R
+import com.sudoajay.namaz_alert.data.proto.ProtoManager
 import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask.Companion.diffTimeID
 import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask.Companion.phoneModeID
 import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask.Companion.prayerNameID
@@ -40,8 +43,6 @@ class WorkMangerAlertNotification(var context: Context, workerParams: WorkerPara
                         )
                     }"
         )
-
-
         startNotification(
             inputData.getString(prayerNameID).toString(),
             inputData.getString(prayerTimeID).toString(),
@@ -51,12 +52,22 @@ class WorkMangerAlertNotification(var context: Context, workerParams: WorkerPara
                 previousModeID
             ).toString()
         )
+
+        Helper.setWorkMangerRunning(null,context,true)
+
         CoroutineScope(Dispatchers.IO).launch {
             delay(1000*22) // 22 sec
             val am = context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
             am.ringerMode = Helper.getPhoneMode(inputData.getString(phoneModeID).toString())
         }
+        cancelAlertNotification()
         return Result.success()
+    }
+
+    private fun cancelAlertNotification() {
+        val manager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        manager.cancel(AlertNotification.NOTIFICATION_FinishCancel_STATE)
+        WorkManager.getInstance(context).cancelAllWorkByTag(WorkMangerForTask.finishTAGID)
     }
 
 

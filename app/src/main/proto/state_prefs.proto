@@ -11,7 +11,12 @@ message StatePreferences {
   string maghribTiming = 5;
   string ishaTiming = 6;
   bool isWorkMangerRunning = 7;
-  string previousPhoneMode = 8;
+  bool isWorkMangerCancel = 8;
+  string previousPhoneMode = 9;
+  string latitude = 10;
+  string longitude = 11;
+  int32 calculationMethods = 12;
+  int32 notificationRingtone = 13;
 
 
 }

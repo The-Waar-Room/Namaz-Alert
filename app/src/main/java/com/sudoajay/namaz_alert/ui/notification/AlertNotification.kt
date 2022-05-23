@@ -22,9 +22,11 @@ import com.sudoajay.namaz_alert.R
 import com.sudoajay.namaz_alert.ui.BaseActivity.Companion.openMainActivityID
 import com.sudoajay.namaz_alert.ui.BaseActivity.Companion.settingShortcutId
 import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask.Companion.prayerNameID
+import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask.Companion.prayerTimeID
 import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask.Companion.previousModeID
 import com.sudoajay.namaz_alert.ui.mainActivity.MainActivity
 import com.sudoajay.namaz_alert.util.Command
+import com.sudoajay.namaz_alert.util.Helper
 import java.util.*
 import javax.inject.Inject
 
@@ -61,7 +63,6 @@ class AlertNotification @Inject constructor(var context: Context) {
 
         notification!!.flags = notification!!.flags or Notification.FLAG_AUTO_CANCEL
 
-
         notifyNotification(NOTIFICATION_FinishCancel_STATE,notification!!)
     }
 
@@ -77,9 +78,10 @@ class AlertNotification @Inject constructor(var context: Context) {
         val cancelIntent = Intent(context,NotificationCancelReceiver::class.java)
         cancelIntent.putExtra(previousModeID, previousMode)
         cancelIntent.putExtra(prayerNameID, prayerName)
+        cancelIntent.putExtra(prayerTimeID,prayerTime)
 
         val cancelPendingIntent =
-            PendingIntent.getBroadcast(context, NOTIFICATION_ALERT_STOP, cancelIntent, PendingIntent.FLAG_CANCEL_CURRENT)
+            PendingIntent.getBroadcast(context, NOTIFICATION_ALERT_STOP, cancelIntent, PendingIntent.FLAG_UPDATE_CURRENT)
 
 //        Pending Intent For Stop Action
 

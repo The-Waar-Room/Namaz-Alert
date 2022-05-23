@@ -128,12 +128,11 @@ class HomeFragment : BaseFragment() {
             this.layoutManager = LinearLayoutManager(requireContext())
             adapter = dailyPrayerAdapter
         }
-        lifecycleScope.launch {
-            dailyPrayerViewModel.getRemoteMediatorWithDataBase()
-                .collectLatest { pagingData ->
 
-                    dailyPrayerAdapter.submitData(pagingData)
-                }
+        lifecycleScope.launch {
+            dailyPrayerViewModel.getPagingGsonSourceWithNetwork().collectLatest {
+                dailyPrayerAdapter.submitData(it)
+            }
         }
 
     }

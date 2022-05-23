@@ -7,7 +7,6 @@ import com.google.gson.annotations.SerializedName
 @Entity(tableName = "DailyPrayerTable")
 class DailyPrayerDB(
     @PrimaryKey @field:SerializedName("id") var id: Long?,
-    @field:SerializedName("city") val City:String,
     @field:SerializedName("date") val Date: String,
     @field:SerializedName("name") val Name: String,
     @field:SerializedName("time") val Time: String

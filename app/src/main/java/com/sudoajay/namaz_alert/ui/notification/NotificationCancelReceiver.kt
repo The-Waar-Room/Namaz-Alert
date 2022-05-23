@@ -10,8 +10,11 @@ import android.content.Intent
 import android.media.AudioManager
 import androidx.work.WorkManager
 import com.sudoajay.namaz_alert.R
+import com.sudoajay.namaz_alert.ui.BaseActivity.Companion.notificationCancelReceiver
+import com.sudoajay.namaz_alert.ui.BaseActivity.Companion.receiverId
 import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask
 import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask.Companion.prayerNameID
+import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask.Companion.prayerTimeID
 import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask.Companion.previousModeID
 import com.sudoajay.namaz_alert.ui.mainActivity.MainActivity
 import com.sudoajay.namaz_alert.util.Helper
@@ -35,40 +38,62 @@ class NotificationCancelReceiver : BroadcastReceiver() {
         manager.cancel(AlertNotification.NOTIFICATION_FinishCancel_STATE)
 
         WorkManager.getInstance(context).cancelAllWorkByTag(WorkMangerForTask.alertTAGID)
-        WorkManager.getInstance(context).cancelAllWorkByTag(WorkMangerForTask.finishTAGID)
 
-
+        val prayerName = intent!!.getStringExtra(prayerNameID).toString()
         startNotification(
             context.getString(
-                R.string.cancel_the_notification_prayer, intent!!.getStringExtra(
-                    prayerNameID
-                ).toString()
-            ), context.getString(R.string.click_here_to_setup_text)
+                R.string.cancel_the_notification_prayer, prayerName
+            ),
+            context.getString(R.string.click_here_to_setup_text),
+            prayerName,
+            intent.getStringExtra(
+                prayerTimeID
+            ).toString()
         )
+
+        Helper.setWorkMangerCancel(null,context,true)
+
 
         val previousMode = intent.getStringExtra(previousModeID).toString()
         val am = context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
         am.ringerMode = Helper.getPhoneMode(previousMode)
+
     }
 
-    private fun startNotification(title: String, subTitle: String) {
-        createNotification()
+    private fun startNotification(
+        title: String,
+        subTitle: String,
+        prayerName: String,
+        prayerTime: String
+    ) {
+        createNotification(prayerName, prayerTime)
         alertNotification.notifyBuilder(
             title, subTitle, notificationBuilder
         )
     }
 
-    private fun createNotification() {
+    private fun createNotification(
+        prayerName: String,
+        prayerTime: String
+    ) {
         notificationBuilder =
             Notification.Builder(mContext, NotificationChannels.FINISH_CANCEL_PRAYER)
         notificationBuilder.setSmallIcon(R.drawable.ic_more_app)
 
-        notificationBuilder.setContentIntent(createPendingIntent())
+        notificationBuilder.setContentIntent(createPendingIntent(prayerName, prayerTime))
     }
 
-    private fun createPendingIntent(): PendingIntent? {
+    private fun createPendingIntent(
+        prayerName: String,
+        prayerTime: String
+    ): PendingIntent? {
+
         val intent = Intent(mContext, MainActivity::class.java)
+        intent.putExtra(prayerNameID, prayerName)
+        intent.putExtra(prayerTimeID, prayerTime)
+        intent.putExtra(receiverId, notificationCancelReceiver)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+
         return PendingIntent.getActivity(
             mContext, 0, intent,
             PendingIntent.FLAG_UPDATE_CURRENT

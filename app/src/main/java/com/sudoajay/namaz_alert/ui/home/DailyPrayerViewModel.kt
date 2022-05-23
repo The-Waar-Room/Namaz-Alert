@@ -1,23 +1,17 @@
 package com.sudoajay.namaz_alert.ui.home
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
-import androidx.paging.ExperimentalPagingApi
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.sudoajay.namaz_alert.data.db.DailyPrayerDB
 import com.sudoajay.namaz_alert.data.db.DailyPrayerDatabase
-import com.sudoajay.namaz_alert.data.network.DailyPrayerBuilder.Companion.getApiInterface
 import com.sudoajay.namaz_alert.data.network.DailyPrayerApiInterface.Companion.NETWORK_PAGE_SIZE
 import com.sudoajay.namaz_alert.data.repository.DailyPrayerRepository
-import com.sudoajay.namaz_alert.data.repository.DailyPrayerRemoteMediator
-import com.sudoajay.namaz_alert.util.Helper
 import com.sudoajay.namaz_alert.util.Helper.Companion.getTodayDate
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
-import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
 
@@ -28,25 +22,18 @@ class DailyPrayerViewModel @Inject constructor(application: Application) : Andro
 
 
 
-    @OptIn(ExperimentalPagingApi::class)
-    fun getRemoteMediatorWithDataBase(): Flow<PagingData<DailyPrayerDB>> {
-        val database = DailyPrayerDatabase.getDatabase(viewModelApplication)
-        val itemRepository = DailyPrayerRepository(database.dailyPrayerDoa())
 
-        val apiInterface =
-            getApiInterface()
-        Log.e("SomethingNew", "Come getRemoteMediatorWithDataBase here")
+
+    fun getPagingGsonSourceWithNetwork(): Flow<PagingData<DailyPrayerDB>> {
+        val database = DailyPrayerDatabase.getDatabase(viewModelApplication)
+        val dailyPrayerRepository = DailyPrayerRepository(database.dailyPrayerDoa())
 
         return Pager(
             config = PagingConfig(pageSize = NETWORK_PAGE_SIZE, enablePlaceholders = false),
-            remoteMediator = DailyPrayerRemoteMediator(location = "India",
-                database=database,
-                dailyPrayerRepository =  itemRepository,
-                dailyPrayerApiInterface =  apiInterface!!
-            )
-        ) {
-            itemRepository.pagingSource(getTodayDate(), searchValue)
-        }.flow
+            pagingSourceFactory = {
+               dailyPrayerRepository.pagingSource(getTodayDate(),searchValue)
+            }
+        ).flow
     }
 
 

@@ -76,6 +76,22 @@ class SettingsActivity : BaseActivity() {
                 true
             }
 
+            val notificationSound = findPreference("notificationSound") as ListPreference?
+            notificationSound?.setOnPreferenceChangeListener { _, newValue ->
+                lifecycleScope.launch {
+                    protoManager.setNotificationRingtone(newValue.toString().toInt())
+                }
+                true
+            }
+
+            val calculationMethods = findPreference("calculationMethods") as ListPreference?
+            calculationMethods?.setOnPreferenceChangeListener { _, newValue ->
+                lifecycleScope.launch {
+                    protoManager.setCalculationMethods(newValue.toString().toInt())
+                }
+                true
+            }
+
             val selectLanguage = findPreference("changeLanguage") as ListPreference?
             selectLanguage!!.setOnPreferenceChangeListener { _, newValue ->
 //                if (newValue.toString() != getLanguage(requireContext())) {

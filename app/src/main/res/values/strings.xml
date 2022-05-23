@@ -91,9 +91,9 @@
     <string name="about_app_summary_text">open github link</string>
     <string name="setting_text">Setting</string>
     <string name="shareMessage">Hey, check This App which helps you to Delete Duplicate and Unnecessary Data from the phone -</string>
-    <string name="normal_mode">Normal Mode</string>
-    <string name="vibrate_mode">Vibrate Mode</string>
-    <string name="silent_mode">Silent Mode</string>
+    <string name="normal_mode">Normal</string>
+    <string name="vibrate_mode">Vibrate</string>
+    <string name="silent_mode">Silent</string>
     <string name="phone_mode_text">Phone Mode</string>
     <string name="app_setting_text">App Setting</string>
     <string name="change_language_text">"Change Language "</string>
@@ -138,6 +138,29 @@
     <string name="completed_the_notification_prayer">You\'ve completed your %1$s namaz prayer schedule</string>
     <string name="your_device_is_now_text">Your device is now set to the %1$s mode</string>
 
-   
+<!--    Location-->
+    <string name="you_need_to_allow_location_text">You need to allow the permissions for Location</string>
+    <string name="null_string">Null</string>
+
+    <string name="muslim_world_league_text">Muslim World League</string>
+    <string name="islamic_society_of_north_america_text">Islamic Society of North America</string>
+    <string name="egyptian_general_authority_of_survey_text">Egyptian General Authority of Survey</string>
+    <string name="umm_al_qura_university_makkah_text">Umm Al-Qura University, Makkah</string>
+    <string name="university_of_islamic_sciences_karachi_text">University of Islamic Sciences, Karachi</string>
+    <string name="institute_of_geophysics_university_of_tTehran_text">Institute of Geophysics, University of Tehran</string>
+    <string name="shia_ithna_ashari_leva_institute_qum_text">Shia Ithna-Ashari, Leva Institute, Qum</string>
+    <string name="gulf_region_text">Gulf Region</string>
+    <string name="Kuwait_text">Kuwait</string>
+    <string name="Qatar_text">Qatar</string>
+    <string name="majlis_ugama_islam_singapura_singapore_text">Majlis Ugama Islam Singapura, Singapore</string>
+    <string name="union_organization_islamic_de_fFrance_text">Union Organization islamic de France</string>
+    <string name="diyanet_işleri_başkanlığı_turkey_text">Diyanet İşleri Başkanlığı, Turkey</string>
+    <string name="spiritual_administration_of_muslims_of_russia_text">Spiritual Administration of Muslims of Russia</string>
+
+    <string name="default_ringtone_text">Default </string>
+    <string name="azan_in_islam_text">Azan In Islam</string>
+    <string name="notification_sound_text">Notification Sound</string>
+    <string name="namaz_prayer_time_calculation_time_text">Namaz Prayer Time  now support the following calculation methods </string>
+    <string name="calculation_method_text">Calculation Methods</string>
 
 </resources>

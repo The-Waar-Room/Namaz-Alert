@@ -60,5 +60,49 @@
         <item name="silent">@string/silent_mode</item>
     </string-array>
 
+    <string-array name="calculationMethods">
+        <item name="muslim_world_league">@string/muslim_world_league_text</item>
+        <item name="islamic_society_of_north_america">@string/islamic_society_of_north_america_text</item>
+        <item name="egyptian_general_authority_of_survey">@string/egyptian_general_authority_of_survey_text</item>
+        <item name="umm_al_qura_university_makkah">@string/umm_al_qura_university_makkah_text</item>
+        <item name="university_of_islamic_sciences_karachi">@string/university_of_islamic_sciences_karachi_text</item>
+        <item name="institute_of_geophysics_university_of_tTehran">@string/institute_of_geophysics_university_of_tTehran_text</item>
+        <item name="shia_ithna_ashari_leva_institute_qum">@string/shia_ithna_ashari_leva_institute_qum_text</item>
+        <item name="gulf_region">@string/gulf_region_text</item>
+        <item name="Kuwait">@string/Kuwait_text</item>
+        <item name="Qatar">@string/Qatar_text</item>
+        <item name="majlis_ugama_islam_singapura_singapore">@string/majlis_ugama_islam_singapura_singapore_text</item>
+        <item name="union_organization_islamic_de_fFrance">@string/union_organization_islamic_de_fFrance_text</item>
+        <item name="diyanet_işleri_başkanlığı_turkey">@string/diyanet_işleri_başkanlığı_turkey_text</item>
+        <item name="spiritual_administration_of_muslims_of_russia">@string/spiritual_administration_of_muslims_of_russia_text</item>
+    </string-array>
+
+    <string-array name="calculationMethodsValues">
+        <item name="muslim_world_league">1</item>
+        <item name="islamic_society_of_north_america">2</item>
+        <item name="egyptian_general_authority_of_survey">3</item>
+        <item name="umm_al_qura_university_makkah">4</item>
+        <item name="university_of_islamic_sciences_karachi">5</item>
+        <item name="institute_of_geophysics_university_of_tTehran">6</item>
+        <item name="shia_ithna_ashari_leva_institute_qum">7</item>
+        <item name="gulf_region">8</item>
+        <item name="Kuwait">9</item>
+        <item name="Qatar">10</item>
+        <item name="majlis_ugama_islam_singapura_singapore">11</item>
+        <item name="union_organization_islamic_de_fFrance">12</item>
+        <item name="diyanet_işleri_başkanlığı_turkey">13</item>
+        <item name="spiritual_administration_of_muslims_of_russia">14</item>
+    </string-array>
+
+    <string-array name="setNotificationRingtone">
+        <item name="default">@string/default_ringtone_text</item>
+        <item name="azan_in_islam">@string/azan_in_islam_text</item>
+    </string-array>
+    <string-array name="setNotificationRingtoneValues">
+        <item name="default">0</item>
+        <item name="azan_in_islam">1</item>
+    </string-array>
+
+
 
 </resources>

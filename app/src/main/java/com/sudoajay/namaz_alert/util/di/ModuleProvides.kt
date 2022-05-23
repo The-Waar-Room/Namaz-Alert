@@ -2,6 +2,7 @@ package com.sudoajay.namaz_alert.util.di
 
 import android.content.Context
 import com.sudoajay.namaz_alert.data.proto.ProtoManager
+import com.sudoajay.namaz_alert.data.repository.WebScrappingGoogle
 import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask
 import com.sudoajay.namaz_alert.ui.notification.AlertNotification
 import dagger.Module
@@ -26,6 +27,10 @@ object ModuleProvides {
     @Singleton
     @Provides
     fun providesWorkManger( @ApplicationContext appContext: Context): WorkMangerForTask = WorkMangerForTask(appContext)
+
+    @Singleton
+    @Provides
+    fun providesWebScrappingGoogle( @ApplicationContext appContext: Context): WebScrappingGoogle = WebScrappingGoogle(appContext)
 
 
 

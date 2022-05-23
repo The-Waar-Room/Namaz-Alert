@@ -6,7 +6,9 @@ import androidx.datastore.dataStore
 import com.sudoajay.namaz_alert.R
 import com.sudoajay.namaz_alert.StatePreferences
 import com.sudoajay.namaz_alert.util.PhoneMode
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 class ProtoManager @Inject constructor (var context: Context){
@@ -22,6 +24,11 @@ class ProtoManager @Inject constructor (var context: Context){
                 .setMaghribTiming(context.getString(R.string.default_prayer_time_proto))
                 .setIshaTiming(context.getString(R.string.default_prayer_time_proto))
                 .setIsWorkMangerRunning(false)
+                .setIsWorkMangerCancel(false)
+                .setLatitude(context.getString(R.string.null_string))
+                .setLongitude(context.getString(R.string.null_string))
+                .setCalculationMethods(1)
+                .setNotificationRingtone(0)
                 .build()
         }
     }
@@ -73,18 +80,50 @@ class ProtoManager @Inject constructor (var context: Context){
         }
     }
 
-    suspend fun setIsWorkMangerRunning(isFirstTime:Boolean){
+    suspend fun setIsWorkMangerRunning(isWorkMangerRunning:Boolean){
         dataStoreStatePreferences.updateData { preferences ->
             preferences.toBuilder()
-                .setIsWorkMangerRunning(isFirstTime)
+                .setIsWorkMangerRunning(isWorkMangerRunning)
                 .build()
         }
     }
 
+    suspend fun setIsWorkMangerCancel(isWorkMangerCancel:Boolean){
+        dataStoreStatePreferences.updateData { preferences ->
+            preferences.toBuilder()
+                .setIsWorkMangerCancel(isWorkMangerCancel)
+                .build()
+        }
+    }
     suspend fun setPreviousMode(phoneMode: String){
         dataStoreStatePreferences.updateData { preferences ->
             preferences.toBuilder()
                 .setPreviousPhoneMode(phoneMode)
+                .build()
+        }
+    }
+
+    suspend fun setLatitudeLongitude(latitude:String,longitude: String){
+        dataStoreStatePreferences.updateData { preferences ->
+            preferences.toBuilder()
+                .setLatitude(latitude)
+                .setLongitude(longitude)
+                .build()
+        }
+    }
+
+    suspend fun setCalculationMethods(calculationMethods: Int){
+        dataStoreStatePreferences.updateData { preferences ->
+            preferences.toBuilder()
+                .setCalculationMethods(calculationMethods.toInt())
+                .build()
+        }
+    }
+
+    suspend fun setNotificationRingtone(notificationRingtone: Int){
+        dataStoreStatePreferences.updateData { preferences ->
+            preferences.toBuilder()
+                .setNotificationRingtone(notificationRingtone)
                 .build()
         }
     }

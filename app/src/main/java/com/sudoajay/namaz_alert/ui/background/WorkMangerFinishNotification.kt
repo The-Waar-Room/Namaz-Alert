@@ -12,7 +12,7 @@ import androidx.work.WorkManager
 import androidx.work.Worker
 import androidx.work.WorkerParameters
 import com.sudoajay.namaz_alert.R
-import com.sudoajay.namaz_alert.ui.BaseActivity
+import com.sudoajay.namaz_alert.data.proto.ProtoManager
 import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask.Companion.previousModeID
 import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask.Companion.subTitleNotificationID
 import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask.Companion.titleNotificationID
@@ -20,15 +20,23 @@ import com.sudoajay.namaz_alert.ui.mainActivity.MainActivity
 import com.sudoajay.namaz_alert.ui.notification.AlertNotification
 import com.sudoajay.namaz_alert.ui.notification.NotificationChannels
 import com.sudoajay.namaz_alert.util.Helper
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
 
 class WorkMangerFinishNotification(var context: Context, workerParams: WorkerParameters) :
     Worker(context, workerParams) {
 
     lateinit var alertNotification: AlertNotification
     private lateinit var notificationBuilder: Notification.Builder
+    private lateinit var protoManager: ProtoManager
 
     override fun doWork(): Result {
         alertNotification = AlertNotification(context)
+        protoManager = ProtoManager(context)
+        val isWorkMangerCancel = false
+
         Log.e(
             "WorkManger", " get data - ${inputData.getString(titleNotificationID).toString()} " +
                     " , ${inputData.getString(subTitleNotificationID).toString()}  ringer mnde ${
@@ -37,22 +45,39 @@ class WorkMangerFinishNotification(var context: Context, workerParams: WorkerPar
                         ).toString()
                     }"
         )
+//        CoroutineScope(Dispatchers.IO).launch {
+//            val waitFor = CoroutineScope(Dispatchers.IO).async {
+//                isWorkMangerCancel = protoManager.fetchInitialPreferences().isWorkMangerCancel
+//                return@async isWorkMangerCancel
+//            }
+//            waitFor.await()
+//        }
 
-        startNotification(
-            inputData.getString(titleNotificationID).toString(),
-            inputData.getString(subTitleNotificationID).toString(),
-            inputData.getString(WorkMangerForTask.prayerNameID).toString(),
-            inputData.getString(WorkMangerForTask.prayerTimeID).toString()
-        )
+        if(!isWorkMangerCancel) {
+            startNotification(
+                inputData.getString(titleNotificationID).toString(),
+                inputData.getString(subTitleNotificationID).toString(),
+                inputData.getString(WorkMangerForTask.prayerNameID).toString(),
+                inputData.getString(WorkMangerForTask.prayerTimeID).toString()
+            )
+        }
 
-        cancelAlertNotification()
+
         val am = context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
         am.ringerMode = Helper.getPhoneMode(inputData.getString(previousModeID).toString())
 
+        cancelAlertNotification()
+        Helper.setWorkMangerRunning(protoManager, context, false)
+        Helper.setWorkMangerCancel(protoManager, context, false)
+
+        val workMangerForTask = WorkMangerForTask(context)
+        CoroutineScope(Dispatchers.IO).launch {
+            workMangerForTask.startWorker()
+        }
         return Result.success()
     }
 
-    private fun cancelAlertNotification(){
+    private fun cancelAlertNotification() {
         val manager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         manager.cancel(AlertNotification.NOTIFICATION_ALERT_STATE)
 
@@ -86,7 +111,7 @@ class WorkMangerFinishNotification(var context: Context, workerParams: WorkerPar
         prayerName: String,
         prayerTime: String
     ): PendingIntent? {
-        Log.e("MainClass", "Its is here  prayerName ${prayerName} prayerTime $prayerTime")
+        Log.e("MainClass", "Its is here  prayerName $prayerName prayerTime $prayerTime")
 
         val intent = Intent(context, MainActivity::class.java)
         intent.flags = FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK

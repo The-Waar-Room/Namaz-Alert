@@ -19,6 +19,9 @@ interface DailyPrayerDoa {
     @Query("SELECT * FROM DailyPrayerTable WHERE ( date is :searchDate and name LIKE '%' || :search || '%'  ) or ( date is :searchDate and time LIKE '%' || :search || '%')")
     fun pagingSource(searchDate:String , search: String): PagingSource<Int, DailyPrayerDB>
 
+    @Query("SELECT * FROM DailyPrayerTable WHERE ( date is :searchDate and name LIKE '%' || :search || '%'  ) or ( date is :searchDate and time LIKE '%' || :search || '%')")
+    fun listSource(searchDate:String , search: String): List<DailyPrayerDB>
+
 
     @Query("SELECT * FROM DailyPrayerTable WHERE ( date is :searchDate and time > :currentTime ) or ( id is 5 ) Limit 1 ")
     fun getNextTime(searchDate:String , currentTime: String): DailyPrayerDB

@@ -14,7 +14,11 @@ import com.sudoajay.namaz_alert.ui.BaseActivity
 import com.sudoajay.namaz_alert.ui.BaseFragment
 import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask
 import com.sudoajay.namaz_alert.ui.setting.SettingsActivity
+import com.sudoajay.namaz_alert.util.Helper
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity() {
@@ -34,17 +38,28 @@ class MainActivity : BaseActivity() {
             }
 
         }
+
         Log.e("MainClass", "Its is here  ${intent.getStringExtra(WorkMangerForTask.prayerTimeID)}")
         if (!intent.action.isNullOrEmpty() && intent.action.toString() == settingShortcutId) {
             openSetting()
         }
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        Log.e("MainClass", "Its is hereasd   ${intent.getStringExtra(receiverId)}")
+
+        if (intent.getStringExtra(receiverId) == notificationCancelReceiver) {
+            Log.e("MainClass", "Its is hereasd   ${intent.getStringExtra(receiverId)}")
+            Helper.setWorkMangerRunning(protoManager,applicationContext, false)
+            CoroutineScope(Dispatchers.IO).launch {
+                workManger.startWorker()
+            }
+        }
 
         if (intent.getStringExtra(openMainActivityID) == settingShortcutId) {
             openSetting()
         } else if (intent.getStringExtra(WorkMangerForTask.prayerNameID)?.isNotEmpty() == true) {
             openSpecificEditPrayer()
         }
+
     }
 
     private fun openSpecificEditPrayer() {

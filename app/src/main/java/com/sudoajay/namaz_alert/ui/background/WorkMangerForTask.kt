@@ -93,8 +93,7 @@ class WorkMangerForTask @Inject constructor(var context: Context) {
             .setConstraints(constraints.build())
             .build()
 
-        workManager.beginWith(alertOneTimeWorkRequest).then(finishOneTimeRequest).enqueue()
-
+       
 
 
         Log.e(
