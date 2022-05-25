@@ -27,7 +27,6 @@ class ProtoManager @Inject constructor (var context: Context){
                 .setIsWorkMangerCancel(false)
                 .setLatitude(context.getString(R.string.null_string))
                 .setLongitude(context.getString(R.string.null_string))
-                .setCalculationMethods(1)
                 .setNotificationRingtone(0)
                 .build()
         }
@@ -112,13 +111,7 @@ class ProtoManager @Inject constructor (var context: Context){
         }
     }
 
-    suspend fun setCalculationMethods(calculationMethods: Int){
-        dataStoreStatePreferences.updateData { preferences ->
-            preferences.toBuilder()
-                .setCalculationMethods(calculationMethods.toInt())
-                .build()
-        }
-    }
+
 
     suspend fun setNotificationRingtone(notificationRingtone: Int){
         dataStoreStatePreferences.updateData { preferences ->

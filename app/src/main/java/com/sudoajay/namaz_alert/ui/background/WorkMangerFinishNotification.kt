@@ -14,7 +14,6 @@ import androidx.work.WorkerParameters
 import com.sudoajay.namaz_alert.R
 import com.sudoajay.namaz_alert.data.proto.ProtoManager
 import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask.Companion.previousModeID
-import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask.Companion.subTitleNotificationID
 import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask.Companion.titleNotificationID
 import com.sudoajay.namaz_alert.ui.mainActivity.MainActivity
 import com.sudoajay.namaz_alert.ui.notification.AlertNotification
@@ -35,42 +34,47 @@ class WorkMangerFinishNotification(var context: Context, workerParams: WorkerPar
     override fun doWork(): Result {
         alertNotification = AlertNotification(context)
         protoManager = ProtoManager(context)
-        val isWorkMangerCancel = false
-
+        var isWorkMangerCancel = false
+        var previousMode = Helper.getRingerMode(context)
         Log.e(
             "WorkManger", " get data - ${inputData.getString(titleNotificationID).toString()} " +
-                    " , ${inputData.getString(subTitleNotificationID).toString()}  ringer mnde ${
+                    " ,   ringer mnde ${
                         inputData.getString(
                             previousModeID
                         ).toString()
                     }"
         )
-//        CoroutineScope(Dispatchers.IO).launch {
-//            val waitFor = CoroutineScope(Dispatchers.IO).async {
-//                isWorkMangerCancel = protoManager.fetchInitialPreferences().isWorkMangerCancel
-//                return@async isWorkMangerCancel
-//            }
-//            waitFor.await()
-//        }
+        Log.e("WorkManger","isWorkMangerCancel before $isWorkMangerCancel")
+        CoroutineScope(Dispatchers.Main).launch {
+            val waitFor = CoroutineScope(Dispatchers.IO).async {
+                previousMode = protoManager.fetchInitialPreferences().previousPhoneMode
+                isWorkMangerCancel = protoManager.fetchInitialPreferences().isWorkMangerCancel
+                protoManager.setIsWorkMangerCancel(false)
+                protoManager.setIsWorkMangerRunning(false)
+                return@async isWorkMangerCancel
+            }
+            waitFor.await()
+            Log.e("WorkManger","isWorkMangerCancel  $isWorkMangerCancel")
 
-        if(!isWorkMangerCancel) {
-            startNotification(
-                inputData.getString(titleNotificationID).toString(),
-                inputData.getString(subTitleNotificationID).toString(),
-                inputData.getString(WorkMangerForTask.prayerNameID).toString(),
-                inputData.getString(WorkMangerForTask.prayerTimeID).toString()
-            )
+            if (!isWorkMangerCancel) {
+                startNotification(
+                    inputData.getString(titleNotificationID).toString(),
+                    context.getString(R.string.your_device_is_now_text, previousMode),
+                    inputData.getString(WorkMangerForTask.prayerNameID).toString(),
+                    inputData.getString(WorkMangerForTask.prayerTimeID).toString()
+                )
+            }
+            val am = context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
+            am.ringerMode = Helper.getPhoneMode(previousMode)
         }
+        Log.e("WorkManger","isWorkMangerCancel after $isWorkMangerCancel")
 
 
-        val am = context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
-        am.ringerMode = Helper.getPhoneMode(inputData.getString(previousModeID).toString())
 
         cancelAlertNotification()
-        Helper.setWorkMangerRunning(protoManager, context, false)
-        Helper.setWorkMangerCancel(protoManager, context, false)
 
         val workMangerForTask = WorkMangerForTask(context)
+
         CoroutineScope(Dispatchers.IO).launch {
             workMangerForTask.startWorker()
         }
@@ -83,6 +87,7 @@ class WorkMangerFinishNotification(var context: Context, workerParams: WorkerPar
 
 
         WorkManager.getInstance(context).cancelAllWorkByTag(WorkMangerForTask.alertTAGID)
+
     }
 
     private fun startNotification(

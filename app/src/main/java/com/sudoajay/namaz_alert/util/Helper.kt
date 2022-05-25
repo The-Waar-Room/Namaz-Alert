@@ -3,10 +3,12 @@ package com.sudoajay.namaz_alert.util
 import android.content.Context
 import android.media.AudioManager
 import com.sudoajay.namaz_alert.data.proto.ProtoManager
+import com.sudoajay.namaz_alert.data.repository.DailyPrayerRepository
 import com.sudoajay.namaz_alert.ui.BaseFragment
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.io.File
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
@@ -14,6 +16,11 @@ import java.util.*
 class Helper {
 
     companion object {
+
+        fun doesDatabaseExist(context: Context, repository: DailyPrayerRepository): Boolean {
+            val dbFile: File = context.getDatabasePath("DailyPrayerTable_database")
+            return dbFile.exists() && repository.getCount() > 0
+        }
 
         fun throwToaster( context: Context,value: String?) {
             Toaster.showToast(context, value ?: "")

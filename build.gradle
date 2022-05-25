@@ -16,7 +16,7 @@ buildscript {
         PreferencesDataStore = '1.0.0'
         ProtoDataStore = '1.0.0'
         Protobuf = '3.19.1'
-        WorkManger = "2.7.1"
+        WorkManger = "2.8.0-alpha02"
         serviceLocation = '19.0.1'
 
     }

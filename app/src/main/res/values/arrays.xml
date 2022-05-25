@@ -28,29 +28,29 @@
     </string-array>
 
     <string-array name="languagesValues">
-        <item name="english">en</item>
-        <item name="hindi">hi</item>
-        <item name="arabic">ar</item>
-        <item name="bengali">bn</item>
-        <item name="german">de</item>
-        <item name="spanish">es</item>
-        <item name="french">fr</item>
-        <item name="portuguese">pt</item>
-        <item name="indonesian">id</item>
-        <item name="italian">it</item>
-        <item name="japanese">ja</item>
-        <item name="korean">ko</item>
-        <item name="nepali">ne</item>
-        <item name="dutch">nl</item>
-        <item name="punjabi">pa</item>
-        <item name="russian">ru</item>
-        <item name="tamil">ta</item>
-        <item name="telugu">te</item>
-        <item name="thai">th</item>
-        <item name="turkish">tr</item>
-        <item name="urdu">ur</item>
-        <item name="vietnamese">vi</item>
-        <item name="chinese">zh</item>
+        <item name="english">English</item>
+        <item name="hindi">Hindi</item>
+        <item name="arabic">Arabic</item>
+        <item name="bengali">Bengali</item>
+        <item name="german">German</item>
+        <item name="spanish">Spanish</item>
+        <item name="french">French</item>
+        <item name="portuguese">Portuguese</item>
+        <item name="indonesian">Indonesian</item>
+        <item name="italian">Italian</item>
+        <item name="japanese">Japanese</item>
+        <item name="korean">Korean</item>
+        <item name="nepali">Nepali</item>
+        <item name="dutch">Dutch</item>
+        <item name="punjabi">Punjabi</item>
+        <item name="russian">Russian</item>
+        <item name="tamil">Tamil</item>
+        <item name="telugu">Telugu</item>
+        <item name="thai">Thai</item>
+        <item name="turkish">Turkish</item>
+        <item name="urdu">Urdu</item>
+        <item name="vietnamese">Vietnamese</item>
+        <item name="chinese">Chinese</item>
     </string-array>
 
 
@@ -60,39 +60,7 @@
         <item name="silent">@string/silent_mode</item>
     </string-array>
 
-    <string-array name="calculationMethods">
-        <item name="muslim_world_league">@string/muslim_world_league_text</item>
-        <item name="islamic_society_of_north_america">@string/islamic_society_of_north_america_text</item>
-        <item name="egyptian_general_authority_of_survey">@string/egyptian_general_authority_of_survey_text</item>
-        <item name="umm_al_qura_university_makkah">@string/umm_al_qura_university_makkah_text</item>
-        <item name="university_of_islamic_sciences_karachi">@string/university_of_islamic_sciences_karachi_text</item>
-        <item name="institute_of_geophysics_university_of_tTehran">@string/institute_of_geophysics_university_of_tTehran_text</item>
-        <item name="shia_ithna_ashari_leva_institute_qum">@string/shia_ithna_ashari_leva_institute_qum_text</item>
-        <item name="gulf_region">@string/gulf_region_text</item>
-        <item name="Kuwait">@string/Kuwait_text</item>
-        <item name="Qatar">@string/Qatar_text</item>
-        <item name="majlis_ugama_islam_singapura_singapore">@string/majlis_ugama_islam_singapura_singapore_text</item>
-        <item name="union_organization_islamic_de_fFrance">@string/union_organization_islamic_de_fFrance_text</item>
-        <item name="diyanet_işleri_başkanlığı_turkey">@string/diyanet_işleri_başkanlığı_turkey_text</item>
-        <item name="spiritual_administration_of_muslims_of_russia">@string/spiritual_administration_of_muslims_of_russia_text</item>
-    </string-array>
 
-    <string-array name="calculationMethodsValues">
-        <item name="muslim_world_league">1</item>
-        <item name="islamic_society_of_north_america">2</item>
-        <item name="egyptian_general_authority_of_survey">3</item>
-        <item name="umm_al_qura_university_makkah">4</item>
-        <item name="university_of_islamic_sciences_karachi">5</item>
-        <item name="institute_of_geophysics_university_of_tTehran">6</item>
-        <item name="shia_ithna_ashari_leva_institute_qum">7</item>
-        <item name="gulf_region">8</item>
-        <item name="Kuwait">9</item>
-        <item name="Qatar">10</item>
-        <item name="majlis_ugama_islam_singapura_singapore">11</item>
-        <item name="union_organization_islamic_de_fFrance">12</item>
-        <item name="diyanet_işleri_başkanlığı_turkey">13</item>
-        <item name="spiritual_administration_of_muslims_of_russia">14</item>
-    </string-array>
 
     <string-array name="setNotificationRingtone">
         <item name="default">@string/default_ringtone_text</item>

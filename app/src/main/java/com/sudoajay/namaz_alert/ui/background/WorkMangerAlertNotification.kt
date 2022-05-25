@@ -8,7 +8,6 @@ import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import android.media.AudioManager
 import android.util.Log
 import androidx.core.app.NotificationCompat
-import androidx.work.WorkManager
 import androidx.work.Worker
 import androidx.work.WorkerParameters
 import com.sudoajay.namaz_alert.R
@@ -17,12 +16,10 @@ import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask.Companion.diffTi
 import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask.Companion.phoneModeID
 import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask.Companion.prayerNameID
 import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask.Companion.prayerTimeID
-import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask.Companion.previousModeID
 import com.sudoajay.namaz_alert.ui.mainActivity.MainActivity
 import com.sudoajay.namaz_alert.ui.notification.AlertNotification
 import com.sudoajay.namaz_alert.ui.notification.NotificationChannels
 import com.sudoajay.namaz_alert.util.Helper
-import com.sudoajay.namaz_alert.util.PhoneMode
 import kotlinx.coroutines.*
 
 class WorkMangerAlertNotification(var context: Context, workerParams: WorkerParameters) :
@@ -31,46 +28,63 @@ class WorkMangerAlertNotification(var context: Context, workerParams: WorkerPara
 
     lateinit var alertNotification: AlertNotification
     private lateinit var notificationCompat: NotificationCompat.Builder
+    private lateinit var protoManager: ProtoManager
 
     override fun doWork(): Result {
         alertNotification = AlertNotification(context)
+        protoManager = ProtoManager(context)
+        var notificationRingtone = 0
+
         Log.e(
             "WorkManger", " get data - ${inputData.getString(prayerNameID)}  ," +
                     "${inputData.getString(prayerTimeID)} , ${inputData.getString(phoneModeID)} , " +
-                    "${inputData.getString(diffTimeID)} , ${
-                        inputData.getString(
-                            previousModeID
-                        )
-                    }"
-        )
-        startNotification(
-            inputData.getString(prayerNameID).toString(),
-            inputData.getString(prayerTimeID).toString(),
-            inputData.getString(phoneModeID).toString(),
-            inputData.getString(diffTimeID).toString(),
-            inputData.getString(
-                previousModeID
-            ).toString()
+                    "${inputData.getString(diffTimeID)} "
         )
 
-        Helper.setWorkMangerRunning(null,context,true)
+        val previousMode = Helper.getRingerMode(context)
 
         CoroutineScope(Dispatchers.IO).launch {
-            delay(1000*22) // 22 sec
-            val am = context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
-            am.ringerMode = Helper.getPhoneMode(inputData.getString(phoneModeID).toString())
+            protoManager.setPreviousMode(previousMode)
         }
+
+        CoroutineScope(Dispatchers.Main).launch {
+            val waitFor = CoroutineScope(Dispatchers.IO).async {
+                protoManager.setIsWorkMangerCancel(false)
+                protoManager.setIsWorkMangerRunning(true)
+                notificationRingtone = protoManager.fetchInitialPreferences().notificationRingtone
+
+                return@async notificationRingtone
+            }
+            waitFor.await()
+            startNotification(
+                inputData.getString(prayerNameID).toString(),
+                inputData.getString(prayerTimeID).toString(),
+                inputData.getString(phoneModeID).toString(),
+                inputData.getString(diffTimeID).toString(),
+                previousMode,
+                notificationRingtone
+            )
+            withContext(Dispatchers.IO) {
+                if (notificationRingtone == 1) delay(1000 * 22) // 5 sec
+                else delay(1000 * 5)// 5 sec
+                val am = context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
+                am.ringerMode = Helper.getPhoneMode(inputData.getString(phoneModeID).toString())
+            }
+        }
+
+
+
+
         cancelAlertNotification()
+
+
         return Result.success()
     }
 
     private fun cancelAlertNotification() {
         val manager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         manager.cancel(AlertNotification.NOTIFICATION_FinishCancel_STATE)
-        WorkManager.getInstance(context).cancelAllWorkByTag(WorkMangerForTask.finishTAGID)
     }
-
-
 
 
     private fun startNotification(
@@ -78,13 +92,13 @@ class WorkMangerAlertNotification(var context: Context, workerParams: WorkerPara
         prayerTime: String,
         phoneMode: String,
         diffTime: String,
-        previousMode: String
+        previousMode: String,notificationRingtone :Int
 
     ) {
-        createNotification(prayerName,prayerTime)
+        createNotification(prayerName, prayerTime)
         alertNotification.notifyCompat(
             prayerName, Helper.convertTo12Hours(prayerTime).toString(), phoneMode,
-            diffTime, previousMode, notificationCompat
+            diffTime, previousMode,notificationRingtone, notificationCompat
         )
     }
 

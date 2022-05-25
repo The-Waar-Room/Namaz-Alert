@@ -15,8 +15,7 @@ message StatePreferences {
   string previousPhoneMode = 9;
   string latitude = 10;
   string longitude = 11;
-  int32 calculationMethods = 12;
-  int32 notificationRingtone = 13;
+  int32 notificationRingtone = 12;
 
 
 }

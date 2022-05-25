@@ -34,7 +34,6 @@ class NotificationCancelReceiver : BroadcastReceiver() {
 
         val manager = context.getSystemService(NOTIFICATION_SERVICE) as NotificationManager
         manager.cancel(AlertNotification.NOTIFICATION_ALERT_STATE)
-
         manager.cancel(AlertNotification.NOTIFICATION_FinishCancel_STATE)
 
         WorkManager.getInstance(context).cancelAllWorkByTag(WorkMangerForTask.alertTAGID)

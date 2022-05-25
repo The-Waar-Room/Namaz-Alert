@@ -11,11 +11,12 @@ import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import com.sudoajay.namaz_alert.R
+import com.sudoajay.namaz_alert.data.proto.ProtoManager
 import com.sudoajay.namaz_alert.model.MessageType
 import com.sudoajay.namaz_alert.ui.BaseActivity
 import com.sudoajay.namaz_alert.ui.feedbackAndHelp.SendFeedbackAndHelp
+import com.sudoajay.namaz_alert.ui.mainActivity.MainActivity
 import com.sudoajay.namaz_alert.util.DeleteCache
-import com.sudoajay.namaz_alert.data.proto.ProtoManager
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -83,20 +84,10 @@ class SettingsActivity : BaseActivity() {
                 }
                 true
             }
-
-            val calculationMethods = findPreference("calculationMethods") as ListPreference?
-            calculationMethods?.setOnPreferenceChangeListener { _, newValue ->
-                lifecycleScope.launch {
-                    protoManager.setCalculationMethods(newValue.toString().toInt())
-                }
-                true
-            }
-
-            val selectLanguage = findPreference("changeLanguage") as ListPreference?
-            selectLanguage!!.setOnPreferenceChangeListener { _, newValue ->
-//                if (newValue.toString() != getLanguage(requireContext())) {
-//                    requireActivity().recreate()
-//                }
+            val selectLanguage =
+                findPreference("changeLanguage") as Preference?
+            selectLanguage!!.onPreferenceClickListener = Preference.OnPreferenceClickListener {
+                openSelectLanguage()
                 true
             }
 
@@ -201,6 +192,12 @@ class SettingsActivity : BaseActivity() {
                     SendFeedbackAndHelp::class.java
                 ).putExtra("MessageType", MessageType.FeedBack.toString())
             )
+        }
+
+        private fun openSelectLanguage() {
+            val intent = Intent(requireContext(), MainActivity::class.java)
+            intent.putExtra(openMainActivityID, openSelectLanguageID)
+            startActivity(intent)
         }
     }
 }

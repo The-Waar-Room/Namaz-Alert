@@ -25,7 +25,7 @@ object NotificationChannels {
 
     @RequiresApi(Build.VERSION_CODES.O)
     @JvmStatic
-    fun notificationOnCreate(context: Context) {
+    fun notificationOnCreate(context: Context, notificationRingtone:Int) {
         val notificationManager =
             context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         notificationManager.createNotificationChannelGroup(
@@ -34,8 +34,6 @@ object NotificationChannels {
                 context.getString(R.string.notification_group_services)
             )
         )
-
-
         val alertPrayerChannel = NotificationChannel(
             ALERT_PRAYER_TIME,
             context.getString(R.string.notifications_alert_prayer_time),
@@ -49,7 +47,8 @@ object NotificationChannels {
             .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
             .setUsage(AudioAttributes.USAGE_ALARM)
             .build()
-        alertPrayerChannel.setSound(sound , audioAttributes)
+
+        alertPrayerChannel.setSound(if(notificationRingtone == 0) null else sound ,if(notificationRingtone == 0) null else audioAttributes)
         alertPrayerChannel.description = context.getString(R.string.notifications_alert_desc)
         alertPrayerChannel.group = GROUP_NOTIFICATION
         alertPrayerChannel.enableVibration(true)
@@ -70,8 +69,5 @@ object NotificationChannels {
         alertPrayerChannel.enableVibration(true)
         alertPrayerChannel.enableLights(true)
         notificationManager.createNotificationChannel(finishCancelPrayerChannel)
-
-
-
     }
 }

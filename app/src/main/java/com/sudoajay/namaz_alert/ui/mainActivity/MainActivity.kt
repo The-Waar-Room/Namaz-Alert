@@ -58,6 +58,8 @@ class MainActivity : BaseActivity() {
             openSetting()
         } else if (intent.getStringExtra(WorkMangerForTask.prayerNameID)?.isNotEmpty() == true) {
             openSpecificEditPrayer()
+        }else if(intent.getStringExtra(openMainActivityID) == openSelectLanguageID){
+            openSelectLanguage()
         }
 
     }
@@ -78,6 +80,15 @@ class MainActivity : BaseActivity() {
     private fun openSetting() {
         val intent = Intent(applicationContext, SettingsActivity::class.java)
         startActivity(intent)
+    }
+
+
+    private fun openSelectLanguage(){
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
+        navController.navigate(
+            R.id.action_homeFragment_to_selectLanguageFragment)
     }
 
 

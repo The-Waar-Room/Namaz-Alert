@@ -25,6 +25,7 @@
         <entry key="app/src/main/res/drawable/ic_send_feedback.xml" value="0.298" />
         <entry key="app/src/main/res/drawable/ic_setting.xml" value="0.298" />
         <entry key="app/src/main/res/drawable/ic_share_app.xml" value="0.298" />
+        <entry key="app/src/main/res/drawable/ic_tick.xml" value="0.298" />
         <entry key="app/src/main/res/drawable/ic_vibrate.xml" value="0.298" />
         <entry key="app/src/main/res/drawable/ic_vibration.xml" value="0.298" />
         <entry key="app/src/main/res/drawable/isha_bg_gradient_drawable.xml" value="0.298" />
@@ -40,7 +41,9 @@
         <entry key="app/src/main/res/layout/activity_settings.xml" value="0.29243266353142366" />
         <entry key="app/src/main/res/layout/fragment_edit_daily_prayer.xml" value="0.29243266353142366" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.35625" />
+        <entry key="app/src/main/res/layout/fragment_select_language.xml" value="0.29243266353142366" />
         <entry key="app/src/main/res/layout/holder_daily_prayer_item.xml" value="0.3206997084548105" />
+        <entry key="app/src/main/res/layout/holder_select_language.xml" value="0.29243266353142366" />
         <entry key="app/src/main/res/layout/hour_minute_picker_dialog.xml" value="0.29243266353142366" />
         <entry key="app/src/main/res/layout/layout_navigation_drawer_bottom_sheet.xml" value="0.29243266353142366" />
         <entry key="app/src/main/res/layout/layout_system_info.xml" value="0.29243266353142366" />

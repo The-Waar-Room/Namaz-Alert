@@ -15,7 +15,12 @@
             android:id="@+id/action_homeFragment_to_editDailyPrayerFragment"
             app:destination="@id/editDailyPrayerFragment"
             app:enterAnim="@anim/slide_from_top"
-            app:exitAnim="@anim/slide_to_bottom"/>
+            app:exitAnim="@anim/slide_to_bottom" />
+        <action
+            android:id="@+id/action_homeFragment_to_selectLanguageFragment"
+            app:destination="@id/selectLanguageFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"/>
 
     </fragment>
     <fragment
@@ -31,11 +36,16 @@
             android:name="prayerTime"
             android:defaultValue="@null"
             app:argType="string"
-            app:nullable="true"/>
+            app:nullable="true" />
         <action
             android:id="@+id/action_editDailyPrayerFragment_to_homeFragment"
             app:destination="@id/homeFragment"
             app:enterAnim="@anim/slide_from_bottom"
-            app:exitAnim="@anim/slide_to_top"/>
+            app:exitAnim="@anim/slide_to_top" />
     </fragment>
+    <fragment
+        android:id="@+id/selectLanguageFragment"
+        android:name="com.sudoajay.namaz_alert.ui.language.SelectLanguageFragment"
+        android:label="SelectLanguageFragment"
+        tools:layout="@layout/fragment_select_language" />
 </navigation>

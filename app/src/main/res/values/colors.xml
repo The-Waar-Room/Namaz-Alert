@@ -13,9 +13,11 @@
     <color name="headingNormalTextColor">#353131</color>
     <color name="whiteColor">#fff</color>
     <color name="textLinkColor">#0277BD</color>
+    <color name="fadeTextColor">#5C5757</color>
 
 
-<!--    -->
+
+    <!--    -->
     <color name="fajr_color">#65BEFF</color>
     <color name="dhuhr_color">#ED7430</color> //ED7430 FFA113
     <color name="asr_color">#FF6A6A</color>

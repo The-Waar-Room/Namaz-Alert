@@ -17,19 +17,10 @@
             android:key="notificationSound"
             android:title="@string/notification_sound_text" />
 
-        <ListPreference
-            android:defaultValue="1"
-            android:entries="@array/calculationMethods"
-            android:entryValues="@array/calculationMethodsValues"
-            android:key="calculationMethods"
-            android:title="@string/calculation_method_text"
-            android:summary="@string/namaz_prayer_time_calculation_time_text" />
-        <ListPreference
-            android:defaultValue="en"
-            android:entries="@array/languageList"
-            android:entryValues="@array/languagesValues"
-            android:key="changeLanguage"
-            android:title="@string/change_language_text" />
+        <Preference
+            app:key="changeLanguage"
+            app:title="@string/change_language_text" />
+
 
     </PreferenceCategory>
 

@@ -70,15 +70,7 @@ class HomeFragment : BaseFragment() {
         setupToolbar()
         setUpView()
 
-//        val startIntent = Intent(requireContext(), NotificationServices::class.java)
-//        startIntent.putExtra("COMMAND", Command.START.ordinal)
-//        startIntent.putExtra(prayerNameID ," inputData.getString(prayerNameID)")
-//        startIntent.putExtra(prayerTimeID , "inputData.getString(prayerTimeID)")
-//        startIntent.putExtra(phoneModeID ," inputData.getString(phoneModeID)")
-//        startIntent.putExtra(beforeTimeID , "inputData.getString(beforeTimeID)")
-//        startIntent.putExtra(afterTimeID , "inputData.getString(afterTimeID)")
-////        requireContext().bindService(startIntent, serviceConnection, Context.BIND_AUTO_CREATE)
-//        requireContext().startForegroundService(startIntent)
+
 
 
         return binding.root
@@ -118,9 +110,7 @@ class HomeFragment : BaseFragment() {
 
         callRecyclerDate()
 
-//        lifecycleScope.launch {
-//            dailyPrayerAbdulrcsViewModel.getDataFromApi()
-//        }
+
     }
 
     private fun callRecyclerDate() {

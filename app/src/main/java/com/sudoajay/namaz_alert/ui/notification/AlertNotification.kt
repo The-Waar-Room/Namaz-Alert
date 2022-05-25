@@ -71,7 +71,7 @@ class AlertNotification @Inject constructor(var context: Context) {
         prayerTime: String,
         phoneMode: String,
         timeDiff: String,
-        previousMode :String ,
+        previousMode :String ,notificationRingtone:Int,
         builder: NotificationCompat.Builder
     ) { // local variable
 
@@ -92,7 +92,7 @@ class AlertNotification @Inject constructor(var context: Context) {
         }
 
         // Default ringtone
-        val uri = Uri.parse("android.resource://"+context.packageName +"/"+R.raw.azan_in_islam);
+        val uri = if (notificationRingtone == 0) null else Uri.parse("android.resource://"+context.packageName +"/"+R.raw.azan_in_islam)
 
         builder
 

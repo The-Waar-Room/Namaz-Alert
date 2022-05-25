@@ -163,4 +163,12 @@
     <string name="namaz_prayer_time_calculation_time_text">Namaz Prayer Time  now support the following calculation methods </string>
     <string name="calculation_method_text">Calculation Methods</string>
 
+
+<!--    Select langauge-->
+    <string name="select_language_text">Select Language</string>
+    <string name="continue_text">Continue</string>
+    <string name="select_language_bracket" translatable="false">( %1$s )</string>
+
+
+
 </resources>

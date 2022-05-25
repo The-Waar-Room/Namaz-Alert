@@ -122,8 +122,6 @@ dependencies {
     // WorkManager dependency
     implementation("androidx.work:work-runtime-ktx:$WorkManger")
 
-//    Play service location
-    implementation("com.google.android.gms:play-services-location:$serviceLocation")
 
 //    Jsoup
     implementation 'org.jsoup:jsoup:1.15.1'
