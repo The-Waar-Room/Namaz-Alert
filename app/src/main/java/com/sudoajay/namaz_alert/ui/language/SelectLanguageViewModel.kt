@@ -4,7 +4,6 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.sudoajay.namaz_alert.R
-import com.sudoajay.namaz_alert.model.Language
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

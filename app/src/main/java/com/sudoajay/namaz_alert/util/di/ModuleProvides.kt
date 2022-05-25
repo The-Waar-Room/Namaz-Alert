@@ -5,6 +5,7 @@ import com.sudoajay.namaz_alert.data.proto.ProtoManager
 import com.sudoajay.namaz_alert.data.repository.WebScrappingGoogle
 import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask
 import com.sudoajay.namaz_alert.ui.notification.AlertNotification
+import com.sudoajay.namaz_alert.ui.notificationSound.repository.SelectNotificationSoundAdapter
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -32,6 +33,9 @@ object ModuleProvides {
     @Provides
     fun providesWebScrappingGoogle( @ApplicationContext appContext: Context): WebScrappingGoogle = WebScrappingGoogle(appContext)
 
+    @Singleton
+    @Provides
+    fun providesSelectNotificationSoundAdapter( @ApplicationContext appContext: Context): SelectNotificationSoundAdapter = SelectNotificationSoundAdapter(appContext)
 
 
 }

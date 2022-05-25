@@ -10,12 +10,10 @@
             android:key="phoneMode"
             android:title="@string/phone_mode_text" />
 
-        <ListPreference
-            android:defaultValue="0"
-            android:entries="@array/setNotificationRingtone"
-            android:entryValues="@array/setNotificationRingtoneValues"
-            android:key="notificationSound"
-            android:title="@string/notification_sound_text" />
+        <Preference
+            app:key="notificationSound"
+            app:title="@string/notification_sound_text" />
+
 
         <Preference
             app:key="changeLanguage"

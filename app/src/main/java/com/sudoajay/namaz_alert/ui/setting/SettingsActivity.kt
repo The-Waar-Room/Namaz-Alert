@@ -5,6 +5,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.preference.ListPreference
@@ -77,11 +78,12 @@ class SettingsActivity : BaseActivity() {
                 true
             }
 
-            val notificationSound = findPreference("notificationSound") as ListPreference?
-            notificationSound?.setOnPreferenceChangeListener { _, newValue ->
-                lifecycleScope.launch {
-                    protoManager.setNotificationRingtone(newValue.toString().toInt())
-                }
+
+
+            val notificationSound =
+                findPreference("notificationSound") as Preference?
+            notificationSound!!.onPreferenceClickListener = Preference.OnPreferenceClickListener {
+                openSelectNotificationSound()
                 true
             }
             val selectLanguage =
@@ -199,5 +201,17 @@ class SettingsActivity : BaseActivity() {
             intent.putExtra(openMainActivityID, openSelectLanguageID)
             startActivity(intent)
         }
+
+        private fun openSelectNotificationSound() {
+            val intent = Intent(requireContext(), MainActivity::class.java)
+            intent.putExtra(openMainActivityID, openSelectNotificationSoundID)
+            startActivity(intent)
+        }
+    }
+
+    override fun onBackPressed() {
+        val intent = Intent(applicationContext, MainActivity::class.java)
+        startActivity(intent)
+        super.onBackPressed()
     }
 }

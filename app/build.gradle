@@ -75,6 +75,7 @@ dependencies {
 
 //    DependencyInjection
     implementation("com.google.dagger:hilt-android:$Dagger_Hilt")
+    implementation 'androidx.test:core-ktx:1.4.0'
     kapt("com.google.dagger:hilt-compiler:$Dagger_Hilt")
     implementation("androidx.hilt:hilt-lifecycle-viewmodel:$Android_Hilt")
     kapt("androidx.hilt:hilt-compiler:$Android_Hilt")

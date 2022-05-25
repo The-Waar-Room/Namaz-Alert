@@ -42,8 +42,12 @@
         <entry key="app/src/main/res/layout/fragment_edit_daily_prayer.xml" value="0.29243266353142366" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_select_language.xml" value="0.29243266353142366" />
+        <entry key="app/src/main/res/layout/fragment_select_notification_sound.xml" value="0.29243266353142366" />
+        <entry key="app/src/main/res/layout/fragment_select_ringtone.xml" value="0.29243266353142366" />
         <entry key="app/src/main/res/layout/holder_daily_prayer_item.xml" value="0.3206997084548105" />
         <entry key="app/src/main/res/layout/holder_select_language.xml" value="0.29243266353142366" />
+        <entry key="app/src/main/res/layout/holder_select_notification_sound.xml" value="0.29243266353142366" />
+        <entry key="app/src/main/res/layout/holder_select_ringtone.xml" value="0.29243266353142366" />
         <entry key="app/src/main/res/layout/hour_minute_picker_dialog.xml" value="0.29243266353142366" />
         <entry key="app/src/main/res/layout/layout_navigation_drawer_bottom_sheet.xml" value="0.29243266353142366" />
         <entry key="app/src/main/res/layout/layout_system_info.xml" value="0.29243266353142366" />

@@ -60,16 +60,16 @@
         <item name="silent">@string/silent_mode</item>
     </string-array>
 
-
-
-    <string-array name="setNotificationRingtone">
-        <item name="default">@string/default_ringtone_text</item>
-        <item name="azan_in_islam">@string/azan_in_islam_text</item>
-    </string-array>
-    <string-array name="setNotificationRingtoneValues">
+    <string-array name="setNotificationSound">
         <item name="default">0</item>
         <item name="azan_in_islam">1</item>
     </string-array>
+
+    <string-array name="setNotificationSoundValues">
+        <item name="default">@string/default_ringtone_text</item>
+        <item name="azan_in_islam">@string/azan_in_islam_text</item>
+    </string-array>
+
 
 
 

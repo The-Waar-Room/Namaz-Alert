@@ -169,6 +169,8 @@
     <string name="continue_text">Continue</string>
     <string name="select_language_bracket" translatable="false">( %1$s )</string>
 
+<!--    Select Ringtone-->
+    <string name="select_notification_sound_text">Select Notification Sound</string>
 
 
 </resources>

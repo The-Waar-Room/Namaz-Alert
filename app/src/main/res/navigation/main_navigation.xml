@@ -21,6 +21,11 @@
             app:destination="@id/selectLanguageFragment"
             app:enterAnim="@anim/slide_from_right"
             app:exitAnim="@anim/slide_to_left"/>
+        <action
+            android:id="@+id/action_homeFragment_to_selectRingtoneFragment"
+            app:destination="@id/selectRingtoneFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"/>
 
     </fragment>
     <fragment
@@ -48,4 +53,9 @@
         android:name="com.sudoajay.namaz_alert.ui.language.SelectLanguageFragment"
         android:label="SelectLanguageFragment"
         tools:layout="@layout/fragment_select_language" />
+    <fragment
+        android:id="@+id/selectRingtoneFragment"
+        android:name="com.sudoajay.namaz_alert.ui.notificationSound.SelectNotificationSoundFragment"
+        android:label="SelectRingtoneFragment"
+        tools:layout="@layout/fragment_select_notification_sound"/>
 </navigation>

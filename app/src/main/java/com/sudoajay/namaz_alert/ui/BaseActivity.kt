@@ -101,6 +101,7 @@ open class BaseActivity : AppCompatActivity() {
 
         const val openMainActivityID = "OpenMainActivityID"
         const val openSelectLanguageID = "OpenSelectLanguage"
+        const val openSelectNotificationSoundID = "OpenSelectNotificationSound"
         const val messageType = "MessageType"
         const val settingShortcutId = "setting"
         const val phoneModeShortcutId = "phoneMode"
