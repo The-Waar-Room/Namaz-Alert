@@ -15,7 +15,7 @@ class SelectLanguageAdapter @Inject constructor() :
 
     var languageList = mutableListOf<String>()
     var languageValue = mutableListOf<String>()
-
+    var selectedLanguage = "English"
 
     inner class ViewHolder(
         val binding: HolderSelectLanguageBinding? = null,
@@ -49,8 +49,12 @@ class SelectLanguageAdapter @Inject constructor() :
 
         Log.e("SelectLanguageTAG", "  inside value - $value and text - $text")
         viewHolder.binding.tickImageView.visibility =
-            if (value == "Arabic") View.VISIBLE else View.GONE
+            if (text == selectedLanguage) View.VISIBLE else View.GONE
 
+        viewHolder.binding.root.setOnClickListener {
+            selectedLanguage = text
+            notifyItemRangeChanged(0, languageList.size)
+        }
 
     }
 

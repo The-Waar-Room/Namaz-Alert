@@ -13,9 +13,8 @@ message StatePreferences {
   bool isWorkMangerRunning = 7;
   bool isWorkMangerCancel = 8;
   string previousPhoneMode = 9;
-  string latitude = 10;
-  string longitude = 11;
-  int32 notificationRingtone = 12;
+  int32 notificationRingtone = 10;
+  bool isPermissionAsked = 11;
 
 
 }

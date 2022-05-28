@@ -10,6 +10,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.sudoajay.namaz_alert.R
+import com.sudoajay.namaz_alert.data.db.DailyPrayerDatabase
+import com.sudoajay.namaz_alert.data.repository.DailyPrayerRepository
 import com.sudoajay.namaz_alert.databinding.ActivityMainBinding
 import com.sudoajay.namaz_alert.ui.BaseActivity
 import com.sudoajay.namaz_alert.ui.BaseFragment
@@ -17,17 +19,15 @@ import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask
 import com.sudoajay.namaz_alert.ui.setting.SettingsActivity
 import com.sudoajay.namaz_alert.util.Helper
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity() {
     private var isDarkTheme: Boolean = false
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var  navController:NavController
-
+    private lateinit var navController: NavController
+    var isPermissionAsked = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         isDarkTheme = isSystemDefaultOn(resources)
@@ -37,24 +37,27 @@ class MainActivity : BaseActivity() {
                 WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars =
                     true
             }
-
         }
-
-
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
 
         Log.e("MainClass", "Its is here  ${intent.getStringExtra(WorkMangerForTask.prayerTimeID)}")
-        if (!intent.action.isNullOrEmpty() && intent.action.toString() == settingShortcutId) {
-            openSetting()
+        if (!intent.action.isNullOrEmpty()) {
+            when (intent.action.toString()) {
+                vibrateModeID -> openSetting()
+                notificationSoundID -> openSelectRingtone()
+                nextPrayerID -> openNextPrayer()
+                else -> {}
+            }
+
         }
         Log.e("MainClass", "Its is hereasd   ${intent.getStringExtra(receiverId)}")
 
         if (intent.getStringExtra(receiverId) == notificationCancelReceiver) {
             Log.e("MainClass", "Its is hereasd   ${intent.getStringExtra(receiverId)}")
-            Helper.setWorkMangerRunning(protoManager,applicationContext, false)
+            Helper.setWorkMangerRunning(protoManager, applicationContext, false)
             CoroutineScope(Dispatchers.IO).launch {
                 workManger.startWorker()
             }
@@ -64,20 +67,32 @@ class MainActivity : BaseActivity() {
             openSetting()
         } else if (intent.getStringExtra(WorkMangerForTask.prayerNameID)?.isNotEmpty() == true) {
             openSpecificEditPrayer()
-        }else if(intent.getStringExtra(openMainActivityID) == openSelectLanguageID){
+        } else if (intent.getStringExtra(openMainActivityID) == openSelectLanguageID) {
             openSelectLanguage()
-        }else if(intent.getStringExtra(openMainActivityID) == openSelectNotificationSoundID){
+        } else if (intent.getStringExtra(openMainActivityID) == openSelectNotificationSoundID) {
             openSelectRingtone()
         }
 
+        CoroutineScope(Dispatchers.Main).launch {
+            val waitFor = CoroutineScope(Dispatchers.IO).async {
+                isPermissionAsked = protoManager.fetchInitialPreferences().isPermissionAsked
+                return@async isPermissionAsked
+            }
+            waitFor.await()
+            showPermissionAskedDrawer()
+        }
+
+
     }
 
-    private fun openSpecificEditPrayer() {
+    private fun openSpecificEditPrayer(prayerName:String? =null , prayerTime:String?=null) {
         navController.navigate(
             R.id.action_homeFragment_to_editDailyPrayerFragment,
             bundleOf(
-                BaseFragment.editDailyPrayerNameKey to intent.getStringExtra(WorkMangerForTask.prayerNameID),
-                BaseFragment.editDailyPrayerTimeKey to intent.getStringExtra(WorkMangerForTask.prayerTimeID)
+                BaseFragment.editDailyPrayerNameKey to if(prayerName.isNullOrEmpty())
+                    intent.getStringExtra(WorkMangerForTask.prayerNameID) else prayerName,
+                BaseFragment.editDailyPrayerTimeKey to if(prayerTime.isNullOrEmpty()) intent.getStringExtra(WorkMangerForTask.prayerTimeID)
+            else prayerTime
             )
         )
     }
@@ -88,14 +103,39 @@ class MainActivity : BaseActivity() {
     }
 
 
-    private fun openSelectLanguage(){
+    private fun openSelectLanguage() {
         navController.navigate(
-            R.id.action_homeFragment_to_selectLanguageFragment)
+            R.id.action_homeFragment_to_selectLanguageFragment
+        )
     }
 
-    private fun openSelectRingtone(){
+    private fun openSelectRingtone() {
         navController.navigate(
-            R.id.action_homeFragment_to_selectRingtoneFragment)
+            R.id.action_homeFragment_to_selectRingtoneFragment
+        )
+    }
+
+    private fun openNextPrayer() {
+        CoroutineScope(Dispatchers.IO).launch {
+            val dailyPrayerRepository =
+                DailyPrayerRepository(
+                    DailyPrayerDatabase.getDatabase(applicationContext).dailyPrayerDoa()
+                )
+            val currentTime = Helper.getCurrentTime()
+            val dailyPrayerDB =
+                dailyPrayerRepository.getNextTime(Helper.getTodayDate(), currentTime)
+            withContext(Dispatchers.Main) {
+                openSpecificEditPrayer(dailyPrayerDB.Name,dailyPrayerDB.Time)
+            }
+        }
+    }
+
+    private fun showPermissionAskedDrawer() {
+        if (!isPermissionAsked && !(Helper.doNotDisturbPermissionAlreadyGiven(applicationContext)))
+            notDisturbPermissionBottomSheet.show(
+                supportFragmentManager.beginTransaction(),
+                notDisturbPermissionBottomSheet.tag
+            )
     }
 
 

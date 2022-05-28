@@ -19,6 +19,11 @@
             app:key="changeLanguage"
             app:title="@string/change_language_text" />
 
+        <Preference
+            app:key="doNotDisturbPermission"
+            app:title="@string/do_not_disturb_permission_text"
+            app:summary="@string/we_need_permission_text"/>
+
 
     </PreferenceCategory>
 

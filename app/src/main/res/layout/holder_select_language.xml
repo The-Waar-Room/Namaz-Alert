@@ -4,9 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:paddingTop="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackground"
         android:paddingBottom="8dp">
 
 
@@ -16,9 +19,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:background="?android:selectableItemBackground"
-            android:clickable="true"
-            android:focusable="true"
+            android:clickable="false"
+            android:focusable="false"
             android:textColor="@color/headingNormalTextColor"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -32,9 +34,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:background="?android:selectableItemBackground"
-            android:clickable="true"
-            android:focusable="true"
+            android:clickable="false"
+            android:focusable="false"
             android:textColor="@color/fadeTextColor"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/selectLanguageSame_TextView"

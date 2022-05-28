@@ -1,10 +1,7 @@
 package com.sudoajay.namaz_alert.ui.home
 
-import android.content.ComponentName
 import android.content.Intent
-import android.content.ServiceConnection
 import android.os.Bundle
-import android.os.IBinder
 import android.util.Log
 import android.view.*
 import android.view.inputmethod.EditorInfo
@@ -21,7 +18,6 @@ import com.sudoajay.namaz_alert.R
 import com.sudoajay.namaz_alert.databinding.FragmentHomeBinding
 import com.sudoajay.namaz_alert.ui.BaseActivity.Companion.isSystemDefaultOn
 import com.sudoajay.namaz_alert.ui.BaseFragment
-import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask
 import com.sudoajay.namaz_alert.ui.bottomSheet.NavigationDrawerBottomSheet
 import com.sudoajay.namaz_alert.ui.home.repository.DailyPrayerAdapter
 import com.sudoajay.namaz_alert.ui.setting.SettingsActivity
@@ -47,6 +43,7 @@ class HomeFragment : BaseFragment() {
 
 
     lateinit var dailyPrayerAdapter: DailyPrayerAdapter
+
     @Inject
     lateinit var navigationDrawerBottomSheet: NavigationDrawerBottomSheet
 
@@ -67,6 +64,8 @@ class HomeFragment : BaseFragment() {
 
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        binding.viewModel = dailyPrayerViewModel
+        binding.lifecycleOwner = this
         setupToolbar()
         setUpView()
 
@@ -88,12 +87,14 @@ class HomeFragment : BaseFragment() {
 
 
     private fun setUpView() {
-
         binding.swipeRefresh.setColorSchemeResources(R.color.appTheme)
         binding.swipeRefresh.setProgressBackgroundColorSchemeColor(
             ContextCompat.getColor(requireContext(), R.color.statusBarColor)
         )
 
+        binding.swipeRefresh.setOnRefreshListener {
+            refreshData()
+        }
 
         //         Setup BottomAppBar Navigation Setup
 
@@ -101,8 +102,8 @@ class HomeFragment : BaseFragment() {
             parentFragment?.findNavController()?.navigate(
                 R.id.action_homeFragment_to_editDailyPrayerFragment,
                 bundleOf(
-                    editDailyPrayerNameKey to it.Name ,
-                editDailyPrayerTimeKey to it.Time
+                    editDailyPrayerNameKey to it.Name,
+                    editDailyPrayerTimeKey to it.Time
                 )
             )
         }
@@ -118,9 +119,9 @@ class HomeFragment : BaseFragment() {
             this.layoutManager = LinearLayoutManager(requireContext())
             adapter = dailyPrayerAdapter
         }
-
         lifecycleScope.launch {
             dailyPrayerViewModel.getPagingGsonSourceWithNetwork().collectLatest {
+                dailyPrayerViewModel.isLoadData.postValue(false)
                 dailyPrayerAdapter.submitData(it)
             }
         }
@@ -169,18 +170,20 @@ class HomeFragment : BaseFragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-         when (item.itemId) {
+        when (item.itemId) {
             android.R.id.home -> showNavigationDrawer()
             R.id.refresh_optionMenu -> {
-                refreshData() }
+                refreshData()
+            }
             R.id.setting_optionMenu -> {
-                openSetting() }
-            else -> return  super.onOptionsItemSelected(item)
+                openSetting()
+            }
+            else -> return super.onOptionsItemSelected(item)
         }
         return true
     }
 
-    private fun openSetting(){
+    private fun openSetting() {
         val intent = Intent(requireContext(), SettingsActivity::class.java)
         startActivity(intent)
     }
@@ -194,9 +197,14 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun refreshData() {
-        dailyPrayerAdapter.refresh()
+        CoroutineScope(Dispatchers.Main).launch {
+            binding.swipeRefresh.isRefreshing = true
+            delay(1000 * 2) // 5 sec
+            dailyPrayerAdapter.refresh()
+            binding.swipeRefresh.isRefreshing = false
+            dailyPrayerViewModel.isLoadData.value = true
+        }
     }
-
 
 
     private fun onBack() {
@@ -205,7 +213,7 @@ class HomeFragment : BaseFragment() {
             return
         }
         doubleBackToExitPressedOnce = true
-       throwToaster(getString(R.string.click_back_text))
+        throwToaster(getString(R.string.click_back_text))
         CoroutineScope(Dispatchers.IO).launch {
             delay(2000L)
             doubleBackToExitPressedOnce = false
@@ -218,8 +226,6 @@ class HomeFragment : BaseFragment() {
         homeIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
         startActivity(homeIntent)
     }
-
-
 
 
     override fun onDestroyView() {

@@ -42,8 +42,7 @@ class SelectNotificationSoundFragment: BaseFragment() {
         requireActivity().changeStatusBarColor(
             ContextCompat.getColor(
                 requireContext(),
-                if(isDarkTheme)
-                R.color.bgBoxColor else R.color.appTheme
+                R.color.appTheme
             ), false
         )
         // Inflate the layout for this fragment
@@ -105,10 +104,12 @@ class SelectNotificationSoundFragment: BaseFragment() {
 
 
     private fun openSetting(){
+        stopSound()
         val intent = Intent(requireContext(), SettingsActivity::class.java)
         startActivity(intent)
     }
-
-
-
+    private fun stopSound(){
+        selectNotificationSoundAdapter.ringtone?.stop()
+        selectNotificationSoundAdapter.mp?.stop()
+    }
 }

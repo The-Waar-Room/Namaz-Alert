@@ -4,7 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="viewModel"
+            type="com.sudoajay.namaz_alert.ui.home.DailyPrayerViewModel" />
 
     </data>
 
@@ -51,6 +53,7 @@
             android:layout_marginTop="16dp"
             android:layout_height="match_parent"
             android:layout_marginBottom="64dp"
+            app:setVisibility="@{!viewModel.isLoadData()}"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <androidx.recyclerview.widget.RecyclerView
@@ -83,7 +86,7 @@
             android:layout_height="@dimen/progress_circular_dimension"
             android:layout_gravity="center"
             android:indeterminate="true"
-            android:visibility="gone"
+            app:setVisibility="@{viewModel.isLoadData()}"
             android:theme="@style/ProgressBarTheme"/>
 
 

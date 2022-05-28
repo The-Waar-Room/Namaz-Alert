@@ -25,9 +25,8 @@ class ProtoManager @Inject constructor (var context: Context){
                 .setIshaTiming(context.getString(R.string.default_prayer_time_proto))
                 .setIsWorkMangerRunning(false)
                 .setIsWorkMangerCancel(false)
-                .setLatitude(context.getString(R.string.null_string))
-                .setLongitude(context.getString(R.string.null_string))
                 .setNotificationRingtone(0)
+                .setIsPermissionAsked(false)
                 .build()
         }
     }
@@ -102,11 +101,10 @@ class ProtoManager @Inject constructor (var context: Context){
         }
     }
 
-    suspend fun setLatitudeLongitude(latitude:String,longitude: String){
+    suspend fun setIsPermissionAsked(isPermissionAsked:Boolean){
         dataStoreStatePreferences.updateData { preferences ->
             preferences.toBuilder()
-                .setLatitude(latitude)
-                .setLongitude(longitude)
+                .setIsPermissionAsked(isPermissionAsked)
                 .build()
         }
     }

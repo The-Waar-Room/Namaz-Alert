@@ -2,6 +2,7 @@ package com.sudoajay.namaz_alert.ui.home
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.MutableLiveData
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
@@ -17,10 +18,15 @@ import javax.inject.Inject
 @HiltViewModel
 class DailyPrayerViewModel @Inject constructor(application: Application) : AndroidViewModel(application) {
     private var viewModelApplication = application
+    var isLoadData: MutableLiveData<Boolean> = MutableLiveData()
+
     var searchValue :String = ""
-    var NETWORK_PAGE_SIZE = 5
+    private var NETWORK_PAGE_SIZE = 5
 
+    init {
+        loadData()
 
+    }
 
 
 
@@ -36,6 +42,9 @@ class DailyPrayerViewModel @Inject constructor(application: Application) : Andro
         ).flow
     }
 
+    private fun loadData() {
+        isLoadData.value = true
+    }
 
 
 

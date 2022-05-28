@@ -9,7 +9,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import androidx.test.core.app.ApplicationProvider.getApplicationContext
 import com.sudoajay.namaz_alert.R
 import com.sudoajay.namaz_alert.databinding.HolderSelectNotificationSoundBinding
 import javax.inject.Inject
@@ -21,8 +20,8 @@ class SelectNotificationSoundAdapter @Inject constructor(private var context: Co
     var notificationSoundList = mutableListOf<String>()
     var notificationSoundValue = mutableListOf<String>()
     var selectedNotificationSound = 0
-    private var mp: MediaPlayer? = null
-    private var ringtone: Ringtone? = null
+    var mp: MediaPlayer? = null
+    var ringtone: Ringtone? = null
 
     inner class ViewHolder(
         val binding: HolderSelectNotificationSoundBinding? = null,
@@ -53,7 +52,7 @@ class SelectNotificationSoundAdapter @Inject constructor(private var context: Co
         viewHolder.binding.tickImageView.visibility =
             if (text.toInt() == selectedNotificationSound) View.VISIBLE else View.GONE
 
-        viewHolder.binding.root.setOnClickListener {
+        viewHolder.binding.mainConstraintLayout.setOnClickListener {
             selectedNotificationSound = text.toInt()
             mp?.stop()
             ringtone?.stop()
@@ -69,7 +68,7 @@ class SelectNotificationSoundAdapter @Inject constructor(private var context: Co
                     ringtone?.play()
                 }
             }
-
+            notifyItemRangeChanged(0, notificationSoundList.size)
         }
 
 
@@ -84,6 +83,5 @@ class SelectNotificationSoundAdapter @Inject constructor(private var context: Co
 
 
     override fun getItemCount() = notificationSoundList.size
-
 
 }

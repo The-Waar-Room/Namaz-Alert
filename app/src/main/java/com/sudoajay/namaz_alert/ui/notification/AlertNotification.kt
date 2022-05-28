@@ -76,6 +76,7 @@ class AlertNotification @Inject constructor(var context: Context) {
     ) { // local variable
 
         val cancelIntent = Intent(context,NotificationCancelReceiver::class.java)
+        cancelIntent.action = "com.sudoajay.namaz_alert.Action"
         cancelIntent.putExtra(previousModeID, previousMode)
         cancelIntent.putExtra(prayerNameID, prayerName)
         cancelIntent.putExtra(prayerTimeID,prayerTime)

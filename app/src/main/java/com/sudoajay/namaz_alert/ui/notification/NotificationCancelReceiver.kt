@@ -54,8 +54,11 @@ class NotificationCancelReceiver : BroadcastReceiver() {
 
 
         val previousMode = intent.getStringExtra(previousModeID).toString()
-        val am = context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
-        am.ringerMode = Helper.getPhoneMode(previousMode)
+
+        if(Helper.doNotDisturbPermissionAlreadyGiven(context)) {
+            Helper.setRingerMode(context,Helper.getPhoneMode(previousMode))
+        }
+
 
     }
 
@@ -77,7 +80,7 @@ class NotificationCancelReceiver : BroadcastReceiver() {
     ) {
         notificationBuilder =
             Notification.Builder(mContext, NotificationChannels.FINISH_CANCEL_PRAYER)
-        notificationBuilder.setSmallIcon(R.drawable.ic_more_app)
+        notificationBuilder.setSmallIcon(R.drawable.app_icon)
 
         notificationBuilder.setContentIntent(createPendingIntent(prayerName, prayerTime))
     }

@@ -41,8 +41,7 @@ class SelectLanguageFragment: BaseFragment() {
         requireActivity().changeStatusBarColor(
             ContextCompat.getColor(
                 requireContext(),
-                if(isDarkTheme)
-                R.color.bgBoxColor else R.color.appTheme
+                R.color.appTheme
             ), false
         )
         // Inflate the layout for this fragment

@@ -35,15 +35,18 @@
             android:name=".ui.setting.SettingsActivity"
             android:label="@string/setting_text"
             android:theme="@style/SettingAppTheme" />
+        <meta-data android:name="com.google.firebase.messaging.default_notification_icon"
 
+            android:resource="@drawable/app_icon" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
       <receiver android:name=".ui.notification.NotificationCancelReceiver"
-          android:exported="true">
+          android:exported="true"
+          android:permission="com.sudoajay.namaz_alert.PERMISSION">
         <intent-filter android:priority="999" >
-            <action android:name="com.example.cancel" />
+            <action android:name="com.sudoajay.namaz_alert.Action" />
         </intent-filter>
     </receiver>
 

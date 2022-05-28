@@ -4,8 +4,8 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.preference.ListPreference
@@ -15,9 +15,12 @@ import com.sudoajay.namaz_alert.R
 import com.sudoajay.namaz_alert.data.proto.ProtoManager
 import com.sudoajay.namaz_alert.model.MessageType
 import com.sudoajay.namaz_alert.ui.BaseActivity
+import com.sudoajay.namaz_alert.ui.bottomSheet.DoNotDisturbPermissionBottomSheet
 import com.sudoajay.namaz_alert.ui.feedbackAndHelp.SendFeedbackAndHelp
 import com.sudoajay.namaz_alert.ui.mainActivity.MainActivity
 import com.sudoajay.namaz_alert.util.DeleteCache
+import com.sudoajay.namaz_alert.util.Helper
+import com.sudoajay.namaz_alert.util.Toaster
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -51,7 +54,7 @@ class SettingsActivity : BaseActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> {
-                super.onBackPressed()
+                onBackPressed()
                 return true
             }
         }
@@ -66,8 +69,13 @@ class SettingsActivity : BaseActivity() {
         @Inject
         lateinit var protoManager: ProtoManager
 
+
+        @Inject
+        lateinit var notDisturbPermissionBottomSheet: DoNotDisturbPermissionBottomSheet
+
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
             setPreferencesFromResource(R.xml.setting_preferences, rootKey)
+
 
 
             val phoneMode = findPreference("phoneMode") as ListPreference?
@@ -77,7 +85,6 @@ class SettingsActivity : BaseActivity() {
                 }
                 true
             }
-
 
 
             val notificationSound =
@@ -90,6 +97,23 @@ class SettingsActivity : BaseActivity() {
                 findPreference("changeLanguage") as Preference?
             selectLanguage!!.onPreferenceClickListener = Preference.OnPreferenceClickListener {
                 openSelectLanguage()
+                true
+            }
+
+            val doNotDisturbPermission =
+                findPreference("doNotDisturbPermission") as Preference?
+            doNotDisturbPermission!!.onPreferenceClickListener = Preference.OnPreferenceClickListener {
+                Log.e("BaseActivityTAG","Here doNotDisturbPermissionAlreadyGiven  - ${Helper.doNotDisturbPermissionAlreadyGiven(requireContext())}")
+                if(Helper.doNotDisturbPermissionAlreadyGiven(requireContext())) {
+                    Toaster.showToast(requireContext(),getString(R.string.permission_already_given_text))
+                }else if (Helper.doNotDisturbPermissionSupported()){
+                    Toaster.showToast(requireContext(),getString(R.string.sorry_this_feature_not_supported_text))
+                }else{
+                    Log.e("BaseActivityTAG","Here showPermissionAskedDrawer")
+
+                    showPermissionAskedDrawer()
+                }
+
                 true
             }
 
@@ -206,6 +230,13 @@ class SettingsActivity : BaseActivity() {
             val intent = Intent(requireContext(), MainActivity::class.java)
             intent.putExtra(openMainActivityID, openSelectNotificationSoundID)
             startActivity(intent)
+        }
+
+        private fun showPermissionAskedDrawer() {
+            notDisturbPermissionBottomSheet.show(
+                parentFragmentManager.beginTransaction(),
+                notDisturbPermissionBottomSheet.tag)
+
         }
     }
 

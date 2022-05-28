@@ -64,8 +64,10 @@ class WorkMangerFinishNotification(var context: Context, workerParams: WorkerPar
                     inputData.getString(WorkMangerForTask.prayerTimeID).toString()
                 )
             }
-            val am = context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
-            am.ringerMode = Helper.getPhoneMode(previousMode)
+            if(Helper.doNotDisturbPermissionAlreadyGiven(context)) {
+                Helper.setRingerMode(context,Helper.getPhoneMode(previousMode))
+            }
+
         }
         Log.e("WorkManger","isWorkMangerCancel after $isWorkMangerCancel")
 
@@ -84,8 +86,6 @@ class WorkMangerFinishNotification(var context: Context, workerParams: WorkerPar
     private fun cancelAlertNotification() {
         val manager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         manager.cancel(AlertNotification.NOTIFICATION_ALERT_STATE)
-
-
         WorkManager.getInstance(context).cancelAllWorkByTag(WorkMangerForTask.alertTAGID)
 
     }
@@ -107,7 +107,7 @@ class WorkMangerFinishNotification(var context: Context, workerParams: WorkerPar
     ) {
         notificationBuilder =
             Notification.Builder(applicationContext, NotificationChannels.FINISH_CANCEL_PRAYER)
-        notificationBuilder.setSmallIcon(R.drawable.ic_more_app)
+        notificationBuilder.setSmallIcon(R.drawable.app_icon)
 
         notificationBuilder.setContentIntent(createPendingIntent(prayerName, prayerTime))
     }

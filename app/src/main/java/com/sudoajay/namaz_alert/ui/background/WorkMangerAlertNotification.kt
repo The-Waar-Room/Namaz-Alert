@@ -67,8 +67,9 @@ class WorkMangerAlertNotification(var context: Context, workerParams: WorkerPara
             withContext(Dispatchers.IO) {
                 if (notificationRingtone == 1) delay(1000 * 22) // 5 sec
                 else delay(1000 * 5)// 5 sec
-                val am = context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
-                am.ringerMode = Helper.getPhoneMode(inputData.getString(phoneModeID).toString())
+                if(Helper.doNotDisturbPermissionAlreadyGiven(context)) {
+                    Helper.setRingerMode(context,Helper.getPhoneMode(inputData.getString(phoneModeID).toString()))
+                }
             }
         }
 
@@ -109,7 +110,7 @@ class WorkMangerAlertNotification(var context: Context, workerParams: WorkerPara
     ) {
         notificationCompat =
             NotificationCompat.Builder(applicationContext, NotificationChannels.ALERT_PRAYER_TIME)
-        notificationCompat.setSmallIcon(R.drawable.ic_more_app)
+        notificationCompat.setSmallIcon(R.drawable.app_icon)
         notificationCompat.setContentIntent(createPendingIntent(prayerName, prayerTime))
     }
 

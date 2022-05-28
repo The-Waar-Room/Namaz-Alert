@@ -100,7 +100,7 @@
 
 
     <!--    Navigation Drawer Bottom Sheet-->
-    <string name="developer_name">Created by Sudo Ajay</string>
+    <string name="developer_name">Created by Team </string>
     <string name="share_code_text">Share Code</string>
     <string name="workOnProgress_text">Work On Progress</string>
 
@@ -110,7 +110,9 @@
 
     <!--    Shortcuts-->
     <string name="shortcut_phone_mode_text">Phone Mode</string>
+    <string name="shortcut_notification_sound_text">Notification Sound</string>
     <string name="shortcut_setting_text">Setting</string>
+    <string name="shortcut_next_prayer_text">Next Prayer</string>
 
 <!--    Proto Manager-->
     <string name="default_prayer_time_proto">-10:20</string>
@@ -170,7 +172,18 @@
     <string name="select_language_bracket" translatable="false">( %1$s )</string>
 
 <!--    Select Ringtone-->
-    <string name="select_notification_sound_text">Select Notification Sound</string>
+    <string name="select_notification_sound_text">Notification Sound</string>
 
+<!--    Do not disturb permission-->
+    <string name="require_do_not_disturb_permission_text">The app Requires Do Not Disturb Permission</string>
+    <string name="require_uses_do_not_disturb_permission_text">The app needs the do not disturb permission to switch to silent or vibrate mode during its active sessions.</string>
+    <string name="we_do_not_collect_text">We do not collect or share any personal or sensitive information provided by do not disturb permission</string>
+    <string name="all_information_provided_by_text">All information provided by do not disturb permission is kept locally on your devices and is only sent to us with your consent for troubleshooting purpose</string>
+    <string name="no_thanks_text">No, Thanks</string>
+    <string name="allow_text">Allow</string>
+    <string name="do_not_disturb_permission_text">Do Not Disturb Permission</string>
+    <string name="we_need_permission_text">We need for switch to silent or vibrate mode during its active sessions.</string>
+    <string name="permission_already_given_text">Permission Already Given</string>
+    <string name="sorry_this_feature_not_supported_text">This feature not available below Marshmello or Android Version 6</string>
 
 </resources>

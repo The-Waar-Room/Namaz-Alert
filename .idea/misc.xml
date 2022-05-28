@@ -20,11 +20,13 @@
         <entry key="app/src/main/res/drawable/ic_image_large.xml" value="0.298" />
         <entry key="app/src/main/res/drawable/ic_me.xml" value="0.298" />
         <entry key="app/src/main/res/drawable/ic_navigation_drawer.xml" value="0.298" />
+        <entry key="app/src/main/res/drawable/ic_notification_sound.xml" value="0.298" />
         <entry key="app/src/main/res/drawable/ic_rate_us.xml" value="0.298" />
         <entry key="app/src/main/res/drawable/ic_search.xml" value="0.298" />
         <entry key="app/src/main/res/drawable/ic_send_feedback.xml" value="0.298" />
         <entry key="app/src/main/res/drawable/ic_setting.xml" value="0.298" />
         <entry key="app/src/main/res/drawable/ic_share_app.xml" value="0.298" />
+        <entry key="app/src/main/res/drawable/ic_stop.xml" value="0.298" />
         <entry key="app/src/main/res/drawable/ic_tick.xml" value="0.298" />
         <entry key="app/src/main/res/drawable/ic_vibrate.xml" value="0.298" />
         <entry key="app/src/main/res/drawable/ic_vibration.xml" value="0.298" />
@@ -49,6 +51,7 @@
         <entry key="app/src/main/res/layout/holder_select_notification_sound.xml" value="0.29243266353142366" />
         <entry key="app/src/main/res/layout/holder_select_ringtone.xml" value="0.29243266353142366" />
         <entry key="app/src/main/res/layout/hour_minute_picker_dialog.xml" value="0.29243266353142366" />
+        <entry key="app/src/main/res/layout/layout_do_not_disturb_permission_bottom_sheet.xml" value="0.29243266353142366" />
         <entry key="app/src/main/res/layout/layout_navigation_drawer_bottom_sheet.xml" value="0.29243266353142366" />
         <entry key="app/src/main/res/layout/layout_system_info.xml" value="0.29243266353142366" />
         <entry key="app/src/main/res/layout/number_picker_dialog.xml" value="0.29243266353142366" />
