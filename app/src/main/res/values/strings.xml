@@ -1,189 +1,200 @@
 <resources>
-    <string name="app_name">Namaz Alert</string>
+    <string name="app_name" translatable="false">Namaz Alert</string>
 
     <!--  MainActivity  Bottom Toolbar-->
-    <string name="search_optionMenu">Search</string>
-    <string name="refresh_optionMenu">Refresh</string>
-    <string name="send_feedback_text">Send Feedback</string>
+    <string name="search_optionMenu" translatable="false">Search</string>
+    <string name="refresh_optionMenu" translatable="false">Refresh</string>
+    <string name="refresh_text" translatable="true">Refresh</string>
+
+    <string name="send_feedback_text" translatable="true"> Send Feedback</string>
 
 
-<!--    home screen -->
-    <string name="fajr_time_text">FAJR \n%1$s</string>
-    <string name="dhuhr_time_text">DHUHR \n%1$s</string>
-    <string name="asr_time_text">ASR \n%1$s</string>
-    <string name="maghrib_time_text">MAGHRIB \n%1$s</string>
-    <string name="isha_time_text">ISHA \n%1$s</string>
+    <!--    home screen -->
+    <string name="fajr_time_text" translatable="false">FAJR \n%1$s</string>
+    <string name="dhuhr_time_text" translatable="false">DHUHR \n%1$s</string>
+    <string name="asr_time_text" translatable="false">ASR \n%1$s</string>
+    <string name="maghrib_time_text" translatable="false">MAGHRIB \n%1$s</string>
+    <string name="isha_time_text" translatable="false">ISHA \n%1$s</string>
 
 
-<!--    Edit screen -->
-    <string name="fajr_namaz_time_text">Fajr Namaz \n%1$s</string>
-    <string name="dhuhr_namaz_time_text">Dhuhr Namaz \n%1$s</string>
-    <string name="asr_namaz_time_text">Asr Namaz \n%1$s</string>
-    <string name="maghrib_namaz_time_text">Maghrib Namaz \n%1$s</string>
-    <string name="isha_namaz_time_text">Isha Namaz \n%1$s</string>
+    <!--    Edit screen -->
+    <string name="fajr_namaz_time_text" translatable="false">Fajr Namaz \n%1$s</string>
+    <string name="dhuhr_namaz_time_text" translatable="false">Dhuhr Namaz \n%1$s</string>
+    <string name="asr_namaz_time_text" translatable="false">Asr Namaz \n%1$s</string>
+    <string name="maghrib_namaz_time_text" translatable="false">Maghrib Namaz \n%1$s</string>
+    <string name="isha_namaz_time_text" translatable="false">Isha Namaz \n%1$s</string>
 
-    <string name="right_hand_side_time_text">%1$s mins</string>
-    <string name="left_hand_side_time_text">%1$s</string>
+    <string name="right_hand_side_time_text" translatable="true">%1$s mins</string>
+    <string name="left_hand_side_time_text" translatable="true">%1$s</string>
 
-    <string name="minute_text">Minute</string>
-    <string name="hour_text">Hour</string>
-    <string name="reset_text">Reset</string>
+    <string name="minute_text" translatable="true">Minute</string>
+    <string name="hour_text" translatable="true">Hour</string>
+    <string name="reset_text" translatable="true">Reset</string>
 
-    <string name="successfully_selected_text">Successfully Selected</string>
-    <string name="you_cant_select_30min_text"> You can\'t select past the maximum limit of 30 min</string>
-    <string name="you_cant_select_text"> You can\'t select past the maximum limit </string>
-    <string name="time_reset_successfully_text"> Time Reset Successfully </string>
+    <string name="successfully_selected_text" translatable="true">Successfully Selected</string>
+    <string name="you_cant_select_30min_text" translatable="true"> You can\'t select past the maximum limit of 30 min</string>
+    <string name="you_cant_select_text" translatable="true"> You can\'t select past the maximum limit </string>
+    <string name="time_reset_successfully_text" translatable="true"> Time Reset Successfully </string>
 
-    <string name="activate_at_text">Activate At :</string>
-    <string name="activate_for_text">Activate For :</string>
+    <string name="activate_at_text" translatable="true">Activate At</string>
+    <string name="activate_for_text" translatable="true">Activate For :</string>
 
 
     <!--    Send Feedback and help and support -->
-    <string name="add_Screenshot_Small_text">Add Screenshot Small</string>
-    <string name="add_Screenshot_Large_text">Add Screenshot Large</string>
-    <string name="close_Image_text">Close Image</string>
-    <string name="feedbackEditTextHint">Please write your feedback</string>
-    <string name="describe_your_issue_text">Describe your issue</string>
-    <string name="feedbackEditTextError">Please write something in feedback</string>
-    <string name="supportEditTextError">Please write something in issue</string>
-    <string name="systemInfo_text">Your System Info will be send to our developer team</string>
-    <string name="add_screenshot_text">+ Add Screenshot</string>
-    <string name="send_issue_text">Send Issue</string>
-    <string name="feedback_about_app_text">FeedBack about %1$s</string>
-    <string name="issue_in_app_text">Issue in %1$s</string>
+    <string name="add_Screenshot_Small_text" translatable="false">Add Screenshot Small</string>
+    <string name="add_Screenshot_Large_text" translatable="false">Add Screenshot Large</string>
+    <string name="close_Image_text" translatable="false">Close Image</string>
+    <string name="feedbackEditTextHint" translatable="true">Please write your feedback</string>
+    <string name="describe_your_issue_text" translatable="true">Describe your issue</string>
+    <string name="feedbackEditTextError" translatable="true">Please write something in feedback</string>
+    <string name="supportEditTextError" translatable="true">Please write something in issue</string>
+    <string name="systemInfo_text" translatable="true">Your System Info will be send to our developer team</string>
+    <string name="add_screenshot_text" translatable="true">+ Add Screenshot</string>
+    <string name="send_issue_text"  translatable="true">Send Issue</string>
+    <string name="feedback_about_app_text"  translatable="true">FeedBack about %1$s</string>
+    <string name="issue_in_app_text"  translatable="true">Issue in %1$s</string>
 
     <!--    Network Provider-->
-    <string name="wifi_text">Wifi</string>
-    <string name="mobile_data_text">Mobile Data</string>
-    <string name="vpn_text">Vpn</string>
-    <string name="no_internet_text">No Internet</string>
+    <string name="wifi_text"  translatable="true">Wifi</string>
+    <string name="mobile_data_text" translatable="true">Mobile Data</string>
+    <string name="vpn_text"  translatable="true">Vpn</string>
+    <string name="no_internet_text" translatable="true">No Internet</string>
 
-<!--    Delete cache-->
-    <string name="successfully_cache_data_is_deleted_text">Successfully Cache Data Is Deleted</string>
+    <!--    Delete cache-->
+    <string name="successfully_cache_data_is_deleted_text"  translatable="true">Successfully Cache Data Is Deleted</string>
 
 
     <!--    System Info-->
-    <string name="system_info_text"> System Info </string>
-    <string name="device_text">Device : </string>
-    <string name="os_api_level_text">Os Api Level : </string>
-    <string name="language_text">Language : </string>
-    <string name="total_memory_text">Total Heap Memory : </string>
-    <string name="free_memory_text">Free Heap Memory : </string>
-    <string name="screen_Text">Screen Size : </string>
-    <string name="network_type_text">Network Type : </string>
-    <string name="app_version_text">App Version : </string>
-    <string name="ok_text">OK</string>
+    <string name="system_info_text"  translatable="true"> System Info </string>
+    <string name="device_text"  translatable="true">Device : </string>
+    <string name="os_api_level_text"  translatable="true">Os Api Level : </string>
+    <string name="language_text"  translatable="true">Language : </string>
+    <string name="total_memory_text"  translatable="true">Total Heap Memory : </string>
+    <string name="free_memory_text"  translatable="true">Free Heap Memory : </string>
+    <string name="screen_Text"  translatable="true">Screen Size : </string>
+    <string name="network_type_text"  translatable="true">Network Type : </string>
+    <string name="app_version_text"  translatable="true">App Version : </string>
+    <string name="ok_text"  translatable="true">OK</string>
 
     <!--    Setting Preference-->
-    <string name="system_setting_text">System Settings</string>
-    <string name="clear_cache_text">Clear Cache</string>
-    <string name="help_support_text">Help &amp; Support</string>
-    <string name="send_feedback_summary_text">submit feedback to fix the app bug</string>
-    <string name="privacy_policy_text">Privacy Policy</string>
-    <string name="more_info_text">More Info</string>
-    <string name="share_app_text">Share App</string>
-    <string name="rate_use_text">Rate-Us</string>
-    <string name="more_app_text">More App</string>
-    <string name="about_app_text">About App</string>
-    <string name="share_app_summary_text">share the play store app link</string>
-    <string name="rate_use_summary_text">express your experience through rating</string>
-    <string name="more_app_summary_text">there is more app out there</string>
-    <string name="about_app_summary_text">open github link</string>
-    <string name="setting_text">Setting</string>
-    <string name="shareMessage">Hey, check This App which helps you to Delete Duplicate and Unnecessary Data from the phone -</string>
-    <string name="normal_mode">Normal</string>
-    <string name="vibrate_mode">Vibrate</string>
-    <string name="silent_mode">Silent</string>
-    <string name="phone_mode_text">Phone Mode</string>
-    <string name="app_setting_text">App Setting</string>
-    <string name="change_language_text">"Change Language "</string>
+    <string name="system_setting_text"  translatable="true">System Settings</string>
+    <string name="clear_cache_text"  translatable="true">Clear Cache</string>
+    <string name="help_support_text"  translatable="true">Help &amp; Support</string>
+    <string name="send_feedback_summary_text" translatable="true">submit feedback to fix the app bug</string>
+    <string name="privacy_policy_text"  translatable="true">Privacy Policy</string>
+    <string name="more_info_text" translatable="true">More Info</string>
+    <string name="share_app_text" translatable="true">Share App</string>
+    <string name="rate_use_text" translatable="true">Rate-Us</string>
+    <string name="more_app_text" translatable="true">More App</string>
+    <string name="about_app_text" translatable="true">About App</string>
+    <string name="share_app_summary_text" translatable="true">share the play store app link</string>
+    <string name="rate_use_summary_text" translatable="true">express your experience through rating</string>
+    <string name="more_app_summary_text" translatable="true">there is more app out there</string>
+    <string name="about_app_summary_text" translatable="true">open github link</string>
+    <string name="setting_text" translatable="true">Setting</string>
+    <string name="shareMessage" translatable="true">Hey, check This App which helps you to Delete Duplicate and Unnecessary Data from the phone -</string>
+    <string name="normal_mode" translatable="true">Normal</string>
+    <string name="vibrate_mode" translatable="true">Vibrate</string>
+    <string name="silent_mode" translatable="true">Silent</string>
+    <string name="phone_mode_text" translatable="true">Phone Mode</string>
+    <string name="app_setting_text" translatable="true">App Setting</string>
+    <string name="change_language_text" translatable="true">"Change Language "</string>
 
 
     <!--    Navigation Drawer Bottom Sheet-->
-    <string name="developer_name">Created by Team </string>
-    <string name="share_code_text">Share Code</string>
-    <string name="workOnProgress_text">Work On Progress</string>
+    <string name="developer_name" translatable="true">Created by Full Team</string>
+    <string name="share_code_text" translatable="true">Share Code</string>
+    <string name="workOnProgress_text" translatable="true">Work On Progress</string>
 
 
     <!--    Click back to exit-->
-    <string name="click_back_text">Click Back Again To Exit</string>
+    <string name="click_back_text" translatable="true">Click Back Again To Exit</string>
 
     <!--    Shortcuts-->
-    <string name="shortcut_phone_mode_text">Phone Mode</string>
-    <string name="shortcut_notification_sound_text">Notification Sound</string>
-    <string name="shortcut_setting_text">Setting</string>
-    <string name="shortcut_next_prayer_text">Next Prayer</string>
+    <string name="shortcut_phone_mode_text" translatable="false">Phone Mode</string>
+    <string name="shortcut_notification_sound_text" translatable="false">Notification Sound</string>
+    <string name="shortcut_next_prayer_text" translatable="false">Next Prayer</string>
 
-<!--    Proto Manager-->
-    <string name="default_prayer_time_proto">-10:20</string>
-    <string name="yes_string">Yes</string>
-    <string name="no_string">No</string>
+    <!--    Proto Manager-->
+    <string name="default_prayer_time_proto"  translatable="false">-10:10</string>
+    <string name="yes_string" translatable="true">Yes</string>
+    <string name="no_string" translatable="true">No</string>
 
-<!--  Notification Channels -->
-    <string name="notification_group_services">Group Services</string>
-    <string name="notifications_alert_prayer_time">Alert Prayer Time</string>
-    <string name="notifications_finish_prayer_time">Finish Or Cancel Prayer</string>
-
-
-    <string name="notifications_alert_desc">Notifications to interact with Alert  Prayer Time</string>
-    <string name="notifications_finish_desc">Notifications to interact with Finish or Cancel Prayer </string>
+    <!--  Notification Channels -->
+    <string name="notification_group_services" translatable="false">Group Services</string>
+    <string name="notifications_alert_prayer_time" translatable="false">Alert Prayer Time</string>
+    <string name="notifications_finish_prayer_time" translatable="false">Finish Or Cancel Prayer</string>
 
 
-    <string name="notification_title_text">Prayer Alert: %1$s</string>
-    <string name="notification_context_title_text">%1$s. Expand to see more</string>
-    <string name="notification_setting_text">Setting</string>
-    <string name="notification_stop_text">Stop</string>
-
-    <string name="cancel_the_notification_prayer">You\'ve canceled the %1$s namaz prayer schedule</string>
-    <string name="click_here_to_setup_text">Click here to set it up again</string>
-    <string name="your_device_will_be_text">Your device will be in %1$s mode for the next %2$s minutes</string>
-    <string name="completed_the_notification_prayer">You\'ve completed your %1$s namaz prayer schedule</string>
-    <string name="your_device_is_now_text">Your device is now set to the %1$s mode</string>
-
-<!--    Location-->
-    <string name="you_need_to_allow_location_text">You need to allow the permissions for Location</string>
-    <string name="null_string">Null</string>
-
-    <string name="muslim_world_league_text">Muslim World League</string>
-    <string name="islamic_society_of_north_america_text">Islamic Society of North America</string>
-    <string name="egyptian_general_authority_of_survey_text">Egyptian General Authority of Survey</string>
-    <string name="umm_al_qura_university_makkah_text">Umm Al-Qura University, Makkah</string>
-    <string name="university_of_islamic_sciences_karachi_text">University of Islamic Sciences, Karachi</string>
-    <string name="institute_of_geophysics_university_of_tTehran_text">Institute of Geophysics, University of Tehran</string>
-    <string name="shia_ithna_ashari_leva_institute_qum_text">Shia Ithna-Ashari, Leva Institute, Qum</string>
-    <string name="gulf_region_text">Gulf Region</string>
-    <string name="Kuwait_text">Kuwait</string>
-    <string name="Qatar_text">Qatar</string>
-    <string name="majlis_ugama_islam_singapura_singapore_text">Majlis Ugama Islam Singapura, Singapore</string>
-    <string name="union_organization_islamic_de_fFrance_text">Union Organization islamic de France</string>
-    <string name="diyanet_işleri_başkanlığı_turkey_text">Diyanet İşleri Başkanlığı, Turkey</string>
-    <string name="spiritual_administration_of_muslims_of_russia_text">Spiritual Administration of Muslims of Russia</string>
-
-    <string name="default_ringtone_text">Default </string>
-    <string name="azan_in_islam_text">Azan In Islam</string>
-    <string name="notification_sound_text">Notification Sound</string>
-    <string name="namaz_prayer_time_calculation_time_text">Namaz Prayer Time  now support the following calculation methods </string>
-    <string name="calculation_method_text">Calculation Methods</string>
+    <string name="notifications_alert_desc" translatable="false">Notifications to interact with Alert  Prayer Time</string>
+    <string name="notifications_finish_desc" translatable="false">Notifications to interact with Finish or Cancel Prayer </string>
 
 
-<!--    Select langauge-->
-    <string name="select_language_text">Select Language</string>
-    <string name="continue_text">Continue</string>
+    <string name="notification_title_text" translatable="true">Prayer Alert: %1$s</string>
+    <string name="notification_context_title_text" translatable="true">%1$s. Expand to see more</string>
+    <string name="notification_setting_text" translatable="true">Setting</string>
+    <string name="notification_stop_text" translatable="true">Stop</string>
+
+    <string name="cancel_the_notification_prayer" translatable="true">You\'ve canceled the %1$s namaz prayer schedule</string>
+    <string name="click_here_to_setup_text" translatable="true">Click here to set it up again</string>
+    <string name="your_device_will_be_text" translatable="true">Your device will be in %1$s mode for the next %2$s minutes</string>
+    <string name="completed_the_notification_prayer" translatable="true">You\'ve completed your %1$s namaz prayer schedule</string>
+    <string name="your_device_is_now_text" translatable="true">Your device is now set to the %1$s mode</string>
+
+
+    <string name="default_ringtone_text" translatable="true">Default </string>
+    <string name="azan_in_islam_text" translatable="true">Azan In Islam</string>
+    <string name="notification_sound_text" translatable="true">Notification Sound</string>
+
+
+
+    <!--    Select langauge-->
+    <string name="select_language_text" translatable="true">Select Language</string>
+    <string name="continue_text" translatable="true">Continue</string>
     <string name="select_language_bracket" translatable="false">( %1$s )</string>
 
-<!--    Select Ringtone-->
-    <string name="select_notification_sound_text">Notification Sound</string>
+    <!--    Select Ringtone-->
+    <string name="select_notification_sound_text" translatable="true">Notification Sound</string>
 
-<!--    Do not disturb permission-->
-    <string name="require_do_not_disturb_permission_text">The app Requires Do Not Disturb Permission</string>
-    <string name="require_uses_do_not_disturb_permission_text">The app needs the do not disturb permission to switch to silent or vibrate mode during its active sessions.</string>
-    <string name="we_do_not_collect_text">We do not collect or share any personal or sensitive information provided by do not disturb permission</string>
-    <string name="all_information_provided_by_text">All information provided by do not disturb permission is kept locally on your devices and is only sent to us with your consent for troubleshooting purpose</string>
-    <string name="no_thanks_text">No, Thanks</string>
-    <string name="allow_text">Allow</string>
-    <string name="do_not_disturb_permission_text">Do Not Disturb Permission</string>
-    <string name="we_need_permission_text">We need for switch to silent or vibrate mode during its active sessions.</string>
-    <string name="permission_already_given_text">Permission Already Given</string>
-    <string name="sorry_this_feature_not_supported_text">This feature not available below Marshmello or Android Version 6</string>
+    <!--    Do not disturb permission-->
+    <string name="require_do_not_disturb_permission_text" translatable="true">The app requires Do Not Disturb Permission</string>
+    <string name="require_uses_do_not_disturb_permission_text" translatable="true">The app needs the do not disturb permission to switch to silent or vibrate mode during its active sessions.</string>
+    <string name="we_do_not_collect_text" translatable="true">We do not collect or share any personal or sensitive information provided by do not disturb permission.</string>
+    <string name="all_information_provided_by_text" translatable="true">All information provided by do not disturb permission is kept locally on your devices and is only sent to us with your consent for troubleshooting purpose.</string>
+    <string name="no_thanks_text" translatable="true">No, Thanks</string>
+    <string name="allow_text" translatable="true">Allow</string>
+    <string name="do_not_disturb_permission_text" translatable="true">Do Not Disturb Permission</string>
+    <string name="we_need_permission_text" translatable="true">We need for switch to silent or vibrate mode during its active sessions.</string>
+    <string name="permission_already_given_text" translatable="true">Permission Already Given</string>
+    <string name="sorry_this_feature_not_supported_text" translatable="true">This feature not available below Marshmello or Android Version 6</string>
+
+<!--    Language-->
+
+    <string name="english_text" translatable="true">English</string>
+    <string name="hindi_text" translatable="true">Hindi</string>
+    <string name="arabic_text" translatable="true">Arabic</string>
+    <string name="bengali_text" translatable="true">Bengali</string>
+    <string name="german_text" translatable="true">German</string>
+    <string name="spanish_text" translatable="true">Spanish</string>
+    <string name="french_text" translatable="true">French</string>
+    <string name="portuguese_text" translatable="true">Portuguese</string>
+    <string name="indonesian_text" translatable="true">Indonesian</string>
+    <string name="italian_text" translatable="true">Italian</string>
+    <string name="japanese_text" translatable="true">Japanese</string>
+    <string name="korean_text" translatable="true">Korean</string>
+    <string name="nepali_text" translatable="true">Nepali</string>
+    <string name="dutch_text" translatable="true">Dutch</string>
+    <string name="punjabi_text" translatable="true">Punjabi</string>
+    <string name="russian_text" translatable="true">Russian</string>
+    <string name="tamil_text" translatable="true">Tamil</string>
+    <string name="telugu_text" translatable="true">Telugu</string>
+    <string name="thai_text" translatable="true">Thai</string>
+    <string name="turkish_text" translatable="true">Turkish</string>
+    <string name="urdu_text" translatable="true">Urdu</string>
+    <string name="vietnamese_text" translatable="true">Vietnamese</string>
+    <string name="chinese_text" translatable="true">Chinese</string>
+
+
+
 
 </resources>

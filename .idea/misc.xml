@@ -52,10 +52,12 @@
         <entry key="app/src/main/res/layout/holder_select_ringtone.xml" value="0.29243266353142366" />
         <entry key="app/src/main/res/layout/hour_minute_picker_dialog.xml" value="0.29243266353142366" />
         <entry key="app/src/main/res/layout/layout_do_not_disturb_permission_bottom_sheet.xml" value="0.29243266353142366" />
+        <entry key="app/src/main/res/layout/layout_hour_minute_picker_dialog.xml" value="0.29243266353142366" />
         <entry key="app/src/main/res/layout/layout_navigation_drawer_bottom_sheet.xml" value="0.29243266353142366" />
         <entry key="app/src/main/res/layout/layout_system_info.xml" value="0.29243266353142366" />
         <entry key="app/src/main/res/layout/number_picker_dialog.xml" value="0.29243266353142366" />
         <entry key="app/src/main/res/menu/bottom_toolbar_menu.xml" value="0.35625" />
+        <entry key="app/src/main/res/xml/locales_config.xml" value="0.29243266353142366" />
         <entry key="app/src/main/res/xml/setting_preferences.xml" value="0.29243266353142366" />
       </map>
     </option>

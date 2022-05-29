@@ -1,0 +1,141 @@
+<resources>
+<string name="send_feedback_text" translatable="true">கருத்தினை அனுப்பவும்</string>
+<string name="right_hand_side_time_text" translatable="true">{1 $ s} நிமிடங்கள்</string>
+<string name="left_hand_side_time_text" translatable="true">{1 $ s}</string>
+<string name="minute_text" translatable="true">நிமிடங்கள்</string>
+<string name="hour_text" translatable="true">மணி</string>
+<string name="reset_text" translatable="true">மீட்டமைக்கவும்</string>
+<string name="successfully_selected_text" translatable="true">வெற்றிகரமாக தேர்ந்தெடுக்கப்பட்டது</string>
+<string name="you_cant_select_30min_text" translatable="true"> அதிகபட்ச வரம்பு 30 நிமிடத்தை நீங்கள் தேர்ந்தெடுக்க முடியாது</string>
+<string name="you_cant_select_text" translatable="true"> அதிகபட்ச வரம்பை நீங்கள் தேர்ந்தெடுக்க முடியாது</string>
+<string name="time_reset_successfully_text" translatable="true"> நேரம் வெற்றிகரமாக மீட்டமைக்கப்படுகிறது</string>
+<string name="activate_at_text" translatable="true">செயல்படுத்தவும்</string>
+<string name="activate_for_text" translatable="true">இதற்கான செயல்படுத்த:</string>
+<string name="feedbackEditTextHint" translatable="true">உங்கள் கருத்தை எழுதுங்கள்</string>
+<string name="describe_your_issue_text" translatable="true">உங்கள் பிரச்சினையை விவரிக்கவும்</string>
+<string name="feedbackEditTextError" translatable="true">பின்னூட்டத்தில் ஏதாவது எழுதுங்கள்</string>
+<string name="supportEditTextError" translatable="true">தயவுசெய்து சிக்கலில் ஏதாவது எழுதுங்கள்</string>
+<string name="systemInfo_text" translatable="true">உங்கள் கணினி தகவல் எங்கள் டெவலப்பர் குழுவுக்கு அனுப்பப்படும்</string>
+<string name="add_screenshot_text" translatable="true">+ ஸ்கிரீன் ஷாட் சேர்க்கவும்</string>
+<string name="send_issue_text" translatable="true">வெளியீட்டை அனுப்பவும்</string>
+<string name="feedback_about_app_text" translatable="true">{1 $ s} பற்றிய கருத்து</string>
+<string name="issue_in_app_text" translatable="true">{1 $ s} இல் பிரச்சினை</string>
+<string name="wifi_text" translatable="true">வைஃபை</string>
+<string name="mobile_data_text" translatable="true">மொபைல் தரவு</string>
+<string name="vpn_text" translatable="true">Vpn</string>
+<string name="no_internet_text" translatable="true">இணையம் இல்லை</string>
+<string name="successfully_cache_data_is_deleted_text" translatable="true">வெற்றிகரமாக கேச் தரவு நீக்கப்பட்டது</string>
+<string name="system_info_text" translatable="true"> கணினி தகவல்</string>
+<string name="device_text" translatable="true">சாதனம்:</string>
+<string name="os_api_level_text" translatable="true">OS API நிலை:</string>
+<string name="language_text" translatable="true">மொழி:</string>
+<string name="total_memory_text" translatable="true">மொத்த குவியல் நினைவகம்:</string>
+<string name="free_memory_text" translatable="true">இலவச குவியல் நினைவகம்:</string>
+<string name="screen_Text" translatable="true">திரை அளவு :</string>
+<string name="network_type_text" translatable="true">பிணைய வகை:</string>
+<string name="app_version_text" translatable="true">பயன்பாட்டு பதிப்பு:</string>
+<string name="ok_text" translatable="true">சரி</string>
+<string name="system_setting_text" translatable="true">கணினி அமைப்புகளை</string>
+<string name="clear_cache_text" translatable="true">கேச் அழிக்கவும்</string>
+<string name="help_support_text" translatable="true">உதவி &amp; ஆதரவு</string>
+<string name="send_feedback_summary_text" translatable="true">பயன்பாட்டு பிழையை சரிசெய்ய கருத்துக்களை சமர்ப்பிக்கவும்</string>
+<string name="privacy_policy_text" translatable="true">தனியுரிமைக் கொள்கை</string>
+<string name="more_info_text" translatable="true">மேலும் தகவல்</string>
+<string name="share_app_text" translatable="true">பயன்பாட்டைப் பகிரவும்</string>
+<string name="rate_use_text" translatable="true">எங்களை மதிப்பிடு</string>
+<string name="more_app_text" translatable="true">மேலும் பயன்பாடு</string>
+<string name="about_app_text" translatable="true">பயன்பாடு பற்றி</string>
+<string name="share_app_summary_text" translatable="true">பிளே ஸ்டோர் பயன்பாட்டு இணைப்பைப் பகிரவும்</string>
+<string name="rate_use_summary_text" translatable="true">மதிப்பீடு மூலம் உங்கள் அனுபவத்தை வெளிப்படுத்துங்கள்</string>
+<string name="more_app_summary_text" translatable="true">அங்கே கூடுதல் பயன்பாடு உள்ளது</string>
+<string name="about_app_summary_text" translatable="true">கிதுப் இணைப்பைத் திறக்கவும்</string>
+<string name="setting_text" translatable="true">அமைத்தல்</string>
+<string name="shareMessage" translatable="true">ஏய், தொலைபேசியிலிருந்து நகல் மற்றும் தேவையற்ற தரவை நீக்க உதவும் இந்த பயன்பாட்டை சரிபார்க்கவும் -</string>
+<string name="normal_mode" translatable="true">சாதாரண</string>
+<string name="vibrate_mode" translatable="true">அதிர்வு</string>
+<string name="silent_mode" translatable="true">அமைதியாக</string>
+<string name="phone_mode_text" translatable="true">தொலைபேசி பயன்முறை</string>
+<string name="app_setting_text" translatable="true">பயன்பாட்டு அமைப்பு</string>
+<string name="change_language_text" translatable="true">"மொழியை மாற்றவும்"</string>
+<string name="developer_name" translatable="true">முழு அணியால் உருவாக்கப்பட்டது</string>
+<string name="share_code_text" translatable="true">குறியீட்டைப் பகிரவும்</string>
+<string name="workOnProgress_text" translatable="true">முன்னேற்றம் குறித்த வேலை</string>
+<string name="click_back_text" translatable="true">வெளியேற மீண்டும் கிளிக் செய்க</string>
+<string name="yes_string" translatable="true">ஆம்</string>
+<string name="no_string" translatable="true">இல்லை</string>
+<string name="notification_title_text" translatable="true">பிரார்த்தனை எச்சரிக்கை: {1 $ s}</string>
+<string name="notification_context_title_text" translatable="true">{1 $ s}. மேலும் பார்க்க விரிவாக்குங்கள்</string>
+<string name="notification_setting_text" translatable="true">அமைத்தல்</string>
+<string name="notification_stop_text" translatable="true">நிறுத்து</string>
+<string name="cancel_the_notification_prayer" translatable="true">நீங்கள் {1 $ s} நமாஸ் பிரார்த்தனை அட்டவணையை ரத்து செய்துள்ளீர்கள்</string>
+<string name="click_here_to_setup_text" translatable="true">அதை மீண்டும் அமைக்க இங்கே கிளிக் செய்க</string>
+<string name="your_device_will_be_text" translatable="true">உங்கள் சாதனம் அடுத்த {2 $ s} நிமிடங்களுக்கு {1 $ s} பயன்முறையில் இருக்கும்</string>
+<string name="completed_the_notification_prayer" translatable="true">உங்கள் {1 $ s} நமாஸ் பிரார்த்தனை அட்டவணையை முடித்துவிட்டீர்கள்</string>
+<string name="your_device_is_now_text" translatable="true">உங்கள் சாதனம் இப்போது {1 $ s} பயன்முறையில் அமைக்கப்பட்டுள்ளது</string>
+<string name="default_ringtone_text" translatable="true">இயல்புநிலை</string>
+<string name="azan_in_islam_text" translatable="true">இஸ்லாத்தில் அசான்</string>
+<string name="notification_sound_text" translatable="true">அறிவிப்பு ஒலி</string>
+<string name="select_language_text" translatable="true">மொழியை தேர்ந்தெடுங்கள்</string>
+<string name="continue_text" translatable="true">தொடரவும்</string>
+<string name="select_notification_sound_text" translatable="true">அறிவிப்பு ஒலி</string>
+<string name="require_do_not_disturb_permission_text" translatable="true">பயன்பாட்டிற்கு அனுமதிக்காது</string>
+<string name="require_uses_do_not_disturb_permission_text" translatable="true">பயன்பாட்டிற்கு அதன் செயலில் உள்ள அமர்வுகளின் போது அமைதியான அல்லது அதிர்வு பயன்முறைக்கு மாற அனுமதிக்க வேண்டாம்.</string>
+<string name="we_do_not_collect_text" translatable="true">வழங்கப்பட்ட எந்தவொரு தனிப்பட்ட அல்லது முக்கியமான தகவல்களையும் நாங்கள் சேகரிக்கவோ பகிர்ந்து கொள்ளவோ ​​இல்லை.</string>
+<string name="all_information_provided_by_text" translatable="true">தொந்தரவு செய்யாத அனுமதி வழங்கிய அனைத்து தகவல்களும் உங்கள் சாதனங்களில் உள்நாட்டில் வைக்கப்படுகின்றன, மேலும் சரிசெய்தல் நோக்கத்திற்காக உங்கள் ஒப்புதலுடன் மட்டுமே எங்களுக்கு அனுப்பப்படும்.</string>
+<string name="no_thanks_text" translatable="true">இல்லை, நன்றி</string>
+<string name="allow_text" translatable="true">அனுமதிக்கவும்</string>
+<string name="do_not_disturb_permission_text" translatable="true">அனுமதியைத் தொந்தரவு செய்யாதீர்கள்</string>
+<string name="we_need_permission_text" translatable="true">அதன் செயலில் உள்ள அமர்வுகளின் போது அமைதியான அல்லது அதிர்வு பயன்முறைக்கு மாற வேண்டும்.</string>
+<string name="permission_already_given_text" translatable="true">அனுமதி ஏற்கனவே கொடுக்கப்பட்டுள்ளது</string>
+<string name="sorry_this_feature_not_supported_text" translatable="true">இந்த அம்சம் மார்ஷ்மெல்லோ அல்லது ஆண்ட்ராய்டு பதிப்பு 6 க்கு கீழே கிடைக்கவில்லை</string>
+<string name="english_text" translatable="true">ஆங்கிலம்</string>
+<string name="hindi_text" translatable="true">இந்தி</string>
+<string name="arabic_text" translatable="true">அரபு</string>
+<string name="bengali_text" translatable="true">பெங்காலி</string>
+<string name="german_text" translatable="true">ஜெர்மன்</string>
+<string name="spanish_text" translatable="true">ஸ்பானிஷ்</string>
+<string name="french_text" translatable="true">பிரஞ்சு</string>
+<string name="portuguese_text" translatable="true">போர்த்துகீசியம்</string>
+<string name="indonesian_text" translatable="true">இந்தோனேசிய</string>
+<string name="italian_text" translatable="true">இத்தாலிய</string>
+<string name="japanese_text" translatable="true">ஜப்பானியர்கள்</string>
+<string name="korean_text" translatable="true">கொரிய</string>
+<string name="nepali_text" translatable="true">நேபாளி</string>
+<string name="dutch_text" translatable="true">டச்சு</string>
+<string name="punjabi_text" translatable="true">பஞ்சாபி</string>
+<string name="russian_text" translatable="true">ரஷ்ய</string>
+<string name="tamil_text" translatable="true">தமிழ்</string>
+<string name="telugu_text" translatable="true">தெலுங்கு</string>
+<string name="thai_text" translatable="true">தாய்</string>
+<string name="turkish_text" translatable="true">துருக்கிய</string>
+<string name="urdu_text" translatable="true">உருது</string>
+<string name="vietnamese_text" translatable="true">வியட்நாமிய</string>
+<string name="chinese_text" translatable="true">சீன</string>
+<string name="app_name" translatable="false">Namaz Alert</string>
+<string name="search_optionMenu" translatable="false">Search</string>
+<string name="refresh_optionMenu" translatable="false">Refresh</string>
+<string name="fajr_time_text" translatable="false">FAJR \n%1$s</string>
+<string name="dhuhr_time_text" translatable="false">DHUHR \n%1$s</string>
+<string name="asr_time_text" translatable="false">ASR \n%1$s</string>
+<string name="maghrib_time_text" translatable="false">MAGHRIB \n%1$s</string>
+<string name="isha_time_text" translatable="false">ISHA \n%1$s</string>
+<string name="fajr_namaz_time_text" translatable="false">Fajr Namaz \n%1$s</string>
+<string name="dhuhr_namaz_time_text" translatable="false">Dhuhr Namaz \n%1$s</string>
+<string name="asr_namaz_time_text" translatable="false">Asr Namaz \n%1$s</string>
+<string name="maghrib_namaz_time_text" translatable="false">Maghrib Namaz \n%1$s</string>
+<string name="isha_namaz_time_text" translatable="false">Isha Namaz \n%1$s</string>
+<string name="add_Screenshot_Small_text" translatable="false">Add Screenshot Small</string>
+<string name="add_Screenshot_Large_text" translatable="false">Add Screenshot Large</string>
+<string name="close_Image_text" translatable="false">Close Image</string>
+<string name="shortcut_phone_mode_text" translatable="false">Phone Mode</string>
+<string name="shortcut_notification_sound_text" translatable="false">Notification Sound</string>
+<string name="shortcut_next_prayer_text" translatable="false">Next Prayer</string>
+<string name="default_prayer_time_proto" translatable="false">-10:10</string>
+<string name="notification_group_services" translatable="false">Group Services</string>
+<string name="notifications_alert_prayer_time" translatable="false">Alert Prayer Time</string>
+<string name="notifications_finish_prayer_time" translatable="false">Finish Or Cancel Prayer</string>
+<string name="notifications_alert_desc" translatable="false">Notifications to interact with Alert  Prayer Time</string>
+<string name="notifications_finish_desc" translatable="false">Notifications to interact with Finish or Cancel Prayer </string>
+<string name="select_language_bracket" translatable="false">( %1$s )</string>
+
+</resources>

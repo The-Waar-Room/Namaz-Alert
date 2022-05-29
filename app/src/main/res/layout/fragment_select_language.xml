@@ -4,27 +4,31 @@
     xmlns:tool="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="selectLanguageViewModel"
             type="com.sudoajay.namaz_alert.ui.language.SelectLanguageViewModel" />
 
+        <variable
+            name="fragment"
+            type="com.sudoajay.namaz_alert.ui.language.SelectLanguageFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:background="@color/mainBgColor"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/mainBgColor">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/materialToolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            android:background="@color/appTheme"
             app:layout_collapseMode="pin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:navigationIcon="@drawable/ic_back"
-            android:background="@color/appTheme"
             app:navigationIconTint="@color/whiteColor"
             app:popupTheme="@style/AppTheme.PopupOverlay">
 
@@ -92,6 +96,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="12dp"
             android:fontFamily="@font/nunito_bold"
+            android:onClick="@{()->fragment.onClickContinueButton()}"
             android:paddingStart="18dp"
             android:paddingTop="5dp"
             android:paddingEnd="25dp"

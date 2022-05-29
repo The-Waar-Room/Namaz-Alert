@@ -11,13 +11,17 @@ import javax.inject.Inject
 class SelectLanguageViewModel @Inject constructor(application: Application) : AndroidViewModel(application) {
 
     var isSelectLanguageProgress: MutableLiveData<Boolean> = MutableLiveData()
-    var selectLanguageList = mutableListOf<String>()
+    var selectLanguageNonChangeList = mutableListOf<String>()
+    var selectLanguagesList = mutableListOf<String>()
+
     var selectLanguageValue = mutableListOf<String>()
 
 
     init {
-        selectLanguageList =  application.resources.getStringArray(R.array.languageList).toMutableList()
-        selectLanguageValue = application.resources.getStringArray(R.array.languagesValues).toMutableList()
+        selectLanguageNonChangeList =  application.resources.getStringArray(R.array.languageNonChangeList).toMutableList()
+        selectLanguagesList = application.resources.getStringArray(R.array.languagesList).toMutableList()
+        selectLanguageValue = application.resources.getStringArray(R.array.languageValues).toMutableList()
+
         loadHideProgress()
     }
     private fun loadHideProgress() {

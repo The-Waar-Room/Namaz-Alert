@@ -13,17 +13,16 @@ import javax.inject.Inject
 class SelectLanguageAdapter @Inject constructor() :
     RecyclerView.Adapter<SelectLanguageAdapter.ViewHolder>() {
 
+    var languageNonChangeList = mutableListOf<String>()
     var languageList = mutableListOf<String>()
     var languageValue = mutableListOf<String>()
-    var selectedLanguage = "English"
+    var selectedLanguage = "en"
 
     inner class ViewHolder(
         val binding: HolderSelectLanguageBinding? = null,
         val context: Context
     ) : RecyclerView.ViewHolder(binding?.root!!) {
-        fun bind() {
 
-        }
     }
 
     // Create new views (invoked by the layout manager)
@@ -38,21 +37,22 @@ class SelectLanguageAdapter @Inject constructor() :
     // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
 
-        val text = languageList[position]
+        val nonChangeList = languageNonChangeList[position]
+        val list = languageList[position]
         val value = languageValue[position]
 
-        viewHolder.binding!!.selectLanguageSameTextView.text = value
+        viewHolder.binding!!.selectLanguageSameTextView.text = list
         viewHolder.binding.selectLanguageDifferentTextView.text =
-            viewHolder.context.getString(R.string.select_language_bracket, text)
-        Log.e("SelectLanguageTAG", "  value - $value and text - $text")
+            viewHolder.context.getString(R.string.select_language_bracket, nonChangeList)
+        Log.e("SelectLanguageTAG", "  value - $value and text - $nonChangeList")
 
 
-        Log.e("SelectLanguageTAG", "  inside value - $value and text - $text")
+        Log.e("SelectLanguageTAG", "  inside value - $value and text - $nonChangeList")
         viewHolder.binding.tickImageView.visibility =
-            if (text == selectedLanguage) View.VISIBLE else View.GONE
+            if (value == selectedLanguage) View.VISIBLE else View.GONE
 
         viewHolder.binding.root.setOnClickListener {
-            selectedLanguage = text
+            selectedLanguage = value
             notifyItemRangeChanged(0, languageList.size)
         }
 

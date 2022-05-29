@@ -1,5 +1,6 @@
 package com.sudoajay.namaz_alert.ui.setting
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
@@ -11,6 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
+import androidx.preference.PreferenceManager
 import com.sudoajay.namaz_alert.R
 import com.sudoajay.namaz_alert.data.proto.ProtoManager
 import com.sudoajay.namaz_alert.model.MessageType
@@ -23,6 +25,7 @@ import com.sudoajay.namaz_alert.util.Helper
 import com.sudoajay.namaz_alert.util.Toaster
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import java.util.*
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -245,4 +248,5 @@ class SettingsActivity : BaseActivity() {
         startActivity(intent)
         super.onBackPressed()
     }
+
 }

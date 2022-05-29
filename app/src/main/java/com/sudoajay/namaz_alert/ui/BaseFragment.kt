@@ -4,17 +4,19 @@ import android.app.Activity
 import android.view.WindowManager
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import com.sudoajay.namaz_alert.R
 import com.sudoajay.namaz_alert.util.Toaster
 import com.sudoajay.namaz_alert.data.proto.ProtoManager
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
 
 open class BaseFragment :Fragment() {
-
     @Inject
     lateinit var protoManager: ProtoManager
+
 
 
     fun Activity.changeStatusBarColor(color: Int, isLight: Boolean) {
@@ -24,15 +26,7 @@ open class BaseFragment :Fragment() {
         WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = isLight
     }
 
-    fun setUpNormalStatusBar(){
 
-//        requireActivity().changeStatusBarColor(
-//            ContextCompat.getColor(
-//                requireContext(),
-//                R.color.statusBarColor
-//            ), !(isSystemDefaultOn(resources))
-//        )
-    }
 
 
 

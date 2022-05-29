@@ -3,26 +3,18 @@ package com.sudoajay.namaz_alert.ui.bottomSheet
 import android.app.NotificationManager
 import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.sudoajay.namaz_alert.R
 import com.sudoajay.namaz_alert.data.proto.ProtoManager
 import com.sudoajay.namaz_alert.databinding.LayoutDoNotDisturbPermissionBottomSheetBinding
-import com.sudoajay.namaz_alert.databinding.LayoutNavigationDrawerBottomSheetBinding
-import com.sudoajay.namaz_alert.ui.feedbackAndHelp.SendFeedbackAndHelp
-import com.sudoajay.namaz_alert.util.Toaster
 import kotlinx.coroutines.launch
-
 import javax.inject.Inject
 
 
@@ -48,11 +40,13 @@ class DoNotDisturbPermissionBottomSheet @Inject constructor() : BottomSheetDialo
         return binding.root
     }
 
-    fun onClickNoThanks(){
+    fun onClickNoThanks() {
         dismiss()
         setValuePermission()
     }
-    fun onClickAllow(){
+
+    fun onClickAllow() {
+        dismiss()
         val nm: NotificationManager =
             requireContext().getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !nm.isNotificationPolicyAccessGranted) {
@@ -61,7 +55,7 @@ class DoNotDisturbPermissionBottomSheet @Inject constructor() : BottomSheetDialo
         setValuePermission()
     }
 
-    private fun setValuePermission(){
+    private fun setValuePermission() {
         lifecycleScope.launch {
             protoManager.setIsPermissionAsked(true)
         }

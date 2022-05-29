@@ -44,6 +44,7 @@
 
             <TextView
                 android:id="@+id/appName_TextView"
+                style="@style/TextAppearance.AppTheme.Headline4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/gap_margin_left_right"
@@ -51,25 +52,18 @@
                 android:layout_marginBottom="@dimen/text_view_margin_gap"
                 android:ellipsize="end"
                 android:maxLines="1"
+                android:textSize="18sp"
                 android:text="@string/app_name"
                 android:textColor="@color/colorAccent"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/appImage_ImageView"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/appImage_ImageView"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_marginStart="@dimen/gap_margin_left_right"
-                android:src="@mipmap/ic_launcher"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ContentDescription" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -88,6 +82,7 @@
 
             <TextView
                 android:id="@+id/sendFeedback_TextView"
+                style="@style/TextAppearance.AppTheme.Headline4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/gap_margin_left_right"
@@ -95,6 +90,8 @@
                 android:layout_marginBottom="@dimen/text_view_margin_gap"
                 android:ellipsize="end"
                 android:maxLines="1"
+                android:textSize="15sp"
+                android:textStyle="bold"
                 android:text="@string/send_feedback_text"
                 android:textColor="@color/colorAccent"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -132,15 +129,18 @@
 
             <TextView
                 android:id="@+id/aboutMe_TextView"
+                style="@style/TextAppearance.AppTheme.Headline4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/gap_margin_left_right"
+                android:layout_marginStart="12dp"
                 android:layout_marginTop="@dimen/text_view_margin_gap"
                 android:layout_marginBottom="@dimen/text_view_margin_gap"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="@string/developer_name"
                 android:textColor="@color/colorAccent"
+                android:textSize="15sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -151,7 +151,7 @@
                 android:id="@+id/aboutMeImage_ImageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/gap_margin_left_right"
+                android:layout_marginStart="12dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

@@ -127,8 +127,7 @@ class AlertNotification @Inject constructor(var context: Context) {
         val iStyle =
             NotificationCompat.InboxStyle()
         iStyle.addLine(prayerTime)
-        iStyle.addLine("\n")
-        iStyle.addLine(context.getString(R.string.your_device_will_be_text, phoneMode,timeDiff ))
+        iStyle.addLine(context.getString(R.string.your_device_will_be_text, phoneMode.lowercase(),timeDiff ))
         builder.setStyle(iStyle)
 
         // check if there ia data with empty

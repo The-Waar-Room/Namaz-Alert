@@ -1,5 +1,7 @@
 package com.sudoajay.namaz_alert.ui
 
+import android.content.Context
+import android.content.ContextWrapper
 import android.content.res.Configuration
 import android.content.res.Resources
 import android.os.Build
@@ -14,6 +16,7 @@ import com.sudoajay.namaz_alert.ui.bottomSheet.DoNotDisturbPermissionBottomSheet
 import com.sudoajay.namaz_alert.ui.notification.AlertNotification
 import com.sudoajay.namaz_alert.ui.notification.NotificationChannels
 import com.sudoajay.namaz_alert.util.Helper
+import com.sudoajay.namaz_alert.util.LocalizationUtil.changeLocale
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -70,6 +73,8 @@ open class BaseActivity : AppCompatActivity() {
             if (fetch.setPhoneMode == "") {
                 protoManager.setDefaultValue()
                 protoManager.setPreviousMode(Helper.getRingerMode(applicationContext))
+                Helper.setLanguage(applicationContext,Helper.getLanguage(applicationContext))
+
             } else {
                 notificationRingtone = fetch.notificationRingtone
 
@@ -83,6 +88,19 @@ open class BaseActivity : AppCompatActivity() {
 
     }
 
+    override fun applyOverrideConfiguration(overrideConfiguration: Configuration?) {
+        overrideConfiguration?.let {
+            val uiMode = it.uiMode
+            it.setTo(baseContext.resources.configuration)
+            it.uiMode = uiMode
+        }
+        super.applyOverrideConfiguration(overrideConfiguration)
+    }
+
+    override fun attachBaseContext(context: Context) {
+        super.attachBaseContext(ContextWrapper(context.changeLocale(Helper.getLanguage(context))))
+
+    }
 
 
     companion object {

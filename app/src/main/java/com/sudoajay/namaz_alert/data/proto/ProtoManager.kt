@@ -5,6 +5,8 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.dataStore
 import com.sudoajay.namaz_alert.R
 import com.sudoajay.namaz_alert.StatePreferences
+import com.sudoajay.namaz_alert.ui.setting.SettingsActivity
+import com.sudoajay.namaz_alert.util.Helper
 import com.sudoajay.namaz_alert.util.PhoneMode
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
@@ -12,7 +14,7 @@ import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 class ProtoManager @Inject constructor (var context: Context){
-    val dataStoreStatePreferences : DataStore<StatePreferences> = context.stateDataStore
+    private val dataStoreStatePreferences : DataStore<StatePreferences> = context.stateDataStore
 
     suspend fun setDefaultValue(){
         dataStoreStatePreferences.updateData { preferences->
@@ -118,6 +120,8 @@ class ProtoManager @Inject constructor (var context: Context){
                 .build()
         }
     }
+
+
 
     suspend fun fetchInitialPreferences() = dataStoreStatePreferences.data.first()
 
