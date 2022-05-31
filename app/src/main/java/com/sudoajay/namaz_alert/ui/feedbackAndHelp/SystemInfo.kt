@@ -6,6 +6,7 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Debug
 import android.util.DisplayMetrics
+import com.sudoajay.namaz_alert.R
 import com.sudoajay.namaz_alert.util.ConnectivityType
 import com.sudoajay.namaz_alert.util.FileSize
 
@@ -57,21 +58,21 @@ class SystemInfo(private var activity: Activity) {
         try {
 
 
-            writer.append("\n\n\n ===== System-Info =====")
+            writer.append("\n\n\n ===== ${activity.getString(R.string.system_info_text)} =====")
             writer.append(
-                "\n\n Devices : " + getInfo("MANUFACTURER") + "  " +
+                "\n\n ${activity.getString(R.string.device_text)} : " + getInfo("MANUFACTURER") + "  " +
                         getInfo("MODEL") + " (" + getInfo("PRODUCT") + ")"
             )
-            writer.append("\n Os Api Level : " + getInfo("SDK_INT"))
-            writer.append("\n App Version : " + getAppInfo().versionName)
-            writer.append("\n Language : " + getLanguage())
-            writer.append("\n Total Heap Memory : " + FileSize.convertIt(getHeapTotalSize()))
-            writer.append("\n Free Heap Memory : " + FileSize.convertIt(getHeapFreeSize()))
+            writer.append("\n ${activity.getString(R.string.os_api_level_text)} : " + getInfo("SDK_INT"))
+            writer.append("\n ${activity.getString(R.string.app_version_text)} : " + getAppInfo().versionName)
+            writer.append("\n ${activity.getString(R.string.language_text)} : " + getLanguage())
+            writer.append("\n ${activity.getString(R.string.total_memory_text)} : " + FileSize.convertIt(getHeapTotalSize()))
+            writer.append("\n ${activity.getString(R.string.free_memory_text)} : " + FileSize.convertIt(getHeapFreeSize()))
             writer.append(
-                " \n Screen Size : " + getScreenSize().heightPixels.toString()
+                " \n ${activity.getString(R.string.screen_Text)} : " + getScreenSize().heightPixels.toString()
                         + " x " + getScreenSize().widthPixels.toString()
             )
-            writer.append("\n Network Type : " + ConnectivityType.getNetworkProvider(activity))
+            writer.append("\n ${activity.getString(R.string.network_type_text)} : " + ConnectivityType.getNetworkProvider(activity))
         } catch (e: IOException) {
 
         }

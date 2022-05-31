@@ -78,7 +78,9 @@ class MainActivity : BaseActivity() {
                 isPermissionAsked = protoManager.fetchInitialPreferences().isPermissionAsked
                 return@async isPermissionAsked
             }
+
             waitFor.await()
+
             showPermissionAskedDrawer()
         }
 

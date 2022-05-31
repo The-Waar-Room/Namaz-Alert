@@ -86,12 +86,12 @@ class SelectLanguageFragment : BaseFragment() {
         }
         selectLanguageAdapter.languageNonChangeList =
             selectLanguageViewModel.selectLanguageNonChangeList
-        selectLanguageAdapter.languageList = selectLanguageViewModel.selectLanguagesList
+        selectLanguageAdapter.languageList = requireContext().resources.getStringArray(R.array.languagesList).toMutableList()
         selectLanguageAdapter.languageValue = selectLanguageViewModel.selectLanguageValue
         selectLanguageViewModel.isSelectLanguageProgress.value = false
         selectLanguageAdapter.notifyItemRangeChanged(
             0,
-            selectLanguageViewModel.selectLanguagesList.size
+            selectLanguageViewModel.selectLanguageNonChangeList.size
         )
     }
 

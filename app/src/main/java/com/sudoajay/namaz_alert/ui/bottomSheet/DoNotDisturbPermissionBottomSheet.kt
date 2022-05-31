@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +15,8 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.sudoajay.namaz_alert.R
 import com.sudoajay.namaz_alert.data.proto.ProtoManager
 import com.sudoajay.namaz_alert.databinding.LayoutDoNotDisturbPermissionBottomSheetBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -41,8 +44,9 @@ class DoNotDisturbPermissionBottomSheet @Inject constructor() : BottomSheetDialo
     }
 
     fun onClickNoThanks() {
-        dismiss()
         setValuePermission()
+        dismiss()
+
     }
 
     fun onClickAllow() {
@@ -56,7 +60,7 @@ class DoNotDisturbPermissionBottomSheet @Inject constructor() : BottomSheetDialo
     }
 
     private fun setValuePermission() {
-        lifecycleScope.launch {
+        CoroutineScope(Dispatchers.IO).launch {
             protoManager.setIsPermissionAsked(true)
         }
     }

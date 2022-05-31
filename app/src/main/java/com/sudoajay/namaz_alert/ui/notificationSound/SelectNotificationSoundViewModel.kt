@@ -12,12 +12,10 @@ class SelectNotificationSoundViewModel @Inject constructor(application: Applicat
 
     var isSelectNotificationSoundProgress: MutableLiveData<Boolean> = MutableLiveData()
     var selectNotificationSoundList = mutableListOf<String>()
-    var selectNotificationSoundValue = mutableListOf<String>()
 
 
     init {
         selectNotificationSoundList =  application.resources.getStringArray(R.array.setNotificationSound).toMutableList()
-        selectNotificationSoundValue = application.resources.getStringArray(R.array.setNotificationSoundValues).toMutableList()
         loadHideProgress()
     }
     private fun loadHideProgress() {

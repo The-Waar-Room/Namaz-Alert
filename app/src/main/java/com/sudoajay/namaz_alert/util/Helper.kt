@@ -112,9 +112,16 @@ class Helper {
             return date?.let { outputFormat.format(it) }
         }
 
-        fun getAMOrPM(time: String): String {
+        private fun getAMOrPM(context: Context, time: String): String {
             val hour = time.split(":")[0]
-            return if (hour.toInt() < 12) BaseFragment.amText else BaseFragment.pmText
+            return if (hour.toInt() < 12) context.getString(R.string.am_text) else context.getString(R.string.pm_text)
+        }
+
+        fun convertTo12Hr(context: Context, time:String):String?{
+            val inputFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
+            val outputFormat = SimpleDateFormat("hh:mm", Locale.getDefault())
+            val date = inputFormat.parse(time)
+            return date?.let { outputFormat.format(it) } + " ${getAMOrPM(context,time)}"
         }
 
         fun getTodayDate(): String {

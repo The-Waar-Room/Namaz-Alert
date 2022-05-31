@@ -88,10 +88,10 @@ class SelectNotificationSoundFragment: BaseFragment() {
         }
 
         selectNotificationSoundAdapter.notificationSoundList =selectLanguageViewModel.selectNotificationSoundList
-        selectNotificationSoundAdapter.notificationSoundValue = selectLanguageViewModel.selectNotificationSoundValue
+        selectNotificationSoundAdapter.notificationSoundValue = requireContext().resources.getStringArray(R.array.setNotificationSoundValues).toMutableList()
 
         selectLanguageViewModel.isSelectNotificationSoundProgress.value = false
-        selectNotificationSoundAdapter.notifyItemRangeChanged(0, selectLanguageViewModel.selectNotificationSoundValue.size)
+        selectNotificationSoundAdapter.notifyItemRangeChanged(0, selectLanguageViewModel.selectNotificationSoundList.size)
     }
 
     fun onClickContinueButton(){

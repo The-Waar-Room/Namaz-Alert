@@ -75,6 +75,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
+            android:maxWidth="200dp"
             android:text="@string/activate_at_text"
             android:textColor="@color/whiteColor"
             android:textSize="22sp"
@@ -119,9 +120,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
+            android:maxWidth="200dp"
             android:text="@string/activate_for_text"
             android:textColor="@color/whiteColor"
             android:textSize="22sp"
+
             app:layout_constraintStart_toStartOf="@+id/leftHandSideText_TextView"
             app:layout_constraintTop_toBottomOf="@+id/leftHandSideText_TextView" />
 
@@ -146,17 +149,15 @@
                 style="@style/TextAppearance.AppTheme.Headline4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:padding="6dp"
                 android:textColor="@color/whiteColor"
                 android:textSize="22sp"
-                android:layout_gravity="center"
                 tools:layout_editor_absoluteX="205dp"
                 tools:layout_editor_absoluteY="262dp"
                 tools:text="15 min" />
 
         </com.google.android.material.card.MaterialCardView>
-
-
 
 
         <ImageView

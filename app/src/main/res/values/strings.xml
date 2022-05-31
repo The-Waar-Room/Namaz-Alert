@@ -27,16 +27,22 @@
     <string name="right_hand_side_time_text" translatable="true">%1$s mins</string>
     <string name="left_hand_side_time_text" translatable="true">%1$s</string>
 
+
     <string name="minute_text" translatable="true">Minute</string>
     <string name="hour_text" translatable="true">Hour</string>
     <string name="reset_text" translatable="true">Reset</string>
+
+    <string name="do_you_want_to_set_text" translatable="true">Do you really want to set the default time?</string>
+
+    <string name="am_text" translatable="true">Am</string>
+    <string name="pm_text" translatable="true">Pm</string>
 
     <string name="successfully_selected_text" translatable="true">Successfully Selected</string>
     <string name="you_cant_select_30min_text" translatable="true"> You can\'t select past the maximum limit of 30 min</string>
     <string name="you_cant_select_text" translatable="true"> You can\'t select past the maximum limit </string>
     <string name="time_reset_successfully_text" translatable="true"> Time Reset Successfully </string>
 
-    <string name="activate_at_text" translatable="true">Activate At</string>
+    <string name="activate_at_text" translatable="true">Activate At :</string>
     <string name="activate_for_text" translatable="true">Activate For :</string>
 
 
@@ -75,6 +81,8 @@
     <string name="network_type_text"  translatable="true">Network Type : </string>
     <string name="app_version_text"  translatable="true">App Version : </string>
     <string name="ok_text"  translatable="true">OK</string>
+
+
 
     <!--    Setting Preference-->
     <string name="system_setting_text"  translatable="true">System Settings</string>
@@ -168,11 +176,9 @@
     <string name="permission_already_given_text" translatable="true">Permission Already Given</string>
     <string name="sorry_this_feature_not_supported_text" translatable="true">This feature not available below Marshmello or Android Version 6</string>
 
-<!--    Language-->
 
     <string name="english_text" translatable="true">English</string>
     <string name="hindi_text" translatable="true">Hindi</string>
-    <string name="arabic_text" translatable="true">Arabic</string>
     <string name="bengali_text" translatable="true">Bengali</string>
     <string name="german_text" translatable="true">German</string>
     <string name="spanish_text" translatable="true">Spanish</string>
@@ -190,10 +196,8 @@
     <string name="telugu_text" translatable="true">Telugu</string>
     <string name="thai_text" translatable="true">Thai</string>
     <string name="turkish_text" translatable="true">Turkish</string>
-    <string name="urdu_text" translatable="true">Urdu</string>
     <string name="vietnamese_text" translatable="true">Vietnamese</string>
     <string name="chinese_text" translatable="true">Chinese</string>
-
 
 
 

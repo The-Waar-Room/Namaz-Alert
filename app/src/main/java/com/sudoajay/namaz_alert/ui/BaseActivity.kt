@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import com.sudoajay.namaz_alert.R
 import com.sudoajay.namaz_alert.data.proto.ProtoManager
 import com.sudoajay.namaz_alert.data.repository.WebScrappingGoogle
 import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask
@@ -55,6 +56,10 @@ open class BaseActivity : AppCompatActivity() {
             NotificationChannels.notificationOnCreate(applicationContext, notificationRingtone)
         }
 
+//        alertNotification.notifyCompat(
+//            "ASR", "45:Am", phoneMode,
+//            diffTime, previousMode,notificationRingtone, notificationCompat
+//        )
 
     }
 

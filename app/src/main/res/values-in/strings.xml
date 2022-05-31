@@ -1,0 +1,118 @@
+<resources>
+
+	<string name="refresh_text" translatable="true">Menyegarkan</string>
+	<string name="send_feedback_text" translatable="true"> Kirim umpan balik</string>
+	<string name="right_hand_side_time_text" translatable="true">%1$s menit</string>
+	<string name="left_hand_side_time_text" translatable="true">%1$s</string>
+	<string name="minute_text" translatable="true">Menit</string>
+	<string name="hour_text" translatable="true">Jam</string>
+	<string name="reset_text" translatable="true">Mengatur ulang</string>
+	<string name="do_you_want_to_set_text" translatable="true">Apakah Anda benar -benar ingin mengatur waktu default?</string>
+	<string name="am_text" translatable="true">Saya</string>
+	<string name="pm_text" translatable="true">Pm</string>
+	<string name="successfully_selected_text" translatable="true">Berhasil dipilih</string>
+	<string name="you_cant_select_30min_text" translatable="true"> Anda tidak dapat memilih melewati batas maksimum 30 menit</string>
+	<string name="you_cant_select_text" translatable="true"> Anda tidak dapat memilih melewati batas maksimum</string>
+	<string name="time_reset_successfully_text" translatable="true"> Waktu berhasil diatur ulang</string>
+	<string name="activate_at_text" translatable="true">Aktifkan di</string>
+	<string name="activate_for_text" translatable="true">Aktifkan untuk:</string>
+	<string name="feedbackEditTextHint" translatable="true">Harap tulis umpan balik Anda</string>
+	<string name="describe_your_issue_text" translatable="true">jelaskan permasalahanmu</string>
+	<string name="feedbackEditTextError" translatable="true">Tolong tulis sesuatu dalam umpan balik</string>
+	<string name="supportEditTextError" translatable="true">Tolong tulis sesuatu yang menjadi masalah</string>
+	<string name="systemInfo_text" translatable="true">Info sistem Anda akan dikirim ke tim pengembang kami</string>
+	<string name="add_screenshot_text" translatable="true">+ Tambahkan tangkapan layar</string>
+	<string name="send_issue_text" translatable="true">Kirim masalah</string>
+	<string name="feedback_about_app_text" translatable="true">Umpan balik tentang %1$s</string>
+	<string name="issue_in_app_text" translatable="true">Masalah dalam %1$s</string>
+	<string name="wifi_text" translatable="true">Wifi</string>
+	<string name="mobile_data_text" translatable="true">Data seluler</string>
+	<string name="vpn_text" translatable="true">VPN</string>
+	<string name="no_internet_text" translatable="true">Tidak ada internet</string>
+	<string name="successfully_cache_data_is_deleted_text" translatable="true">Data cache yang berhasil dihapus</string>
+	<string name="system_info_text" translatable="true"> Sistem Informasi</string>
+	<string name="device_text" translatable="true">Perangkat :</string>
+	<string name="os_api_level_text" translatable="true">Level API OS:</string>
+	<string name="language_text" translatable="true">Bahasa :</string>
+	<string name="total_memory_text" translatable="true">Memori heap total:</string>
+	<string name="free_memory_text" translatable="true">Memori tumpukan gratis:</string>
+	<string name="screen_Text" translatable="true">Ukuran layar :</string>
+	<string name="network_type_text" translatable="true">Tipe jaringan :</string>
+	<string name="app_version_text" translatable="true">Versi Aplikasi:</string>
+	<string name="ok_text" translatable="true">Oke</string>
+	<string name="system_setting_text" translatable="true">Pengaturan sistem</string>
+	<string name="clear_cache_text" translatable="true">Hapus cache</string>
+	<string name="help_support_text" translatable="true">Bantuan &amp; Dukungan</string>
+	<string name="send_feedback_summary_text" translatable="true">Kirimkan umpan balik untuk memperbaiki bug aplikasi</string>
+	<string name="privacy_policy_text" translatable="true">Kebijakan pribadi</string>
+	<string name="more_info_text" translatable="true">Info lebih lanjut</string>
+	<string name="share_app_text" translatable="true">Bagikan aplikasi</string>
+	<string name="rate_use_text" translatable="true">Tarif-US</string>
+	<string name="more_app_text" translatable="true">Lebih banyak aplikasi</string>
+	<string name="about_app_text" translatable="true">Tentang aplikasi</string>
+	<string name="share_app_summary_text" translatable="true">Bagikan Tautan Aplikasi Play Store</string>
+	<string name="rate_use_summary_text" translatable="true">Ekspresikan pengalaman Anda melalui peringkat</string>
+	<string name="more_app_summary_text" translatable="true">ada lebih banyak aplikasi di luar sana</string>
+	<string name="about_app_summary_text" translatable="true">Buka Link GitHub</string>
+	<string name="setting_text" translatable="true">Pengaturan</string>
+	<string name="shareMessage" translatable="true">Hei, periksa aplikasi ini yang membantu Anda menghapus data duplikat dan tidak perlu dari telepon -</string>
+	<string name="normal_mode" translatable="true">Normal</string>
+	<string name="vibrate_mode" translatable="true">Bergetar</string>
+	<string name="silent_mode" translatable="true">Diam</string>
+	<string name="phone_mode_text" translatable="true">Mode telepon</string>
+	<string name="app_setting_text" translatable="true">Pengaturan Aplikasi</string>
+	<string name="change_language_text" translatable="true">"Ganti BAHASA "</string>
+	<string name="developer_name" translatable="true">Dibuat oleh Tim Lengkap</string>
+	<string name="share_code_text" translatable="true">Bagikan Kode</string>
+	<string name="workOnProgress_text" translatable="true">Bekerja pada kemajuan</string>
+	<string name="click_back_text" translatable="true">Klik kembali lagi untuk keluar</string>
+	<string name="yes_string" translatable="true">Ya</string>
+	<string name="no_string" translatable="true">Tidak</string>
+	<string name="notification_title_text" translatable="true">Peringatan Doa: %1$s</string>
+	<string name="notification_context_title_text" translatable="true">%1$s. Perluas untuk melihat lebih banyak</string>
+	<string name="notification_setting_text" translatable="true">Pengaturan</string>
+	<string name="notification_stop_text" translatable="true">Berhenti</string>
+	<string name="cancel_the_notification_prayer" translatable="true">Anda telah membatalkan jadwal doa %1$s namaz</string>
+	<string name="click_here_to_setup_text" translatable="true">Klik di sini untuk mengaturnya lagi</string>
+	<string name="your_device_will_be_text" translatable="true">Perangkat Anda akan masuk %1$s mode untuk %2$s menit berikutnya</string>
+	<string name="completed_the_notification_prayer" translatable="true">Anda telah menyelesaikan jadwal doa %1$s namaz Anda</string>
+	<string name="your_device_is_now_text" translatable="true">Perangkat Anda sekarang diatur ke mode %1$s</string>
+	<string name="default_ringtone_text" translatable="true">Bawaan</string>
+	<string name="azan_in_islam_text" translatable="true">Azan dalam Islam</string>
+	<string name="notification_sound_text" translatable="true">Suara notifikasi</string>
+	<string name="select_language_text" translatable="true">Pilih bahasa</string>
+	<string name="continue_text" translatable="true">Melanjutkan</string>
+	<string name="select_notification_sound_text" translatable="true">Suara notifikasi</string>
+	<string name="require_do_not_disturb_permission_text" translatable="true">Aplikasi ini membutuhkan izin jangan ganggu</string>
+	<string name="require_uses_do_not_disturb_permission_text" translatable="true">Aplikasi ini membutuhkan izin jangan ganggu untuk beralih ke mode diam atau bergetar selama sesi aktifnya.</string>
+	<string name="we_do_not_collect_text" translatable="true">Kami tidak mengumpulkan atau membagikan informasi pribadi atau sensitif apa pun yang diberikan oleh jangan ganggu izin.</string>
+	<string name="all_information_provided_by_text" translatable="true">Semua informasi yang diberikan oleh jangan ganggu izin disimpan secara lokal di perangkat Anda dan hanya dikirimkan kepada kami dengan persetujuan Anda untuk tujuan pemecahan masalah.</string>
+	<string name="no_thanks_text" translatable="true">Tidak, terima kasih</string>
+	<string name="allow_text" translatable="true">Mengizinkan</string>
+	<string name="do_not_disturb_permission_text" translatable="true">Jangan ganggu izin</string>
+	<string name="we_need_permission_text" translatable="true">Kita perlu beralih ke mode diam atau bergetar selama sesi aktifnya.</string>
+	<string name="permission_already_given_text" translatable="true">Izin sudah diberikan</string>
+	<string name="sorry_this_feature_not_supported_text" translatable="true">Fitur ini tidak tersedia di bawah Versi Marshmello atau Android 6</string>
+	<string name="english_text" translatable="true">Bahasa inggris</string>
+	<string name="hindi_text" translatable="true">Hindi</string>
+	<string name="bengali_text" translatable="true">Benggala</string>
+	<string name="german_text" translatable="true">Jerman</string>
+	<string name="spanish_text" translatable="true">Orang Spanyol</string>
+	<string name="french_text" translatable="true">Perancis</string>
+	<string name="portuguese_text" translatable="true">Portugis</string>
+	<string name="indonesian_text" translatable="true">bahasa Indonesia</string>
+	<string name="italian_text" translatable="true">Italia</string>
+	<string name="japanese_text" translatable="true">Jepang</string>
+	<string name="korean_text" translatable="true">Korea</string>
+	<string name="nepali_text" translatable="true">Nepal</string>
+	<string name="dutch_text" translatable="true">Belanda</string>
+	<string name="punjabi_text" translatable="true">Punjabi</string>
+	<string name="russian_text" translatable="true">Rusia</string>
+	<string name="tamil_text" translatable="true">Tamil</string>
+	<string name="telugu_text" translatable="true">Telugu</string>
+	<string name="thai_text" translatable="true">Thai</string>
+	<string name="turkish_text" translatable="true">Turki</string>
+	<string name="vietnamese_text" translatable="true">Orang Vietnam</string>
+	<string name="chinese_text" translatable="true">Cina</string>
+
+</resources>

@@ -98,7 +98,7 @@ class WorkMangerAlertNotification(var context: Context, workerParams: WorkerPara
     ) {
         createNotification(prayerName, prayerTime)
         alertNotification.notifyCompat(
-            prayerName, Helper.convertTo12Hours(prayerTime).toString(), phoneMode,
+            prayerName, Helper.convertTo12Hr(context,prayerTime).toString(), phoneMode,
             diffTime, previousMode,notificationRingtone, notificationCompat
         )
     }

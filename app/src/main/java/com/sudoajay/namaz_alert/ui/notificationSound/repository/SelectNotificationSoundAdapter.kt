@@ -56,8 +56,8 @@ class SelectNotificationSoundAdapter @Inject constructor(private var context: Co
             selectedNotificationSound = text.toInt()
             mp?.stop()
             ringtone?.stop()
-             when (value) {
-                context.resources.getStringArray(R.array.setNotificationSoundValues)[1] -> {
+             when (text) {
+                context.resources.getStringArray(R.array.setNotificationSound)[1] -> {
                     mp =  MediaPlayer.create(context, R.raw.azan_in_islam)
                     mp?.start()
                 }

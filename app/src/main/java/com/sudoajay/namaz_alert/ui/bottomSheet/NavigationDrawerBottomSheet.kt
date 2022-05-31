@@ -45,12 +45,16 @@ class NavigationDrawerBottomSheet @Inject constructor() : BottomSheetDialogFragm
 
     fun moreApp() = callToast()
 
-    fun sendFeedback() = startActivity(Intent(requireContext(), SendFeedbackAndHelp::class.java))
+    fun sendFeedback() {
+        dismiss()
+        startActivity(Intent(requireContext(), SendFeedbackAndHelp::class.java))
+    }
 
     fun shareApk() = shareApplication()
 
 
     fun developerPage() {
+        dismiss()
         val page = "https://github.com/SudoAjay"
         val i = Intent(Intent.ACTION_VIEW)
         i.data = Uri.parse(page)

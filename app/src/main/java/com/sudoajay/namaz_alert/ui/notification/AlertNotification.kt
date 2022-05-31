@@ -15,6 +15,7 @@ import android.graphics.Color
 import android.icu.text.CaseMap
 import android.media.RingtoneManager
 import android.net.Uri
+import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import androidx.work.WorkManager
@@ -92,6 +93,7 @@ class AlertNotification @Inject constructor(var context: Context) {
                 context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         }
 
+        Log.e("ALertNotification", "")
         // Default ringtone
         val uri = if (notificationRingtone == 0) null else Uri.parse("android.resource://"+context.packageName +"/"+R.raw.azan_in_islam)
 
