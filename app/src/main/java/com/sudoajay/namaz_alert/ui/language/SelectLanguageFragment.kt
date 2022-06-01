@@ -19,6 +19,10 @@ import com.sudoajay.namaz_alert.ui.mainActivity.MainActivity
 import com.sudoajay.namaz_alert.ui.setting.SettingsActivity
 import com.sudoajay.namaz_alert.util.Helper
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
