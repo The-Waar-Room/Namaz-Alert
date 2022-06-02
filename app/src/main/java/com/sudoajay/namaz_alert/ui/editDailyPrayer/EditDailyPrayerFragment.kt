@@ -296,7 +296,7 @@ class EditDailyPrayerFragment : BaseFragment() {
             )
         }
         binding.leftHandSideTextView.text =
-            getString(R.string.left_hand_side_time_text, convertTo12Hr(requireContext(),newTime))
+            getString(R.string.left_hand_side_time_text, (convertTo12Hr(requireContext(),newTime)?:"").lowercase())
     }
 
     private fun setRightHand(minute: Int? = null) {

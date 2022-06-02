@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
-import androidx.core.app.ActivityCompat.recreate
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,10 +18,6 @@ import com.sudoajay.namaz_alert.ui.mainActivity.MainActivity
 import com.sudoajay.namaz_alert.ui.setting.SettingsActivity
 import com.sudoajay.namaz_alert.util.Helper
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -90,7 +85,8 @@ class SelectLanguageFragment : BaseFragment() {
         }
         selectLanguageAdapter.languageNonChangeList =
             selectLanguageViewModel.selectLanguageNonChangeList
-        selectLanguageAdapter.languageList = requireContext().resources.getStringArray(R.array.languagesList).toMutableList()
+        selectLanguageAdapter.languageList =
+            requireContext().resources.getStringArray(R.array.languagesList).toMutableList()
         selectLanguageAdapter.languageValue = selectLanguageViewModel.selectLanguageValue
         selectLanguageViewModel.isSelectLanguageProgress.value = false
         selectLanguageAdapter.notifyItemRangeChanged(
@@ -106,10 +102,12 @@ class SelectLanguageFragment : BaseFragment() {
     }
 
     fun onClickContinueButton() {
-        Helper.setLanguage(requireContext(), selectLanguageAdapter.selectedLanguage)
-        val intent = Intent(requireContext(), MainActivity::class.java)
-        intent.putExtra(BaseActivity.openMainActivityID, BaseActivity.openSelectLanguageID)
-        startActivity(intent)
+        if (Helper.getLanguage(requireContext()) != selectLanguageAdapter.selectedLanguage) {
+            Helper.setLanguage(requireContext(), selectLanguageAdapter.selectedLanguage)
+            val intent = Intent(requireContext(), MainActivity::class.java)
+            intent.putExtra(BaseActivity.openMainActivityID, BaseActivity.openSelectLanguageID)
+            startActivity(intent)
+        }
     }
 
 
