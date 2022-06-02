@@ -66,7 +66,7 @@ class WorkMangerForTask @Inject constructor(var context: Context) {
                 val arrayIncrement = prayerGapTime.split(":")
                 val beforeTime = getMeIncrementTime(dailyPrayerDB.Time, arrayIncrement[0].toInt())
                 val afterTime = getMeIncrementTime(dailyPrayerDB.Time, arrayIncrement[1].toInt())
-                val diffTime = arrayIncrement[1]
+                val diffTime = arrayIncrement[1]+arrayIncrement[0]
 
 
                 val alertData = workDataOf(

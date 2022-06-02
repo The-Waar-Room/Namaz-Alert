@@ -287,14 +287,18 @@ class EditDailyPrayerFragment : BaseFragment() {
 
     private fun setLeftHand(time: String = "") {
         Log.e("NewGapTime", "Prayer Time $prayerGapTime ")
+        Log.e("NewGapTime" , " new time ${time}")
+
         var newTime = time
         if (time == "") {
             val gapBeforePrayer = prayerGapTime.split(":")[0].toInt()
             newTime = getMeIncrementTime(
-                convertTo12Hr(requireContext(),prayerTime)?.replace("(\\s.+)".toRegex(), "")!!,
+                 prayerTime.replace("(\\s.+)".toRegex(), ""),
                 gapBeforePrayer
             )
         }
+
+        Log.e("NewGapTime" , " new time ${newTime}")
         binding.leftHandSideTextView.text =
             getString(R.string.left_hand_side_time_text, (convertTo12Hr(requireContext(),newTime)?:"").lowercase())
     }
