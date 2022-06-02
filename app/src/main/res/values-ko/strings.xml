@@ -14,7 +14,7 @@
 	<string name="you_cant_select_30min_text" translatable="true"> 최대 한계 30 분을 선택할 수 없습니다.</string>
 	<string name="you_cant_select_text" translatable="true"> 최대 한계를 지나서 선택할 수 없습니다</string>
 	<string name="time_reset_successfully_text" translatable="true"> 시간이 성공적으로 재설정됩니다</string>
-	<string name="activate_at_text" translatable="true">활성화하십시오 :</string>
+	<string name="activate_at_text" translatable="true">활성화 :</string>
 	<string name="activate_for_text" translatable="true">활성화 :</string>
 	<string name="feedbackEditTextHint" translatable="true">피드백을 작성하십시오</string>
 	<string name="describe_your_issue_text" translatable="true">문제를 설명 해주세요</string>
@@ -43,17 +43,12 @@
 	<string name="system_setting_text" translatable="true">환경 설정</string>
 	<string name="clear_cache_text" translatable="true">클리어 캐시</string>
 	<string name="help_support_text" translatable="true">도움 및 지원</string>
-	<string name="send_feedback_summary_text" translatable="true">앱 버그를 수정하려면 피드백을 제출하십시오</string>
 	<string name="privacy_policy_text" translatable="true">개인 정보 정책</string>
 	<string name="more_info_text" translatable="true">더 많은 정보</string>
 	<string name="share_app_text" translatable="true">앱 공유</string>
-	<string name="rate_use_text" translatable="true">비율 -US</string>
-	<string name="more_app_text" translatable="true">더 많은 앱</string>
+	<string name="submit_review_text" translatable="true">검토를 제출하십시오</string>
+	<string name="more_app_text" translatable="true">더 많은 애플 리케이션</string>
 	<string name="about_app_text" translatable="true">앱 정보</string>
-	<string name="share_app_summary_text" translatable="true">Play Store 앱 링크를 공유하십시오</string>
-	<string name="rate_use_summary_text" translatable="true">등급을 통해 경험을 표현하십시오</string>
-	<string name="more_app_summary_text" translatable="true">더 많은 앱이 있습니다</string>
-	<string name="about_app_summary_text" translatable="true">Github 링크를 엽니 다</string>
 	<string name="setting_text" translatable="true">환경</string>
 	<string name="shareMessage" translatable="true">이 앱을 확인하여 휴대 전화에서 중복 및 불필요한 데이터를 삭제하는 데 도움이됩니다.</string>
 	<string name="normal_mode" translatable="true">정상</string>
@@ -89,8 +84,7 @@
 	<string name="all_information_provided_by_text" translatable="true">Do Distriment가 제공하는 모든 정보는 귀하의 장치에 로컬로 보관되며 문제 해결 목적으로 귀하의 동의하에 당사에만 전송됩니다.</string>
 	<string name="no_thanks_text" translatable="true">고맙지 만 사양 할게</string>
 	<string name="allow_text" translatable="true">허용하다</string>
-	<string name="do_not_disturb_permission_text" translatable="true">허가를 방해하지 마십시오</string>
-	<string name="we_need_permission_text" translatable="true">활성 세션 동안 침묵 또는 진동 모드로 전환해야합니다.</string>
+	<string name="do_not_disturb_permission_text" translatable="true">DND 허가</string>
 	<string name="permission_already_given_text" translatable="true">이미 제공된 권한</string>
 	<string name="sorry_this_feature_not_supported_text" translatable="true">이 기능은 Marshmello 또는 Android 버전 6 아래에서 사용할 수 없습니다.</string>
 	<string name="english_text" translatable="true">영어</string>

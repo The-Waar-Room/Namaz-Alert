@@ -2,7 +2,7 @@
 
 	<string name="refresh_text" translatable="true">ताज़ा करना</string>
 	<string name="send_feedback_text" translatable="true"> प्रतिक्रिया भेजें</string>
-	<string name="right_hand_side_time_text" translatable="true">%1$s मिनट</string>
+	<string name="right_hand_side_time_text" translatable="true">%1$s मिन</string>
 	<string name="left_hand_side_time_text" translatable="true">%1$s</string>
 	<string name="minute_text" translatable="true">मिनट</string>
 	<string name="hour_text" translatable="true">घंटा</string>
@@ -14,8 +14,8 @@
 	<string name="you_cant_select_30min_text" translatable="true"> आप 30 मिनट की अधिकतम सीमा का चयन नहीं कर सकते</string>
 	<string name="you_cant_select_text" translatable="true"> आप अधिकतम सीमा का चयन नहीं कर सकते</string>
 	<string name="time_reset_successfully_text" translatable="true"> समय सफलतापूर्वक रीसेट करें</string>
-	<string name="activate_at_text" translatable="true">पर सक्रिय होना :</string>
-	<string name="activate_for_text" translatable="true">के लिए सक्रिय करें :</string>
+	<string name="activate_at_text" translatable="true">सक्रिय करें:</string>
+	<string name="activate_for_text" translatable="true">के लिए सक्रिय करें:</string>
 	<string name="feedbackEditTextHint" translatable="true">कृपया अपनी प्रतिक्रिया लिखें</string>
 	<string name="describe_your_issue_text" translatable="true">अपनी समस्या का वर्णन करें</string>
 	<string name="feedbackEditTextError" translatable="true">कृपया प्रतिक्रिया में कुछ लिखें</string>
@@ -43,17 +43,12 @@
 	<string name="system_setting_text" translatable="true">प्रणाली व्यवस्था</string>
 	<string name="clear_cache_text" translatable="true">कैश को साफ़ करें</string>
 	<string name="help_support_text" translatable="true">मदद समर्थन</string>
-	<string name="send_feedback_summary_text" translatable="true">ऐप बग को ठीक करने के लिए प्रतिक्रिया सबमिट करें</string>
 	<string name="privacy_policy_text" translatable="true">गोपनीयता नीति</string>
 	<string name="more_info_text" translatable="true">और जानकारी</string>
 	<string name="share_app_text" translatable="true">ऐप शेयर करें</string>
-	<string name="rate_use_text" translatable="true">हमें रेटिंग दें</string>
-	<string name="more_app_text" translatable="true">और ज्यादा एप्लीकेशन</string>
+	<string name="submit_review_text" translatable="true">समीक्षा जमा करें</string>
+	<string name="more_app_text" translatable="true">और ऐप</string>
 	<string name="about_app_text" translatable="true">ऐप के बारे में</string>
-	<string name="share_app_summary_text" translatable="true">प्ले स्टोर ऐप लिंक साझा करें</string>
-	<string name="rate_use_summary_text" translatable="true">रेटिंग के माध्यम से अपने अनुभव को व्यक्त करें</string>
-	<string name="more_app_summary_text" translatable="true">वहाँ और अधिक ऐप है</string>
-	<string name="about_app_summary_text" translatable="true">ओपन गिथब लिंक</string>
 	<string name="setting_text" translatable="true">स्थापना</string>
 	<string name="shareMessage" translatable="true">अरे, इस ऐप को देखें जो आपको फोन से डुप्लिकेट और अनावश्यक डेटा को हटाने में मदद करता है -</string>
 	<string name="normal_mode" translatable="true">सामान्य</string>
@@ -89,8 +84,7 @@
 	<string name="all_information_provided_by_text" translatable="true">डू नॉट डिस्टर्ब अनुमति द्वारा प्रदान की गई सभी जानकारी स्थानीय रूप से आपके उपकरणों पर रखी जाती है और केवल हमें समस्या निवारण उद्देश्य के लिए आपकी सहमति के साथ भेजा जाता है।</string>
 	<string name="no_thanks_text" translatable="true">जी नहीं, धन्यवाद</string>
 	<string name="allow_text" translatable="true">अनुमति देना</string>
-	<string name="do_not_disturb_permission_text" translatable="true">अनुमति को परेशान न करें</string>
-	<string name="we_need_permission_text" translatable="true">हमें इसके सक्रिय सत्रों के दौरान मूक या कंपन मोड पर स्विच करने की आवश्यकता है।</string>
+	<string name="do_not_disturb_permission_text" translatable="true">DND अनुमति</string>
 	<string name="permission_already_given_text" translatable="true">पहले से दी गई अनुमति</string>
 	<string name="sorry_this_feature_not_supported_text" translatable="true">यह सुविधा मार्शमेलो या एंड्रॉइड संस्करण 6 के नीचे उपलब्ध नहीं है</string>
 	<string name="english_text" translatable="true">अंग्रेज़ी</string>

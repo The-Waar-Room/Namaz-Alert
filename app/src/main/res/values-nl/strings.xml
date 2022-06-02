@@ -2,7 +2,7 @@
 
 	<string name="refresh_text" translatable="true">Verversen</string>
 	<string name="send_feedback_text" translatable="true"> Stuur feedback</string>
-	<string name="right_hand_side_time_text" translatable="true">%1$s MIJNS</string>
+	<string name="right_hand_side_time_text" translatable="true">%1$s Min</string>
 	<string name="left_hand_side_time_text" translatable="true">%1$s</string>
 	<string name="minute_text" translatable="true">Minuut</string>
 	<string name="hour_text" translatable="true">Uur</string>
@@ -14,8 +14,8 @@
 	<string name="you_cant_select_30min_text" translatable="true"> U kunt niet boven de maximale limiet van 30 minuten selecteren</string>
 	<string name="you_cant_select_text" translatable="true"> U kunt niet voorbij de maximale limiet selecteren</string>
 	<string name="time_reset_successfully_text" translatable="true"> Tijd reset succesvol</string>
-	<string name="activate_at_text" translatable="true">Activeren naar :</string>
-	<string name="activate_for_text" translatable="true">Activeren voor :</string>
+	<string name="activate_at_text" translatable="true">Activeren op:</string>
+	<string name="activate_for_text" translatable="true">Activeren voor:</string>
 	<string name="feedbackEditTextHint" translatable="true">Schrijf uw feedback</string>
 	<string name="describe_your_issue_text" translatable="true">omschrijf uw probleem</string>
 	<string name="feedbackEditTextError" translatable="true">Schrijf alsjeblieft iets in feedback</string>
@@ -43,17 +43,12 @@
 	<string name="system_setting_text" translatable="true">Systeem instellingen</string>
 	<string name="clear_cache_text" translatable="true">Cache wissen</string>
 	<string name="help_support_text" translatable="true">Help &amp; Ondersteuning</string>
-	<string name="send_feedback_summary_text" translatable="true">Feedback indienen om de app -bug te repareren</string>
 	<string name="privacy_policy_text" translatable="true">Privacybeleid</string>
 	<string name="more_info_text" translatable="true">Meer informatie</string>
 	<string name="share_app_text" translatable="true">Deel app</string>
-	<string name="rate_use_text" translatable="true">Beoordeel ons</string>
-	<string name="more_app_text" translatable="true">Meer App</string>
+	<string name="submit_review_text" translatable="true">Review versturen</string>
+	<string name="more_app_text" translatable="true">Meer apps</string>
 	<string name="about_app_text" translatable="true">Over app</string>
-	<string name="share_app_summary_text" translatable="true">Deel de App -link van de Play Store</string>
-	<string name="rate_use_summary_text" translatable="true">Druk uw ervaring uit door de beoordeling</string>
-	<string name="more_app_summary_text" translatable="true">Er is meer app die er is</string>
-	<string name="about_app_summary_text" translatable="true">Open GitHub Link</string>
 	<string name="setting_text" translatable="true">Instelling</string>
 	<string name="shareMessage" translatable="true">Hé, controleer deze app die u helpt om dubbele en onnodige gegevens van de telefoon te verwijderen -</string>
 	<string name="normal_mode" translatable="true">Normaal</string>
@@ -89,8 +84,7 @@
 	<string name="all_information_provided_by_text" translatable="true">Alle informatie die wordt verstrekt door niet storen toestemming wordt lokaal op uw apparaten bewaard en wordt alleen naar ons toegestuurd met uw toestemming voor het oplossen van problemen.</string>
 	<string name="no_thanks_text" translatable="true">Nee, dank u wel</string>
 	<string name="allow_text" translatable="true">Toestaan</string>
-	<string name="do_not_disturb_permission_text" translatable="true">Stoor de toestemming niet</string>
-	<string name="we_need_permission_text" translatable="true">We moeten overstappen naar stille of trillende modus tijdens de actieve sessies.</string>
+	<string name="do_not_disturb_permission_text" translatable="true">DND -toestemming</string>
 	<string name="permission_already_given_text" translatable="true">Toestemming al gegeven</string>
 	<string name="sorry_this_feature_not_supported_text" translatable="true">Deze functie is niet beschikbaar hieronder Marshmello of Android -versie 6</string>
 	<string name="english_text" translatable="true">Engels</string>

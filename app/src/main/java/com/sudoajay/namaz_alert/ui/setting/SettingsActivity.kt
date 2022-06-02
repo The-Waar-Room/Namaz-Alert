@@ -143,7 +143,7 @@ class SettingsActivity : BaseActivity() {
 
 
             val shareApp =
-                findPreference("shareAss") as Preference?
+                findPreference("shareApp") as Preference?
             shareApp!!.onPreferenceClickListener = Preference.OnPreferenceClickListener {
                 //open browser or intent here
                 shareApp()

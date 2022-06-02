@@ -14,8 +14,8 @@
 	<string name="you_cant_select_30min_text" translatable="true"> คุณไม่สามารถเลือกผ่านขีด จำกัด สูงสุด 30 นาที</string>
 	<string name="you_cant_select_text" translatable="true"> คุณไม่สามารถเลือกผ่านขีด จำกัด สูงสุดได้</string>
 	<string name="time_reset_successfully_text" translatable="true"> รีเซ็ตเวลาสำเร็จ</string>
-	<string name="activate_at_text" translatable="true">เปิดใช้งานที่ :</string>
-	<string name="activate_for_text" translatable="true">เปิดใช้งานสำหรับ :</string>
+	<string name="activate_at_text" translatable="true">เปิดใช้งานที่:</string>
+	<string name="activate_for_text" translatable="true">เปิดใช้งานสำหรับ:</string>
 	<string name="feedbackEditTextHint" translatable="true">กรุณาเขียนความคิดเห็นของคุณ</string>
 	<string name="describe_your_issue_text" translatable="true">อธิบายปัญหาของคุณ</string>
 	<string name="feedbackEditTextError" translatable="true">กรุณาเขียนบางอย่างในข้อเสนอแนะ</string>
@@ -43,17 +43,12 @@
 	<string name="system_setting_text" translatable="true">การตั้งค่าระบบ</string>
 	<string name="clear_cache_text" translatable="true">ล้างแคช</string>
 	<string name="help_support_text" translatable="true">ความช่วยเหลือและการสนับสนุน</string>
-	<string name="send_feedback_summary_text" translatable="true">ส่งข้อเสนอแนะเพื่อแก้ไขข้อบกพร่องของแอป</string>
 	<string name="privacy_policy_text" translatable="true">นโยบายความเป็นส่วนตัว</string>
 	<string name="more_info_text" translatable="true">ข้อมูลเพิ่มเติม</string>
 	<string name="share_app_text" translatable="true">แชร์แอป</string>
-	<string name="rate_use_text" translatable="true">อัตรา-สหรัฐฯ</string>
+	<string name="submit_review_text" translatable="true">ส่งรีวิว</string>
 	<string name="more_app_text" translatable="true">แอพเพิ่มเติม</string>
 	<string name="about_app_text" translatable="true">เกี่ยวกับแอป</string>
-	<string name="share_app_summary_text" translatable="true">แชร์ลิงก์แอพ Play Store</string>
-	<string name="rate_use_summary_text" translatable="true">แสดงประสบการณ์ของคุณผ่านการจัดอันดับ</string>
-	<string name="more_app_summary_text" translatable="true">มีแอพมากขึ้นที่นั่น</string>
-	<string name="about_app_summary_text" translatable="true">เปิดลิงค์ GitHub</string>
 	<string name="setting_text" translatable="true">การตั้งค่า</string>
 	<string name="shareMessage" translatable="true">เฮ้ตรวจสอบแอพนี้ซึ่งช่วยให้คุณลบข้อมูลที่ซ้ำกันและไม่จำเป็นออกจากโทรศัพท์ -</string>
 	<string name="normal_mode" translatable="true">ปกติ</string>
@@ -89,8 +84,7 @@
 	<string name="all_information_provided_by_text" translatable="true">ข้อมูลทั้งหมดที่ได้รับจากอย่ารบกวนการอนุญาตจะถูกเก็บไว้ในอุปกรณ์ของคุณและจะถูกส่งถึงเราด้วยความยินยอมของคุณเพื่อจุดประสงค์ในการแก้ไขปัญหา</string>
 	<string name="no_thanks_text" translatable="true">ไม่เป็นไรขอบคุณ</string>
 	<string name="allow_text" translatable="true">อนุญาต</string>
-	<string name="do_not_disturb_permission_text" translatable="true">อย่ารบกวนการอนุญาต</string>
-	<string name="we_need_permission_text" translatable="true">เราจำเป็นต้องเปลี่ยนไปใช้โหมดเงียบหรือสั่นสะเทือนในระหว่างการประชุมที่ใช้งานอยู่</string>
+	<string name="do_not_disturb_permission_text" translatable="true">การอนุญาต DND</string>
 	<string name="permission_already_given_text" translatable="true">ได้รับอนุญาตแล้ว</string>
 	<string name="sorry_this_feature_not_supported_text" translatable="true">คุณสมบัตินี้ไม่สามารถใช้ได้ด้านล่าง Marshmello หรือ Android เวอร์ชัน 6</string>
 	<string name="english_text" translatable="true">ภาษาอังกฤษ</string>

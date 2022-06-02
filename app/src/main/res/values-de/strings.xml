@@ -2,20 +2,20 @@
 
 	<string name="refresh_text" translatable="true">Aktualisierung</string>
 	<string name="send_feedback_text" translatable="true"> Feedback abschicken</string>
-	<string name="right_hand_side_time_text" translatable="true">%1$s Mins</string>
+	<string name="right_hand_side_time_text" translatable="true">%1$s Mindest</string>
 	<string name="left_hand_side_time_text" translatable="true">%1$s</string>
 	<string name="minute_text" translatable="true">Minute</string>
 	<string name="hour_text" translatable="true">Stunde</string>
 	<string name="reset_text" translatable="true">Zurücksetzen</string>
 	<string name="do_you_want_to_set_text" translatable="true">Möchten Sie wirklich die Standardzeit festlegen?</string>
 	<string name="am_text" translatable="true">Bin</string>
-	<string name="pm_text" translatable="true">Uhr</string>
+	<string name="pm_text" translatable="true">PM</string>
 	<string name="successfully_selected_text" translatable="true">Erfolgreich ausgewählt</string>
 	<string name="you_cant_select_30min_text" translatable="true"> Sie können nicht über die maximale Grenze von 30 Minuten hinaus auswählen</string>
 	<string name="you_cant_select_text" translatable="true"> Sie können nicht über die maximale Grenze hinaus auswählen</string>
 	<string name="time_reset_successfully_text" translatable="true"> Zeitreset erfolgreich</string>
-	<string name="activate_at_text" translatable="true">Aktivieren bei :</string>
-	<string name="activate_for_text" translatable="true">Aktivieren für :</string>
+	<string name="activate_at_text" translatable="true">Aktivieren bei:</string>
+	<string name="activate_for_text" translatable="true">Aktivieren für:</string>
 	<string name="feedbackEditTextHint" translatable="true">Bitte schreiben Sie Ihr Feedback</string>
 	<string name="describe_your_issue_text" translatable="true">Beschreibe dein Problem</string>
 	<string name="feedbackEditTextError" translatable="true">Bitte schreiben Sie etwas in Feedback</string>
@@ -43,17 +43,12 @@
 	<string name="system_setting_text" translatable="true">Systemeinstellungen</string>
 	<string name="clear_cache_text" translatable="true">Cache leeren</string>
 	<string name="help_support_text" translatable="true">Hilfe Unterstützung</string>
-	<string name="send_feedback_summary_text" translatable="true">Senden Sie Feedback, um den App -Fehler zu beheben</string>
 	<string name="privacy_policy_text" translatable="true">Datenschutz-Bestimmungen</string>
 	<string name="more_info_text" translatable="true">Mehr Info</string>
 	<string name="share_app_text" translatable="true">App teilen</string>
-	<string name="rate_use_text" translatable="true">Bewerten Sie uns</string>
-	<string name="more_app_text" translatable="true">Mehr App</string>
+	<string name="submit_review_text" translatable="true">Bewertung abschicken</string>
+	<string name="more_app_text" translatable="true">Mehr Apps</string>
 	<string name="about_app_text" translatable="true">Über App</string>
-	<string name="share_app_summary_text" translatable="true">Teilen Sie den Link der Play Store App</string>
-	<string name="rate_use_summary_text" translatable="true">Drücken Sie Ihre Erfahrung durch Bewertung aus</string>
-	<string name="more_app_summary_text" translatable="true">Es gibt mehr App da draußen</string>
-	<string name="about_app_summary_text" translatable="true">Öffnen Sie den GitHub -Link</string>
 	<string name="setting_text" translatable="true">Einstellung</string>
 	<string name="shareMessage" translatable="true">Hey, überprüfen Sie diese App, mit der Sie doppelte und unnötige Daten vom Telefon löschen können -</string>
 	<string name="normal_mode" translatable="true">Normal</string>
@@ -89,8 +84,7 @@
 	<string name="all_information_provided_by_text" translatable="true">Alle Informationen, die nicht stören, werden vor Ort auf Ihren Geräten aufbewahrt und nur mit Ihrer Zustimmung zur Fehlerbehebung an uns gesendet.</string>
 	<string name="no_thanks_text" translatable="true">Nein Danke</string>
 	<string name="allow_text" translatable="true">Erlauben</string>
-	<string name="do_not_disturb_permission_text" translatable="true">Erlaubnis nicht stören</string>
-	<string name="we_need_permission_text" translatable="true">Wir müssen während der aktiven Sitzungen zum stillen oder vibrierenden Modus wechseln.</string>
+	<string name="do_not_disturb_permission_text" translatable="true">DND -Erlaubnis</string>
 	<string name="permission_already_given_text" translatable="true">Erlaubnis bereits erteilt</string>
 	<string name="sorry_this_feature_not_supported_text" translatable="true">Diese Funktion ist unter Marshmello oder Android Version 6 nicht verfügbar</string>
 	<string name="english_text" translatable="true">Englisch</string>

@@ -14,8 +14,8 @@
 	<string name="you_cant_select_30min_text" translatable="true"> Вы не можете выбрать мимо максимального предела 30 минут</string>
 	<string name="you_cant_select_text" translatable="true"> Вы не можете выбрать мимо максимального предела</string>
 	<string name="time_reset_successfully_text" translatable="true"> Время сброс успешно</string>
-	<string name="activate_at_text" translatable="true">Активировать в :</string>
-	<string name="activate_for_text" translatable="true">Активируйте для :</string>
+	<string name="activate_at_text" translatable="true">Активируйтесь в:</string>
+	<string name="activate_for_text" translatable="true">Активируйте для:</string>
 	<string name="feedbackEditTextHint" translatable="true">Пожалуйста, напишите свой отзыв</string>
 	<string name="describe_your_issue_text" translatable="true">Опишите вашу проблему</string>
 	<string name="feedbackEditTextError" translatable="true">Пожалуйста, напишите что -нибудь в отзывах</string>
@@ -43,17 +43,12 @@
 	<string name="system_setting_text" translatable="true">Системные настройки</string>
 	<string name="clear_cache_text" translatable="true">Очистить кэш</string>
 	<string name="help_support_text" translatable="true">Помощь и поддержка</string>
-	<string name="send_feedback_summary_text" translatable="true">Отправить отзыв, чтобы исправить ошибку приложения</string>
 	<string name="privacy_policy_text" translatable="true">Политика конфиденциальности</string>
 	<string name="more_info_text" translatable="true">Больше информации</string>
 	<string name="share_app_text" translatable="true">Поделиться приложением</string>
-	<string name="rate_use_text" translatable="true">Оцените нас</string>
+	<string name="submit_review_text" translatable="true">добавить отзыв</string>
 	<string name="more_app_text" translatable="true">Больше приложений</string>
 	<string name="about_app_text" translatable="true">О приложении</string>
-	<string name="share_app_summary_text" translatable="true">Поделиться ссылкой на приложение Play Store</string>
-	<string name="rate_use_summary_text" translatable="true">Выразите свой опыт с помощью рейтинга</string>
-	<string name="more_app_summary_text" translatable="true">Есть еще приложения</string>
-	<string name="about_app_summary_text" translatable="true">Откройте ссылку GitHub</string>
 	<string name="setting_text" translatable="true">Параметр</string>
 	<string name="shareMessage" translatable="true">Эй, проверьте это приложение, которое помогает вам удалить дубликаты и ненужные данные с телефона -</string>
 	<string name="normal_mode" translatable="true">Обычный</string>
@@ -89,8 +84,7 @@
 	<string name="all_information_provided_by_text" translatable="true">Вся информация, предоставленная не мешать разрешению, хранится локально на ваших устройствах и отправляется нам только с вашего согласия с целью устранения неполадок.</string>
 	<string name="no_thanks_text" translatable="true">Спасибо, не надо</string>
 	<string name="allow_text" translatable="true">Разрешать</string>
-	<string name="do_not_disturb_permission_text" translatable="true">Не беспокоить разрешение</string>
-	<string name="we_need_permission_text" translatable="true">Нам нужно переключиться на молчаливый или вибрационный режим во время его активных сеансов.</string>
+	<string name="do_not_disturb_permission_text" translatable="true">DND разрешение</string>
 	<string name="permission_already_given_text" translatable="true">Разрешение уже дано</string>
 	<string name="sorry_this_feature_not_supported_text" translatable="true">Эта функция недоступна ниже Marshmello или Android версии 6</string>
 	<string name="english_text" translatable="true">Английский</string>

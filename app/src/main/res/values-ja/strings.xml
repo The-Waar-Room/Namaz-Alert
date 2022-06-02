@@ -9,12 +9,12 @@
 	<string name="reset_text" translatable="true">リセット</string>
 	<string name="do_you_want_to_set_text" translatable="true">デフォルトの時間を本当に設定したいですか？</string>
 	<string name="am_text" translatable="true">午前</string>
-	<string name="pm_text" translatable="true">午後</string>
+	<string name="pm_text" translatable="true">PM</string>
 	<string name="successfully_selected_text" translatable="true">正常に選択されました</string>
 	<string name="you_cant_select_30min_text" translatable="true"> 30分の最大制限を過ぎて選択することはできません</string>
 	<string name="you_cant_select_text" translatable="true"> 最大制限を過ぎて選択することはできません</string>
 	<string name="time_reset_successfully_text" translatable="true"> タイムリセットに正常にリセットします</string>
-	<string name="activate_at_text" translatable="true">でアクティブ化します :</string>
+	<string name="activate_at_text" translatable="true">アクティブ化：</string>
 	<string name="activate_for_text" translatable="true">アクティブ化：</string>
 	<string name="feedbackEditTextHint" translatable="true">フィードバックを書いてください</string>
 	<string name="describe_your_issue_text" translatable="true">あなたの問題を説明してください</string>
@@ -43,17 +43,12 @@
 	<string name="system_setting_text" translatable="true">システム設定</string>
 	<string name="clear_cache_text" translatable="true">キャッシュの消去</string>
 	<string name="help_support_text" translatable="true">ヘルプサポート</string>
-	<string name="send_feedback_summary_text" translatable="true">アプリのバグを修正するためにフィードバックを送信します</string>
 	<string name="privacy_policy_text" translatable="true">プライバシーポリシー</string>
 	<string name="more_info_text" translatable="true">より詳しい情報</string>
 	<string name="share_app_text" translatable="true">アプリを共有します</string>
-	<string name="rate_use_text" translatable="true">私たちを評価してください</string>
-	<string name="more_app_text" translatable="true">より多くのアプリ</string>
+	<string name="submit_review_text" translatable="true">レビュー送信</string>
+	<string name="more_app_text" translatable="true">より多くのアプリケーション</string>
 	<string name="about_app_text" translatable="true">アプリについて</string>
-	<string name="share_app_summary_text" translatable="true">Play Storeアプリリンクを共有します</string>
-	<string name="rate_use_summary_text" translatable="true">評価を通してあなたの経験を表現してください</string>
-	<string name="more_app_summary_text" translatable="true">そこにはもっとアプリがあります</string>
-	<string name="about_app_summary_text" translatable="true">GitHubリンクを開きます</string>
 	<string name="setting_text" translatable="true">設定</string>
 	<string name="shareMessage" translatable="true">ねえ、このアプリをチェックして、電話から重複したデータと不必要なデータを削除するのに役立ちます - </string>
 	<string name="normal_mode" translatable="true">普通</string>
@@ -89,8 +84,7 @@
 	<string name="all_information_provided_by_text" translatable="true">許可を妨げないすべての情報は、デバイスにローカルに保持され、トラブルシューティングの目的でお客様の同意を得てのみ送信されます。</string>
 	<string name="no_thanks_text" translatable="true">結構です</string>
 	<string name="allow_text" translatable="true">許可する</string>
-	<string name="do_not_disturb_permission_text" translatable="true">許可を妨げないでください</string>
-	<string name="we_need_permission_text" translatable="true">アクティブなセッション中にサイレントモードまたはバブラートモードに切り替える必要があります。</string>
+	<string name="do_not_disturb_permission_text" translatable="true">DND許可</string>
 	<string name="permission_already_given_text" translatable="true">すでに許可が与えられています</string>
 	<string name="sorry_this_feature_not_supported_text" translatable="true">この機能はMarshmelloまたはAndroidバージョン6以下では利用できません</string>
 	<string name="english_text" translatable="true">英語</string>

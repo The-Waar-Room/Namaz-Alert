@@ -2,7 +2,7 @@
 
 	<string name="refresh_text" translatable="true">刷新</string>
 	<string name="send_feedback_text" translatable="true"> 发送反馈</string>
-	<string name="right_hand_side_time_text" translatable="true">%1$s 分钟</string>
+	<string name="right_hand_side_time_text" translatable="true">%1$s最小</string>
 	<string name="left_hand_side_time_text" translatable="true">%1$s</string>
 	<string name="minute_text" translatable="true">分钟</string>
 	<string name="hour_text" translatable="true">小时</string>
@@ -14,7 +14,7 @@
 	<string name="you_cant_select_30min_text" translatable="true"> 您不能选择超过30分钟的最大限制</string>
 	<string name="you_cant_select_text" translatable="true"> 您无法选择超过最大限制</string>
 	<string name="time_reset_successfully_text" translatable="true"> 时间成功重置</string>
-	<string name="activate_at_text" translatable="true">激活</string>
+	<string name="activate_at_text" translatable="true">激活AT：</string>
 	<string name="activate_for_text" translatable="true">激活：</string>
 	<string name="feedbackEditTextHint" translatable="true">请写你的反馈</string>
 	<string name="describe_your_issue_text" translatable="true">描述您的问题</string>
@@ -43,17 +43,12 @@
 	<string name="system_setting_text" translatable="true">系统设置</string>
 	<string name="clear_cache_text" translatable="true">清除缓存</string>
 	<string name="help_support_text" translatable="true">帮助支持</string>
-	<string name="send_feedback_summary_text" translatable="true">提交反馈以修复App Bug</string>
 	<string name="privacy_policy_text" translatable="true">隐私政策</string>
 	<string name="more_info_text" translatable="true">更多信息</string>
 	<string name="share_app_text" translatable="true">共享应用程序</string>
-	<string name="rate_use_text" translatable="true">费率 -  US</string>
-	<string name="more_app_text" translatable="true">更多应用</string>
+	<string name="submit_review_text" translatable="true">提交评论</string>
+	<string name="more_app_text" translatable="true">更多的应用</string>
 	<string name="about_app_text" translatable="true">关于应用程序</string>
-	<string name="share_app_summary_text" translatable="true">分享Play商店应用链接</string>
-	<string name="rate_use_summary_text" translatable="true">通过评级表达您的经验</string>
-	<string name="more_app_summary_text" translatable="true">那里还有更多应用</string>
-	<string name="about_app_summary_text" translatable="true">打开github链接</string>
 	<string name="setting_text" translatable="true">环境</string>
 	<string name="shareMessage" translatable="true">嘿，检查此应用程序，可帮助您从手机删除重复和不必要的数据 - </string>
 	<string name="normal_mode" translatable="true">普通的</string>
@@ -89,8 +84,7 @@
 	<string name="all_information_provided_by_text" translatable="true">Do Do Drives许可提供的所有信息均在您的设备上保存在本地，并且仅在您的同意下以故障排除目的发送给我们。</string>
 	<string name="no_thanks_text" translatable="true">不，谢谢</string>
 	<string name="allow_text" translatable="true">允许</string>
-	<string name="do_not_disturb_permission_text" translatable="true">不要打扰许可</string>
-	<string name="we_need_permission_text" translatable="true">我们需要在其主动会议期间切换到无声或振动模式。</string>
+	<string name="do_not_disturb_permission_text" translatable="true">DND许可</string>
 	<string name="permission_already_given_text" translatable="true">已获得许可</string>
 	<string name="sorry_this_feature_not_supported_text" translatable="true">此功能在Marshmello或Android版本6下没有可用</string>
 	<string name="english_text" translatable="true">英语</string>

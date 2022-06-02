@@ -2,7 +2,7 @@
 
 	<string name="refresh_text" translatable="true">రిఫ్రెష్</string>
 	<string name="send_feedback_text" translatable="true"> అభిప్రాయాన్ని పంపండి</string>
-	<string name="right_hand_side_time_text" translatable="true">%1$s నిమిషాలు</string>
+	<string name="right_hand_side_time_text" translatable="true">%1$s నిమి</string>
 	<string name="left_hand_side_time_text" translatable="true">%1$s</string>
 	<string name="minute_text" translatable="true">నిమిషం</string>
 	<string name="hour_text" translatable="true">గంట</string>
@@ -14,8 +14,8 @@
 	<string name="you_cant_select_30min_text" translatable="true"> మీరు 30 నిమిషాల గరిష్ట పరిమితిని ఎంచుకోలేరు</string>
 	<string name="you_cant_select_text" translatable="true"> మీరు గరిష్ట పరిమితిని ఎంచుకోలేరు</string>
 	<string name="time_reset_successfully_text" translatable="true"> సమయం విజయవంతంగా రీసెట్ చేయండి</string>
-	<string name="activate_at_text" translatable="true">వద్ద సక్రియం చేయండి :</string>
-	<string name="activate_for_text" translatable="true">దీని కోసం సక్రియం చేయండి :</string>
+	<string name="activate_at_text" translatable="true">వద్ద సక్రియం చేయండి:</string>
+	<string name="activate_for_text" translatable="true">దీని కోసం సక్రియం చేయండి:</string>
 	<string name="feedbackEditTextHint" translatable="true">దయచేసి మీ అభిప్రాయాన్ని వ్రాయండి</string>
 	<string name="describe_your_issue_text" translatable="true">మీ సమస్య ని వర్ణించడి</string>
 	<string name="feedbackEditTextError" translatable="true">దయచేసి అభిప్రాయంలో ఏదైనా రాయండి</string>
@@ -43,17 +43,12 @@
 	<string name="system_setting_text" translatable="true">సిస్టమ్ అమరికలను</string>
 	<string name="clear_cache_text" translatable="true">క్లియర్ కాష్</string>
 	<string name="help_support_text" translatable="true">సహాయం &amp; మద్దతు</string>
-	<string name="send_feedback_summary_text" translatable="true">అనువర్తన బగ్‌ను పరిష్కరించడానికి అభిప్రాయాన్ని సమర్పించండి</string>
 	<string name="privacy_policy_text" translatable="true">గోప్యతా విధానం</string>
 	<string name="more_info_text" translatable="true">మరింత సమాచారం</string>
 	<string name="share_app_text" translatable="true">షేర్ అనువర్తనం</string>
-	<string name="rate_use_text" translatable="true">రేటు-యుఎస్</string>
-	<string name="more_app_text" translatable="true">మరిన్ని అనువర్తనం</string>
+	<string name="submit_review_text" translatable="true">సమీక్షను సమర్పించండి</string>
+	<string name="more_app_text" translatable="true">మరిన్ని అనువర్తనాలు</string>
 	<string name="about_app_text" translatable="true">అనువర్తనం గురించి</string>
-	<string name="share_app_summary_text" translatable="true">ప్లే స్టోర్ అనువర్తన లింక్‌ను భాగస్వామ్యం చేయండి</string>
-	<string name="rate_use_summary_text" translatable="true">రేటింగ్ ద్వారా మీ అనుభవాన్ని వ్యక్తపరచండి</string>
-	<string name="more_app_summary_text" translatable="true">అక్కడ మరిన్ని అనువర్తనం ఉంది</string>
-	<string name="about_app_summary_text" translatable="true">గితుబ్ లింక్ తెరవండి</string>
 	<string name="setting_text" translatable="true">అమరిక</string>
 	<string name="shareMessage" translatable="true">హే, ఫోన్ నుండి నకిలీ మరియు అనవసరమైన డేటాను తొలగించడానికి మీకు సహాయపడే ఈ అనువర్తనాన్ని తనిఖీ చేయండి -</string>
 	<string name="normal_mode" translatable="true">సాధారణ</string>
@@ -89,8 +84,7 @@
 	<string name="all_information_provided_by_text" translatable="true">అనుమతి ఇవ్వని మొత్తం సమాచారం మీ పరికరాల్లో స్థానికంగా ఉంచబడుతుంది మరియు ట్రబుల్షూటింగ్ ప్రయోజనం కోసం మీ సమ్మతితో మాత్రమే మాకు పంపబడుతుంది.</string>
 	<string name="no_thanks_text" translatable="true">లేదు, ధన్యవాదాలు</string>
 	<string name="allow_text" translatable="true">అనుమతించండి</string>
-	<string name="do_not_disturb_permission_text" translatable="true">అనుమతి భంగం చేయవద్దు</string>
-	<string name="we_need_permission_text" translatable="true">దాని క్రియాశీల సెషన్లలో నిశ్శబ్ద లేదా వైబ్రేట్ మోడ్‌కు మారడానికి మాకు అవసరం.</string>
+	<string name="do_not_disturb_permission_text" translatable="true">DND అనుమతి</string>
 	<string name="permission_already_given_text" translatable="true">అనుమతి ఇప్పటికే ఇవ్వబడింది</string>
 	<string name="sorry_this_feature_not_supported_text" translatable="true">ఈ లక్షణం మార్ష్మెల్లో లేదా ఆండ్రాయిడ్ వెర్షన్ 6 క్రింద అందుబాటులో లేదు</string>
 	<string name="english_text" translatable="true">ఆంగ్ల</string>

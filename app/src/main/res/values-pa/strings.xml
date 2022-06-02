@@ -14,8 +14,8 @@
 	<string name="you_cant_select_30min_text" translatable="true"> ਤੁਸੀਂ 30 ਮਿੰਟ ਦੀ ਵੱਧ ਤੋਂ ਵੱਧ ਸੀਮਾ ਨੂੰ ਨਹੀਂ ਚੁਣ ਸਕਦੇ</string>
 	<string name="you_cant_select_text" translatable="true"> ਤੁਸੀਂ ਵੱਧ ਤੋਂ ਵੱਧ ਸੀਮਾ ਨੂੰ ਚੁਣ ਨਹੀਂ ਸਕਦੇ</string>
 	<string name="time_reset_successfully_text" translatable="true"> ਸਫਲਤਾਪੂਰਵਕ ਸਮਾਂ ਮੁੜ</string>
-	<string name="activate_at_text" translatable="true">\'ਤੇ ਸਰਗਰਮ :</string>
-	<string name="activate_for_text" translatable="true">ਲਈ ਸਰਗਰਮ :</string>
+	<string name="activate_at_text" translatable="true">ਸਰਗਰਮ:</string>
+	<string name="activate_for_text" translatable="true">ਲਈ ਸਰਗਰਮ:</string>
 	<string name="feedbackEditTextHint" translatable="true">ਕਿਰਪਾ ਕਰਕੇ ਆਪਣੀ ਫੀਡਬੈਕ ਲਿਖੋ</string>
 	<string name="describe_your_issue_text" translatable="true">ਆਪਣੇ ਮੁੱਦੇ ਦਾ ਵਰਣਨ ਕਰੋ</string>
 	<string name="feedbackEditTextError" translatable="true">ਕਿਰਪਾ ਕਰਕੇ ਫੀਡਬੈਕ ਵਿੱਚ ਕੁਝ ਲਿਖੋ</string>
@@ -43,17 +43,12 @@
 	<string name="system_setting_text" translatable="true">ਸਿਸਟਮ ਸੈਟਿੰਗਾਂ</string>
 	<string name="clear_cache_text" translatable="true">ਸਾਫ ਕੈਚੇ</string>
 	<string name="help_support_text" translatable="true">ਮਦਦ ਅਤੇ ਸਹਾਇਤਾ</string>
-	<string name="send_feedback_summary_text" translatable="true">ਐਪ ਬੱਗ ਨੂੰ ਠੀਕ ਕਰਨ ਲਈ ਫੀਡਬੈਕ ਜਮ੍ਹਾਂ ਕਰੋ</string>
 	<string name="privacy_policy_text" translatable="true">ਪਰਾਈਵੇਟ ਨੀਤੀ</string>
 	<string name="more_info_text" translatable="true">ਹੋਰ ਜਾਣਕਾਰੀ</string>
 	<string name="share_app_text" translatable="true">ਸ਼ੇਅਰ ਐਪ</string>
-	<string name="rate_use_text" translatable="true">ਰੇਟ-ਯੂਐਸ</string>
-	<string name="more_app_text" translatable="true">ਹੋਰ ਐਪ</string>
+	<string name="submit_review_text" translatable="true">ਸਮੀਖਿਆ ਜਮ੍ਹਾਂ ਕਰੋ</string>
+	<string name="more_app_text" translatable="true">ਹੋਰ ਐਪਸ</string>
 	<string name="about_app_text" translatable="true">ਐਪ ਬਾਰੇ</string>
-	<string name="share_app_summary_text" translatable="true">ਪਲੇ ਸਟੋਰ ਐਪ ਲਿੰਕ ਨੂੰ ਸਾਂਝਾ ਕਰੋ</string>
-	<string name="rate_use_summary_text" translatable="true">ਰੇਟਿੰਗ ਦੁਆਰਾ ਆਪਣੇ ਤਜ਼ਰਬੇ ਨੂੰ ਜ਼ਾਹਰ ਕਰੋ</string>
-	<string name="more_app_summary_text" translatable="true">ਉਥੇ ਹੋਰ ਐਪ ਹੈ</string>
-	<string name="about_app_summary_text" translatable="true">ਗਿੱਟਬ ਲਿੰਕ ਖੋਲ੍ਹੋ</string>
 	<string name="setting_text" translatable="true">ਸੈਟਿੰਗ</string>
 	<string name="shareMessage" translatable="true">ਹੇ, ਇਸ ਐਪਲੀਕੇਸ਼ ਨੂੰ ਚੁਣੋ ਜੋ ਤੁਹਾਨੂੰ ਫੋਨ ਤੋਂ ਡੁਪਲਿਕੇਟ ਅਤੇ ਬੇਲੋੜੇ ਡਾਟੇ ਨੂੰ ਹਟਾਉਣ ਵਿੱਚ ਸਹਾਇਤਾ ਕਰਦਾ ਹੈ -</string>
 	<string name="normal_mode" translatable="true">ਆਮ</string>
@@ -89,8 +84,7 @@
 	<string name="all_information_provided_by_text" translatable="true">ਕੋਈ ਵੀ ਪ੍ਰੇਸ਼ਾਨੀ ਦੀ ਇਜ਼ਾਜ਼ਤ ਵਿੱਚ ਤੁਹਾਡੀ ਸਾਰੀ ਜਾਣਕਾਰੀ ਸਥਾਨਕ ਤੌਰ ਤੇ ਤੁਹਾਡੀਆਂ ਡਿਵਾਈਸਾਂ ਤੇ ਰੱਖੀ ਜਾਂਦੀ ਹੈ ਅਤੇ ਸਿਰਫ ਸਾਨੂੰ ਸਮੱਸਿਆ ਨਿਪਟਾਰਾ ਕਰਨ ਦੇ ਉਦੇਸ਼ ਲਈ ਤੁਹਾਡੀ ਸਹਿਮਤੀ ਲਈ ਭੇਜੀ ਜਾਂਦੀ ਹੈ.</string>
 	<string name="no_thanks_text" translatable="true">ਨਹੀਂ ਧੰਨਵਾਦ</string>
 	<string name="allow_text" translatable="true">ਦੀ ਇਜਾਜ਼ਤ</string>
-	<string name="do_not_disturb_permission_text" translatable="true">ਵਿਗਾੜ ਨੂੰ ਪਰੇਸ਼ਾਨ ਨਾ ਕਰੋ</string>
-	<string name="we_need_permission_text" translatable="true">ਸਾਨੂੰ ਇਸਦੇ ਕਿਰਿਆਸ਼ੀਲ ਸੈਸ਼ਨਾਂ ਦੌਰਾਨ ਚੁੱਪ ਜਾਂ ਵਾਈਬ੍ਰੇਟ ਮੋਡ ਤੇ ਬਦਲਣ ਦੀ ਜ਼ਰੂਰਤ ਹੈ.</string>
+	<string name="do_not_disturb_permission_text" translatable="true">Dend</string>
 	<string name="permission_already_given_text" translatable="true">ਇਜਾਜ਼ਤ ਦਿੱਤੀ ਗਈ ਹੈ</string>
 	<string name="sorry_this_feature_not_supported_text" translatable="true">ਇਹ ਵਿਸ਼ੇਸ਼ਤਾ ਮਾਰਸ਼ਮੈਲੋ ਜਾਂ ਐਂਡਰਾਇਡ ਵਰਜ਼ਨ 6 ਤੋਂ ਹੇਠਾਂ ਉਪਲਬਧ ਨਹੀਂ ਹੈ</string>
 	<string name="english_text" translatable="true">ਅੰਗਰੇਜ਼ੀ</string>

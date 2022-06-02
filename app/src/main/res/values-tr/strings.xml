@@ -2,7 +2,7 @@
 
 	<string name="refresh_text" translatable="true">Yenilemek</string>
 	<string name="send_feedback_text" translatable="true"> Geribildirim yolla</string>
-	<string name="right_hand_side_time_text" translatable="true">%1$s dakikalar</string>
+	<string name="right_hand_side_time_text" translatable="true">%1$s Min</string>
 	<string name="left_hand_side_time_text" translatable="true">%1$s</string>
 	<string name="minute_text" translatable="true">Dakika</string>
 	<string name="hour_text" translatable="true">Saat</string>
@@ -14,8 +14,8 @@
 	<string name="you_cant_select_30min_text" translatable="true"> Maksimum 30 dakikalık sınırını seçemezsiniz</string>
 	<string name="you_cant_select_text" translatable="true"> Maksimum limiti geçmiş seçemezsiniz</string>
 	<string name="time_reset_successfully_text" translatable="true"> Zaman Sıfırla Başarılı Bir</string>
-	<string name="activate_at_text" translatable="true">Etkinleştirmek :</string>
-	<string name="activate_for_text" translatable="true">İçin etkinleştirin :</string>
+	<string name="activate_at_text" translatable="true">Etkinleştirin:</string>
+	<string name="activate_for_text" translatable="true">İçin etkinleştirin:</string>
 	<string name="feedbackEditTextHint" translatable="true">Lütfen geri bildiriminizi yazın</string>
 	<string name="describe_your_issue_text" translatable="true">Sorununuzu tanımlayın</string>
 	<string name="feedbackEditTextError" translatable="true">Lütfen geri bildirimde bir şeyler yazın</string>
@@ -43,17 +43,12 @@
 	<string name="system_setting_text" translatable="true">Sistem ayarları</string>
 	<string name="clear_cache_text" translatable="true">Temiz Önbellek</string>
 	<string name="help_support_text" translatable="true">Yardım desteği</string>
-	<string name="send_feedback_summary_text" translatable="true">Uygulama hatasını düzeltmek için geri bildirim gönderin</string>
 	<string name="privacy_policy_text" translatable="true">Gizlilik Politikası</string>
 	<string name="more_info_text" translatable="true">Daha fazla bilgi</string>
 	<string name="share_app_text" translatable="true">Uygulamayı Paylaş</string>
-	<string name="rate_use_text" translatable="true">Bizi değerlendirin</string>
+	<string name="submit_review_text" translatable="true">İnceleme Gönder</string>
 	<string name="more_app_text" translatable="true">Daha fazla uygulama</string>
 	<string name="about_app_text" translatable="true">Uygulama Hakkında</string>
-	<string name="share_app_summary_text" translatable="true">Play Store Uygulama Bağlantısını Paylaşın</string>
-	<string name="rate_use_summary_text" translatable="true">Deneyiminizi derecelendirme yoluyla ifade edin</string>
-	<string name="more_app_summary_text" translatable="true">Orada daha fazla uygulama var</string>
-	<string name="about_app_summary_text" translatable="true">Github bağlantısını aç</string>
 	<string name="setting_text" translatable="true">Ayar</string>
 	<string name="shareMessage" translatable="true">Hey, telefondan kopya ve gereksiz verileri silmenize yardımcı olan bu uygulamayı kontrol edin -</string>
 	<string name="normal_mode" translatable="true">Normal</string>
@@ -65,7 +60,7 @@
 	<string name="developer_name" translatable="true">Tam ekip tarafından oluşturuldu</string>
 	<string name="share_code_text" translatable="true">Paylaşım Kodu</string>
 	<string name="workOnProgress_text" translatable="true">İlerleme üzerinde çalışmak</string>
-	<string name="click_back_text" translatable="true">Çıkmak için tekrar tekrar tıklayın</string>
+	<string name="click_back_text" translatable="true">Çıkmak için tekrar tıklayın</string>
 	<string name="yes_string" translatable="true">Evet</string>
 	<string name="no_string" translatable="true">Numara</string>
 	<string name="notification_title_text" translatable="true">Dua Uyarısı: %1$s</string>
@@ -89,8 +84,7 @@
 	<string name="all_information_provided_by_text" translatable="true">Rahatsız etmeyin izin vermeyen tüm bilgiler, cihazlarınızda yerel olarak tutulur ve sadece sorun giderme amacınız için onayınızla bize gönderilir.</string>
 	<string name="no_thanks_text" translatable="true">Hayır teşekkürler</string>
 	<string name="allow_text" translatable="true">İzin vermek</string>
-	<string name="do_not_disturb_permission_text" translatable="true">İzni rahatsız etmeyin</string>
-	<string name="we_need_permission_text" translatable="true">Aktif oturumları sırasında sessiz veya titreşim moduna geçmemiz gerekiyor.</string>
+	<string name="do_not_disturb_permission_text" translatable="true">DND İzni</string>
 	<string name="permission_already_given_text" translatable="true">İzin Zaten Verildi</string>
 	<string name="sorry_this_feature_not_supported_text" translatable="true">Bu özellik Marshmello veya Android sürüm 6 altında mevcut değil</string>
 	<string name="english_text" translatable="true">ingilizce</string>

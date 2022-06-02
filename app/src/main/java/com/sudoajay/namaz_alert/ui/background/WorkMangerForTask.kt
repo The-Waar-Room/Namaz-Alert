@@ -59,7 +59,7 @@ class WorkMangerForTask @Inject constructor(var context: Context) {
                 Log.e("WorkManger", "prayerGapTime - $prayerGapTime ")
                 val arrayIncrement = prayerGapTime.split(":")
                 val beforeTime = getMeIncrementTime(dailyPrayerDB.Time, arrayIncrement[0].toInt())
-                val afterTime = getMeIncrementTime(beforeTime, arrayIncrement[1].toInt())
+                val afterTime = getMeIncrementTime(dailyPrayerDB.Time, arrayIncrement[1].toInt())
                 val diffTime = arrayIncrement[1]
 
 
@@ -83,9 +83,11 @@ class WorkMangerForTask @Inject constructor(var context: Context) {
 
                 val constraints = Constraints.Builder()
 
+                Log.e("WorkManger", " getDiffMinute(currentTime,beforeTime) - ${getDiffMinute(currentTime,beforeTime)}  ,   getDiffMinute(currentTime,afterTime) " +
+                        "${getDiffMinute(currentTime,afterTime)}")
                 val alertOneTimeWorkRequest =
                     OneTimeWorkRequestBuilder<WorkMangerAlertNotification>()
-//            .setInitialDelay(getDiffMinute(currentTime,beforeTime), TimeUnit.MINUTES)
+                        .setInitialDelay(getDiffMinute(currentTime,beforeTime), TimeUnit.MINUTES)
                         .setInitialDelay(10, TimeUnit.SECONDS)
                         .addTag(alertTAGID)
                         .setInputData(alertData)
@@ -94,6 +96,7 @@ class WorkMangerForTask @Inject constructor(var context: Context) {
 
 
                 val finishOneTimeRequest = OneTimeWorkRequestBuilder<WorkMangerFinishNotification>()
+                    .setInitialDelay(getDiffMinute(currentTime,afterTime), TimeUnit.MINUTES)
                     .setInitialDelay(30, TimeUnit.SECONDS)
                     .addTag(finishTAGID)
                     .setInputData(finishData)

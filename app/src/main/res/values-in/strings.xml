@@ -2,7 +2,7 @@
 
 	<string name="refresh_text" translatable="true">Menyegarkan</string>
 	<string name="send_feedback_text" translatable="true"> Kirim umpan balik</string>
-	<string name="right_hand_side_time_text" translatable="true">%1$s menit</string>
+	<string name="right_hand_side_time_text" translatable="true">%1$s min</string>
 	<string name="left_hand_side_time_text" translatable="true">%1$s</string>
 	<string name="minute_text" translatable="true">Menit</string>
 	<string name="hour_text" translatable="true">Jam</string>
@@ -14,7 +14,7 @@
 	<string name="you_cant_select_30min_text" translatable="true"> Anda tidak dapat memilih melewati batas maksimum 30 menit</string>
 	<string name="you_cant_select_text" translatable="true"> Anda tidak dapat memilih melewati batas maksimum</string>
 	<string name="time_reset_successfully_text" translatable="true"> Waktu berhasil diatur ulang</string>
-	<string name="activate_at_text" translatable="true">Aktifkan di</string>
+	<string name="activate_at_text" translatable="true">Aktifkan di:</string>
 	<string name="activate_for_text" translatable="true">Aktifkan untuk:</string>
 	<string name="feedbackEditTextHint" translatable="true">Harap tulis umpan balik Anda</string>
 	<string name="describe_your_issue_text" translatable="true">jelaskan permasalahanmu</string>
@@ -43,17 +43,12 @@
 	<string name="system_setting_text" translatable="true">Pengaturan sistem</string>
 	<string name="clear_cache_text" translatable="true">Hapus cache</string>
 	<string name="help_support_text" translatable="true">Bantuan &amp; Dukungan</string>
-	<string name="send_feedback_summary_text" translatable="true">Kirimkan umpan balik untuk memperbaiki bug aplikasi</string>
 	<string name="privacy_policy_text" translatable="true">Kebijakan pribadi</string>
 	<string name="more_info_text" translatable="true">Info lebih lanjut</string>
 	<string name="share_app_text" translatable="true">Bagikan aplikasi</string>
-	<string name="rate_use_text" translatable="true">Tarif-US</string>
-	<string name="more_app_text" translatable="true">Lebih banyak aplikasi</string>
+	<string name="submit_review_text" translatable="true">Kirim ulasan</string>
+	<string name="more_app_text" translatable="true">Aplikasi tambahan lainnya</string>
 	<string name="about_app_text" translatable="true">Tentang aplikasi</string>
-	<string name="share_app_summary_text" translatable="true">Bagikan Tautan Aplikasi Play Store</string>
-	<string name="rate_use_summary_text" translatable="true">Ekspresikan pengalaman Anda melalui peringkat</string>
-	<string name="more_app_summary_text" translatable="true">ada lebih banyak aplikasi di luar sana</string>
-	<string name="about_app_summary_text" translatable="true">Buka Link GitHub</string>
 	<string name="setting_text" translatable="true">Pengaturan</string>
 	<string name="shareMessage" translatable="true">Hei, periksa aplikasi ini yang membantu Anda menghapus data duplikat dan tidak perlu dari telepon -</string>
 	<string name="normal_mode" translatable="true">Normal</string>
@@ -89,8 +84,7 @@
 	<string name="all_information_provided_by_text" translatable="true">Semua informasi yang diberikan oleh jangan ganggu izin disimpan secara lokal di perangkat Anda dan hanya dikirimkan kepada kami dengan persetujuan Anda untuk tujuan pemecahan masalah.</string>
 	<string name="no_thanks_text" translatable="true">Tidak, terima kasih</string>
 	<string name="allow_text" translatable="true">Mengizinkan</string>
-	<string name="do_not_disturb_permission_text" translatable="true">Jangan ganggu izin</string>
-	<string name="we_need_permission_text" translatable="true">Kita perlu beralih ke mode diam atau bergetar selama sesi aktifnya.</string>
+	<string name="do_not_disturb_permission_text" translatable="true">Izin DND</string>
 	<string name="permission_already_given_text" translatable="true">Izin sudah diberikan</string>
 	<string name="sorry_this_feature_not_supported_text" translatable="true">Fitur ini tidak tersedia di bawah Versi Marshmello atau Android 6</string>
 	<string name="english_text" translatable="true">Bahasa inggris</string>

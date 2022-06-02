@@ -14,7 +14,7 @@
 	<string name="you_cant_select_30min_text" translatable="true"> আপনি 30 মিনিটের সর্বোচ্চ সীমাটি নির্বাচন করতে পারবেন না</string>
 	<string name="you_cant_select_text" translatable="true"> আপনি সর্বোচ্চ সীমা অতীত নির্বাচন করতে পারবেন না</string>
 	<string name="time_reset_successfully_text" translatable="true"> সময় সফলভাবে পুনরায় সেট করুন</string>
-	<string name="activate_at_text" translatable="true">সক্রিয়</string>
+	<string name="activate_at_text" translatable="true">সক্রিয়:</string>
 	<string name="activate_for_text" translatable="true">জন্য সক্রিয়:</string>
 	<string name="feedbackEditTextHint" translatable="true">আপনার মতামত লিখুন দয়া করে</string>
 	<string name="describe_your_issue_text" translatable="true">আপনার সমস্যাটি বর্ণনা</string>
@@ -43,17 +43,12 @@
 	<string name="system_setting_text" translatable="true">পদ্ধতি নির্ধারণ</string>
 	<string name="clear_cache_text" translatable="true">ক্যাশে সাফ করুন</string>
 	<string name="help_support_text" translatable="true">সাহায্য সহযোগীতা</string>
-	<string name="send_feedback_summary_text" translatable="true">অ্যাপ বাগটি ঠিক করতে প্রতিক্রিয়া জমা দিন</string>
 	<string name="privacy_policy_text" translatable="true">গোপনীয়তা নীতি</string>
 	<string name="more_info_text" translatable="true">অধিক তথ্য</string>
 	<string name="share_app_text" translatable="true">অ্যাপ্লিকেশন ভাগ করা</string>
-	<string name="rate_use_text" translatable="true">আমাদের ব্যাপারে আপনার মতামত দিন</string>
-	<string name="more_app_text" translatable="true">আরো অ্যাপ্লিকেশন</string>
+	<string name="submit_review_text" translatable="true">পর্যালোচনা জমা দিন</string>
+	<string name="more_app_text" translatable="true">আরো অ্যাপ্লিকেশান</string>
 	<string name="about_app_text" translatable="true">অ্যাপ্লিকেশন সম্পর্কে</string>
-	<string name="share_app_summary_text" translatable="true">প্লে স্টোর অ্যাপ লিঙ্কটি ভাগ করুন</string>
-	<string name="rate_use_summary_text" translatable="true">রেটিংয়ের মাধ্যমে আপনার অভিজ্ঞতা প্রকাশ করুন</string>
-	<string name="more_app_summary_text" translatable="true">সেখানে আরও অ্যাপ্লিকেশন আছে</string>
-	<string name="about_app_summary_text" translatable="true">গিটহাব লিঙ্কটি খুলুন</string>
 	<string name="setting_text" translatable="true">স্থাপন</string>
 	<string name="shareMessage" translatable="true">আরে, এই অ্যাপ্লিকেশনটি পরীক্ষা করুন যা আপনাকে ফোন থেকে সদৃশ এবং অপ্রয়োজনীয় ডেটা মুছতে সহায়তা করে -</string>
 	<string name="normal_mode" translatable="true">সাধারণ</string>
@@ -89,8 +84,7 @@
 	<string name="all_information_provided_by_text" translatable="true">ডিও ডিস্টার্বেশন দ্বারা সরবরাহিত সমস্ত তথ্য স্থানীয়ভাবে আপনার ডিভাইসে রাখা হয় এবং সমস্যা সমাধানের উদ্দেশ্যে আপনার সম্মতিতে কেবল আমাদের কাছে প্রেরণ করা হয়।</string>
 	<string name="no_thanks_text" translatable="true">না ধন্যবাদ</string>
 	<string name="allow_text" translatable="true">অনুমতি দিন</string>
-	<string name="do_not_disturb_permission_text" translatable="true">অনুমতি বিরক্ত করবেন না</string>
-	<string name="we_need_permission_text" translatable="true">আমাদের সক্রিয় সেশনের সময় আমাদের সাইলেন্ট বা ভাইব্রেট মোডে স্যুইচ করা দরকার।</string>
+	<string name="do_not_disturb_permission_text" translatable="true">ডিএনডি অনুমতি</string>
 	<string name="permission_already_given_text" translatable="true">অনুমতি ইতিমধ্যে দেওয়া</string>
 	<string name="sorry_this_feature_not_supported_text" translatable="true">এই বৈশিষ্ট্যটি মার্শমেলো বা অ্যান্ড্রয়েড সংস্করণ 6 এর নীচে উপলভ্য নয়</string>
 	<string name="english_text" translatable="true">ইংরেজি</string>

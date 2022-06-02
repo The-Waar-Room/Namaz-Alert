@@ -2,7 +2,7 @@
 
 	<string name="refresh_text" translatable="true">Làm mới</string>
 	<string name="send_feedback_text" translatable="true"> Gửi phản hồi</string>
-	<string name="right_hand_side_time_text" translatable="true">%1$s phút</string>
+	<string name="right_hand_side_time_text" translatable="true">%1$s Min</string>
 	<string name="left_hand_side_time_text" translatable="true">%1$s</string>
 	<string name="minute_text" translatable="true">Phút</string>
 	<string name="hour_text" translatable="true">Giờ</string>
@@ -14,8 +14,8 @@
 	<string name="you_cant_select_30min_text" translatable="true"> Bạn không thể chọn qua giới hạn tối đa là 30 phút</string>
 	<string name="you_cant_select_text" translatable="true"> Bạn không thể chọn qua giới hạn tối đa</string>
 	<string name="time_reset_successfully_text" translatable="true"> Đặt lại thời gian thành công</string>
-	<string name="activate_at_text" translatable="true">Kích hoạt tại :</string>
-	<string name="activate_for_text" translatable="true">Kích hoạt cho :</string>
+	<string name="activate_at_text" translatable="true">Kích hoạt tại:</string>
+	<string name="activate_for_text" translatable="true">Kích hoạt cho:</string>
 	<string name="feedbackEditTextHint" translatable="true">Vui lòng viết phản hồi của bạn</string>
 	<string name="describe_your_issue_text" translatable="true">Mô tả vấn đề của bạn</string>
 	<string name="feedbackEditTextError" translatable="true">Vui lòng viết một cái gì đó trong phản hồi</string>
@@ -43,17 +43,12 @@
 	<string name="system_setting_text" translatable="true">Cài đặt hệ thống</string>
 	<string name="clear_cache_text" translatable="true">Xóa bộ nhớ cache</string>
 	<string name="help_support_text" translatable="true">Giúp đỡ và hỗ trợ</string>
-	<string name="send_feedback_summary_text" translatable="true">Gửi phản hồi để sửa lỗi ứng dụng</string>
 	<string name="privacy_policy_text" translatable="true">Chính sách bảo mật</string>
 	<string name="more_info_text" translatable="true">Thêm thông tin</string>
 	<string name="share_app_text" translatable="true">Chia sẻ ứng dụng</string>
-	<string name="rate_use_text" translatable="true">Đánh giá chúng tôi</string>
-	<string name="more_app_text" translatable="true">Nhiều ứng dụng hơn</string>
+	<string name="submit_review_text" translatable="true">Gửi đánh giá</string>
+	<string name="more_app_text" translatable="true">Thêm nhiều ứng dụng</string>
 	<string name="about_app_text" translatable="true">Về ứng dụng</string>
-	<string name="share_app_summary_text" translatable="true">Chia sẻ liên kết ứng dụng Play Store</string>
-	<string name="rate_use_summary_text" translatable="true">Thể hiện kinh nghiệm của bạn thông qua đánh giá</string>
-	<string name="more_app_summary_text" translatable="true">Có nhiều ứng dụng ngoài đó</string>
-	<string name="about_app_summary_text" translatable="true">Mở liên kết GitHub</string>
 	<string name="setting_text" translatable="true">Cài đặt</string>
 	<string name="shareMessage" translatable="true">Này, hãy kiểm tra ứng dụng này giúp bạn xóa dữ liệu trùng lặp và không cần thiết khỏi điện thoại -</string>
 	<string name="normal_mode" translatable="true">Bình thường</string>
@@ -89,8 +84,7 @@
 	<string name="all_information_provided_by_text" translatable="true">Tất cả thông tin được cung cấp bởi không làm phiền sự cho phép được lưu giữ cục bộ trên thiết bị của bạn và chỉ được gửi cho chúng tôi với sự đồng ý của bạn cho mục đích khắc phục sự cố.</string>
 	<string name="no_thanks_text" translatable="true">Không, cám ơn</string>
 	<string name="allow_text" translatable="true">Cho phép</string>
-	<string name="do_not_disturb_permission_text" translatable="true">Không làm phiền sự cho phép</string>
-	<string name="we_need_permission_text" translatable="true">Chúng ta cần chuyển sang chế độ im lặng hoặc rung trong các phiên hoạt động của nó.</string>
+	<string name="do_not_disturb_permission_text" translatable="true">Sự cho phép DND</string>
 	<string name="permission_already_given_text" translatable="true">Quyền đã được đưa ra</string>
 	<string name="sorry_this_feature_not_supported_text" translatable="true">Tính năng này không có sẵn bên dưới Marshmello hoặc Android phiên bản 6</string>
 	<string name="english_text" translatable="true">Tiếng Anh</string>

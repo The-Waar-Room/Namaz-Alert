@@ -2,7 +2,7 @@
 
 	<string name="refresh_text" translatable="true">புதுப்பிப்பு</string>
 	<string name="send_feedback_text" translatable="true"> கருத்தினை அனுப்பவும்</string>
-	<string name="right_hand_side_time_text" translatable="true">%1$s நிமிடங்கள்</string>
+	<string name="right_hand_side_time_text" translatable="true">%1$s நிமிடம்</string>
 	<string name="left_hand_side_time_text" translatable="true">%1$s%1$s</string>
 	<string name="minute_text" translatable="true">நிமிடங்கள்</string>
 	<string name="hour_text" translatable="true">மணி</string>
@@ -14,8 +14,8 @@
 	<string name="you_cant_select_30min_text" translatable="true"> அதிகபட்ச வரம்பு 30 நிமிடத்தை நீங்கள் தேர்ந்தெடுக்க முடியாது</string>
 	<string name="you_cant_select_text" translatable="true"> அதிகபட்ச வரம்பை நீங்கள் தேர்ந்தெடுக்க முடியாது</string>
 	<string name="time_reset_successfully_text" translatable="true"> நேரம் வெற்றிகரமாக மீட்டமைக்கப்படுகிறது</string>
-	<string name="activate_at_text" translatable="true">செயல்படுத்தவும் :</string>
-	<string name="activate_for_text" translatable="true">இதற்கான செயல்படுத்த :</string>
+	<string name="activate_at_text" translatable="true">செயல்படுத்தவும்:</string>
+	<string name="activate_for_text" translatable="true">இதற்கான செயல்படுத்த:</string>
 	<string name="feedbackEditTextHint" translatable="true">உங்கள் கருத்தை எழுதுங்கள்</string>
 	<string name="describe_your_issue_text" translatable="true">உங்கள் பிரச்சினையை விவரிக்கவும்</string>
 	<string name="feedbackEditTextError" translatable="true">பின்னூட்டத்தில் ஏதாவது எழுதுங்கள்</string>
@@ -43,17 +43,12 @@
 	<string name="system_setting_text" translatable="true">கணினி அமைப்புகளை</string>
 	<string name="clear_cache_text" translatable="true">கேச் அழிக்கவும்</string>
 	<string name="help_support_text" translatable="true">உதவி &amp; ஆதரவு</string>
-	<string name="send_feedback_summary_text" translatable="true">பயன்பாட்டு பிழையை சரிசெய்ய கருத்துக்களை சமர்ப்பிக்கவும்</string>
 	<string name="privacy_policy_text" translatable="true">தனியுரிமைக் கொள்கை</string>
 	<string name="more_info_text" translatable="true">மேலும் தகவல்</string>
 	<string name="share_app_text" translatable="true">பயன்பாட்டைப் பகிரவும்</string>
-	<string name="rate_use_text" translatable="true">எங்களை மதிப்பிடு</string>
-	<string name="more_app_text" translatable="true">மேலும் பயன்பாடு</string>
+	<string name="submit_review_text" translatable="true">விமர்சனத்தை சமர்ப்பிக்கவும்</string>
+	<string name="more_app_text" translatable="true">மேலும் பயன்பாடுகள்</string>
 	<string name="about_app_text" translatable="true">பயன்பாடு பற்றி</string>
-	<string name="share_app_summary_text" translatable="true">பிளே ஸ்டோர் பயன்பாட்டு இணைப்பைப் பகிரவும்</string>
-	<string name="rate_use_summary_text" translatable="true">மதிப்பீடு மூலம் உங்கள் அனுபவத்தை வெளிப்படுத்துங்கள்</string>
-	<string name="more_app_summary_text" translatable="true">அங்கே கூடுதல் பயன்பாடு உள்ளது</string>
-	<string name="about_app_summary_text" translatable="true">கிதுப் இணைப்பைத் திறக்கவும்</string>
 	<string name="setting_text" translatable="true">அமைத்தல்</string>
 	<string name="shareMessage" translatable="true">ஏய், தொலைபேசியிலிருந்து நகல் மற்றும் தேவையற்ற தரவை நீக்க உதவும் இந்த பயன்பாட்டை சரிபார்க்கவும் -</string>
 	<string name="normal_mode" translatable="true">சாதாரண</string>
@@ -89,8 +84,7 @@
 	<string name="all_information_provided_by_text" translatable="true">தொந்தரவு செய்யாத அனுமதி வழங்கிய அனைத்து தகவல்களும் உங்கள் சாதனங்களில் உள்நாட்டில் வைக்கப்படுகின்றன, மேலும் சரிசெய்தல் நோக்கத்திற்காக உங்கள் ஒப்புதலுடன் மட்டுமே எங்களுக்கு அனுப்பப்படும்.</string>
 	<string name="no_thanks_text" translatable="true">இல்லை, நன்றி</string>
 	<string name="allow_text" translatable="true">அனுமதிக்கவும்</string>
-	<string name="do_not_disturb_permission_text" translatable="true">அனுமதியைத் தொந்தரவு செய்யாதீர்கள்</string>
-	<string name="we_need_permission_text" translatable="true">அதன் செயலில் உள்ள அமர்வுகளின் போது அமைதியான அல்லது அதிர்வு பயன்முறைக்கு மாற வேண்டும்.</string>
+	<string name="do_not_disturb_permission_text" translatable="true">டி.என்.டி அனுமதி</string>
 	<string name="permission_already_given_text" translatable="true">அனுமதி ஏற்கனவே கொடுக்கப்பட்டுள்ளது</string>
 	<string name="sorry_this_feature_not_supported_text" translatable="true">இந்த அம்சம் மார்ஷ்மெல்லோ அல்லது ஆண்ட்ராய்டு பதிப்பு 6 க்கு கீழே கிடைக்கவில்லை</string>
 	<string name="english_text" translatable="true">ஆங்கிலம்</string>

@@ -14,8 +14,8 @@
 	<string name="you_cant_select_30min_text" translatable="true"> तपाईं min0 मिनेट को अधिकतम सीमा चयन गर्न सक्नुहुन्न</string>
 	<string name="you_cant_select_text" translatable="true"> तपाईं अधिकतम सीमा चयन गर्न सक्नुहुन्न</string>
 	<string name="time_reset_successfully_text" translatable="true"> समय सफलतापूर्वक रिसेट गर्नुहोस्</string>
-	<string name="activate_at_text" translatable="true">मा सक्रिय गर्नुहोस् :</string>
-	<string name="activate_for_text" translatable="true">को लागी सक्रिय गर्नुहोस् :</string>
+	<string name="activate_at_text" translatable="true">मा सक्रिय गर्नुहोस्:</string>
+	<string name="activate_for_text" translatable="true">को लागी सक्रिय गर्नुहोस्:</string>
 	<string name="feedbackEditTextHint" translatable="true">कृपया तपाईंको प्रतिक्रिया लेख्नुहोस्</string>
 	<string name="describe_your_issue_text" translatable="true">तपाईंको मुद्दा वर्णन गर्नुहोस्</string>
 	<string name="feedbackEditTextError" translatable="true">कृपया प्रतिक्रियामा केहि लेख्नुहोस्</string>
@@ -43,17 +43,12 @@
 	<string name="system_setting_text" translatable="true">प्रणाली सेटिंग्स</string>
 	<string name="clear_cache_text" translatable="true">क्यास खाली गर्नुहोस्</string>
 	<string name="help_support_text" translatable="true">मद्दत र समर्थन</string>
-	<string name="send_feedback_summary_text" translatable="true">अनुप्रयोग बग ठीक गर्न प्रतिक्रिया बुझाउनुहोस्</string>
 	<string name="privacy_policy_text" translatable="true">गोपनीयता नीति</string>
 	<string name="more_info_text" translatable="true">थप जानकारी</string>
 	<string name="share_app_text" translatable="true">साझेदारी साझेदारी</string>
-	<string name="rate_use_text" translatable="true">दर - अमेरिका</string>
-	<string name="more_app_text" translatable="true">थप अनुप्रयोग</string>
+	<string name="submit_review_text" translatable="true">समीक्षा सबमिट गर्नुहोस्</string>
+	<string name="more_app_text" translatable="true">थप अनुप्रयोगहरू</string>
 	<string name="about_app_text" translatable="true">अनुप्रयोगको बारेमा</string>
-	<string name="share_app_summary_text" translatable="true">प्ले स्टोर अनुप्रयोग लिंक साझा गर्नुहोस्</string>
-	<string name="rate_use_summary_text" translatable="true">रेटिंग मार्फत तपाईंको अनुभव व्यक्त गर्नुहोस्</string>
-	<string name="more_app_summary_text" translatable="true">त्यहाँ धेरै अनुप्रयोग छ</string>
-	<string name="about_app_summary_text" translatable="true">Github लिंक खोल्नुहोस्</string>
 	<string name="setting_text" translatable="true">सेप्ट गर्नु</string>
 	<string name="shareMessage" translatable="true">हे, यो अनुप्रयोग जाँच गर्नुहोस् जुन तपाईंलाई फोनबाट नक्कल र अनावश्यक डाटा मेटाउन मद्दत गर्दछ -</string>
 	<string name="normal_mode" translatable="true">साधारण</string>
@@ -89,8 +84,7 @@
 	<string name="all_information_provided_by_text" translatable="true">सबै जानकारीहरू द्वारा प्रदान गरिएको सबै जानकारी तपाईंको उपकरणहरूमा स्थानीय रूपमा राखिन्छ र हामीलाई मात्र समस्या निवारण उद्देश्यको लागि पठाइएको छ।</string>
 	<string name="no_thanks_text" translatable="true">होइन, धन्यवाद</string>
 	<string name="allow_text" translatable="true">अनुमति दिनु</string>
-	<string name="do_not_disturb_permission_text" translatable="true">अनुमति नदिनुहोस्</string>
-	<string name="we_need_permission_text" translatable="true">हामी यसको सक्रिय सत्रहरूको बखत मौन वा कम्पन मोडमा स्विच गर्न आवश्यक छ।</string>
+	<string name="do_not_disturb_permission_text" translatable="true">DND अनुमति</string>
 	<string name="permission_already_given_text" translatable="true">अनुमति पहिले नै दिएको छ</string>
 	<string name="sorry_this_feature_not_supported_text" translatable="true">यो सुविधा मार्शनेल्लो वा एन्ड्रोइड संस्करण 6 को तल उपलब्ध छैन</string>
 	<string name="english_text" translatable="true">अंग्रेजी</string>

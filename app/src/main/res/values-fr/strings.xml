@@ -2,20 +2,20 @@
 
 	<string name="refresh_text" translatable="true">Rafraîchir</string>
 	<string name="send_feedback_text" translatable="true"> Envoyer des commentaires</string>
-	<string name="right_hand_side_time_text" translatable="true">%1$s minutes</string>
+	<string name="right_hand_side_time_text" translatable="true">%1$s min</string>
 	<string name="left_hand_side_time_text" translatable="true">%1$s</string>
 	<string name="minute_text" translatable="true">Minute</string>
 	<string name="hour_text" translatable="true">Heure</string>
 	<string name="reset_text" translatable="true">Réinitialiser</string>
 	<string name="do_you_want_to_set_text" translatable="true">Voulez-vous vraiment définir l\'heure par défaut?</string>
 	<string name="am_text" translatable="true">Un m</string>
-	<string name="pm_text" translatable="true">Après-midi</string>
+	<string name="pm_text" translatable="true">PM</string>
 	<string name="successfully_selected_text" translatable="true">Sélectionné avec succès</string>
 	<string name="you_cant_select_30min_text" translatable="true"> Vous ne pouvez pas sélectionner au-delà de la limite maximale de 30 min</string>
 	<string name="you_cant_select_text" translatable="true"> Vous ne pouvez pas sélectionner au-delà de la limite maximale</string>
 	<string name="time_reset_successfully_text" translatable="true"> Réinitialisation du temps avec succès</string>
-	<string name="activate_at_text" translatable="true">Activer à :</string>
-	<string name="activate_for_text" translatable="true">Activer pour :</string>
+	<string name="activate_at_text" translatable="true">Activer à:</string>
+	<string name="activate_for_text" translatable="true">Activer pour:</string>
 	<string name="feedbackEditTextHint" translatable="true">Veuillez écrire vos commentaires</string>
 	<string name="describe_your_issue_text" translatable="true">Décrivez votre problème</string>
 	<string name="feedbackEditTextError" translatable="true">Veuillez écrire quelque chose dans les commentaires</string>
@@ -43,17 +43,12 @@
 	<string name="system_setting_text" translatable="true">Les paramètres du système</string>
 	<string name="clear_cache_text" translatable="true">Vider le cache</string>
 	<string name="help_support_text" translatable="true">Support d\'aide</string>
-	<string name="send_feedback_summary_text" translatable="true">Soumettre les commentaires pour corriger le bogue de l\'application</string>
 	<string name="privacy_policy_text" translatable="true">Politique de confidentialité</string>
 	<string name="more_info_text" translatable="true">Plus d\'informations</string>
 	<string name="share_app_text" translatable="true">Partager l\'application</string>
-	<string name="rate_use_text" translatable="true">Évaluez nous</string>
-	<string name="more_app_text" translatable="true">Plus d\'application</string>
+	<string name="submit_review_text" translatable="true">Poster le commentaire</string>
+	<string name="more_app_text" translatable="true">Plus d\'applications</string>
 	<string name="about_app_text" translatable="true">À propos de l\'application</string>
-	<string name="share_app_summary_text" translatable="true">Partagez le lien d\'application Play Store</string>
-	<string name="rate_use_summary_text" translatable="true">Exprimez votre expérience à travers la notation</string>
-	<string name="more_app_summary_text" translatable="true">Il y a plus d\'applications là-bas</string>
-	<string name="about_app_summary_text" translatable="true">Ouvrir le lien github</string>
 	<string name="setting_text" translatable="true">Paramètre</string>
 	<string name="shareMessage" translatable="true">Hé, vérifiez cette application qui vous aide à supprimer des données en double et inutiles du téléphone -</string>
 	<string name="normal_mode" translatable="true">Normal</string>
@@ -89,8 +84,7 @@
 	<string name="all_information_provided_by_text" translatable="true">Toutes les informations fournies par Do Not Derroust l\'autorisation sont conservées localement sur vos appareils et ne nous sont envoyées qu\'avec votre consentement à des fins de dépannage.</string>
 	<string name="no_thanks_text" translatable="true">Non merci</string>
 	<string name="allow_text" translatable="true">Permettre</string>
-	<string name="do_not_disturb_permission_text" translatable="true">Ne pas perturber la permission</string>
-	<string name="we_need_permission_text" translatable="true">Nous devons passer en mode silencieux ou vibré pendant ses séances actives.</string>
+	<string name="do_not_disturb_permission_text" translatable="true">Autorisation de MND</string>
 	<string name="permission_already_given_text" translatable="true">Autorisation déjà donnée</string>
 	<string name="sorry_this_feature_not_supported_text" translatable="true">Cette fonctionnalité n\'est pas disponible en dessous de Marshmello ou Android version 6</string>
 	<string name="english_text" translatable="true">Anglais</string>

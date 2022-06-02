@@ -2,7 +2,7 @@
 
 	<string name="refresh_text" translatable="true">Actualizar</string>
 	<string name="send_feedback_text" translatable="true"> Enviar comentarios</string>
-	<string name="right_hand_side_time_text" translatable="true">%1$s Mins</string>
+	<string name="right_hand_side_time_text" translatable="true">%1$s min</string>
 	<string name="left_hand_side_time_text" translatable="true">%1$s</string>
 	<string name="minute_text" translatable="true">Minuto</string>
 	<string name="hour_text" translatable="true">Hora</string>
@@ -14,8 +14,8 @@
 	<string name="you_cant_select_30min_text" translatable="true"> No puede seleccionar más allá del límite máximo de 30 min</string>
 	<string name="you_cant_select_text" translatable="true"> No puede seleccionar más allá del límite máximo</string>
 	<string name="time_reset_successfully_text" translatable="true"> Restablecer el tiempo con éxito</string>
-	<string name="activate_at_text" translatable="true">Activar en :</string>
-	<string name="activate_for_text" translatable="true">Activar para :</string>
+	<string name="activate_at_text" translatable="true">Activar en:</string>
+	<string name="activate_for_text" translatable="true">Activar para:</string>
 	<string name="feedbackEditTextHint" translatable="true">Por favor escriba sus comentarios</string>
 	<string name="describe_your_issue_text" translatable="true">describe tu problema</string>
 	<string name="feedbackEditTextError" translatable="true">Por favor escriba algo en los comentarios</string>
@@ -43,17 +43,12 @@
 	<string name="system_setting_text" translatable="true">Ajustes del sistema</string>
 	<string name="clear_cache_text" translatable="true">Limpiar cache</string>
 	<string name="help_support_text" translatable="true">Servicio de asistencia</string>
-	<string name="send_feedback_summary_text" translatable="true">enviar comentarios para solucionar el error de la aplicación</string>
 	<string name="privacy_policy_text" translatable="true">Política de privacidad</string>
 	<string name="more_info_text" translatable="true">Más información</string>
 	<string name="share_app_text" translatable="true">Compartir aplicación</string>
-	<string name="rate_use_text" translatable="true">Nos califica</string>
+	<string name="submit_review_text" translatable="true">Enviar opinión</string>
 	<string name="more_app_text" translatable="true">Más aplicaciones</string>
 	<string name="about_app_text" translatable="true">Acerca de la aplicación</string>
-	<string name="share_app_summary_text" translatable="true">Comparte el enlace de la aplicación Play Store</string>
-	<string name="rate_use_summary_text" translatable="true">Expresa tu experiencia a través de la calificación</string>
-	<string name="more_app_summary_text" translatable="true">Hay más aplicación por ahí</string>
-	<string name="about_app_summary_text" translatable="true">Abra el enlace de Github</string>
 	<string name="setting_text" translatable="true">Ajuste</string>
 	<string name="shareMessage" translatable="true">Oye, consulte esta aplicación que te ayuda a eliminar datos duplicados e innecesarios del teléfono -</string>
 	<string name="normal_mode" translatable="true">Normal</string>
@@ -89,8 +84,7 @@
 	<string name="all_information_provided_by_text" translatable="true">Toda la información proporcionada por no molestar el permiso se mantiene localmente en sus dispositivos y solo se nos envía con su consentimiento para la solución de problemas.</string>
 	<string name="no_thanks_text" translatable="true">No, gracias</string>
 	<string name="allow_text" translatable="true">Permitir</string>
-	<string name="do_not_disturb_permission_text" translatable="true">No molestar el permiso</string>
-	<string name="we_need_permission_text" translatable="true">Necesitamos cambiar al modo silencioso o vibrar durante sus sesiones activas.</string>
+	<string name="do_not_disturb_permission_text" translatable="true">Permiso DND</string>
 	<string name="permission_already_given_text" translatable="true">Permiso ya dado</string>
 	<string name="sorry_this_feature_not_supported_text" translatable="true">Esta característica no está disponible debajo de Marshmello o Android Versión 6</string>
 	<string name="english_text" translatable="true">inglés</string>
