@@ -24,7 +24,7 @@
     <string name="maghrib_namaz_time_text" translatable="false">Maghrib Namaz \n%1$s</string>
     <string name="isha_namaz_time_text" translatable="false">Isha Namaz \n%1$s</string>
 
-    <string name="right_hand_side_time_text" translatable="true">%1$s mins</string>
+    <string name="right_hand_side_time_text" translatable="true">%1$s min</string>
     <string name="left_hand_side_time_text" translatable="true">%1$s</string>
 
 
@@ -88,17 +88,12 @@
     <string name="system_setting_text"  translatable="true">System Settings</string>
     <string name="clear_cache_text"  translatable="true">Clear Cache</string>
     <string name="help_support_text"  translatable="true">Help &amp; Support</string>
-    <string name="send_feedback_summary_text" translatable="true">submit feedback to fix the app bug</string>
     <string name="privacy_policy_text"  translatable="true">Privacy Policy</string>
     <string name="more_info_text" translatable="true">More Info</string>
     <string name="share_app_text" translatable="true">Share App</string>
-    <string name="rate_use_text" translatable="true">Rate-Us</string>
-    <string name="more_app_text" translatable="true">More App</string>
+    <string name="submit_review_text" translatable="true">Submit Review</string>
+    <string name="more_app_text" translatable="true">More Apps</string>
     <string name="about_app_text" translatable="true">About App</string>
-    <string name="share_app_summary_text" translatable="true">share the play store app link</string>
-    <string name="rate_use_summary_text" translatable="true">express your experience through rating</string>
-    <string name="more_app_summary_text" translatable="true">there is more app out there</string>
-    <string name="about_app_summary_text" translatable="true">open github link</string>
     <string name="setting_text" translatable="true">Setting</string>
     <string name="shareMessage" translatable="true">Hey, check This App which helps you to Delete Duplicate and Unnecessary Data from the phone -</string>
     <string name="normal_mode" translatable="true">Normal</string>
@@ -171,8 +166,7 @@
     <string name="all_information_provided_by_text" translatable="true">All information provided by do not disturb permission is kept locally on your devices and is only sent to us with your consent for troubleshooting purpose.</string>
     <string name="no_thanks_text" translatable="true">No, Thanks</string>
     <string name="allow_text" translatable="true">Allow</string>
-    <string name="do_not_disturb_permission_text" translatable="true">Do Not Disturb Permission</string>
-    <string name="we_need_permission_text" translatable="true">We need for switch to silent or vibrate mode during its active sessions.</string>
+    <string name="do_not_disturb_permission_text" translatable="true">DND Permission</string>
     <string name="permission_already_given_text" translatable="true">Permission Already Given</string>
     <string name="sorry_this_feature_not_supported_text" translatable="true">This feature not available below Marshmello or Android Version 6</string>
 

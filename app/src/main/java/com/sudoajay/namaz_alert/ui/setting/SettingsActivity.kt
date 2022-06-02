@@ -1,6 +1,5 @@
 package com.sudoajay.namaz_alert.ui.setting
 
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
@@ -12,7 +11,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
-import androidx.preference.PreferenceManager
 import com.sudoajay.namaz_alert.R
 import com.sudoajay.namaz_alert.data.proto.ProtoManager
 import com.sudoajay.namaz_alert.model.MessageType
@@ -25,7 +23,6 @@ import com.sudoajay.namaz_alert.util.Helper
 import com.sudoajay.namaz_alert.util.Toaster
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import java.util.*
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -152,18 +149,18 @@ class SettingsActivity : BaseActivity() {
                 shareApp()
                 true
             }
-            val rateUs =
-                findPreference("rateUs") as Preference?
-            rateUs!!.onPreferenceClickListener = Preference.OnPreferenceClickListener {
+            val submitReview =
+                findPreference("submitReview") as Preference?
+            submitReview!!.onPreferenceClickListener = Preference.OnPreferenceClickListener {
                 //open browser or intent here
-                rateUs()
+                submitReview()
                 true
             }
-            val moreApp =
-                findPreference("moreApp") as Preference?
-            moreApp!!.onPreferenceClickListener = Preference.OnPreferenceClickListener {
+            val moreApps =
+                findPreference("moreApps") as Preference?
+            moreApps!!.onPreferenceClickListener = Preference.OnPreferenceClickListener {
                 //open browser or intent here
-                moreApp()
+                moreApps()
                 true
             }
             val aboutApp =
@@ -194,13 +191,13 @@ class SettingsActivity : BaseActivity() {
             startActivity(Intent.createChooser(i, "Share via"))
         }
 
-        private fun rateUs() {
+        private fun submitReview() {
             val i = Intent(Intent.ACTION_VIEW)
             i.data = Uri.parse(ratingLink)
             startActivity(i)
         }
 
-        private fun moreApp() {
+        private fun moreApps() {
             val link = "https://play.google.com/store/apps/dev?id=5309601131127361849"
             val i = Intent(Intent.ACTION_VIEW)
             i.data = Uri.parse(link)
