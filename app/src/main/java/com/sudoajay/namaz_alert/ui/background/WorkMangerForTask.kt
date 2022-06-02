@@ -1,5 +1,6 @@
 package com.sudoajay.namaz_alert.ui.background
 
+import android.app.NotificationManager
 import android.content.Context
 import android.util.Log
 import androidx.work.Constraints
@@ -10,6 +11,7 @@ import com.sudoajay.namaz_alert.R
 import com.sudoajay.namaz_alert.data.db.DailyPrayerDatabase
 import com.sudoajay.namaz_alert.data.proto.ProtoManager
 import com.sudoajay.namaz_alert.data.repository.DailyPrayerRepository
+import com.sudoajay.namaz_alert.ui.notification.AlertNotification
 import com.sudoajay.namaz_alert.util.Helper.Companion.doesDatabaseExist
 import com.sudoajay.namaz_alert.util.Helper.Companion.getCurrentTime
 import com.sudoajay.namaz_alert.util.Helper.Companion.getDiffMinute
@@ -41,6 +43,10 @@ class WorkMangerForTask @Inject constructor(var context: Context) {
         waitWorkManagerRunning.await()
         if (!isWorkManagerRunning) {
             WorkManager.getInstance(context).cancelAllWork()
+            val manager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            manager.cancel(AlertNotification.NOTIFICATION_ALERT_STATE)
+            manager.cancel(AlertNotification.NOTIFICATION_FinishCancel_STATE)
+
             //        Creating Object and Initialization
             dailyPrayerRepository = DailyPrayerRepository(dailyPrayerDoa)
             if (doesDatabaseExist(context, dailyPrayerRepository)) {
@@ -88,7 +94,6 @@ class WorkMangerForTask @Inject constructor(var context: Context) {
                 val alertOneTimeWorkRequest =
                     OneTimeWorkRequestBuilder<WorkMangerAlertNotification>()
                         .setInitialDelay(getDiffMinute(currentTime,beforeTime), TimeUnit.MINUTES)
-                        .setInitialDelay(10, TimeUnit.SECONDS)
                         .addTag(alertTAGID)
                         .setInputData(alertData)
                         .setConstraints(constraints.build())
@@ -97,7 +102,6 @@ class WorkMangerForTask @Inject constructor(var context: Context) {
 
                 val finishOneTimeRequest = OneTimeWorkRequestBuilder<WorkMangerFinishNotification>()
                     .setInitialDelay(getDiffMinute(currentTime,afterTime), TimeUnit.MINUTES)
-                    .setInitialDelay(30, TimeUnit.SECONDS)
                     .addTag(finishTAGID)
                     .setInputData(finishData)
                     .setConstraints(constraints.build())

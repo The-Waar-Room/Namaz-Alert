@@ -25,6 +25,7 @@ import com.sudoajay.namaz_alert.util.LocalizationUtil.changeLocale
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -34,31 +35,19 @@ open class BaseActivity : AppCompatActivity() {
     @Inject
     lateinit var protoManager: ProtoManager
 
-    @Inject
-    lateinit var alertNotification: AlertNotification
 
     @Inject
     lateinit var workManger: WorkMangerForTask
 
     @Inject
-    lateinit var webScrappingGoogle: WebScrappingGoogle
-
-    @Inject
     lateinit var notDisturbPermissionBottomSheet: DoNotDisturbPermissionBottomSheet
-
-    var notificationRingtone = 0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        webScrappingGoogle.checkEvertTimeIfDataIsUpdated()
-        getDataFromProtoDatastore()
-        setSystemDefaultOn()
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationChannels.notificationOnCreate(applicationContext, notificationRingtone)
-        }
+        setSystemDefaultOn()
 
     }
 
@@ -70,27 +59,7 @@ open class BaseActivity : AppCompatActivity() {
     }
 
 
-    private fun getDataFromProtoDatastore() {
-        Helper.setWorkMangerRunning(protoManager, applicationContext, false)
-        CoroutineScope(Dispatchers.IO).launch {
-            val fetch = protoManager.fetchInitialPreferences()
-            if (fetch.setPhoneMode == "") {
-                protoManager.setDefaultValue()
-                protoManager.setPreviousMode(Helper.getRingerMode(applicationContext))
-                Helper.setLanguage(applicationContext,Helper.getLanguage(applicationContext))
 
-            } else {
-                notificationRingtone = fetch.notificationRingtone
-
-            }
-
-            if (!fetch.isWorkMangerRunning) {
-                workManger.startWorker()
-            }
-
-        }
-
-    }
 
     override fun applyOverrideConfiguration(overrideConfiguration: Configuration?) {
         overrideConfiguration?.let {

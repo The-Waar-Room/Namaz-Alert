@@ -55,17 +55,11 @@ class WebScrappingGoogle @Inject constructor(var context: Context) {
         val nextDay = cal.get(Calendar.DAY_OF_MONTH)
         val nextMonth = SimpleDateFormat("MMM", Locale.ENGLISH).format(cal.time)
 
-        Log.e("GetData", " $currentDay - $currentMonth  $nextDay  -$nextMonth")
 
 
         var doc: Document? = null
         val result = kotlin.runCatching {
             doc = Jsoup.connect("https://www.google.com/search?q=Islamic+prayer+times").get()
-        }
-        if (result.isSuccess) {
-            Log.e("GetData", "success is on your side")
-        } else {
-            Log.e("GetData", "one failure is never the end")
         }
         val allInfo = doc?.getElementsByClass("Kp6KVb")
         val getExactString =
@@ -81,15 +75,11 @@ class WebScrappingGoogle @Inject constructor(var context: Context) {
             if (index%6 != 1 ) {
                 val  date = formatDate.format(cal.time)
                 list.add(DailyPrayerDB(count, date, getPrayerName(count), it.value))
-                Log.e("GetData", " value - $index ${it.value}     list value - ${list[count.toInt()]}")
                 count++
                 if(count.toInt() % 5 == 0)cal.add(Calendar.DAY_OF_MONTH, 1)
 
             }
 
-        }
-        list.forEach {
-            Log.e("GetData", " value - ${it.Date} - ${it.Name} ${it.id} ${it.Time}")
         }
         dailyPrayerRepository.insertAll(list)
         workManger.startWorker()
