@@ -17,8 +17,10 @@ import com.sudoajay.namaz_alert.R
  */
 object NotificationChannels {
     private const val GROUP_NOTIFICATION = "com.sudoajay.namaz_alert.notifications.group_notification"
+    private const val GROUP_SERVICE = "com.sudoajay.nblik.cloudmessaging.firebase_service"
     const val ALERT_PRAYER_TIME = "com.sudoajay.namaz_alert.notifications.alert.prayer_time"
     const val FINISH_CANCEL_PRAYER = "com.sudoajay.namaz_alert.notifications.finish.cancel.prayer"
+    const val FireBase_PUSH_NOTIFICATION = "com.sudoajay.nblik.cloudmessaging.firebase_push_notification"
 
 
 
@@ -69,5 +71,26 @@ object NotificationChannels {
         alertPrayerChannel.enableVibration(true)
         alertPrayerChannel.enableLights(true)
         notificationManager.createNotificationChannel(finishCancelPrayerChannel)
+
+        val notificationManagerService =
+            context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        notificationManagerService.createNotificationChannelGroup(
+            NotificationChannelGroup(
+                GROUP_SERVICE,
+                context.getString(R.string.notifications_group_service)
+            )
+        )
+
+        val firebaseChannel = NotificationChannel(
+            FireBase_PUSH_NOTIFICATION,
+            context.getString(R.string.firebase_channel_id),
+            NotificationManager.IMPORTANCE_DEFAULT
+        )
+        firebaseChannel.description = context.getString(R.string.firebase_channel_id)
+        firebaseChannel.group = GROUP_SERVICE
+        firebaseChannel.setShowBadge(false)
+        notificationManagerService.createNotificationChannel(firebaseChannel)
+
+
     }
 }

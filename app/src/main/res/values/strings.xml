@@ -127,6 +127,9 @@
     <string name="notification_group_services" translatable="false">Group Services</string>
     <string name="notifications_alert_prayer_time" translatable="false">Alert Prayer Time</string>
     <string name="notifications_finish_prayer_time" translatable="false">Finish Or Cancel Prayer</string>
+    <string name="firebase_channel_id" translatable="false">Firebase Push Notification</string>
+    <string name="notifications_group_service"  translatable="false">Firebase Service control</string>
+
 
 
     <string name="notifications_alert_desc" translatable="false">Notifications to interact with Alert  Prayer Time</string>

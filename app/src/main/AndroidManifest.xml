@@ -35,13 +35,25 @@
             android:name=".ui.setting.SettingsActivity"
             android:label="@string/setting_text"
             android:theme="@style/SettingAppTheme" />
-        <meta-data android:name="com.google.firebase.messaging.default_notification_icon"
 
-            android:resource="@drawable/app_icon" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+        <service
+            android:name=".ui.notification.MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <meta-data android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/app_icon" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/appTheme" />
+
       <receiver android:name=".ui.notification.NotificationCancelReceiver"
           android:exported="true"
           android:permission="com.sudoajay.namaz_alert.PERMISSION">
@@ -49,6 +61,8 @@
             <action android:name="com.sudoajay.namaz_alert.Action" />
         </intent-filter>
     </receiver>
+
+
 
     </application>
 
