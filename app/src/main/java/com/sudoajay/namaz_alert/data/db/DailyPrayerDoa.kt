@@ -20,8 +20,12 @@ interface DailyPrayerDoa {
     fun pagingSource(searchDate:String , search: String): PagingSource<Int, DailyPrayerDB>
 
 
-    @Query("SELECT * FROM DailyPrayerTable WHERE ( date is :searchDate and time > :currentTime ) or ( id is 5 ) Limit 1 ")
-    fun getNextTime(searchDate:String , currentTime: String): DailyPrayerDB
+//    @Query("SELECT * FROM DailyPrayerTable WHERE ( date is :tomorrowDate and name is 'Dhuhr' ) Limit 1 ")
+//    fun getNextTime(tomorrowDate :String): DailyPrayerDB
+
+    @Query("SELECT * FROM DailyPrayerTable WHERE ( date is :searchDate and time > :currentTime ) or ( date is :tomorrowDate and name is 'Fajr' ) or (id is (SELECT MAX(id) FROM DailyPrayerTable where  name is 'Fajr'))  Limit 1 ")
+    fun getNextTime(searchDate:String ,tomorrowDate :String , currentTime: String): DailyPrayerDB
+
 
     @Query("SELECT Date FROM DailyPrayerTable WHERE id is :index ")
     fun getIndexDate(index:Int):String

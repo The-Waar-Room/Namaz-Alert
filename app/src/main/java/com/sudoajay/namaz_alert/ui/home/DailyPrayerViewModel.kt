@@ -12,7 +12,6 @@ import com.sudoajay.namaz_alert.data.repository.DailyPrayerRepository
 import com.sudoajay.namaz_alert.util.Helper.Companion.getTodayDate
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
-import java.util.*
 import javax.inject.Inject
 
 @HiltViewModel

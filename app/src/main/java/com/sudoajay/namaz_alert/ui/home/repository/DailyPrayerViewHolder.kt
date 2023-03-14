@@ -12,8 +12,6 @@ import com.sudoajay.namaz_alert.ui.BaseFragment.Companion.dhuhrName
 import com.sudoajay.namaz_alert.ui.BaseFragment.Companion.fajrName
 import com.sudoajay.namaz_alert.ui.BaseFragment.Companion.ishaName
 import com.sudoajay.namaz_alert.ui.BaseFragment.Companion.maghribName
-import com.sudoajay.namaz_alert.util.Helper
-import com.sudoajay.namaz_alert.util.Helper.Companion.convertTo12Hours
 import com.sudoajay.namaz_alert.util.Helper.Companion.convertTo12Hr
 
 

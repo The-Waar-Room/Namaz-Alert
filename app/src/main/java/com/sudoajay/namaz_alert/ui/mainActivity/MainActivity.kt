@@ -15,7 +15,7 @@ import com.sudoajay.namaz_alert.data.repository.DailyPrayerRepository
 import com.sudoajay.namaz_alert.databinding.ActivityMainBinding
 import com.sudoajay.namaz_alert.ui.BaseActivity
 import com.sudoajay.namaz_alert.ui.BaseFragment
-import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask
+import com.sudoajay.namaz_alert.ui.background.AlarmMangerForTask
 import com.sudoajay.namaz_alert.ui.setting.SettingsActivity
 import com.sudoajay.namaz_alert.util.Helper
 import dagger.hilt.android.AndroidEntryPoint
@@ -28,6 +28,7 @@ class MainActivity : BaseActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
     var isPermissionAsked = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         isDarkTheme = isSystemDefaultOn(resources)
@@ -43,7 +44,7 @@ class MainActivity : BaseActivity() {
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
 
-        Log.e("MainClass", "Its is here  ${intent.getStringExtra(WorkMangerForTask.prayerTimeID)}")
+        Log.e("MainClass", "Its is here  ${intent.getStringExtra(AlarmMangerForTask.prayerTimeID)}")
         if (!intent.action.isNullOrEmpty()) {
             when (intent.action.toString()) {
                 vibrateModeID -> openSetting()
@@ -57,7 +58,7 @@ class MainActivity : BaseActivity() {
 
         if (intent.getStringExtra(receiverId) == notificationCancelReceiver) {
             Log.e("MainClass", "Its is hereasd   ${intent.getStringExtra(receiverId)}")
-            Helper.setWorkMangerRunning(protoManager, applicationContext, false)
+//            Helper.setWorkMangerRunning(protoManager, applicationContext, false)
             CoroutineScope(Dispatchers.IO).launch {
                 workManger.startWorker()
             }
@@ -65,7 +66,7 @@ class MainActivity : BaseActivity() {
 
         if (intent.getStringExtra(openMainActivityID) == settingShortcutId) {
             openSetting()
-        } else if (intent.getStringExtra(WorkMangerForTask.prayerNameID)?.isNotEmpty() == true) {
+        } else if (intent.getStringExtra(AlarmMangerForTask.prayerNameID)?.isNotEmpty() == true) {
             openSpecificEditPrayer()
         } else if (intent.getStringExtra(openMainActivityID) == openSelectLanguageID) {
             openSelectLanguage()
@@ -73,27 +74,24 @@ class MainActivity : BaseActivity() {
             openSelectRingtone()
         }
 
-        CoroutineScope(Dispatchers.Main).launch {
-            val waitFor = CoroutineScope(Dispatchers.IO).async {
-                isPermissionAsked = protoManager.fetchInitialPreferences().isPermissionAsked
-                return@async isPermissionAsked
-            }
+        isPermissionAsked = Helper.IsPermissionAsked(applicationContext)
+        showPermissionAskedDrawer()
 
-            waitFor.await()
 
-            showPermissionAskedDrawer()
-        }
+
 
 
     }
+
+
 
     private fun openSpecificEditPrayer(prayerName:String? =null , prayerTime:String?=null) {
         navController.navigate(
             R.id.action_homeFragment_to_editDailyPrayerFragment,
             bundleOf(
                 BaseFragment.editDailyPrayerNameKey to if(prayerName.isNullOrEmpty())
-                    intent.getStringExtra(WorkMangerForTask.prayerNameID) else prayerName,
-                BaseFragment.editDailyPrayerTimeKey to if(prayerTime.isNullOrEmpty()) intent.getStringExtra(WorkMangerForTask.prayerTimeID)
+                    intent.getStringExtra(AlarmMangerForTask.prayerNameID) else prayerName,
+                BaseFragment.editDailyPrayerTimeKey to if(prayerTime.isNullOrEmpty()) intent.getStringExtra(AlarmMangerForTask.prayerTimeID)
             else prayerTime
             )
         )
@@ -125,7 +123,7 @@ class MainActivity : BaseActivity() {
                 )
             val currentTime = Helper.getCurrentTime()
             val dailyPrayerDB =
-                dailyPrayerRepository.getNextTime(Helper.getTodayDate(), currentTime)
+                dailyPrayerRepository.getNextTime(Helper.getTodayDate(), Helper.getTomorrowDate() , currentTime)
             withContext(Dispatchers.Main) {
                 openSpecificEditPrayer(dailyPrayerDB.Name,dailyPrayerDB.Time)
             }
@@ -138,7 +136,12 @@ class MainActivity : BaseActivity() {
                 supportFragmentManager.beginTransaction(),
                 notDisturbPermissionBottomSheet.tag
             )
+
     }
+
+
+
+
 
 
 }

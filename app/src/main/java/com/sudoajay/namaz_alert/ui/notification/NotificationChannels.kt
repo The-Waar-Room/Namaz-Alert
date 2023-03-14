@@ -16,26 +16,42 @@ import com.sudoajay.namaz_alert.R
  * Static class containing IDs of notification channels and code to create them.
  */
 object NotificationChannels {
-    private const val GROUP_NOTIFICATION = "com.sudoajay.namaz_alert.notifications.group_notification"
+    private const val GROUP_NOTIFICATION =
+        "com.sudoajay.namaz_alert.notifications.group_notification"
     private const val GROUP_SERVICE = "com.sudoajay.nblik.cloudmessaging.firebase_service"
+    const val UPCOMING_PRAYER_TIME = "com.sudoajay.namaz_alert.notifications.upcoming.prayer_time"
     const val ALERT_PRAYER_TIME = "com.sudoajay.namaz_alert.notifications.alert.prayer_time"
     const val FINISH_CANCEL_PRAYER = "com.sudoajay.namaz_alert.notifications.finish.cancel.prayer"
-    const val FireBase_PUSH_NOTIFICATION = "com.sudoajay.nblik.cloudmessaging.firebase_push_notification"
-
-
+    const val FireBase_PUSH_NOTIFICATION =
+        "com.sudoajay.nblik.cloudmessaging.firebase_push_notification"
 
 
     @RequiresApi(Build.VERSION_CODES.O)
     @JvmStatic
-    fun notificationOnCreate(context: Context, notificationRingtone:Int) {
+    fun notificationOnCreate(context: Context, notificationRingtone: Int) {
         val notificationManager =
             context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         notificationManager.createNotificationChannelGroup(
             NotificationChannelGroup(
                 GROUP_NOTIFICATION,
-                context.getString(R.string.notification_group_services)
+                context.getString(R.string.notification_main_services)
             )
         )
+        val upComingPrayerChannel = NotificationChannel(
+            UPCOMING_PRAYER_TIME,
+            context.getString(R.string.notifications_upcoming_prayer_time),
+            NotificationManager.IMPORTANCE_DEFAULT
+        )
+        upComingPrayerChannel.setSound(null, null)
+        upComingPrayerChannel.vibrationPattern = longArrayOf(0)
+        upComingPrayerChannel.description = context.getString(R.string.notifications_upcoming_desc)
+        upComingPrayerChannel.group = GROUP_NOTIFICATION
+        upComingPrayerChannel.setShowBadge(false)
+        upComingPrayerChannel.enableVibration(false)
+        upComingPrayerChannel.enableLights(false)
+        notificationManager.createNotificationChannel(upComingPrayerChannel)
+
+
         val alertPrayerChannel = NotificationChannel(
             ALERT_PRAYER_TIME,
             context.getString(R.string.notifications_alert_prayer_time),
@@ -50,7 +66,10 @@ object NotificationChannels {
             .setUsage(AudioAttributes.USAGE_ALARM)
             .build()
 
-        alertPrayerChannel.setSound(if(notificationRingtone == 0) null else sound ,if(notificationRingtone == 0) null else audioAttributes)
+        alertPrayerChannel.setSound(
+            if (notificationRingtone == 0) null else sound,
+            if (notificationRingtone == 0) null else audioAttributes
+        )
         alertPrayerChannel.description = context.getString(R.string.notifications_alert_desc)
         alertPrayerChannel.group = GROUP_NOTIFICATION
         alertPrayerChannel.enableVibration(true)
@@ -64,13 +83,17 @@ object NotificationChannels {
             context.getString(R.string.notifications_finish_prayer_time),
             NotificationManager.IMPORTANCE_LOW
         )
-        finishCancelPrayerChannel.setSound(null , null)
-        finishCancelPrayerChannel.description = context.getString(R.string.notifications_finish_desc)
+        finishCancelPrayerChannel.setSound(null, null)
+        finishCancelPrayerChannel.description =
+            context.getString(R.string.notifications_finish_desc)
         finishCancelPrayerChannel.group = GROUP_NOTIFICATION
         finishCancelPrayerChannel.setShowBadge(false)
-        alertPrayerChannel.enableVibration(true)
-        alertPrayerChannel.enableLights(true)
+        finishCancelPrayerChannel.enableVibration(true)
+        finishCancelPrayerChannel.enableLights(true)
         notificationManager.createNotificationChannel(finishCancelPrayerChannel)
+
+
+
 
         val notificationManagerService =
             context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager

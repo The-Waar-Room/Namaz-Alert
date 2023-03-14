@@ -119,19 +119,20 @@
     <string name="shortcut_next_prayer_text" translatable="false">Next Prayer</string>
 
     <!--    Proto Manager-->
-    <string name="default_prayer_time_proto"  translatable="false">-10:10</string>
+    <string name="default_prayer_time_proto"  translatable="false">-5:10</string>
     <string name="yes_string" translatable="true">Yes</string>
     <string name="no_string" translatable="true">No</string>
 
     <!--  Notification Channels -->
-    <string name="notification_group_services" translatable="false">Group Services</string>
+    <string name="notification_main_services" translatable="false">Main Services</string>
+    <string name="notifications_upcoming_prayer_time" translatable="false">UpComing Prayer Time</string>
     <string name="notifications_alert_prayer_time" translatable="false">Alert Prayer Time</string>
     <string name="notifications_finish_prayer_time" translatable="false">Finish Or Cancel Prayer</string>
     <string name="firebase_channel_id" translatable="false">Firebase Push Notification</string>
     <string name="notifications_group_service"  translatable="false">Firebase Service control</string>
 
 
-
+    <string name="notifications_upcoming_desc" translatable="false">Notifications to interact with UpComing  Prayer Time</string>
     <string name="notifications_alert_desc" translatable="false">Notifications to interact with Alert  Prayer Time</string>
     <string name="notifications_finish_desc" translatable="false">Notifications to interact with Finish or Cancel Prayer </string>
 
@@ -140,6 +141,7 @@
     <string name="notification_context_title_text" translatable="true">%1$s. Expand to see more</string>
     <string name="notification_setting_text" translatable="true">Setting</string>
     <string name="notification_stop_text" translatable="true">Stop</string>
+    <string name="notification_turn_off_text" translatable="false">Turn Off</string>
 
     <string name="cancel_the_notification_prayer" translatable="true">You\'ve canceled the %1$s namaz prayer schedule</string>
     <string name="click_here_to_setup_text" translatable="true">Click here to set it up again</string>
@@ -151,6 +153,10 @@
     <string name="default_ringtone_text" translatable="true">Default </string>
     <string name="azan_in_islam_text" translatable="true">Azan In Islam</string>
     <string name="notification_sound_text" translatable="true">Notification Sound</string>
+
+
+    <string name="upcoming_notification_title_text" translatable="false">Turn Off Your Upcoming Prayer ?</string>
+    <string name="upcoming_notification_context_title_text" translatable="false">%1$s %2$s</string>
 
 
 

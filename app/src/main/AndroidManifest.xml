@@ -2,15 +2,29 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sudoajay.namaz_alert">
 
-    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.VIBRATE" />
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+
+
+
 
 
 
     <application
         android:name=".ui.MainApplication"
         android:allowBackup="true"
+        android:fullBackupOnly="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -40,8 +54,30 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+
         <service
-            android:name=".ui.notification.MyFirebaseMessagingService"
+            android:name=".ui.foreground.ForegroundService"
+            android:foregroundServiceType="dataSync"
+            android:exported="true">
+        </service>
+
+        <receiver
+            android:name=".ui.background.BroadcastAlarmReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="${applicationId}.ACTION_FIRED" />
+                <action android:name="${applicationId}.ACTION_CANCEL_NOTIFICATION" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.TIME_SET" />
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+                <action android:name="android.intent.action.LOCALE_CHANGED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".ui.notification.firebase.MyFirebaseMessagingService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
@@ -54,13 +90,7 @@
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/appTheme" />
 
-      <receiver android:name=".ui.notification.NotificationCancelReceiver"
-          android:exported="true"
-          android:permission="com.sudoajay.namaz_alert.PERMISSION">
-        <intent-filter android:priority="999" >
-            <action android:name="com.sudoajay.namaz_alert.Action" />
-        </intent-filter>
-    </receiver>
+
 
 
 

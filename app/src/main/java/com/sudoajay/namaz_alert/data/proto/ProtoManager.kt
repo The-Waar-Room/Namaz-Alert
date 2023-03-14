@@ -19,27 +19,16 @@ class ProtoManager @Inject constructor (var context: Context){
     suspend fun setDefaultValue(){
         dataStoreStatePreferences.updateData { preferences->
             preferences.toBuilder()
-                .setSetPhoneMode(PhoneMode.Vibrate.toString())
                 .setFajrTiming(context.getString(R.string.default_prayer_time_proto))
                 .setDhuhrTiming(context.getString(R.string.default_prayer_time_proto))
                 .setAsrTiming(context.getString(R.string.default_prayer_time_proto))
                 .setMaghribTiming(context.getString(R.string.default_prayer_time_proto))
                 .setIshaTiming(context.getString(R.string.default_prayer_time_proto))
-                .setIsWorkMangerRunning(false)
-                .setIsWorkMangerCancel(false)
-                .setNotificationRingtone(0)
-                .setIsPermissionAsked(false)
                 .build()
         }
     }
 
-    suspend fun setPhoneMode(phoneMode: String) {
-        dataStoreStatePreferences.updateData { preferences ->
-            preferences.toBuilder()
-                .setSetPhoneMode(phoneMode)
-                .build()
-        }
-    }
+
 
     suspend fun setFajrTiming(fajrTiming: String) {
         dataStoreStatePreferences.updateData { preferences ->
@@ -80,46 +69,12 @@ class ProtoManager @Inject constructor (var context: Context){
         }
     }
 
-    suspend fun setIsWorkMangerRunning(isWorkMangerRunning:Boolean){
-        dataStoreStatePreferences.updateData { preferences ->
-            preferences.toBuilder()
-                .setIsWorkMangerRunning(isWorkMangerRunning)
-                .build()
-        }
-    }
-
-    suspend fun setIsWorkMangerCancel(isWorkMangerCancel:Boolean){
-        dataStoreStatePreferences.updateData { preferences ->
-            preferences.toBuilder()
-                .setIsWorkMangerCancel(isWorkMangerCancel)
-                .build()
-        }
-    }
-    suspend fun setPreviousMode(phoneMode: String){
-        dataStoreStatePreferences.updateData { preferences ->
-            preferences.toBuilder()
-                .setPreviousPhoneMode(phoneMode)
-                .build()
-        }
-    }
-
-    suspend fun setIsPermissionAsked(isPermissionAsked:Boolean){
-        dataStoreStatePreferences.updateData { preferences ->
-            preferences.toBuilder()
-                .setIsPermissionAsked(isPermissionAsked)
-                .build()
-        }
-    }
 
 
 
-    suspend fun setNotificationRingtone(notificationRingtone: Int){
-        dataStoreStatePreferences.updateData { preferences ->
-            preferences.toBuilder()
-                .setNotificationRingtone(notificationRingtone)
-                .build()
-        }
-    }
+
+
+
 
 
 

@@ -66,8 +66,7 @@ class SettingsActivity : BaseActivity() {
         private val ratingLink =
             "https://play.google.com/store/apps/details?id=com.sudoajay.duplication_data"
 
-        @Inject
-        lateinit var protoManager: ProtoManager
+
 
 
         @Inject
@@ -80,9 +79,7 @@ class SettingsActivity : BaseActivity() {
 
             val phoneMode = findPreference("phoneMode") as ListPreference?
             phoneMode!!.setOnPreferenceChangeListener { _, newValue ->
-                lifecycleScope.launch {
-                    protoManager.setPhoneMode(newValue as String)
-                }
+               Helper.setPhoneMode(requireContext(), newValue as String)
                 true
             }
 

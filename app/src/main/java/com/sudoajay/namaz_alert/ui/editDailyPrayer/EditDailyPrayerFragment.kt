@@ -113,7 +113,7 @@ class EditDailyPrayerFragment : BaseFragment() {
         val exactMinute = arrayTime[1].toInt()
 
         val currentTime =
-            convertTo12Hr(requireContext(),prayerTime)?.replace("(\\s.+)".toRegex(), "")!!.split(":")
+            convertTo12Hr(requireContext(), prayerTime).replace("(\\s.+)".toRegex(), "").split(":")
         val currentHour = currentTime[0].toInt()
         val currentMinute = currentTime[1].toInt()
 
@@ -126,8 +126,8 @@ class EditDailyPrayerFragment : BaseFragment() {
         val hourPicker = dialogView.findViewById<NumberPicker>(R.id.dialog_hour_picker)
         val minutePicker = dialogView.findViewById<NumberPicker>(R.id.dialog_minute_picker)
 
-        hourPicker.maxValue = exactHour
-        hourPicker.minValue = exactHour - 1
+        hourPicker.maxValue = currentHour
+        hourPicker.minValue = currentHour - 1
         hourPicker.value = exactHour
         hourPicker.wrapSelectorWheel = true
 
@@ -300,7 +300,7 @@ class EditDailyPrayerFragment : BaseFragment() {
 
         Log.e("NewGapTime" , " new time ${newTime}")
         binding.leftHandSideTextView.text =
-            getString(R.string.left_hand_side_time_text, (convertTo12Hr(requireContext(),newTime)?:"").lowercase())
+            getString(R.string.left_hand_side_time_text, convertTo12Hr(requireContext(),newTime).lowercase())
     }
 
     private fun setRightHand(minute: Int? = null) {

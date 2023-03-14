@@ -10,6 +10,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.rpc.Help
 
 import com.sudoajay.namaz_alert.R
 import com.sudoajay.namaz_alert.databinding.FragmentSelectNotificationSoundBinding
@@ -17,6 +18,7 @@ import com.sudoajay.namaz_alert.ui.BaseActivity
 import com.sudoajay.namaz_alert.ui.BaseFragment
 import com.sudoajay.namaz_alert.ui.notificationSound.repository.SelectNotificationSoundAdapter
 import com.sudoajay.namaz_alert.ui.setting.SettingsActivity
+import com.sudoajay.namaz_alert.util.Helper
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -74,10 +76,8 @@ class SelectNotificationSoundFragment: BaseFragment() {
             openSetting()
         }
 
-        lifecycleScope.launch{
-            selectNotificationSoundAdapter.selectedNotificationSound = protoManager.fetchInitialPreferences().notificationRingtone
-        }
 
+        selectNotificationSoundAdapter.selectedNotificationSound = Helper.getNotificationRingtone(requireContext())
     }
 
     private fun setUpLanguageRecyclerView(){
@@ -95,10 +95,8 @@ class SelectNotificationSoundFragment: BaseFragment() {
     }
 
     fun onClickContinueButton(){
-        lifecycleScope.launch {
-            protoManager.setNotificationRingtone(selectNotificationSoundAdapter.selectedNotificationSound)
-        }
-
+      
+        Helper.setNotificationRingtone(requireContext(), selectNotificationSoundAdapter.selectedNotificationSound)
         openSetting()
     }
 

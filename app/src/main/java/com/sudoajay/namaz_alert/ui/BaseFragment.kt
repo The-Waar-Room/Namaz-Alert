@@ -4,14 +4,9 @@ import android.app.Activity
 import android.view.WindowManager
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
-import com.sudoajay.namaz_alert.R
 import com.sudoajay.namaz_alert.util.Toaster
 import com.sudoajay.namaz_alert.data.proto.ProtoManager
-import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask
-import kotlinx.coroutines.launch
-import java.text.SimpleDateFormat
-import java.util.*
+import com.sudoajay.namaz_alert.ui.background.AlarmMangerForTask
 import javax.inject.Inject
 
 open class BaseFragment :Fragment() {
@@ -19,7 +14,7 @@ open class BaseFragment :Fragment() {
     lateinit var protoManager: ProtoManager
 
     @Inject
-    lateinit var workManger: WorkMangerForTask
+    lateinit var workManger: AlarmMangerForTask
 
     fun Activity.changeStatusBarColor(color: Int, isLight: Boolean) {
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)

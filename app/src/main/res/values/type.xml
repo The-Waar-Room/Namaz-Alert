@@ -18,14 +18,14 @@
 
     <style name="TextAppearance.AppTheme.Headline4" parent="TextAppearance.MaterialComponents.Headline4">
         <!--Your custom type style here-->
-        <item name="fontFamily">@font/montserrat_semibold</item>
+        <item name="fontFamily">@font/nunito_bold</item>
         <item name="fontStyle">normal</item>
         <item name="android:textSize">34sp</item>
     </style>
 
     <style name="TextAppearance.AppTheme.Headline3" parent="TextAppearance.MaterialComponents.Headline3">
         <!--Your custom type style here-->
-        <item name="fontFamily">@font/montserrat_semibold</item>
+        <item name="fontFamily">@font/nunito_bold</item>
         <item name="android:textSize">48sp</item>
         <item name="fontStyle">normal</item>
     </style>

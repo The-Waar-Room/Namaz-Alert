@@ -5,7 +5,7 @@ import android.util.Log
 import com.sudoajay.namaz_alert.data.db.DailyPrayerDB
 import com.sudoajay.namaz_alert.data.db.DailyPrayerDatabase
 import com.sudoajay.namaz_alert.ui.BaseFragment
-import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask
+import com.sudoajay.namaz_alert.ui.background.AlarmMangerForTask
 import com.sudoajay.namaz_alert.util.Helper.Companion.doesDatabaseExist
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -22,16 +22,18 @@ class WebScrappingGoogle @Inject constructor(var context: Context) {
     private lateinit var dailyPrayerRepository: DailyPrayerRepository
 
 
-    lateinit var workManger: WorkMangerForTask
+    lateinit var workManger: AlarmMangerForTask
 
     fun checkEvertTimeIfDataIsUpdated() {
-        workManger = WorkMangerForTask(context)
+        workManger = AlarmMangerForTask(context)
 
         database = DailyPrayerDatabase.getDatabase(context)
         dailyPrayerRepository = DailyPrayerRepository(database.dailyPrayerDoa())
         CoroutineScope(Dispatchers.IO).launch {
             var getDate =""
+            Log.e("WebScrappingGoogleTAG" , " here doesDatabaseExist "  + doesDatabaseExist(context, dailyPrayerRepository) )
             if (doesDatabaseExist(context, dailyPrayerRepository)) {
+
                 getDate = dailyPrayerRepository.getIndexDate()
             }
             val todayDate =
@@ -54,7 +56,6 @@ class WebScrappingGoogle @Inject constructor(var context: Context) {
         cal.add(Calendar.DAY_OF_MONTH, 5)
         val nextDay = cal.get(Calendar.DAY_OF_MONTH)
         val nextMonth = SimpleDateFormat("MMM", Locale.ENGLISH).format(cal.time)
-
 
 
         var doc: Document? = null

@@ -38,6 +38,75 @@ class Helper {
             editor.apply()
         }
 
+        fun getPhoneMode(context: Context): String {
+            return PreferenceManager
+                .getDefaultSharedPreferences(context).getString("PhoneMode", PhoneMode.Vibrate.toString())
+                .toString()
+        }
+
+        fun setPhoneMode(context: Context, value:String){
+            val prefs = PreferenceManager.getDefaultSharedPreferences(context)
+            val editor: SharedPreferences.Editor = prefs.edit()
+            editor.putString("PhoneMode", value)
+            editor.apply()
+        }
+
+        fun getPreviousPhoneMode(context: Context): String {
+            return PreferenceManager
+                .getDefaultSharedPreferences(context).getString("PreviousPhoneMode", PhoneMode.Normal.toString())
+                .toString()
+        }
+
+        fun setPreviousPhoneMode(context: Context, value:String){
+            val prefs = PreferenceManager.getDefaultSharedPreferences(context)
+            val editor: SharedPreferences.Editor = prefs.edit()
+            editor.putString("PreviousPhoneMode", value)
+            editor.apply()
+        }
+
+        fun isWorkMangerRunning(context: Context): Boolean {
+            return PreferenceManager
+                .getDefaultSharedPreferences(context).getBoolean("IsWorkMangerRunning", false)
+        }
+
+        fun setIsWorkMangerRunning(context: Context, value:Boolean){
+            val prefs = PreferenceManager.getDefaultSharedPreferences(context)
+            val editor: SharedPreferences.Editor = prefs.edit()
+            editor.putBoolean("IsWorkMangerRunning", value)
+            editor.apply()
+        }
+
+        fun IsPermissionAsked(context: Context): Boolean {
+            return PreferenceManager
+                .getDefaultSharedPreferences(context).getBoolean("IsPermissionAsked", false)
+        }
+
+        fun setIsPermissionAsked(context: Context, value:Boolean){
+            val prefs = PreferenceManager.getDefaultSharedPreferences(context)
+            val editor: SharedPreferences.Editor = prefs.edit()
+            editor.putBoolean("IsPermissionAsked", value)
+            editor.apply()
+        }
+
+        fun getNotificationRingtone(context: Context): Int {
+            return PreferenceManager
+                .getDefaultSharedPreferences(context).getInt("NotificationRingtone", 0)
+        }
+
+        fun setNotificationRingtone(context: Context, value:Int){
+            val prefs = PreferenceManager.getDefaultSharedPreferences(context)
+            val editor: SharedPreferences.Editor = prefs.edit()
+            editor.putInt("NotificationRingtone", value)
+            editor.apply()
+        }
+
+        fun setActionTime(context: Context,type: String,value :String){
+            val prefs = PreferenceManager.getDefaultSharedPreferences(context)
+            val editor: SharedPreferences.Editor = prefs.edit()
+            editor.putString(type, value)
+            editor.apply()
+        }
+
         private fun getLocalLanguage(context: Context): String {
             val lang = Locale.getDefault().language
             val array = context.resources.getStringArray(R.array.languageValues)
@@ -64,22 +133,6 @@ class Helper {
             return dbFile.exists() && repository.getCount() > 0
         }
 
-        fun setWorkMangerRunning(
-            protoManager: ProtoManager?,
-            context: Context,
-            isRunning: Boolean
-        ) {
-            CoroutineScope(Dispatchers.IO).launch {
-                protoManager ?: ProtoManager(context).setIsWorkMangerRunning(isRunning)
-            }
-
-        }
-
-        fun setWorkMangerCancel(protoManager: ProtoManager?,context: Context, isRunning: Boolean) {
-            CoroutineScope(Dispatchers.IO).launch {
-                protoManager ?: ProtoManager(context).setIsWorkMangerCancel(isRunning)
-            }
-        }
 
 
         fun getPhoneMode(phoneMode: String): Int {
@@ -131,12 +184,22 @@ class Helper {
             return formatDate.format(todayDate)
         }
 
+        fun getTomorrowDate(): String {
+            val gc = GregorianCalendar()
+            gc.add(Calendar.DATE, 1)
+            val formatDate = SimpleDateFormat("dd-MMM-yyyy", Locale.ENGLISH)
+            return formatDate.format(gc.time).toString()
+        }
         fun getCurrentTime(): String {
             val todayDate = Date() // sets date
             val formatDate = SimpleDateFormat("HH:mm", Locale.ENGLISH)
             return formatDate.format(todayDate)
         }
-
+        fun getCurrentTimeWithSeconds(): String {
+            val todayDate = Date() // sets date
+            val formatDate = SimpleDateFormat("HH:mm:ss", Locale.ENGLISH)
+            return formatDate.format(todayDate)
+        }
 
         suspend fun getPrayerGapTime(prayerName: String, protoManager: ProtoManager): String {
             return when (prayerName) {
@@ -151,7 +214,7 @@ class Helper {
         fun getMeIncrementTime(time: String, minuteIncrement: Int): String {
             val sdf = SimpleDateFormat("HH:mm", Locale.ENGLISH)
             val timeArray = time.split(":")
-            val newDate = Calendar.getInstance()
+            val newDate = GregorianCalendar()
             newDate.set(Calendar.HOUR_OF_DAY, timeArray[0].toInt())
             newDate.set(Calendar.MINUTE, timeArray[1].toInt())
             newDate.add(Calendar.MINUTE, minuteIncrement)
@@ -171,6 +234,24 @@ class Helper {
 
         private fun getDateFromString(time: String): Date? {
             val formatter: DateFormat = SimpleDateFormat("HH:mm", Locale.ENGLISH)
+            return formatter.parse(time)
+        }
+
+
+        fun getDiffSeconds(currentTime: String, nextTime: String): Long {
+            val currentDate = getDateSecondFromString(currentTime)
+            val nextDate = getDateSecondFromString(nextTime)
+            val diff: Long = nextDate?.time!! - currentDate?.time!!
+
+            val diffSeconds = diff / (1000) % 60
+            val diffMinutes = diff / (60 * 1000) % 60
+            val diffHours = diff / (60 * 60 * 1000) % 24
+
+            return diffSeconds+(diffMinutes*60) + (diffHours * 60*60)
+        }
+
+        private fun getDateSecondFromString(time: String): Date? {
+            val formatter: DateFormat = SimpleDateFormat("HH:mm:ss", Locale.ENGLISH)
             return formatter.parse(time)
         }
     }

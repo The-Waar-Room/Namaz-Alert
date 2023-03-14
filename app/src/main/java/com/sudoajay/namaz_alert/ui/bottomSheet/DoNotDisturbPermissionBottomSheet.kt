@@ -15,6 +15,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.sudoajay.namaz_alert.R
 import com.sudoajay.namaz_alert.data.proto.ProtoManager
 import com.sudoajay.namaz_alert.databinding.LayoutDoNotDisturbPermissionBottomSheetBinding
+import com.sudoajay.namaz_alert.util.Helper
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -60,9 +61,7 @@ class DoNotDisturbPermissionBottomSheet @Inject constructor() : BottomSheetDialo
     }
 
     private fun setValuePermission() {
-        CoroutineScope(Dispatchers.IO).launch {
-            protoManager.setIsPermissionAsked(true)
-        }
+        Helper.setIsPermissionAsked(requireContext(),true)
     }
 
 

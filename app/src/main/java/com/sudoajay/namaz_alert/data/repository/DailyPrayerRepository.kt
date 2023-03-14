@@ -12,7 +12,7 @@ class DailyPrayerRepository(private val dailyPrayerDoa: DailyPrayerDoa) {
 
     fun pagingSource(searchDate:String,search: String): PagingSource<Int, DailyPrayerDB> = dailyPrayerDoa.pagingSource(searchDate ,search)
 
-    fun getNextTime(searchDate:String,currentTime: String) : DailyPrayerDB = dailyPrayerDoa.getNextTime(searchDate ,currentTime)
+    fun getNextTime(searchDate:String,tomorrowDate :String,currentTime: String) : DailyPrayerDB = dailyPrayerDoa.getNextTime( searchDate,tomorrowDate, currentTime)
 
     fun getIndexDate(index:Int = 0): String = dailyPrayerDoa.getIndexDate(index)
 

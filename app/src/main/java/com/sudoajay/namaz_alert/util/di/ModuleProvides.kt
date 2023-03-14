@@ -3,7 +3,7 @@ package com.sudoajay.namaz_alert.util.di
 import android.content.Context
 import com.sudoajay.namaz_alert.data.proto.ProtoManager
 import com.sudoajay.namaz_alert.data.repository.WebScrappingGoogle
-import com.sudoajay.namaz_alert.ui.background.WorkMangerForTask
+import com.sudoajay.namaz_alert.ui.background.AlarmMangerForTask
 import com.sudoajay.namaz_alert.ui.notification.AlertNotification
 import com.sudoajay.namaz_alert.ui.notificationSound.repository.SelectNotificationSoundAdapter
 import dagger.Module
@@ -27,7 +27,7 @@ object ModuleProvides {
 
     @Singleton
     @Provides
-    fun providesWorkManger( @ApplicationContext appContext: Context): WorkMangerForTask = WorkMangerForTask(appContext)
+    fun providesWorkManger( @ApplicationContext appContext: Context): AlarmMangerForTask = AlarmMangerForTask(appContext)
 
     @Singleton
     @Provides

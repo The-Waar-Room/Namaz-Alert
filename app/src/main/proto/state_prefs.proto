@@ -4,17 +4,12 @@ option java_package = "com.sudoajay.namaz_alert";
 option java_multiple_files = true;
 
 message StatePreferences {
-  string setPhoneMode = 1;
-  string fajrTiming = 2;
-  string dhuhrTiming = 3;
-  string asrTiming = 4;
-  string maghribTiming = 5;
-  string ishaTiming = 6;
-  bool isWorkMangerRunning = 7;
-  bool isWorkMangerCancel = 8;
-  string previousPhoneMode = 9;
-  int32 notificationRingtone = 10;
-  bool isPermissionAsked = 11;
+  string fajrTiming = 1;
+  string dhuhrTiming = 2;
+  string asrTiming = 3;
+  string maghribTiming = 4;
+  string ishaTiming =5;
+
 
 
 }
