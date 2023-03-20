@@ -1,19 +1,19 @@
 package com.sudoajay.namaz_alert.util
 
+import android.Manifest
 import android.app.NotificationManager
 import android.content.Context
 import android.content.SharedPreferences
+import android.content.pm.PackageManager
 import android.media.AudioManager
 import android.os.Build
 import android.util.Log
+import androidx.core.content.ContextCompat
 import androidx.preference.PreferenceManager
 import com.sudoajay.namaz_alert.R
 import com.sudoajay.namaz_alert.data.proto.ProtoManager
 import com.sudoajay.namaz_alert.data.repository.DailyPrayerRepository
 import com.sudoajay.namaz_alert.ui.BaseFragment
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import java.io.File
 import java.text.DateFormat
 import java.text.SimpleDateFormat
@@ -64,17 +64,31 @@ class Helper {
             editor.apply()
         }
 
-        fun isWorkMangerRunning(context: Context): Boolean {
+        fun isAlarmMangerRunning(context: Context): Boolean {
             return PreferenceManager
-                .getDefaultSharedPreferences(context).getBoolean("IsWorkMangerRunning", false)
+                .getDefaultSharedPreferences(context).getBoolean("IsAlarmMangerRunning", false)
         }
 
-        fun setIsWorkMangerRunning(context: Context, value:Boolean){
+        fun setIsAlarmMangerRunning(context: Context, value:Boolean){
             val prefs = PreferenceManager.getDefaultSharedPreferences(context)
             val editor: SharedPreferences.Editor = prefs.edit()
-            editor.putBoolean("IsWorkMangerRunning", value)
+            editor.putBoolean("IsAlarmMangerRunning", value)
             editor.apply()
         }
+
+        fun isAlarmMangerCancel(context: Context): Boolean {
+            return PreferenceManager
+                .getDefaultSharedPreferences(context).getBoolean("IsAlarmMangerCancel", false)
+        }
+
+        fun setIsAlarmMangerCancel(context: Context, value:Boolean){
+            val prefs = PreferenceManager.getDefaultSharedPreferences(context)
+            val editor: SharedPreferences.Editor = prefs.edit()
+            editor.putBoolean("IsAlarmMangerCancel", value)
+            editor.apply()
+        }
+
+
 
         fun IsPermissionAsked(context: Context): Boolean {
             return PreferenceManager
@@ -85,6 +99,18 @@ class Helper {
             val prefs = PreferenceManager.getDefaultSharedPreferences(context)
             val editor: SharedPreferences.Editor = prefs.edit()
             editor.putBoolean("IsPermissionAsked", value)
+            editor.apply()
+        }
+
+        fun IsNotificationPermissionAsked(context: Context): Boolean {
+            return PreferenceManager
+                .getDefaultSharedPreferences(context).getBoolean("IsNotificationPermissionAsked", false)
+        }
+
+        fun setIsNotificationPermissionAsked(context: Context, value:Boolean){
+            val prefs = PreferenceManager.getDefaultSharedPreferences(context)
+            val editor: SharedPreferences.Editor = prefs.edit()
+            editor.putBoolean("IsNotificationPermissionAsked", value)
             editor.apply()
         }
 
@@ -119,7 +145,12 @@ class Helper {
            return Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && nm.isNotificationPolicyAccessGranted
         }
 
-        fun setRingerMode(context: Context ,ringerMode:Int){
+        fun notificationPermissionAlreadyGiven(context: Context):Boolean{
+            return  Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU && ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED
+        }
+
+
+            fun setRingerMode(context: Context ,ringerMode:Int){
             val am = context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
             am.ringerMode = ringerMode
         }
@@ -133,6 +164,10 @@ class Helper {
             return dbFile.exists() && repository.getCount() > 0
         }
 
+
+        fun notificationPermissionSupported():Boolean{
+            return Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU
+        }
 
 
         fun getPhoneMode(phoneMode: String): Int {
@@ -156,16 +191,16 @@ class Helper {
         }
 
 
-        fun convertTo12Hours(militaryTime: String): String? {
+        fun convertTo12HrOnly(militaryTime: String): String? {
             //in => "14:00"
             //out => "02:00 PM"
             val inputFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
-            val outputFormat = SimpleDateFormat("hh:mm a", Locale.getDefault())
+            val outputFormat = SimpleDateFormat("hh:mm", Locale.getDefault())
             val date = inputFormat.parse(militaryTime)
             return date?.let { outputFormat.format(it) }
         }
 
-        private fun getAMOrPM(context: Context, time: String): String {
+        fun getAMOrPM(context: Context, time: String): String {
             val hour = time.split(":")[0]
             Log.e("NewGapTime" , " new time getAMOrPM  ${time}")
             return if (hour.toInt() < 12) context.getString(R.string.am_text) else context.getString(R.string.pm_text)

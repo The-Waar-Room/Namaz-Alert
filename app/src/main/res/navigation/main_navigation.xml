@@ -5,6 +5,20 @@
     android:id="@+id/login_signup"
     app:startDestination="@id/homeFragment">
 
+    <fragment
+        android:id="@+id/navigation_firebasePushNotificationFragment"
+        android:name="com.sudoajay.namaz_alert.ui.notification.NotificationPermissionFragment"
+        android:label="FirebasePushNotificationFragment"
+        tools:layout="@layout/fragment_notification_permission">
+
+        <action
+            android:id="@+id/action_navigation_firebasePushNotificationFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/slide_from_right"
+            app:exitAnim="@anim/slide_to_left"/>
+    </fragment>
+
+
 
     <fragment
         android:id="@+id/homeFragment"
@@ -26,6 +40,11 @@
             app:destination="@id/selectRingtoneFragment"
             app:enterAnim="@anim/slide_from_right"
             app:exitAnim="@anim/slide_to_left"/>
+        <action
+            android:id="@+id/action_homeFragment_to_navigation_firebasePushNotificationFragment"
+            app:destination="@id/navigation_firebasePushNotificationFragment"
+            app:enterAnim="@anim/slide_from_left"
+            app:exitAnim="@anim/slide_to_right"/>
 
     </fragment>
     <fragment

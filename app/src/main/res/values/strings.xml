@@ -140,7 +140,12 @@
     <string name="notification_title_text" translatable="true">Prayer Alert: %1$s</string>
     <string name="notification_context_title_text" translatable="true">%1$s. Expand to see more</string>
     <string name="notification_setting_text" translatable="true">Setting</string>
-    <string name="notification_stop_text" translatable="true">Stop</string>
+    <string name="notification_dismiss_text" translatable="true">Dismiss</string>
+    <string name="notification_ok_text" translatable="true">OK</string>
+    <string name="alarm_alert_hold_the_button_text">Hold the button!</string>
+
+
+
     <string name="notification_turn_off_text" translatable="false">Turn Off</string>
 
     <string name="cancel_the_notification_prayer" translatable="true">You\'ve canceled the %1$s namaz prayer schedule</string>
@@ -178,6 +183,9 @@
     <string name="do_not_disturb_permission_text" translatable="true">DND Permission</string>
     <string name="permission_already_given_text" translatable="true">Permission Already Given</string>
     <string name="sorry_this_feature_not_supported_text" translatable="true">This feature not available below Marshmello or Android Version 6</string>
+    <string name="notification_permission_text" translatable="true">Notification Permission</string>
+    <string name="only_13_plus_permission_issue_text" translatable="true">Only 13 + android permission issue</string>
+
 
 
     <string name="english_text" translatable="true">English</string>
@@ -201,6 +209,15 @@
     <string name="turkish_text" translatable="true">Turkish</string>
     <string name="vietnamese_text" translatable="true">Vietnamese</string>
     <string name="chinese_text" translatable="true">Chinese</string>
+
+<!--    Push notification-->
+    <string name="you_are_a_sports_junkie_text" translatable="true">You\'re a scanning legend!</string>
+    <string name="wouldnt_you_love_to_stay_text" translatable="true">Would\'t you feel special when we push out new features and many other exciting things and you\'re the first one to get notified? Sure you would. Press the Get Notified button below and stay ahead of others. </string>
+    <string name="skip_text" translatable="true">Skip</string>
+    <string name="get_notified_text" translatable="true">Get Notified</string>
+    <string name="no_qr_codeand_barcode_found_text" translatable="true">No Qr-Code Or Barcode Found In The Image</string>
+
+    <string name="permission_not_granted_by_the_user_text" translatable="true">Permissions not granted by the user.</string>
 
 
 

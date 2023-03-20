@@ -2,16 +2,17 @@ package com.sudoajay.namaz_alert.ui.background
 
 import android.app.AlarmManager
 import android.app.NotificationManager
-import android.app.PendingIntent
 import android.content.Context
-import android.os.Build
 import android.util.Log
 import androidx.work.WorkManager
 import com.sudoajay.namaz_alert.data.db.DailyPrayerDatabase
 import com.sudoajay.namaz_alert.data.proto.ProtoManager
 import com.sudoajay.namaz_alert.data.repository.DailyPrayerRepository
+import com.sudoajay.namaz_alert.ui.background.AlarmsScheduler.Companion.alertNotify
+import com.sudoajay.namaz_alert.ui.background.AlarmsScheduler.Companion.finishNotify
+import com.sudoajay.namaz_alert.ui.background.AlarmsScheduler.Companion.pendingExactAlertAlarmRequestCode
+import com.sudoajay.namaz_alert.ui.background.AlarmsScheduler.Companion.pendingExactFinishAlarmRequestCode
 import com.sudoajay.namaz_alert.ui.notification.AlertNotification
-import com.sudoajay.namaz_alert.ui.notification.UpComingNotification
 import com.sudoajay.namaz_alert.util.Helper
 import com.sudoajay.namaz_alert.util.Helper.Companion.doesDatabaseExist
 import com.sudoajay.namaz_alert.util.Helper.Companion.getCurrentTime
@@ -33,24 +34,28 @@ class AlarmMangerForTask @Inject constructor(var context: Context) {
     private lateinit var dailyPrayerRepository: DailyPrayerRepository
     private var prayerGapTime: String = ""
     private lateinit var alarmManager: AlarmManager
+    private lateinit var alarmsScheduler: AlarmsScheduler
+    private lateinit var notificationManager:NotificationManager
 
     suspend fun startWorker() {
         protoManager = ProtoManager(context)
         alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        alarmsScheduler = AlarmsScheduler(alarmManager, context)
 
-        val isWorkManagerRunning = Helper.isWorkMangerRunning(context)
+
+        val isWorkManagerRunning = Helper.isAlarmMangerRunning(context)
 //        val waitWorkManagerRunning = CoroutineScope(Dispatchers.IO).async {
 //            isWorkManagerRunning = protoManager.fetchInitialPreferences().isWorkMangerRunning
 //            return@async isWorkManagerRunning
 //        }
 //        waitWorkManagerRunning.await()
-        if (!isWorkManagerRunning) {
+        if (true) {
             WorkManager.getInstance(context).cancelAllWork()
-            val manager =
+            notificationManager=
                 context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            manager.cancel(UpComingNotification.NOTIFICATION_ID_STATE)
-            manager.cancel(AlertNotification.NOTIFICATION_ALERT_STATE)
-            manager.cancel(AlertNotification.NOTIFICATION_FinishCancel_STATE)
+
+            cancelNotificationEverything()
+            stopEverything()
 
             //        Creating Object and Initialization
             dailyPrayerRepository = DailyPrayerRepository(dailyPrayerDoa)
@@ -80,7 +85,7 @@ class AlarmMangerForTask @Inject constructor(var context: Context) {
 
                 Log.e(
                     "WorkManger",
-                    "prayerGapTime - $prayerGapTime  ${Helper.isWorkMangerRunning(context)} "
+                    "prayerGapTime - $prayerGapTime  ${Helper.isAlarmMangerRunning(context)} "
                 )
                 val arrayIncrement = prayerGapTime.split(":")
                 val startTime = getMeIncrementTime(dailyPrayerDB.Time, (arrayIncrement[0].toInt()))
@@ -90,7 +95,7 @@ class AlarmMangerForTask @Inject constructor(var context: Context) {
 
                 Log.e("WorkManger", "diffTime $diffTime ")
 
-                Helper.setIsWorkMangerRunning(context,true)
+                Helper.setIsAlarmMangerRunning(context,true)
 
 
 //                val data = workDataOf(
@@ -125,52 +130,39 @@ class AlarmMangerForTask @Inject constructor(var context: Context) {
 
 //                 System.currentTimeMillis()+25*24*60*60*1000l
 
-                val alarmsScheduler = AlarmsScheduler(alarmManager, context)
                 val dataShare =
                     dailyPrayerDB.Name + "||" + dailyPrayerDB.Time + "||" + diffTime + "||" + "$startTime:00" + "||" + "$endTime:00"
 
-                Log.e(
-                    "WorkManger",
-                    " (getDiffMinute(currentTime, startTime) - timeGapInEveryWhere > 0)+  ${
-                        (getDiffMinute(
-                            currentTime,
-                            startTime
-                        ) - timeGapInEveryWhere)
-                    } startTime + $startTime (Helper.getDiffSeconds(currentTime, )  ${
-                        (Helper.getDiffSeconds(
-                            getCurrentTimeWithSeconds(),
-                            "$startTime:00"
-                        ))
-                    }    +"
-                )
+
 
                 if ((Helper.getDiffSeconds(
                         getCurrentTimeWithSeconds(), "$startTime:00"
                     ) > 0)
-                )
+                ) {
+                    alarmsScheduler.setInexactAlarm(
+                        dataShare,
+                        System.currentTimeMillis() + ( 1000 * 60 * (getDiffMinute(currentTime,startTime)-timeGapInEveryWhere)  )
+                    )
+
                     alarmsScheduler.setUpRTCAlarm(
                         dataShare,
-                        System.currentTimeMillis() + ((getDiffMinute(currentTime, startTime) - timeGapInEveryWhere) * 1000 * 60)
+                        alertNotify,
+                        System.currentTimeMillis() + (1000 * 60 * (getDiffMinute(currentTime,startTime))  ),
+                        pendingExactAlertAlarmRequestCode
                     )
-                else {
-
-                    CoroutineScope(Dispatchers.IO).launch {
-                        Helper.setIsWorkMangerRunning(context,false)
-
-                        delay(1000 * 60)
-                        startWorker()
-                    }
+                    alarmsScheduler.setUpRTCAlarm(
+                        dataShare,
+                        finishNotify,
+                        System.currentTimeMillis() + (1000 * 60 * (getDiffMinute(currentTime,endTime))  ),
+                        pendingExactFinishAlarmRequestCode
+                    )
                 }
+                else {
+                    alarmsScheduler.setInexactAlarmAlarmManger(
+                        System.currentTimeMillis() + ( 1000 * 60 * timeGapInEveryWhere  )
+                    )
 
-
-//                val alarmsScheduler = AlarmsScheduler(alarmManager,context)
-//                 val dataShare  = dailyPrayerDB.Name + "||" + dailyPrayerDB.Time + "||" + diffTime +"||" + "15:48:10" +"||" + "15:48:40"
-//
-//                Log.e("WorkManger", "diffTime $diffTime dataShare $dataShare ")
-//
-//
-//                if( (Helper.getDiffSeconds(currentTime, startTime))  > 0)
-//                alarmsScheduler.setUpRTCAlarm(dataShare,  1000*30)
+                }
 
 
             } else {
@@ -180,13 +172,21 @@ class AlarmMangerForTask @Inject constructor(var context: Context) {
 
     }
 
-    fun pendingIntentUpdateCurrentFlag(): Int {
-        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
-        } else {
-            PendingIntent.FLAG_UPDATE_CURRENT
-        }
+    private fun stopEverything(){
+        alarmsScheduler.removeInexactAlarm()
+        alarmsScheduler.removeRTCAlarm(pendingExactAlertAlarmRequestCode)
+        alarmsScheduler.removeRTCAlarm(AlarmsScheduler.pendingInExactAlarmRequestCode)
     }
+
+    private fun cancelNotificationEverything(){
+        notificationManager.cancel(AlertNotification.NOTIFICATION_UPCOMING_STATE)
+        notificationManager.cancel(AlertNotification.NOTIFICATION_ALERT_STATE)
+        if(Helper.isAlarmMangerCancel(context))
+            notificationManager.cancel(AlertNotification.NOTIFICATION_FinishCancel_STATE)
+
+    }
+
+
 
     companion object {
         const val prayerNameID = "PrayerNameID"
@@ -196,7 +196,7 @@ class AlarmMangerForTask @Inject constructor(var context: Context) {
         const val endTimeID = "EndTimeID"
 
 
-        const val timeGapInEveryWhere = 5
+        const val timeGapInEveryWhere = 10
 
         const val titleNotificationID = "TitleNotificationID"
         const val subTitleNotificationID = "SubTitleNotificationID"

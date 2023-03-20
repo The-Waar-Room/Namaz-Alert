@@ -6,8 +6,8 @@
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+
 
 
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
@@ -15,10 +15,6 @@
 
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
-
-
-
-
 
 
     <application
@@ -50,22 +46,25 @@
             android:label="@string/setting_text"
             android:theme="@style/SettingAppTheme" />
 
+        <activity
+            android:name=".ui.background.WrapperActivity"
+            android:configChanges="orientation|keyboardHidden|keyboard|navigation"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance"
+            android:taskAffinity=""
+            android:theme="@style/AlarmAlertFullScreenLightTheme"/>
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
 
-        <service
-            android:name=".ui.foreground.ForegroundService"
-            android:foregroundServiceType="dataSync"
-            android:exported="true">
-        </service>
-
         <receiver
             android:name=".ui.background.BroadcastAlarmReceiver"
-            android:exported="false">
-            <intent-filter>
+            android:enabled="true"
+            android:exported="true"
+            android:permission="com.android.alarm.permission.SET_ALARM">
+        <intent-filter>
                 <action android:name="${applicationId}.ACTION_FIRED" />
                 <action android:name="${applicationId}.ACTION_CANCEL_NOTIFICATION" />
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
@@ -73,6 +72,7 @@
                 <action android:name="android.intent.action.TIMEZONE_CHANGED" />
                 <action android:name="android.intent.action.LOCALE_CHANGED" />
                 <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
 
@@ -89,10 +89,6 @@
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/appTheme" />
-
-
-
-
 
     </application>
 

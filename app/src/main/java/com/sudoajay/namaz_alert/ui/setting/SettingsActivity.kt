@@ -1,11 +1,16 @@
 package com.sudoajay.namaz_alert.ui.setting
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import androidx.activity.OnBackPressedCallback
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.preference.ListPreference
@@ -49,17 +54,15 @@ class SettingsActivity : BaseActivity() {
             )
             .commit()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        onBackPressedDispatcher.addCallback(this, object: OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+               onBack()
+            }
+        })
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            android.R.id.home -> {
-                onBackPressed()
-                return true
-            }
-        }
-        return super.onOptionsItemSelected(item)
-    }
+
 
     @AndroidEntryPoint
     class SettingsFragment : PreferenceFragmentCompat() {
@@ -97,10 +100,26 @@ class SettingsActivity : BaseActivity() {
                 true
             }
 
+            val notificationPermission =
+                findPreference("notificationPermission") as Preference?
+            notificationPermission!!.onPreferenceClickListener = Preference.OnPreferenceClickListener {
+                if(Helper.notificationPermissionAlreadyGiven(requireContext())) {
+                    Toaster.showToast(requireContext(),getString(R.string.permission_already_given_text))
+                }else if (Helper.notificationPermissionSupported()){
+                    Toaster.showToast(requireContext(),getString(R.string.only_13_plus_permission_issue_text))
+                }else{
+                    Log.e("BaseActivityTAG","Here showPermissionAskedDrawer")
+
+                    askedNotificationPermission()
+                }
+
+                true
+            }
+
+
             val doNotDisturbPermission =
                 findPreference("doNotDisturbPermission") as Preference?
             doNotDisturbPermission!!.onPreferenceClickListener = Preference.OnPreferenceClickListener {
-                Log.e("BaseActivityTAG","Here doNotDisturbPermissionAlreadyGiven  - ${Helper.doNotDisturbPermissionAlreadyGiven(requireContext())}")
                 if(Helper.doNotDisturbPermissionAlreadyGiven(requireContext())) {
                     Toaster.showToast(requireContext(),getString(R.string.permission_already_given_text))
                 }else if (Helper.doNotDisturbPermissionSupported()){
@@ -228,19 +247,34 @@ class SettingsActivity : BaseActivity() {
             intent.putExtra(openMainActivityID, openSelectNotificationSoundID)
             startActivity(intent)
         }
+        private fun askedNotificationPermission() {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&   ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+                pushNotificationPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+            }
 
+        }
         private fun showPermissionAskedDrawer() {
             notDisturbPermissionBottomSheet.show(
                 parentFragmentManager.beginTransaction(),
                 notDisturbPermissionBottomSheet.tag)
 
         }
+
+
+        private val pushNotificationPermissionLauncher = registerForActivityResult(
+            ActivityResultContracts.RequestPermission()
+        ) { isGranted: Boolean ->
+            if (!isGranted)
+                Toaster.showToast(requireContext(),getString(R.string.permission_not_granted_by_the_user_text))
+
+
+        }
     }
 
-    override fun onBackPressed() {
+     fun onBack() {
         val intent = Intent(applicationContext, MainActivity::class.java)
         startActivity(intent)
-        super.onBackPressed()
     }
+
 
 }

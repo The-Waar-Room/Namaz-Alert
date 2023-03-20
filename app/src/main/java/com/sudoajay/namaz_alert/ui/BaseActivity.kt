@@ -36,7 +36,12 @@ open class BaseActivity : AppCompatActivity() {
 
         setSystemDefaultOn()
 
-        Log.e("BaseActivity", Helper.getTomorrowDate() + " Here we go ")
+        val previousMode = Helper.getPreviousPhoneMode(applicationContext)
+
+        Log.e("BaseActivity", Helper.getTomorrowDate() + " Here we go   +   previousMode ${previousMode} Helper.getPhoneMode(previousMode)  ${ Helper.getPhoneMode(previousMode)}")
+
+
+
 
 
     }

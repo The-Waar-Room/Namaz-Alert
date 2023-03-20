@@ -16,10 +16,15 @@ import com.sudoajay.namaz_alert.databinding.ActivityMainBinding
 import com.sudoajay.namaz_alert.ui.BaseActivity
 import com.sudoajay.namaz_alert.ui.BaseFragment
 import com.sudoajay.namaz_alert.ui.background.AlarmMangerForTask
+import com.sudoajay.namaz_alert.ui.background.AlarmsScheduler
 import com.sudoajay.namaz_alert.ui.setting.SettingsActivity
 import com.sudoajay.namaz_alert.util.Helper
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity() {
@@ -39,6 +44,8 @@ class MainActivity : BaseActivity() {
                     true
             }
         }
+        Log.e("WorkManger", " i am here" + intent.action)
+
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
@@ -50,6 +57,7 @@ class MainActivity : BaseActivity() {
                 vibrateModeID -> openSetting()
                 notificationSoundID -> openSelectRingtone()
                 nextPrayerID -> openNextPrayer()
+                AlarmsScheduler.ACTION_FIRED -> startForegroundService()
                 else -> {}
             }
 
@@ -78,21 +86,24 @@ class MainActivity : BaseActivity() {
         showPermissionAskedDrawer()
 
 
+    }
 
-
+    private fun startForegroundService() {
+        Log.e("WorkManger", " Now its here Here WrapperActivity  " + intent.action)
 
     }
 
 
-
-    private fun openSpecificEditPrayer(prayerName:String? =null , prayerTime:String?=null) {
+    private fun openSpecificEditPrayer(prayerName: String? = null, prayerTime: String? = null) {
         navController.navigate(
             R.id.action_homeFragment_to_editDailyPrayerFragment,
             bundleOf(
-                BaseFragment.editDailyPrayerNameKey to if(prayerName.isNullOrEmpty())
+                BaseFragment.editDailyPrayerNameKey to if (prayerName.isNullOrEmpty())
                     intent.getStringExtra(AlarmMangerForTask.prayerNameID) else prayerName,
-                BaseFragment.editDailyPrayerTimeKey to if(prayerTime.isNullOrEmpty()) intent.getStringExtra(AlarmMangerForTask.prayerTimeID)
-            else prayerTime
+                BaseFragment.editDailyPrayerTimeKey to if (prayerTime.isNullOrEmpty()) intent.getStringExtra(
+                    AlarmMangerForTask.prayerTimeID
+                )
+                else prayerTime
             )
         )
     }
@@ -123,25 +134,28 @@ class MainActivity : BaseActivity() {
                 )
             val currentTime = Helper.getCurrentTime()
             val dailyPrayerDB =
-                dailyPrayerRepository.getNextTime(Helper.getTodayDate(), Helper.getTomorrowDate() , currentTime)
+                dailyPrayerRepository.getNextTime(
+                    Helper.getTodayDate(),
+                    Helper.getTomorrowDate(),
+                    currentTime
+                )
             withContext(Dispatchers.Main) {
-                openSpecificEditPrayer(dailyPrayerDB.Name,dailyPrayerDB.Time)
+                openSpecificEditPrayer(dailyPrayerDB.Name, dailyPrayerDB.Time)
             }
         }
     }
 
     private fun showPermissionAskedDrawer() {
-        if (!isPermissionAsked && !(Helper.doNotDisturbPermissionAlreadyGiven(applicationContext)))
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !isPermissionAsked && !(Helper.doNotDisturbPermissionAlreadyGiven(
+                applicationContext
+            ))
+        )
             notDisturbPermissionBottomSheet.show(
                 supportFragmentManager.beginTransaction(),
                 notDisturbPermissionBottomSheet.tag
             )
 
     }
-
-
-
-
 
 
 }

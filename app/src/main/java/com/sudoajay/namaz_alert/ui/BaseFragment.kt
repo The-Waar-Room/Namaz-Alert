@@ -4,10 +4,11 @@ import android.app.Activity
 import android.view.WindowManager
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.Fragment
-import com.sudoajay.namaz_alert.util.Toaster
 import com.sudoajay.namaz_alert.data.proto.ProtoManager
 import com.sudoajay.namaz_alert.ui.background.AlarmMangerForTask
+import com.sudoajay.namaz_alert.util.Toaster
 import javax.inject.Inject
+
 
 open class BaseFragment :Fragment() {
     @Inject
@@ -21,6 +22,9 @@ open class BaseFragment :Fragment() {
         window.statusBarColor = color
 
         WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = isLight
+
+
+
     }
 
 

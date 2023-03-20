@@ -1,6 +1,7 @@
 package com.sudoajay.namaz_alert.ui.home
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.*
@@ -10,7 +11,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
+import androidx.core.view.MenuHost
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,6 +25,7 @@ import com.sudoajay.namaz_alert.ui.BaseFragment
 import com.sudoajay.namaz_alert.ui.bottomSheet.NavigationDrawerBottomSheet
 import com.sudoajay.namaz_alert.ui.home.repository.DailyPrayerAdapter
 import com.sudoajay.namaz_alert.ui.setting.SettingsActivity
+import com.sudoajay.namaz_alert.util.Helper
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -69,10 +74,19 @@ class HomeFragment : BaseFragment() {
         setupToolbar()
         setUpView()
 
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU && !Helper.IsNotificationPermissionAsked(
+                requireContext()
+            )
+        ) {
+            openNotifyMe()
+        }
 
 
         return binding.root
+    }
+
+    private fun openNotifyMe() {
+        findNavController().navigate(R.id.action_homeFragment_to_navigation_firebasePushNotificationFragment)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -83,6 +97,36 @@ class HomeFragment : BaseFragment() {
                     onBack()
                 }
             })
+
+        val menuHost: MenuHost = requireActivity()
+
+        menuHost.addMenuProvider(object : MenuProvider {
+            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                // Add menu items here
+                menuInflater.inflate(R.menu.bottom_toolbar_menu, menu)
+            }
+
+            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                // Handle the menu selection
+                return when (menuItem.itemId) {
+                    android.R.id.home -> {
+                        showNavigationDrawer()
+                        true
+                    }
+                    R.id.refresh_optionMenu -> {
+                        refreshData()
+                        true
+                    }
+                    R.id.setting_optionMenu -> {
+                        openSetting()
+                        true
+                    }
+                    else -> false
+                }
+            }
+        }, viewLifecycleOwner, Lifecycle.State.RESUMED)
+
+
     }
 
 
@@ -129,59 +173,12 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun setupToolbar() {
-        setHasOptionsMenu(true)
         // The other option is using val toolbar = findViewById(R.id.toolvar)
         // and add as parameter instead of the binding option
         (activity as AppCompatActivity).setSupportActionBar(binding.bottomAppBar)
         (activity as AppCompatActivity).supportActionBar?.setDisplayShowTitleEnabled(false)
     }
 
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.bottom_toolbar_menu, menu)
-        val actionSearch = menu.findItem(R.id.search_optionMenu)
-        manageSearch(actionSearch)
-    }
-
-
-    private fun manageSearch(searchItem: MenuItem) {
-        val searchView =
-            searchItem.actionView as SearchView
-        searchView.imeOptions = EditorInfo.IME_ACTION_SEARCH
-        manageInputTextInSearchView(searchView)
-    }
-
-    private fun manageInputTextInSearchView(searchView: SearchView) {
-        searchView.setOnQueryTextListener(object :
-            SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String): Boolean {
-                return false
-            }
-
-            override fun onQueryTextChange(newText: String): Boolean {
-                val query: String = newText.lowercase(Locale.ROOT).trim { it <= ' ' }
-                dailyPrayerViewModel.searchValue = query
-                refreshData()
-                Log.e("SomethingNew", "onQueryTextChange  +  $query")
-                return true
-            }
-        })
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            android.R.id.home -> showNavigationDrawer()
-            R.id.refresh_optionMenu -> {
-                refreshData()
-            }
-            R.id.setting_optionMenu -> {
-                openSetting()
-            }
-            else -> return super.onOptionsItemSelected(item)
-        }
-        return true
-    }
 
     private fun openSetting() {
         val intent = Intent(requireContext(), SettingsActivity::class.java)
@@ -199,7 +196,7 @@ class HomeFragment : BaseFragment() {
     private fun refreshData() {
         CoroutineScope(Dispatchers.Main).launch {
             binding.swipeRefresh.isRefreshing = true
-            delay(1000 * 2) // 5 sec
+            delay(1000 * 2) // 2 sec
             dailyPrayerAdapter.refresh()
             binding.swipeRefresh.isRefreshing = false
             dailyPrayerViewModel.isLoadData.value = true

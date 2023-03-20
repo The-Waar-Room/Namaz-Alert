@@ -17,6 +17,7 @@
 
 
 
+
     <!--    -->
     <color name="fajr_color">#65BEFF</color>
     <color name="dhuhr_color">#ED7430</color> //ED7430 FFA113
@@ -35,6 +36,11 @@
 <!--    Drawer Bottom Sheet-->
     <color name="divider">#E6E6E6</color>
 
+<!-- wrapper activity-->
+    <color name="dark_secondary">#4EAC9C</color>
+    <color name="dark_background">#131D23</color>
+    <color name="dark_ripple">#242D35</color>
+    <color name="dark_on_background">#ffdddddd</color>
 
 </resources>
 

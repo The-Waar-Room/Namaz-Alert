@@ -17,7 +17,6 @@ import com.sudoajay.namaz_alert.R
 import com.sudoajay.namaz_alert.databinding.FragmentEditDailyPrayerBinding
 import com.sudoajay.namaz_alert.ui.BaseActivity.Companion.isSystemDefaultOn
 import com.sudoajay.namaz_alert.ui.BaseFragment
-import com.sudoajay.namaz_alert.util.Helper.Companion.convertTo12Hours
 import com.sudoajay.namaz_alert.util.Helper.Companion.convertTo12Hr
 import com.sudoajay.namaz_alert.util.Helper.Companion.getMeIncrementTime
 import com.sudoajay.namaz_alert.util.Helper.Companion.getPrayerGapTime
