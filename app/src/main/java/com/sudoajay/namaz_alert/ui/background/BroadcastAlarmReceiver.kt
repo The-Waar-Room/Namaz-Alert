@@ -70,7 +70,7 @@ class BroadcastAlarmReceiver: BroadcastReceiver() {
                     )
 
                     waitCoroutineRunning = GlobalScope.launch(Dispatchers.IO){
-                        delay(1000 * 10)
+                        delay(1000 * 5)
                         if (Helper.doNotDisturbPermissionAlreadyGiven(context)) {
                             phoneMode.let { Helper.getPhoneMode(it) }.let {
                                 Helper.setRingerMode(
