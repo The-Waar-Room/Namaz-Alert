@@ -14,6 +14,7 @@ import com.sudoajay.namaz_alert.R
 import com.sudoajay.namaz_alert.data.proto.ProtoManager
 import com.sudoajay.namaz_alert.data.repository.DailyPrayerRepository
 import com.sudoajay.namaz_alert.ui.BaseFragment
+import com.sudoajay.namaz_alert.ui.notification.NotificationChannels
 import java.io.File
 import java.text.DateFormat
 import java.text.SimpleDateFormat
@@ -124,14 +125,9 @@ class Helper {
             val editor: SharedPreferences.Editor = prefs.edit()
             editor.putInt("NotificationRingtone", value)
             editor.apply()
+
         }
 
-        fun setActionTime(context: Context,type: String,value :String){
-            val prefs = PreferenceManager.getDefaultSharedPreferences(context)
-            val editor: SharedPreferences.Editor = prefs.edit()
-            editor.putString(type, value)
-            editor.apply()
-        }
 
         private fun getLocalLanguage(context: Context): String {
             val lang = Locale.getDefault().language

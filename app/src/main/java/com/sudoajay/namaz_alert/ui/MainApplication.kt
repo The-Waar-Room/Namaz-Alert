@@ -1,6 +1,7 @@
 package com.sudoajay.namaz_alert.ui
 
 import android.app.Application
+import android.app.NotificationManager
 import android.os.Build
 import android.util.Log
 import com.sudoajay.namaz_alert.data.proto.ProtoManager
@@ -27,6 +28,7 @@ class MainApplication : Application() {
 
     var notificationRingtone = 0
 
+
     override fun onCreate() {
         super.onCreate()
 
@@ -35,7 +37,10 @@ class MainApplication : Application() {
         getDataFromProtoDatastore()
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationChannels.notificationOnCreate(applicationContext, notificationRingtone)
+            val notificationManager = getSystemService(NotificationManager::class.java) as NotificationManager
+            if(notificationManager.getNotificationChannel(NotificationChannels.UPCOMING_PRAYER_TIME) == null) {
+                NotificationChannels.notificationOnCreate(applicationContext)
+            }
         }
 
 
@@ -51,6 +56,7 @@ class MainApplication : Application() {
                 Helper.setLanguage(applicationContext, Helper.getLanguage(applicationContext))
 
             } else {
+
                 notificationRingtone = Helper.getNotificationRingtone(applicationContext)
 
                 workManger.startWorker()

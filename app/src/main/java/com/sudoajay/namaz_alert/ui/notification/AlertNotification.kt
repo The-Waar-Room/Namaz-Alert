@@ -6,11 +6,13 @@ import android.app.Notification.DEFAULT_ALL
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.app.PendingIntent.FLAG_UPDATE_CURRENT
+import android.content.ContentResolver
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
 import android.os.Build
+import android.provider.Settings
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
@@ -70,12 +72,6 @@ class AlertNotification @Inject constructor(var context: Context) {
         cancelIntent.putExtra(AlarmsScheduler.DATA_SHARE_ID, dataShare)
 
 
-//        val cancelIntent = Intent(context,NotificationCancelReceiver::class.java)
-//        cancelIntent.action = "com.sudoajay.namaz_alert.Action"
-//        cancelIntent.putExtra(previousModeID, previousMode)
-//        cancelIntent.putExtra(prayerNameID, prayerName)
-//        cancelIntent.putExtra(prayerTimeID,prayerTime)
-
         val cancelPendingIntent = PendingIntent.getBroadcast(
             context,
             NOTIFICATION_ALERT_STOP,
@@ -92,7 +88,8 @@ class AlertNotification @Inject constructor(var context: Context) {
         Log.e("ALertNotification", "")
         // Default ringtone
         val uri =
-            if (notificationRingtone == 0) null else Uri.parse("android.resource://" + context.packageName + "/" + R.raw.azan_in_islam)
+            if (notificationRingtone == 0) Settings.System.DEFAULT_NOTIFICATION_URI else Uri.parse(
+                ContentResolver.SCHEME_ANDROID_RESOURCE + "://" + context.packageName + "/" + R.raw.azan_in_islam)
 
         builder
 

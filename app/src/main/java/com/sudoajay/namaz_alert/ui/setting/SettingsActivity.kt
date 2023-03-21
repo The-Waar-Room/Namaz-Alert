@@ -78,15 +78,11 @@ class SettingsActivity : BaseActivity() {
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
             setPreferencesFromResource(R.xml.setting_preferences, rootKey)
 
-
-
             val phoneMode = findPreference("phoneMode") as ListPreference?
             phoneMode!!.setOnPreferenceChangeListener { _, newValue ->
                Helper.setPhoneMode(requireContext(), newValue as String)
                 true
             }
-
-
             val notificationSound =
                 findPreference("notificationSound") as Preference?
             notificationSound!!.onPreferenceClickListener = Preference.OnPreferenceClickListener {

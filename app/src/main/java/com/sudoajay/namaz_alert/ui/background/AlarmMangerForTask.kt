@@ -2,7 +2,10 @@ package com.sudoajay.namaz_alert.ui.background
 
 import android.app.AlarmManager
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
+import android.content.Intent
+import android.os.Build
 import android.util.Log
 import androidx.work.WorkManager
 import com.sudoajay.namaz_alert.data.db.DailyPrayerDatabase
@@ -44,12 +47,12 @@ class AlarmMangerForTask @Inject constructor(var context: Context) {
 
 
         val isWorkManagerRunning = Helper.isAlarmMangerRunning(context)
-//        val waitWorkManagerRunning = CoroutineScope(Dispatchers.IO).async {
-//            isWorkManagerRunning = protoManager.fetchInitialPreferences().isWorkMangerRunning
-//            return@async isWorkManagerRunning
-//        }
-//        waitWorkManagerRunning.await()
-        if (true) {
+
+        Log.e(
+            "WorkManger",
+            "Reminder service alarm is " + (if (isReminderServiceAlarmSet(context)) "" else "not ") + "set already"
+        )
+        if (!isWorkManagerRunning || !isReminderServiceAlarmSet(context)  ) {
             WorkManager.getInstance(context).cancelAllWork()
             notificationManager=
                 context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
@@ -156,6 +159,24 @@ class AlarmMangerForTask @Inject constructor(var context: Context) {
                         System.currentTimeMillis() + (1000 * 60 * (getDiffMinute(currentTime,endTime))  ),
                         pendingExactFinishAlarmRequestCode
                     )
+
+//                    alarmsScheduler.setInexactAlarm(
+//                        dataShare,
+//                        System.currentTimeMillis() + ( 1000 * 10   )
+//                    )
+//
+//                    alarmsScheduler.setUpRTCAlarm(
+//                        dataShare,
+//                        alertNotify,
+//                        System.currentTimeMillis() + (1000 * 20   ),
+//                        pendingExactAlertAlarmRequestCode
+//                    )
+//                    alarmsScheduler.setUpRTCAlarm(
+//                        dataShare,
+//                        finishNotify,
+//                        System.currentTimeMillis() + (1000 * 50  ),
+//                        pendingExactFinishAlarmRequestCode
+//                    )
                 }
                 else {
                     alarmsScheduler.setInexactAlarmAlarmManger(
@@ -176,7 +197,10 @@ class AlarmMangerForTask @Inject constructor(var context: Context) {
         alarmsScheduler.removeInexactAlarm()
         alarmsScheduler.removeRTCAlarm(pendingExactAlertAlarmRequestCode)
         alarmsScheduler.removeRTCAlarm(AlarmsScheduler.pendingInExactAlarmRequestCode)
+
+
     }
+
 
     private fun cancelNotificationEverything(){
         notificationManager.cancel(AlertNotification.NOTIFICATION_UPCOMING_STATE)
@@ -186,6 +210,40 @@ class AlarmMangerForTask @Inject constructor(var context: Context) {
 
     }
 
+    private fun isReminderServiceAlarmSet(context: Context): Boolean {
+        val intent = Intent(context.applicationContext, BroadcastAlarmReceiver::class.java)
+        intent.action = AlarmsScheduler.ACTION_FIRED
+        val isBackupServiceAlarmSet: Boolean
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            PendingIntent.getBroadcast(
+                context.applicationContext,
+                pendingExactFinishAlarmRequestCode,
+                intent,
+                PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_NO_CREATE
+            )
+            isBackupServiceAlarmSet = PendingIntent.getBroadcast(
+                context.applicationContext,
+                pendingExactFinishAlarmRequestCode,
+                intent,
+                PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_NO_CREATE
+            ) != null
+        } else {
+            PendingIntent.getBroadcast(
+                context.applicationContext,
+                pendingExactFinishAlarmRequestCode,
+                intent,
+                PendingIntent.FLAG_NO_CREATE
+            )
+            isBackupServiceAlarmSet = PendingIntent.getBroadcast(
+                context.applicationContext,
+                pendingExactFinishAlarmRequestCode,
+                intent,
+                PendingIntent.FLAG_NO_CREATE
+            ) != null
+        }
+
+        return isBackupServiceAlarmSet
+    }
 
 
     companion object {

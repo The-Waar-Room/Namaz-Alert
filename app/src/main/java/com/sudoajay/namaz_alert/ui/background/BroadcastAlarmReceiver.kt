@@ -2,6 +2,7 @@ package com.sudoajay.namaz_alert.ui.background
 
 import android.app.*
 import android.content.*
+import android.os.Build
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.sudoajay.namaz_alert.R
@@ -28,6 +29,7 @@ class BroadcastAlarmReceiver: BroadcastReceiver() {
     private lateinit var upComingNotification:UpComingNotification
     private lateinit var notificationManager:NotificationManager
 
+    @OptIn(DelicateCoroutinesApi::class)
     override fun onReceive(context: Context, intent: Intent) {
 
         alertNotification=AlertNotification(context = context)
@@ -58,6 +60,8 @@ class BroadcastAlarmReceiver: BroadcastReceiver() {
                     val phoneMode = Helper.getPhoneMode(context = context)
                     Helper.setPreviousPhoneMode(context, previousMode)
 
+
+
                     startNotificationAlert(
                         context,
                         phoneMode,
@@ -65,8 +69,8 @@ class BroadcastAlarmReceiver: BroadcastReceiver() {
                         intent.getStringExtra(AlarmsScheduler.DATA_SHARE_ID).toString()
                     )
 
-                    waitCoroutineRunning = CoroutineScope(Dispatchers.IO).launch{
-                        delay(1000 * 20)
+                    waitCoroutineRunning = GlobalScope.launch(Dispatchers.IO){
+                        delay(1000 * 10)
                         if (Helper.doNotDisturbPermissionAlreadyGiven(context)) {
                             phoneMode.let { Helper.getPhoneMode(it) }.let {
                                 Helper.setRingerMode(
@@ -213,10 +217,8 @@ class BroadcastAlarmReceiver: BroadcastReceiver() {
         context: Context,
         phoneMode: String,
          notificationRingtone: Int, dataShare: String
-
-
     ) {
-        createNotificationAlert(context, dataShare)
+        createNotificationAlert(context, dataShare,notificationRingtone)
         alertNotification.notifyCompat(
             phoneMode,
              notificationRingtone, notificationCompat,dataShare, notificationManager
@@ -226,10 +228,10 @@ class BroadcastAlarmReceiver: BroadcastReceiver() {
 
     private fun createNotificationAlert(
         context: Context,
-       dataShare:String
+       dataShare:String, notificationRingtone:Int
     ) {
         notificationCompat =
-            NotificationCompat.Builder(context, NotificationChannels.ALERT_PRAYER_TIME)
+            NotificationCompat.Builder(context,  if(notificationRingtone == 0)NotificationChannels.ALERT_DEFAULT_PRAYER_TIME else NotificationChannels.ALERT_SOUND_PRAYER_TIME )
         notificationCompat.setSmallIcon(R.drawable.app_icon)
         notificationCompat.setContentIntent(createWrapperPendingIntent(context, dataShare ))
         notificationCompat.setFullScreenIntent(createWrapperPendingIntent(context,dataShare), true)

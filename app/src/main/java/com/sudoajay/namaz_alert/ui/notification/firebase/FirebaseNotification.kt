@@ -5,7 +5,9 @@ import android.app.NotificationManager
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Color
 import android.media.RingtoneManager
+import android.provider.Settings
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import com.google.firebase.messaging.RemoteMessage
@@ -37,7 +39,7 @@ class FirebaseNotification @Inject constructor(var context: Context) {
         }
 
         // Default ringtone
-        val uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+        val uri = Settings.System.DEFAULT_NOTIFICATION_URI
 
         builder
             // Set appropriate defaults for the notification light, sound,
@@ -46,6 +48,9 @@ class FirebaseNotification @Inject constructor(var context: Context) {
             .setContentTitle(title)
             .setContentText(notificationText)
             .setAutoCancel(true)
+            .setVibrate(longArrayOf(1000, 1000, 1000, 1000, 1000))
+            .setLights(Color.RED, 3000, 3000)
+
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setSound(uri) // Provide a large icon, shown with the notification in the
 

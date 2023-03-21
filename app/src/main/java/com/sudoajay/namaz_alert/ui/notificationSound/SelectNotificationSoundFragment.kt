@@ -1,7 +1,9 @@
 package com.sudoajay.namaz_alert.ui.notificationSound
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,6 +18,7 @@ import com.sudoajay.namaz_alert.R
 import com.sudoajay.namaz_alert.databinding.FragmentSelectNotificationSoundBinding
 import com.sudoajay.namaz_alert.ui.BaseActivity
 import com.sudoajay.namaz_alert.ui.BaseFragment
+import com.sudoajay.namaz_alert.ui.notification.NotificationChannels
 import com.sudoajay.namaz_alert.ui.notificationSound.repository.SelectNotificationSoundAdapter
 import com.sudoajay.namaz_alert.ui.setting.SettingsActivity
 import com.sudoajay.namaz_alert.util.Helper
@@ -50,6 +53,7 @@ class SelectNotificationSoundFragment: BaseFragment() {
         // Inflate the layout for this fragment
         _binding = FragmentSelectNotificationSoundBinding.inflate(inflater, container, false)
         binding.selectLanguageViewModel = selectLanguageViewModel
+        binding.fragment = this
         binding.lifecycleOwner = this
 
 
@@ -97,6 +101,8 @@ class SelectNotificationSoundFragment: BaseFragment() {
     fun onClickContinueButton(){
       
         Helper.setNotificationRingtone(requireContext(), selectNotificationSoundAdapter.selectedNotificationSound)
+        Log.e("WorkManger", " getTAg " + selectNotificationSoundAdapter.selectedNotificationSound)
+
         openSetting()
     }
 

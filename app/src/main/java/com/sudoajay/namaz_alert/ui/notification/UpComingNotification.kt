@@ -7,6 +7,7 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
+import android.provider.Settings
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
@@ -45,7 +46,7 @@ class UpComingNotification @Inject constructor(var context: Context) {
 
         Log.e("ALertNotification", "")
         // Default ringtone
-        val uri = null
+        val uri = Settings.System.DEFAULT_NOTIFICATION_URI
         builder
 
             .addAction(
@@ -65,9 +66,9 @@ class UpComingNotification @Inject constructor(var context: Context) {
                 )
             ).setOngoing(false).setAutoCancel(false)
             .setOnlyAlertOnce(true)
-            .setVibrate(longArrayOf(0L))
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setVibrate(longArrayOf(1000, 1000, 1000, 1000, 1000))
             .setLights(Color.RED, 3000, 3000)
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setSound(uri) // Provide a large icon, shown with the notification in the
             .color = ContextCompat.getColor(context, R.color.appTheme)
         // If this notification relates to a past or upcoming event, you
