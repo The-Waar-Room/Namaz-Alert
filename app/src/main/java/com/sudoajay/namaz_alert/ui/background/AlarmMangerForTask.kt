@@ -7,7 +7,9 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.util.Log
-import androidx.work.WorkManager
+import androidx.lifecycle.asFlow
+import androidx.lifecycle.map
+import androidx.work.*
 import com.sudoajay.namaz_alert.data.db.DailyPrayerDatabase
 import com.sudoajay.namaz_alert.data.proto.ProtoManager
 import com.sudoajay.namaz_alert.data.repository.DailyPrayerRepository
@@ -26,6 +28,7 @@ import com.sudoajay.namaz_alert.util.Helper.Companion.getPrayerGapTime
 import com.sudoajay.namaz_alert.util.Helper.Companion.getTodayDate
 import com.sudoajay.namaz_alert.util.Helper.Companion.getTomorrowDate
 import kotlinx.coroutines.*
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 import kotlin.math.abs
 
@@ -50,9 +53,9 @@ class AlarmMangerForTask @Inject constructor(var context: Context) {
 
         Log.e(
             "WorkManger",
-            "Reminder service alarm is " + (if (isReminderServiceAlarmSet(context)) "" else "not ") + "set already"
+            "Reminder service alarm is " + (if (isReminderFinishAlarmSet(context)) "" else "not ") + "set already"
         )
-        if (!isWorkManagerRunning || !isReminderServiceAlarmSet(context)  ) {
+        if (!isWorkManagerRunning || !isReminderFinishAlarmSet(context)  ) {
             WorkManager.getInstance(context).cancelAllWork()
             notificationManager=
                 context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
@@ -101,38 +104,17 @@ class AlarmMangerForTask @Inject constructor(var context: Context) {
                 Helper.setIsAlarmMangerRunning(context,true)
 
 
-//                val data = workDataOf(
-//                    prayerNameID to dailyPrayerDB.Name,
-//                    prayerTimeID to dailyPrayerDB.Time,
-//                    diffTimeID to diffTime,
-////                    startTimeID to "$startTime:00" ,
-////                    endTimeID  to "$endTime:00"
-//                    )
-//                Log.e("WorkManger", "diffTime ${data.getString(diffTimeID)} ")
-//
-//                val workManager = WorkManager.getInstance(context)
-//                val constraints = Constraints.Builder()
-//
-//
-//                val workMangerUpComingNotification =
-//                    OneTimeWorkRequestBuilder<WorkMangerUpComingNotification>()
-////                        .setInitialDelay((getDiffMinute(currentTime,startTime)-timeGapInEveryWhere) * 1000*60, TimeUnit.MILLISECONDS)
-//
-//                        .setInitialDelay(1000*60*2, TimeUnit.MILLISECONDS)
-//                        .addTag(workMangerTAGID)
-//                        .setInputData(data)
-//                        .setConstraints(constraints.build())
-//                        .build()
-//
-//                workManager.beginWith(workMangerUpComingNotification).enqueue()
-//                workManager.beginUniqueWork(
-//                    workMangerTAGID,
-//                    ExistingWorkPolicy.REPLACE,
-//                    OneTimeWorkRequest.from(WorkMangerUpComingNotification::class.java)
-//                )
+
+                     WorkManager.getInstance(context)
+                    .getWorkInfosForUniqueWorkLiveData(workMangerTAGID)
+                    .map { it.lastOrNull() }
+                    .map { it?.state == WorkInfo.State.ENQUEUED || it?.state == WorkInfo.State.RUNNING || it?.state != WorkInfo.State.BLOCKED  }
+                    .map {
+                            if(!it) runWorkManger()
+                        it
+                    }
 
 //                 System.currentTimeMillis()+25*24*60*60*1000l
-
                 val dataShare =
                     dailyPrayerDB.Name + "||" + dailyPrayerDB.Time + "||" + diffTime + "||" + "$startTime:00" + "||" + "$endTime:00"
 
@@ -142,41 +124,41 @@ class AlarmMangerForTask @Inject constructor(var context: Context) {
                         getCurrentTimeWithSeconds(), "$startTime:00"
                     ) > 0)
                 ) {
-//                    alarmsScheduler.setInexactAlarm(
-//                        dataShare,
-//                        System.currentTimeMillis() + ( 1000 * 60 * (getDiffMinute(currentTime,startTime)-timeGapInEveryWhere)  )
-//                    )
-//
-//                    alarmsScheduler.setUpRTCAlarm(
-//                        dataShare,
-//                        alertNotify,
-//                        System.currentTimeMillis() + (1000 * 60 * (getDiffMinute(currentTime,startTime))  ),
-//                        pendingExactAlertAlarmRequestCode
-//                    )
-//                    alarmsScheduler.setUpRTCAlarm(
-//                        dataShare,
-//                        finishNotify,
-//                        System.currentTimeMillis() + (1000 * 60 * (getDiffMinute(currentTime,endTime))  ),
-//                        pendingExactFinishAlarmRequestCode
-//                    )
-
                     alarmsScheduler.setInexactAlarm(
                         dataShare,
-                        System.currentTimeMillis() + ( 1000 * 10   )
+                        System.currentTimeMillis() + ( 1000 * 60 * (getDiffMinute(currentTime,startTime)-timeGapInEveryWhere)  )
                     )
 
                     alarmsScheduler.setUpRTCAlarm(
                         dataShare,
                         alertNotify,
-                        System.currentTimeMillis() + (1000 * 20   ),
+                        System.currentTimeMillis() + (1000 * 60 * (getDiffMinute(currentTime,startTime))  ),
                         pendingExactAlertAlarmRequestCode
                     )
                     alarmsScheduler.setUpRTCAlarm(
                         dataShare,
                         finishNotify,
-                        System.currentTimeMillis() + (1000 * 50  ),
+                        System.currentTimeMillis() + (1000 * 60 * (getDiffMinute(currentTime,endTime))  ),
                         pendingExactFinishAlarmRequestCode
                     )
+
+//                    alarmsScheduler.setInexactAlarm(
+//                        dataShare,
+//                        System.currentTimeMillis() + ( 1000 * 10   )
+//                    )
+//
+//                    alarmsScheduler.setUpRTCAlarm(
+//                        dataShare,
+//                        alertNotify,
+//                        System.currentTimeMillis() + (1000 * 20   ),
+//                        pendingExactAlertAlarmRequestCode
+//                    )
+//                    alarmsScheduler.setUpRTCAlarm(
+//                        dataShare,
+//                        finishNotify,
+//                        System.currentTimeMillis() + (1000 * 50  ),
+//                        pendingExactFinishAlarmRequestCode
+//                    )
                 }
                 else {
                     alarmsScheduler.setInexactAlarmAlarmManger(
@@ -210,7 +192,7 @@ class AlarmMangerForTask @Inject constructor(var context: Context) {
 
     }
 
-    private fun isReminderServiceAlarmSet(context: Context): Boolean {
+    private fun isReminderFinishAlarmSet(context: Context): Boolean {
         val intent = Intent(context.applicationContext, BroadcastAlarmReceiver::class.java)
         intent.action = AlarmsScheduler.ACTION_FIRED
         val isBackupServiceAlarmSet: Boolean
@@ -243,6 +225,22 @@ class AlarmMangerForTask @Inject constructor(var context: Context) {
         }
 
         return isBackupServiceAlarmSet
+    }
+
+    private fun runWorkManger(){
+        val workManager = WorkManager.getInstance(context)
+
+        val workMangerNotification =
+            PeriodicWorkRequestBuilder<WorkMangerNotification>(3, TimeUnit.HOURS)
+                .addTag(workMangerTAGID)
+                .build()
+
+        workManager.enqueueUniquePeriodicWork(
+            workMangerTAGID,
+            ExistingPeriodicWorkPolicy.KEEP,
+            workMangerNotification
+        )
+
     }
 
 

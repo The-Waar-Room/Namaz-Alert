@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--    Prayer Item-->
+    <dimen name="materialCardView_Height">60dp</dimen>
+    <dimen name="imageview_width">220dp</dimen>
+    <dimen name="textSize">18sp</dimen>
+    <dimen name="marginUpAndDown">6dp</dimen>
+
+</resources>

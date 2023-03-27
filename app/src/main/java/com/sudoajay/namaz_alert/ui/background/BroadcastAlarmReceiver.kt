@@ -89,7 +89,7 @@ class BroadcastAlarmReceiver: BroadcastReceiver() {
                             context,
                             context.getString(
                                 R.string.completed_the_notification_prayer,
-                                dataShare?.get(1) ?: ""
+                                dataShare?.get(0) ?: ""
                             ),
                             context.getString(R.string.your_device_is_now_text, previousMode),
                             intent.getStringExtra(AlarmsScheduler.DATA_SHARE_ID).toString(),
@@ -131,7 +131,7 @@ class BroadcastAlarmReceiver: BroadcastReceiver() {
                 startNotificationCancelFinish(context,
                     context.getString(
                         R.string.cancel_the_notification_prayer,
-                        dataShare?.get(1) ?: ""
+                        dataShare?.get(0) ?: ""
                     ),
                     context.getString(R.string.click_here_to_setup_text),
                     intent.getStringExtra(AlarmsScheduler.DATA_SHARE_ID).toString(),
@@ -153,6 +153,7 @@ class BroadcastAlarmReceiver: BroadcastReceiver() {
             Intent.ACTION_LOCALE_CHANGED,
             Intent.ACTION_MY_PACKAGE_REPLACED,
             AlarmsScheduler.ACTION_INEXACT_FIRED_ALARM_MANAGER,
+            Intent.ACTION_REBOOT,
             Intent.ACTION_TIME_CHANGED-> {
                 cancelNotificationEverything()
                 Helper.setIsAlarmMangerRunning(context, false)

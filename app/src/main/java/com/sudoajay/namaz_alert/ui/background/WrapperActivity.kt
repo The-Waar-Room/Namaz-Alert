@@ -136,7 +136,6 @@ class WrapperActivity  : FragmentActivity()  {
             NotificationCompat.Builder(applicationContext, NotificationChannels.ALERT_DEFAULT_PRAYER_TIME  )
         notificationCompat.setSmallIcon(R.drawable.app_icon)
         notificationCompat.setContentIntent(createWrapperPendingIntent(applicationContext, dataShare ))
-        notificationCompat.setFullScreenIntent(createWrapperPendingIntent(applicationContext,dataShare), true)
 
 
     }

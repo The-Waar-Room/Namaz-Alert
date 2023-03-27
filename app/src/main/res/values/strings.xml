@@ -24,7 +24,7 @@
     <string name="maghrib_namaz_time_text" translatable="false">Maghrib Namaz \n%1$s</string>
     <string name="isha_namaz_time_text" translatable="false">Isha Namaz \n%1$s</string>
 
-    <string name="right_hand_side_time_text" translatable="true">%1$s min</string>
+    <string name="right_hand_side_time_text" translatable="true">%1$s:00 min</string>
     <string name="left_hand_side_time_text" translatable="true">%1$s</string>
 
 
@@ -34,16 +34,17 @@
 
     <string name="do_you_want_to_set_text" translatable="true">Do you really want to set the default time?</string>
 
-    <string name="am_text" translatable="true">Am</string>
-    <string name="pm_text" translatable="true">Pm</string>
+    <string name="am_text" translatable="true">am</string>
+    <string name="pm_text" translatable="true">pm</string>
 
     <string name="successfully_selected_text" translatable="true">Successfully Selected</string>
-    <string name="you_cant_select_30min_text" translatable="true"> You can\'t select past the maximum limit of 30 min</string>
+    <string name="you_cant_select_30min_text" translatable="true"> You can\'t select past the maximum limit of 30 mins</string>
+    <string name="you_cant_past_select_30min_text" translatable="true"> You can\'t select past 30 mins</string>
     <string name="you_cant_select_text" translatable="true"> You can\'t select past the maximum limit </string>
     <string name="time_reset_successfully_text" translatable="true"> Time Reset Successfully </string>
 
-    <string name="activate_at_text" translatable="true">Activate At :</string>
-    <string name="activate_for_text" translatable="true">Activate For :</string>
+    <string name="activate_at_text" translatable="true">Turn The Phone Silent At :</string>
+    <string name="activate_for_text" translatable="true">Silent Duration :</string>
 
 
     <!--    Send Feedback and help and support -->
@@ -119,7 +120,7 @@
     <string name="shortcut_next_prayer_text" translatable="false">Next Prayer</string>
 
     <!--    Proto Manager-->
-    <string name="default_prayer_time_proto"  translatable="false">-5:10</string>
+    <string name="default_prayer_time_proto" translatable="false">-5:10</string>
     <string name="yes_string" translatable="true">Yes</string>
     <string name="no_string" translatable="true">No</string>
 
@@ -213,8 +214,8 @@
     <string name="chinese_text" translatable="true">Chinese</string>
 
 <!--    Push notification-->
-    <string name="you_are_a_sports_junkie_text" translatable="true">You\'re a scanning legend!</string>
-    <string name="wouldnt_you_love_to_stay_text" translatable="true">Would\'t you feel special when we push out new features and many other exciting things and you\'re the first one to get notified? Sure you would. Press the Get Notified button below and stay ahead of others. </string>
+    <string name="you_are_a_sports_junkie_text" translatable="true">You\'re a true God believer!</string>
+    <string name="wouldnt_you_love_to_stay_text" translatable="true">Don\'t you want an alert when it\'s time for your Namaz Prayer? Sure you, do! You\'re a true devotee. Press the \'Get Notified\' button below and stay blessed on your spiritual path.</string>
     <string name="skip_text" translatable="true">Skip</string>
     <string name="get_notified_text" translatable="true">Get Notified</string>
     <string name="no_qr_codeand_barcode_found_text" translatable="true">No Qr-Code Or Barcode Found In The Image</string>

@@ -13,5 +13,11 @@
     <dimen name="divider_height">0.8dp</dimen>
 
 
+<!--    Prayer Item-->
+    <dimen name="materialCardView_Height">100dp</dimen>
+    <dimen name="imageview_width">580dp</dimen>
+    <dimen name="textSize">22sp</dimen>
+    <dimen name="marginUpAndDown">8dp</dimen>
+
 
 </resources>

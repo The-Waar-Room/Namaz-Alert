@@ -12,15 +12,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="@dimen/marginUpAndDown"
+        android:layout_marginBottom="@dimen/marginUpAndDown"
         android:layout_marginEnd="8dp">
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardView"
             style="@style/homeScreenMaterialCardView"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="@dimen/materialCardView_Height"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -31,13 +31,13 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/container_ConstraintLayout"
                 android:layout_width="match_parent"
-                android:background="@color/asr_color"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@color/asr_color">
 
 
                 <ImageView
                     android:id="@+id/item_BgImage"
-                    android:layout_width="280dp"
+                    android:layout_width="@dimen/imageview_width"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/app_name"
                     android:scaleType="fitXY"
@@ -60,13 +60,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:layout_marginBottom="8dp"
                     android:textColor="@color/whiteColor"
-                    android:textSize="22sp"
+                    android:textSize="@dimen/textSize"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="fajr \n4:15am"/>
+                    app:layout_constraintVertical_bias="0.5"
+                    tools:text="fajr \n4:15am" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

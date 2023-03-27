@@ -12,7 +12,6 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.rpc.Help
 
 import com.sudoajay.namaz_alert.R
 import com.sudoajay.namaz_alert.databinding.FragmentSelectNotificationSoundBinding
