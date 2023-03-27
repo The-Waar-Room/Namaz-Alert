@@ -7,7 +7,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.util.Log
-import androidx.lifecycle.asFlow
 import androidx.lifecycle.map
 import androidx.work.*
 import com.sudoajay.namaz_alert.data.db.DailyPrayerDatabase
@@ -247,16 +246,7 @@ class AlarmMangerForTask @Inject constructor(var context: Context) {
     companion object {
         const val prayerNameID = "PrayerNameID"
         const val prayerTimeID = "PrayerTimeID"
-        const val diffTimeID = "DiffTimeID"
-        const val startTimeID = "StartTimeID"
-        const val endTimeID = "EndTimeID"
-
-
         const val timeGapInEveryWhere = 10
-
-        const val titleNotificationID = "TitleNotificationID"
-        const val subTitleNotificationID = "SubTitleNotificationID"
-        const val previousModeID = "PreviousModeID"
 
         const val workMangerTAGID = "WorkMangerID"
 

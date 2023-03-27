@@ -193,10 +193,11 @@ class EditDailyPrayerFragment : BaseFragment() {
 
             Log.e("EditShow" , "  minutePicker.value  + beforeTime  " + (minutePicker.value  + beforeTime)  +  "  minutePicker ${minutePicker.value}  beforeTime $beforeTime ")
             if(minutePicker.value  + beforeTime > 30 ) {
-                throwToaster(getString(R.string.you_cant_past_select_30min_text))
+                throwToaster(getString(R.string.you_cant_past_select_30min_text
+                ))
             }else {
                 setRightHand(minute = minutePicker.value)
-                setGapInProto(beforeTime, minutePicker.value)
+                setGapInProto(beforeTime, (minutePicker.value  +beforeTime) )
             }
         }
         d.setNegativeButton("Cancel") { dialogInterface, i -> }
