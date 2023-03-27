@@ -40,6 +40,7 @@
     <string name="successfully_selected_text" translatable="true">Successfully Selected</string>
     <string name="you_cant_select_30min_text" translatable="true"> You can\'t select past the maximum limit of 30 mins</string>
     <string name="you_cant_past_select_30min_text" translatable="true"> You can\'t select past 30 mins</string>
+
     <string name="you_cant_select_text" translatable="true"> You can\'t select past the maximum limit </string>
     <string name="time_reset_successfully_text" translatable="true"> Time Reset Successfully </string>
 

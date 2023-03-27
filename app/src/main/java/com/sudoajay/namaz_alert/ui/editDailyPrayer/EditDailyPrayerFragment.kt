@@ -175,6 +175,8 @@ class EditDailyPrayerFragment : BaseFragment() {
     }
 
     private fun rightHandSidePickerCustom() {
+
+        val beforeTime = prayerGapTime.split(":")[0].toInt()
         val getAfterIncrement = binding.rightHandSideTextView.text.toString().replace("(\\s.+)".toRegex(), "").replace(":00","")
             .filter { !it.isWhitespace() }.toInt()
         val d = AlertDialog.Builder(requireContext())
@@ -184,12 +186,11 @@ class EditDailyPrayerFragment : BaseFragment() {
         val minutePicker = dialogView.findViewById<NumberPicker>(R.id.dialog_minute_picker)
 
         minutePicker.maxValue = 60
-        minutePicker.minValue = 1
+        minutePicker.minValue = abs(beforeTime)
         minutePicker.value = getAfterIncrement
         minutePicker.wrapSelectorWheel = false
 
         d.setPositiveButton("Set") { _, i ->
-            val beforeTime = prayerGapTime.split(":")[0].toInt()
 
             Log.e("EditShow" , "  minutePicker.value  + beforeTime  " + (minutePicker.value  + beforeTime)  +  "  minutePicker ${minutePicker.value}  beforeTime $beforeTime ")
             if(minutePicker.value  + beforeTime > 30 ) {
