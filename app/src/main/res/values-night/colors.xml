@@ -29,4 +29,8 @@
     <color name="divider">#E6E6E6</color>
 
 
+    <!--    Rate us -->
+    <color name="divider_color">#494949</color>
+
+
 </resources>

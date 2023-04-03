@@ -23,6 +23,7 @@ import com.sudoajay.namaz_alert.ui.BaseActivity
 import com.sudoajay.namaz_alert.ui.bottomSheet.DoNotDisturbPermissionBottomSheet
 import com.sudoajay.namaz_alert.ui.feedbackAndHelp.SendFeedbackAndHelp
 import com.sudoajay.namaz_alert.ui.mainActivity.MainActivity
+import com.sudoajay.namaz_alert.ui.rateUs.RateUsDialog
 import com.sudoajay.namaz_alert.util.DeleteCache
 import com.sudoajay.namaz_alert.util.Helper
 import com.sudoajay.namaz_alert.util.Toaster
@@ -66,9 +67,6 @@ class SettingsActivity : BaseActivity() {
 
     @AndroidEntryPoint
     class SettingsFragment : PreferenceFragmentCompat() {
-        private val ratingLink =
-            "https://play.google.com/store/apps/details?id=com.sudoajay.duplication_data"
-
 
 
 
@@ -188,9 +186,8 @@ class SettingsActivity : BaseActivity() {
 
 
         private fun openPrivacyPolicy() {
-            val link = "https://play.google.com/store/apps/dev?id=5309601131127361849"
             val i = Intent(Intent.ACTION_VIEW)
-            i.data = Uri.parse(link)
+            i.data = Uri.parse(getString(R.string.privacy_link_text))
             startActivity(i)
         }
 
@@ -199,15 +196,10 @@ class SettingsActivity : BaseActivity() {
             val i = Intent(Intent.ACTION_SEND)
             i.type = "text/plain"
             i.putExtra(Intent.EXTRA_SUBJECT, "Link-Share")
-            i.putExtra(Intent.EXTRA_TEXT, getString(R.string.shareMessage) + " - git " + ratingLink)
+            i.putExtra(Intent.EXTRA_TEXT, getString(R.string.shareMessage) + " - git " + getString(R.string.rating_link_text))
             startActivity(Intent.createChooser(i, "Share via"))
         }
 
-        private fun submitReview() {
-            val i = Intent(Intent.ACTION_VIEW)
-            i.data = Uri.parse(ratingLink)
-            startActivity(i)
-        }
 
         private fun moreApps() {
             val link = "https://play.google.com/store/apps/dev?id=5309601131127361849"
@@ -221,6 +213,12 @@ class SettingsActivity : BaseActivity() {
             val i = Intent(Intent.ACTION_VIEW)
             i.data = Uri.parse(link)
             startActivity(i)
+        }
+
+        private fun submitReview() {
+            val ft = childFragmentManager.beginTransaction()
+            val systemInfoDialog = RateUsDialog()
+            systemInfoDialog.show(ft, "dialog")
         }
 
         private fun sendFeedback() {

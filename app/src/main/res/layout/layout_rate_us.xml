@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+        <variable
+            name="dialog"
+            type="com.sudoajay.namaz_alert.ui.rateUs.RateUsDialog" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/mainBgColor"
+        android:paddingBottom="24dp">
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/thumbs_up" />
+
+        <TextView
+            android:id="@+id/heading_TextView"
+            style="@style/TextAppearance.AppTheme.Headline4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="center"
+            android:maxLines="2"
+            android:text="@string/how_was_your_experience_text"
+            android:textSize="21sp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+
+        <RatingBar
+            android:id="@+id/rating"
+            android:layout_width="wrap_content"
+            android:theme="@style/ratingBarTheme"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:isIndicator="false"
+            android:numStars="5"
+            android:scaleX="1.2"
+            android:scaleY="1.2"
+            android:stepSize="0.1"
+            app:layout_constraintEnd_toEndOf="@+id/heading_TextView"
+            app:layout_constraintHorizontal_bias="0.564"
+            app:layout_constraintStart_toStartOf="@+id/heading_TextView"
+            app:layout_constraintTop_toBottomOf="@+id/heading_TextView" />
+
+        <TextView
+            android:id="@+id/belowStarHeading_TextView"
+            style="@style/TextAppearance.AppTheme.Headline4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:focusable="true"
+            android:text="@string/thanks_so_much_text"
+            android:textSize="21sp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/rating"
+            app:layout_constraintStart_toStartOf="@+id/rating"
+            app:layout_constraintTop_toBottomOf="@+id/rating" />
+
+        <TextView
+            android:id="@+id/belowStarHeading2_TextView"
+            style="@style/TextAppearance.AppTheme.Headline4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:focusable="true"
+            android:visibility="gone"
+            android:gravity="center"
+            android:text="@string/lets_use_know_text"
+            android:textSize="21sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/belowStarHeading_TextView" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:visibility="gone"
+            android:background="@color/divider_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/belowStarHeading2_TextView" />
+
+        <TextView
+            android:id="@+id/leftHandSide_TextView"
+            style="@style/TextAppearance.AppTheme.Headline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="@{()->dialog.dismiss()}"
+            android:paddingStart="15dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="15dp"
+            android:paddingBottom="10dp"
+            android:text="@string/no_thanks_text"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/rightHandSide_MaterialButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/rightHandSide_MaterialButton"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/nunito_bold"
+            android:paddingStart="18dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="25dp"
+            android:paddingBottom="10dp"
+            android:text="@string/ok_text"
+            android:textAllCaps="true"
+            android:textColor="@color/whiteColor"
+            android:textSize="20sp"
+            android:visibility="gone"
+            app:backgroundTint="@color/appTheme"
+            app:cornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/leftHandSide_TextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/leftHandSide_TextView"
+            app:layout_constraintTop_toTopOf="@+id/leftHandSide_TextView" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

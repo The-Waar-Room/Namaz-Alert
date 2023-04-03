@@ -113,6 +113,7 @@ class AlertNotification @Inject constructor(var context: Context) {
             .setVibrate(longArrayOf(1000, 1000, 1000, 1000, 1000))
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setLights(Color.RED, 3000, 3000)
+
             .setSound(uri) // Provide a large icon, shown with the notification in the
             .color = ContextCompat.getColor(context, R.color.appTheme)
 

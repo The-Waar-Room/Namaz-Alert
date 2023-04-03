@@ -42,5 +42,9 @@
     <color name="dark_ripple">#242D35</color>
     <color name="dark_on_background">#ffdddddd</color>
 
+    <!--    Rate us-->
+    <color name="divider_color">#DCDCDC</color>
+
+
 </resources>
 

@@ -67,7 +67,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
                 applicationContext,
                 NotificationChannels.FireBase_PUSH_NOTIFICATION
             )
-        notificationCompat.setSmallIcon(R.drawable.app_icon)
+        notificationCompat.setSmallIcon(R.mipmap.ic_launcher)
 
         notificationCompat.setContentIntent(createPendingIntent(url.toString()))
 

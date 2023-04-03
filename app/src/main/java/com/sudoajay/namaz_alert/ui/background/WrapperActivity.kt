@@ -6,7 +6,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.TextView
@@ -16,12 +15,15 @@ import com.sudoajay.namaz_alert.R
 import com.sudoajay.namaz_alert.ui.notification.AlertNotification
 import com.sudoajay.namaz_alert.ui.notification.NotificationChannels
 import com.sudoajay.namaz_alert.util.Helper
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 
 class WrapperActivity  : FragmentActivity()  {
 
-//    var mIsBound: Boolean = false
-//    var mService: ForegroundService? = null
+
 
     private lateinit var notificationCompat: NotificationCompat.Builder
     private lateinit var  alertNotification : AlertNotification
@@ -32,25 +34,17 @@ class WrapperActivity  : FragmentActivity()  {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        Log.e("WorkManger", " Now its here Here WrapperActivity  " + intent.action)
-
         dataShare = intent.getStringExtra(AlarmsScheduler.DATA_SHARE_ID).toString().split("||")
-
-        turnScreenOn()
-        updateLayout()
 
         alertNotification=AlertNotification(context = applicationContext)
 
         notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
-
-        val phoneMode = Helper.getPhoneMode(context = applicationContext)
-        val notificationRingtone = Helper.getNotificationRingtone(applicationContext)
-
-        notificationManager.cancel(AlertNotification.NOTIFICATION_ALERT_STATE)
+        turnScreenOn()
+        updateLayout()
 
 
-        startNotificationAlert(phoneMode,notificationRingtone,intent.getStringExtra(AlarmsScheduler.DATA_SHARE_ID).toString())
+
     }
 
     private fun turnScreenOn() {
@@ -64,8 +58,16 @@ class WrapperActivity  : FragmentActivity()  {
                     WindowManager.LayoutParams.FLAG_ALLOW_LOCK_WHILE_SCREEN_ON or
                     WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED or
                     WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON)
-    }
 
+            CoroutineScope(Dispatchers.Main).launch {
+                delay(1000 * 60)
+                openNewNotification()
+                finish()
+
+            }
+
+
+    }
 
 
     private fun updateLayout() {
@@ -75,9 +77,11 @@ class WrapperActivity  : FragmentActivity()  {
         findViewById<Button>(R.id.alert_button_ok).run {
             requestFocus()
             setOnClickListener {
+                openNewNotification()
                 finish()
             }
             setOnLongClickListener {
+                openNewNotification()
                 finish()
                 true
             }
@@ -97,6 +101,14 @@ class WrapperActivity  : FragmentActivity()  {
         setTime()
 
 
+    }
+
+    private fun openNewNotification(){
+        notificationManager.cancel(AlertNotification.NOTIFICATION_ALERT_STATE)
+
+        val phoneMode = Helper.getPhoneMode(context = applicationContext)
+        val notificationRingtone = Helper.getNotificationRingtone(applicationContext)
+        startNotificationAlert(phoneMode,notificationRingtone,intent.getStringExtra(AlarmsScheduler.DATA_SHARE_ID).toString())
     }
 
     private fun setTitle() {
@@ -134,7 +146,7 @@ class WrapperActivity  : FragmentActivity()  {
     ) {
         notificationCompat =
             NotificationCompat.Builder(applicationContext, NotificationChannels.ALERT_DEFAULT_PRAYER_TIME  )
-        notificationCompat.setSmallIcon(R.drawable.app_icon)
+        notificationCompat.setSmallIcon(R.mipmap.ic_launcher)
         notificationCompat.setContentIntent(createWrapperPendingIntent(applicationContext, dataShare ))
 
 

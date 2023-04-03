@@ -24,14 +24,13 @@ class WebScrappingGoogle @Inject constructor(var context: Context) {
 
     lateinit var workManger: AlarmMangerForTask
 
-    fun checkEvertTimeIfDataIsUpdated() {
+    suspend fun checkEvertTimeIfDataIsUpdated() {
         workManger = AlarmMangerForTask(context)
 
         database = DailyPrayerDatabase.getDatabase(context)
         dailyPrayerRepository = DailyPrayerRepository(database.dailyPrayerDoa())
         CoroutineScope(Dispatchers.IO).launch {
             var getDate =""
-            Log.e("WebScrappingGoogleTAG" , " here doesDatabaseExist "  + doesDatabaseExist(context, dailyPrayerRepository) )
             if (doesDatabaseExist(context, dailyPrayerRepository)) {
 
                 getDate = dailyPrayerRepository.getIndexDate()
@@ -53,7 +52,7 @@ class WebScrappingGoogle @Inject constructor(var context: Context) {
         val currentDay = cal.get(Calendar.DAY_OF_MONTH)
         val currentMonth = SimpleDateFormat("MMM", Locale.ENGLISH).format(cal.time)
 
-        cal.add(Calendar.DAY_OF_MONTH, 5)
+        cal.add(Calendar.DAY_OF_MONTH, 28)
         val nextDay = cal.get(Calendar.DAY_OF_MONTH)
         val nextMonth = SimpleDateFormat("MMM", Locale.ENGLISH).format(cal.time)
 
@@ -62,18 +61,24 @@ class WebScrappingGoogle @Inject constructor(var context: Context) {
         val result = kotlin.runCatching {
             doc = Jsoup.connect("https://www.google.com/search?q=Islamic+prayer+times").get()
         }
-        val allInfo = doc?.getElementsByClass("Kp6KVb")
+        val allInfo = doc?.getElementsByClass("bvYrdf")
         val getExactString =
             Regex(pattern = "$currentDay $currentMonth([\\s\\S]*?)$nextDay $nextMonth")
                 .find(allInfo.toString())?.value
-        Log.e("GetData", getExactString.toString())
+        Log.e("GetData", "$currentDay $currentMonth([\\s\\S]*?)$nextDay $nextMonth")
+
+        Log.e("GetData", " data heree "+getExactString.toString())
 
         val getAllTime = Regex(pattern = "(\\d\\d):(\\d\\d)").findAll(getExactString.toString())
         val list = mutableListOf<DailyPrayerDB>()
         var count =0L
         cal = Calendar.getInstance()
+        Log.e("GetData", " get size ")
         getAllTime.forEachIndexed { index, it ->
-            if (index%6 != 1 ) {
+            Log.e("GetData", " Index  $index it ${it.value}  count $count  cal ${cal.get(Calendar.DAY_OF_MONTH)}" +
+                    " ${SimpleDateFormat("MMM", Locale.ENGLISH).format(cal.time)}")
+//            7 *6  removing extra
+            if ( (index >=42) && (index%6 != 1) ) {
                 val  date = formatDate.format(cal.time)
                 list.add(DailyPrayerDB(count, date, getPrayerName(count), it.value))
                 count++

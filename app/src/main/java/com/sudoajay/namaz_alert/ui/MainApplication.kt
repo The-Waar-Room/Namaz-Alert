@@ -26,14 +26,9 @@ class MainApplication : Application() {
     @Inject
     lateinit var workManger: AlarmMangerForTask
 
-    var notificationRingtone = 0
-
 
     override fun onCreate() {
         super.onCreate()
-
-
-        webScrappingGoogle.checkEvertTimeIfDataIsUpdated()
         getDataFromProtoDatastore()
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -49,16 +44,13 @@ class MainApplication : Application() {
 
     private fun getDataFromProtoDatastore() {
         CoroutineScope(Dispatchers.IO).launch {
+            webScrappingGoogle.checkEvertTimeIfDataIsUpdated()
             val fetch = protoManager.fetchInitialPreferences()
             if (fetch.dhuhrTiming == "") {
-                Log.e("WorkManger", " first time ")
                 protoManager.setDefaultValue()
                 Helper.setLanguage(applicationContext, Helper.getLanguage(applicationContext))
 
             } else {
-
-                notificationRingtone = Helper.getNotificationRingtone(applicationContext)
-
                 workManger.startWorker()
 
             }

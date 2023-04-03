@@ -15,7 +15,9 @@ import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.asFlow
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sudoajay.namaz_alert.R
@@ -168,7 +170,22 @@ class HomeFragment : BaseFragment() {
                 dailyPrayerViewModel.isLoadData.postValue(false)
                 dailyPrayerAdapter.submitData(it)
             }
+
+            lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                // this block is automatically executed when moving into
+                // the started state, and cancelled when stopping.
+                while (dailyPrayerViewModel.isLoadData.value == true) {
+                    // the function to repeat
+                    throwToaster(getString(R.string.open_internet_connection_text))
+
+                    delay(1000*60*2) // 2 min
+
+                }
+            }
+
         }
+
+
 
     }
 

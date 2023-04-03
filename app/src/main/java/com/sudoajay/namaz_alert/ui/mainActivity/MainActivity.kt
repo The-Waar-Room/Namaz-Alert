@@ -3,8 +3,11 @@ package com.sudoajay.namaz_alert.ui.mainActivity
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import androidx.core.os.bundleOf
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
@@ -36,6 +39,12 @@ class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        var keepSplashOnScreen = true
+        val delay = 1000L
+
+        installSplashScreen().setKeepOnScreenCondition { keepSplashOnScreen }
+        Handler(Looper.getMainLooper()).postDelayed({ keepSplashOnScreen = false }, delay)
+
         isDarkTheme = isSystemDefaultOn(resources)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -51,35 +60,26 @@ class MainActivity : BaseActivity() {
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
 
-        Log.e("MainClass", "Its is here  ${intent.getStringExtra(AlarmMangerForTask.prayerTimeID)}")
         if (!intent.action.isNullOrEmpty()) {
             when (intent.action.toString()) {
                 vibrateModeID -> openSetting()
                 notificationSoundID -> openSelectRingtone()
                 nextPrayerID -> openNextPrayer()
-                AlarmsScheduler.ACTION_FIRED -> startForegroundService()
                 else -> {}
             }
 
         }
-        Log.e("MainClass", "Its is hereasd   ${intent.getStringExtra(receiverId)}")
 
-        if (intent.getStringExtra(receiverId) == notificationCancelReceiver) {
-            Log.e("MainClass", "Its is hereasd   ${intent.getStringExtra(receiverId)}")
-//            Helper.setWorkMangerRunning(protoManager, applicationContext, false)
-            CoroutineScope(Dispatchers.IO).launch {
-                workManger.startWorker()
-            }
-        }
+
 
         if (intent.getStringExtra(openMainActivityID) == settingShortcutId) {
             openSetting()
-        } else if (intent.getStringExtra(AlarmMangerForTask.prayerNameID)?.isNotEmpty() == true) {
-            openSpecificEditPrayer()
-        } else if (intent.getStringExtra(openMainActivityID) == openSelectLanguageID) {
+        }  else if (intent.getStringExtra(openMainActivityID) == openSelectLanguageID) {
             openSelectLanguage()
         } else if (intent.getStringExtra(openMainActivityID) == openSelectNotificationSoundID) {
             openSelectRingtone()
+        } else if (intent.getStringExtra(AlarmMangerForTask.prayerNameID)?.isNotEmpty() == true) {
+            openSpecificEditPrayer()
         }
 
         isPermissionAsked = Helper.IsPermissionAsked(applicationContext)
@@ -88,10 +88,7 @@ class MainActivity : BaseActivity() {
 
     }
 
-    private fun startForegroundService() {
-        Log.e("WorkManger", " Now its here Here WrapperActivity  " + intent.action)
 
-    }
 
 
     private fun openSpecificEditPrayer(prayerName: String? = null, prayerTime: String? = null) {

@@ -137,7 +137,7 @@
                 android:layout_marginBottom="@dimen/text_view_margin_gap"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:text="@string/developer_name"
+                tools:text="@string/team_Name"
                 android:textColor="@color/colorAccent"
                 android:textSize="15sp"
                 android:textStyle="bold"

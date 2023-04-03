@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name" translatable="false">Namaz Alert</string>
+    <string name="team_Name" translatable="false">Weekend Creator Studio</string>
+    <string name="rating_link_text" translatable="false">https://play.google.com/store/apps/details?id=com.sudoajay.qr_and_barcode_scanner</string>
+    <string name="privacy_link_text" translatable="false">https://sudoajay.github.io/qr-and-barcode-scanner_privacy%20copy.html</string>
+    <string name="moreApp_link_text" translatable="false">https://play.google.com/store/apps/dev?id=5309601131127361849</string>
+
 
     <!--  MainActivity  Bottom Toolbar-->
     <string name="search_optionMenu" translatable="false">Search</string>
@@ -107,7 +112,7 @@
 
 
     <!--    Navigation Drawer Bottom Sheet-->
-    <string name="developer_name" translatable="true">Created by Full Team</string>
+    <string name="developer_name" translatable="true">Created by %1$s</string>
     <string name="share_code_text" translatable="true">Share Code</string>
     <string name="workOnProgress_text" translatable="true">Work On Progress</string>
 
@@ -182,14 +187,13 @@
     <string name="require_uses_do_not_disturb_permission_text" translatable="true">The app needs the do not disturb permission to switch to silent or vibrate mode during its active sessions.</string>
     <string name="we_do_not_collect_text" translatable="true">We do not collect or share any personal or sensitive information provided by do not disturb permission.</string>
     <string name="all_information_provided_by_text" translatable="true">All information provided by do not disturb permission is kept locally on your devices and is only sent to us with your consent for troubleshooting purpose.</string>
-    <string name="no_thanks_text" translatable="true">No, Thanks</string>
     <string name="allow_text" translatable="true">Allow</string>
     <string name="do_not_disturb_permission_text" translatable="true">DND Permission</string>
     <string name="permission_already_given_text" translatable="true">Permission Already Given</string>
     <string name="sorry_this_feature_not_supported_text" translatable="true">This feature not available below Marshmello or Android Version 6</string>
     <string name="notification_permission_text" translatable="true">Notification Permission</string>
     <string name="only_13_plus_permission_issue_text" translatable="true">Only 13 + android permission issue</string>
-
+    <string name="open_internet_connection_text">Open your Internet So We Can Fetch The Namaz Time</string>
 
 
     <string name="english_text" translatable="true">English</string>
@@ -222,6 +226,15 @@
     <string name="no_qr_codeand_barcode_found_text" translatable="true">No Qr-Code Or Barcode Found In The Image</string>
 
     <string name="permission_not_granted_by_the_user_text" translatable="true">Permissions not granted by the user.</string>
+
+    <!--    Rate us-->
+    <string name="how_was_your_experience_text" translatable="true">How was your experience with this app?</string>
+    <string name="no_thanks_text" translatable="true">No Thanks</string>
+    <string name="lets_use_know_text" translatable="true">Let us Know what we can do to improve the app?</string>
+    <string name="thanks_so_much_text" translatable="true">Thanks so much!</string>
+    <string name="would_you_like_text" translatable="true">Would you like to rate it on Google Play Store?</string>
+    <string name="rate_text" translatable="true">Rate</string>
+    <string name="cancel_text" translatable="true">Cancel</string>
 
 
 

@@ -64,7 +64,7 @@ class NotificationPermissionFragment : BaseFragment() {
 
 
     fun onClickSkip(){
-        openHistoryActivity()
+        openHomeActivity()
     }
 
     fun onClickGetNotify(){
@@ -73,7 +73,7 @@ class NotificationPermissionFragment : BaseFragment() {
         }
     }
 
-    private fun openHistoryActivity() {
+    private fun openHomeActivity() {
         Helper.setIsNotificationPermissionAsked(requireContext(),true)
         findNavController().navigate(R.id.action_navigation_firebasePushNotificationFragment_to_homeFragment)
     }
@@ -85,7 +85,7 @@ class NotificationPermissionFragment : BaseFragment() {
         if (!isGranted)
             throwToaster(getString(R.string.permission_not_granted_by_the_user_text))
 
-        openHistoryActivity()
+        openHomeActivity()
     }
 
 

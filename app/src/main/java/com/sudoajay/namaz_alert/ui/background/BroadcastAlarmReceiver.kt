@@ -209,7 +209,7 @@ class BroadcastAlarmReceiver: BroadcastReceiver() {
                 context,
                 NotificationChannels.UPCOMING_PRAYER_TIME
             )
-        notificationCompat.setSmallIcon(R.drawable.app_icon)
+        notificationCompat.setSmallIcon(R.mipmap.ic_launcher)
         notificationCompat.setContentIntent(createPendingIntent(context = context,prayerName, prayerTime))
 
 
@@ -233,7 +233,7 @@ class BroadcastAlarmReceiver: BroadcastReceiver() {
     ) {
         notificationCompat =
             NotificationCompat.Builder(context,  if(notificationRingtone == 0)NotificationChannels.ALERT_DEFAULT_PRAYER_TIME else NotificationChannels.ALERT_SOUND_PRAYER_TIME )
-        notificationCompat.setSmallIcon(R.drawable.app_icon)
+        notificationCompat.setSmallIcon(R.mipmap.ic_launcher)
         notificationCompat.setContentIntent(createWrapperPendingIntent(context, dataShare ))
         notificationCompat.setFullScreenIntent(createWrapperPendingIntent(context,dataShare), true)
 
@@ -278,7 +278,7 @@ class BroadcastAlarmReceiver: BroadcastReceiver() {
 
         notificationCompat =
             NotificationCompat.Builder(context, NotificationChannels.FINISH_CANCEL_PRAYER)
-        notificationCompat.setSmallIcon(R.drawable.app_icon)
+        notificationCompat.setSmallIcon(R.mipmap.ic_launcher)
 
         notificationCompat.setContentIntent(
             if (isTaskFinish) createPendingIntent( context = context,

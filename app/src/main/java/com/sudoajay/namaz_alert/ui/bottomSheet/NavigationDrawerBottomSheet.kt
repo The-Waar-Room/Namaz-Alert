@@ -34,6 +34,8 @@ class NavigationDrawerBottomSheet @Inject constructor() : BottomSheetDialogFragm
         )
         binding.navigation = this
 
+        binding.aboutMeTextView.text = getString(R.string.developer_name , getString(R.string.team_Name))
+
         return binding.root
     }
 
@@ -55,9 +57,8 @@ class NavigationDrawerBottomSheet @Inject constructor() : BottomSheetDialogFragm
 
     fun developerPage() {
         dismiss()
-        val page = "https://github.com/SudoAjay"
         val i = Intent(Intent.ACTION_VIEW)
-        i.data = Uri.parse(page)
+        i.data = Uri.parse(getString(R.string.moreApp_link_text))
         startActivity(i)
     }
 
