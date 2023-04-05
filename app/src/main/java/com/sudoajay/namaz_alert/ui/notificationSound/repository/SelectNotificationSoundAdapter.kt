@@ -27,9 +27,6 @@ class SelectNotificationSoundAdapter @Inject constructor(private var context: Co
         val binding: HolderSelectNotificationSoundBinding? = null,
         val context: Context
     ) : RecyclerView.ViewHolder(binding?.root!!) {
-        fun bind() {
-
-        }
     }
 
     // Create new views (invoked by the layout manager)
@@ -56,9 +53,9 @@ class SelectNotificationSoundAdapter @Inject constructor(private var context: Co
             selectedNotificationSound = text.toInt()
             mp?.stop()
             ringtone?.stop()
-             when (text) {
+            when (text) {
                 context.resources.getStringArray(R.array.setNotificationSound)[1] -> {
-                    mp =  MediaPlayer.create(context, R.raw.azan_in_islam)
+                    mp = MediaPlayer.create(context, R.raw.azan_in_islam)
                     mp?.start()
                 }
                 else -> {
@@ -73,10 +70,8 @@ class SelectNotificationSoundAdapter @Inject constructor(private var context: Co
 
 
         mp?.setOnCompletionListener { mp -> // TODO Auto-generated method stub
-            var mp = mp
             mp!!.reset()
-            mp!!.release()
-            mp = null
+            mp.release()
         }
 
     }

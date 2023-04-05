@@ -15,18 +15,18 @@ import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 @HiltViewModel
-class DailyPrayerViewModel @Inject constructor(application: Application) : AndroidViewModel(application) {
+class DailyPrayerViewModel @Inject constructor(application: Application) :
+    AndroidViewModel(application) {
     private var viewModelApplication = application
     var isLoadData: MutableLiveData<Boolean> = MutableLiveData()
 
-    var searchValue :String = ""
+    private var searchValue: String = ""
     private var NETWORK_PAGE_SIZE = 5
 
     init {
         loadData()
 
     }
-
 
 
     fun getPagingGsonSourceWithNetwork(): Flow<PagingData<DailyPrayerDB>> {
@@ -36,7 +36,7 @@ class DailyPrayerViewModel @Inject constructor(application: Application) : Andro
         return Pager(
             config = PagingConfig(pageSize = NETWORK_PAGE_SIZE, enablePlaceholders = false),
             pagingSourceFactory = {
-               dailyPrayerRepository.pagingSource(getTodayDate(),searchValue)
+                dailyPrayerRepository.pagingSource(getTodayDate(), searchValue)
             }
         ).flow
     }
@@ -44,8 +44,6 @@ class DailyPrayerViewModel @Inject constructor(application: Application) : Andro
     private fun loadData() {
         isLoadData.value = true
     }
-
-
 
 
 }

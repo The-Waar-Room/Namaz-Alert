@@ -22,7 +22,6 @@ import com.sudoajay.namaz_alert.util.Helper
 import com.sudoajay.namaz_alert.util.Helper.Companion.doesDatabaseExist
 import com.sudoajay.namaz_alert.util.Helper.Companion.getCurrentTime
 import com.sudoajay.namaz_alert.util.Helper.Companion.getCurrentTimeWithSeconds
-import com.sudoajay.namaz_alert.util.Helper.Companion.getDiffMinute
 import com.sudoajay.namaz_alert.util.Helper.Companion.getMeIncrementTime
 import com.sudoajay.namaz_alert.util.Helper.Companion.getPrayerGapTime
 import com.sudoajay.namaz_alert.util.Helper.Companion.getTodayDate

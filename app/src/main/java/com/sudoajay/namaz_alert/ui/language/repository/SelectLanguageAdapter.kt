@@ -21,9 +21,7 @@ class SelectLanguageAdapter @Inject constructor() :
     inner class ViewHolder(
         val binding: HolderSelectLanguageBinding? = null,
         val context: Context
-    ) : RecyclerView.ViewHolder(binding?.root!!) {
-
-    }
+    ) : RecyclerView.ViewHolder(binding?.root!!)
 
     // Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =

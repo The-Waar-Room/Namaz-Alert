@@ -3,19 +3,15 @@ package com.sudoajay.namaz_alert.ui.home
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.*
-import android.view.inputmethod.EditorInfo
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.asFlow
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
@@ -34,7 +30,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import java.util.*
 import javax.inject.Inject
 
 
@@ -49,7 +44,7 @@ class HomeFragment : BaseFragment() {
     private var doubleBackToExitPressedOnce = false
 
 
-    lateinit var dailyPrayerAdapter: DailyPrayerAdapter
+    private lateinit var dailyPrayerAdapter: DailyPrayerAdapter
 
     @Inject
     lateinit var navigationDrawerBottomSheet: NavigationDrawerBottomSheet
@@ -177,13 +172,12 @@ class HomeFragment : BaseFragment() {
                     // the function to repeat
                     throwToaster(getString(R.string.open_internet_connection_text))
 
-                    delay(1000*60*2) // 2 min
+                    delay(1000 * 60 * 2) // 2 min
 
                 }
             }
 
         }
-
 
 
     }

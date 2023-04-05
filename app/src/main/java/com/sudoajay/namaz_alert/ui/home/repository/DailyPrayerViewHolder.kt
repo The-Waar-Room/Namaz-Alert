@@ -33,25 +33,25 @@ class DailyPrayerViewHolder(
         when (dailyPrayerDB.Name) {
             fajrName -> binding.itemTextView.text = context.getString(
                 R.string.fajr_time_text,
-                convertTo12Hr(context,dailyPrayerDB.Time)
+                convertTo12Hr(context, dailyPrayerDB.Time)
             )
             dhuhrName -> binding.itemTextView.text = context.getString(
                 R.string.dhuhr_time_text,
 
-                convertTo12Hr(context,dailyPrayerDB.Time)
+                convertTo12Hr(context, dailyPrayerDB.Time)
             )
             asrName -> binding.itemTextView.text = context.getString(
                 R.string.asr_time_text,
 
-                convertTo12Hr(context,dailyPrayerDB.Time)
+                convertTo12Hr(context, dailyPrayerDB.Time)
             )
             maghribName -> binding.itemTextView.text = context.getString(
                 R.string.maghrib_time_text,
-                convertTo12Hr(context,dailyPrayerDB.Time)
+                convertTo12Hr(context, dailyPrayerDB.Time)
             )
             ishaName -> binding.itemTextView.text = context.getString(
                 R.string.isha_time_text,
-                convertTo12Hr(context,dailyPrayerDB.Time)
+                convertTo12Hr(context, dailyPrayerDB.Time)
             )
         }
     }

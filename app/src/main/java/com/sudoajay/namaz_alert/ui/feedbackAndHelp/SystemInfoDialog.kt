@@ -7,9 +7,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
-import com.sudoajay.namaz_alert.R
 import com.sudoajay.namaz_alert.databinding.LayoutSystemInfoBinding
 import com.sudoajay.namaz_alert.util.ConnectivityType
 import com.sudoajay.namaz_alert.util.FileSize
@@ -57,8 +55,6 @@ class SystemInfoDialog : DialogFragment() {
         binding.networkTypeTextTextView.text = ConnectivityType.getNetworkProvider(requireContext())
 
     }
-
-
 
 
     override fun onStart() { // This MUST be called first! Otherwise the view tweaking will not be present in the displayed Dialog (most likely overriden)

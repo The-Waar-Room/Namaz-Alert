@@ -45,11 +45,11 @@ class NotificationPermissionFragment : BaseFragment() {
 
         _binding = FragmentNotificationPermissionBinding.inflate(inflater, container, false)
         binding?.lifecycleOwner = this
-        binding?.fragment= this
+        binding?.fragment = this
 
 
 
-            return binding!!.root
+        return binding!!.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -63,18 +63,22 @@ class NotificationPermissionFragment : BaseFragment() {
     }
 
 
-    fun onClickSkip(){
+    fun onClickSkip() {
         openHomeActivity()
     }
 
-    fun onClickGetNotify(){
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&   ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+    fun onClickGetNotify() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU && ContextCompat.checkSelfPermission(
+                requireContext(),
+                Manifest.permission.POST_NOTIFICATIONS
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
             pushNotificationPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
         }
     }
 
     private fun openHomeActivity() {
-        Helper.setIsNotificationPermissionAsked(requireContext(),true)
+        Helper.setIsNotificationPermissionAsked(requireContext(), true)
         findNavController().navigate(R.id.action_navigation_firebasePushNotificationFragment_to_homeFragment)
     }
 

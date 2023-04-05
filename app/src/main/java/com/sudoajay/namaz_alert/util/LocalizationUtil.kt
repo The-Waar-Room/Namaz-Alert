@@ -1,17 +1,16 @@
 package com.sudoajay.namaz_alert.util
 
 import android.content.Context
-import android.util.Log
 import java.util.*
 
 
 object LocalizationUtil {
-    fun Context.changeLocale(language:String): Context {
+    fun Context.changeLocale(language: String): Context {
         val locale = Locale(language)
         Locale.setDefault(locale)
 
         val config = this.resources.configuration
-        config.setLocale(  locale )
+        config.setLocale(locale)
         return createConfigurationContext(config)
     }
 

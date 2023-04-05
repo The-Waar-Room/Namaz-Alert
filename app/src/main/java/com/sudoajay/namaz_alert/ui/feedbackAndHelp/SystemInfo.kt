@@ -9,6 +9,7 @@ import android.util.DisplayMetrics
 import com.sudoajay.namaz_alert.R
 import com.sudoajay.namaz_alert.util.ConnectivityType
 import com.sudoajay.namaz_alert.util.FileSize
+import com.sudoajay.namaz_alert.util.Helper.Companion.getPackageInfoCompat
 
 
 import java.io.IOException
@@ -18,7 +19,7 @@ class SystemInfo(private var activity: Activity) {
 
 
     fun getAppInfo(): PackageInfo {
-        return activity.packageManager.getPackageInfo(
+        return activity.packageManager.getPackageInfoCompat(
             activity.packageName, PackageManager.GET_META_DATA
         )
     }
@@ -66,14 +67,26 @@ class SystemInfo(private var activity: Activity) {
             writer.append("\n ${activity.getString(R.string.os_api_level_text)} : " + getInfo("SDK_INT"))
             writer.append("\n ${activity.getString(R.string.app_version_text)} : " + getAppInfo().versionName)
             writer.append("\n ${activity.getString(R.string.language_text)} : " + getLanguage())
-            writer.append("\n ${activity.getString(R.string.total_memory_text)} : " + FileSize.convertIt(getHeapTotalSize()))
-            writer.append("\n ${activity.getString(R.string.free_memory_text)} : " + FileSize.convertIt(getHeapFreeSize()))
+            writer.append(
+                "\n ${activity.getString(R.string.total_memory_text)} : " + FileSize.convertIt(
+                    getHeapTotalSize()
+                )
+            )
+            writer.append(
+                "\n ${activity.getString(R.string.free_memory_text)} : " + FileSize.convertIt(
+                    getHeapFreeSize()
+                )
+            )
             writer.append(
                 " \n ${activity.getString(R.string.screen_Text)} : " + getScreenSize().heightPixels.toString()
                         + " x " + getScreenSize().widthPixels.toString()
             )
-            writer.append("\n ${activity.getString(R.string.network_type_text)} : " + ConnectivityType.getNetworkProvider(activity))
-        } catch (e: IOException) {
+            writer.append(
+                "\n ${activity.getString(R.string.network_type_text)} : " + ConnectivityType.getNetworkProvider(
+                    activity
+                )
+            )
+        } catch (_: IOException) {
 
         }
         return writer

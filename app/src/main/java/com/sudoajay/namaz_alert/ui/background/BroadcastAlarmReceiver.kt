@@ -2,7 +2,6 @@ package com.sudoajay.namaz_alert.ui.background
 
 import android.app.*
 import android.content.*
-import android.os.Build
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.sudoajay.namaz_alert.R
@@ -21,22 +20,23 @@ import com.sudoajay.namaz_alert.util.Helper
 import kotlinx.coroutines.*
 
 
-class BroadcastAlarmReceiver: BroadcastReceiver() {
+class BroadcastAlarmReceiver : BroadcastReceiver() {
     // Boolean to check if our activity is bound to service or not
 
 
     private lateinit var notificationCompat: NotificationCompat.Builder
     private var waitCoroutineRunning: Job? = null
-    private lateinit var  alertNotification :AlertNotification
-    private lateinit var upComingNotification:UpComingNotification
-    private lateinit var notificationManager:NotificationManager
+    private lateinit var alertNotification: AlertNotification
+    private lateinit var upComingNotification: UpComingNotification
+    private lateinit var notificationManager: NotificationManager
 
     @OptIn(DelicateCoroutinesApi::class)
     override fun onReceive(context: Context, intent: Intent) {
 
-        alertNotification=AlertNotification(context = context)
+        alertNotification = AlertNotification(context = context)
         upComingNotification = UpComingNotification(context)
-        notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager =
+            context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
 
 
@@ -46,17 +46,21 @@ class BroadcastAlarmReceiver: BroadcastReceiver() {
                 cancelNotificationEverything()
                 val dataShare = intent.getStringExtra(AlarmsScheduler.DATA_SHARE_ID)?.split("||")
 
-                startNotificationUpcoming(context,dataShare?.get(0) ?: "None", dataShare?.get(1) ?: "00:00")
+                startNotificationUpcoming(
+                    context,
+                    dataShare?.get(0) ?: "None",
+                    dataShare?.get(1) ?: "00:00"
+                )
 
 
             }
             AlarmsScheduler.ACTION_FIRED -> {
                 cancelNotificationEverything()
                 val previousMode = Helper.getPreviousPhoneMode(context)
-                val dataShare  = intent.getStringExtra(AlarmsScheduler.DATA_SHARE_ID)?.split("||")
-                if(intent.getIntExtra(NOTIFY_TYPE,1) == 1) {
+                val dataShare = intent.getStringExtra(AlarmsScheduler.DATA_SHARE_ID)?.split("||")
+                if (intent.getIntExtra(NOTIFY_TYPE, 1) == 1) {
 
-                    Helper.setIsAlarmMangerRunning(context,true)
+                    Helper.setIsAlarmMangerRunning(context, true)
                     Helper.setIsAlarmMangerCancel(context, false)
                     val notificationRingtone = Helper.getNotificationRingtone(context)
                     val phoneMode = Helper.getPhoneMode(context = context)
@@ -71,7 +75,7 @@ class BroadcastAlarmReceiver: BroadcastReceiver() {
                         intent.getStringExtra(AlarmsScheduler.DATA_SHARE_ID).toString()
                     )
 
-                    waitCoroutineRunning = GlobalScope.launch(Dispatchers.IO){
+                    waitCoroutineRunning = GlobalScope.launch(Dispatchers.IO) {
                         delay(1000 * 5)
                         if (Helper.doNotDisturbPermissionAlreadyGiven(context)) {
                             phoneMode.let { Helper.getPhoneMode(it) }.let {
@@ -82,11 +86,16 @@ class BroadcastAlarmReceiver: BroadcastReceiver() {
                             }
                         }
                     }
-                }else{
-                    Log.e("WorkManger" , "checkIf  Helper.isAlarmMangerCancel(context) " + Helper.isAlarmMangerCancel(context) )
+                } else {
+                    Log.e(
+                        "WorkManger",
+                        "checkIf  Helper.isAlarmMangerCancel(context) " + Helper.isAlarmMangerCancel(
+                            context
+                        )
+                    )
 
                     cancelNotificationEverything()
-                    if(!Helper.isAlarmMangerCancel(context)) {
+                    if (!Helper.isAlarmMangerCancel(context)) {
                         startNotificationCancelFinish(
                             context,
                             context.getString(
@@ -113,10 +122,10 @@ class BroadcastAlarmReceiver: BroadcastReceiver() {
 
             }
 
-            AlarmsScheduler.ACTION_CANCEL->{
+            AlarmsScheduler.ACTION_CANCEL -> {
                 Helper.setIsAlarmMangerRunning(context, false)
                 Helper.setIsAlarmMangerCancel(context, true)
-                val dataShare  = intent.getStringExtra(AlarmsScheduler.DATA_SHARE_ID)?.split("||")
+                val dataShare = intent.getStringExtra(AlarmsScheduler.DATA_SHARE_ID)?.split("||")
 
                 cancelNotificationEverything()
                 val previousMode = Helper.getPreviousPhoneMode(context)
@@ -130,7 +139,8 @@ class BroadcastAlarmReceiver: BroadcastReceiver() {
                     }
                 }
 
-                startNotificationCancelFinish(context,
+                startNotificationCancelFinish(
+                    context,
                     context.getString(
                         R.string.cancel_the_notification_prayer,
                         dataShare?.get(0) ?: ""
@@ -141,10 +151,9 @@ class BroadcastAlarmReceiver: BroadcastReceiver() {
                 )
 
 
-
             }
 
-            AlarmsScheduler.ACTION_STOP->{
+            AlarmsScheduler.ACTION_STOP -> {
                 cancelNotificationEverything()
                 Helper.setIsAlarmMangerRunning(context, false)
                 runAgainAlarmManager(context)
@@ -156,7 +165,7 @@ class BroadcastAlarmReceiver: BroadcastReceiver() {
             Intent.ACTION_MY_PACKAGE_REPLACED,
             AlarmsScheduler.ACTION_INEXACT_FIRED_ALARM_MANAGER,
             Intent.ACTION_REBOOT,
-            Intent.ACTION_TIME_CHANGED-> {
+            Intent.ACTION_TIME_CHANGED -> {
                 cancelNotificationEverything()
                 Helper.setIsAlarmMangerRunning(context, false)
                 runAgainAlarmManager(context)
@@ -164,13 +173,11 @@ class BroadcastAlarmReceiver: BroadcastReceiver() {
             }
 
 
-
         }
     }
 
 
-
-    private fun cancelNotificationEverything(){
+    private fun cancelNotificationEverything() {
         cancelUpComingNotification()
         cancelUpFinishCancelNotification()
         cancelUpAlertNotification()
@@ -178,7 +185,7 @@ class BroadcastAlarmReceiver: BroadcastReceiver() {
     }
 
 
-    private  fun runAgainAlarmManager(context: Context){
+    private fun runAgainAlarmManager(context: Context) {
         val workMangerForTask = AlarmMangerForTask(context = context)
         CoroutineScope(Dispatchers.IO).launch {
             Helper.setIsAlarmMangerRunning(context, false)
@@ -194,15 +201,19 @@ class BroadcastAlarmReceiver: BroadcastReceiver() {
     ) {
         upComingNotification = UpComingNotification(context = context)
 
-        createNotificationUpcoming(context,prayerName, prayerTime)
+        createNotificationUpcoming(context, prayerName, prayerTime)
         upComingNotification.notifyCompat(
-            prayerName, Helper.convertTo12Hr(context, prayerTime), notificationCompat, notificationManager
+            prayerName,
+            Helper.convertTo12Hr(context, prayerTime),
+            notificationCompat,
+            notificationManager
         )
 
 
     }
 
-    private fun createNotificationUpcoming(context: Context,
+    private fun createNotificationUpcoming(
+        context: Context,
         prayerName: String,
         prayerTime: String
     ) {
@@ -212,41 +223,61 @@ class BroadcastAlarmReceiver: BroadcastReceiver() {
                 NotificationChannels.UPCOMING_PRAYER_TIME
             )
         notificationCompat.setSmallIcon(R.mipmap.ic_launcher)
-        notificationCompat.setContentIntent(createPendingIntent(NOTIFICATION_UPCOMING_STATE,context = context,prayerName, prayerTime,""))
+        notificationCompat.setContentIntent(
+            createPendingIntent(
+                NOTIFICATION_UPCOMING_STATE,
+                context = context,
+                prayerName,
+                prayerTime,
+                ""
+            )
+        )
 
 
     }
+
     private fun startNotificationAlert(
         context: Context,
         phoneMode: String,
-         notificationRingtone: Int, dataShare: String
+        notificationRingtone: Int, dataShare: String
     ) {
-        createNotificationAlert(context, dataShare,notificationRingtone)
+        createNotificationAlert(context, dataShare, notificationRingtone)
         alertNotification.notifyCompat(
             phoneMode,
-             notificationRingtone, notificationCompat,dataShare, notificationManager
+            notificationRingtone, notificationCompat, dataShare, notificationManager
         )
     }
 
 
     private fun createNotificationAlert(
         context: Context,
-       dataShare:String, notificationRingtone:Int
+        dataShare: String, notificationRingtone: Int
     ) {
         val arr = dataShare.split("||")
 
         notificationCompat =
-            NotificationCompat.Builder(context,  if(notificationRingtone == 0)NotificationChannels.ALERT_DEFAULT_PRAYER_TIME else NotificationChannels.ALERT_SOUND_PRAYER_TIME )
+            NotificationCompat.Builder(
+                context,
+                if (notificationRingtone == 0) NotificationChannels.ALERT_DEFAULT_PRAYER_TIME else NotificationChannels.ALERT_SOUND_PRAYER_TIME
+            )
         notificationCompat.setSmallIcon(R.mipmap.ic_launcher)
-        notificationCompat.setContentIntent(createPendingIntent(NOTIFICATION_ALERT_STATE,context,  arr[0], arr[1] , dataShare))
-        notificationCompat.setFullScreenIntent(createWrapperPendingIntent(context,dataShare), true)
+        notificationCompat.setContentIntent(
+            createPendingIntent(
+                NOTIFICATION_ALERT_STATE,
+                context,
+                arr[0],
+                arr[1],
+                dataShare
+            )
+        )
+        notificationCompat.setFullScreenIntent(createWrapperPendingIntent(context, dataShare), true)
 
-        
+
     }
 
     private fun createWrapperPendingIntent(
         context: Context,
-        dataShare:String
+        dataShare: String
 
     ): PendingIntent? {
 
@@ -267,13 +298,14 @@ class BroadcastAlarmReceiver: BroadcastReceiver() {
         intentString: String, isTaskFinish: Boolean
     ) {
 
-        createNotificationCancelFinish(context,intentString, isTaskFinish)
+        createNotificationCancelFinish(context, intentString, isTaskFinish)
         alertNotification.notifyCompatCancelAndFinish(
             title, subTitle, notificationCompat, notificationManager
         )
     }
 
-    private fun createNotificationCancelFinish(  context: Context,
+    private fun createNotificationCancelFinish(
+        context: Context,
         intentString: String, isTaskFinish: Boolean
     ) {
         val arr = intentString.split("||")
@@ -283,23 +315,25 @@ class BroadcastAlarmReceiver: BroadcastReceiver() {
         notificationCompat.setSmallIcon(R.mipmap.ic_launcher)
 
         notificationCompat.setContentIntent(
-            if (isTaskFinish) createPendingIntent( NOTIFICATION_FinishCancel_STATE,context = context,
+            if (isTaskFinish) createPendingIntent(
+                NOTIFICATION_FinishCancel_STATE, context = context,
                 arr[0],
-                arr[1],""
-            ) else createPendingIntentCancelFinish( context,intentString)
+                arr[1], ""
+            ) else createPendingIntentCancelFinish(context, intentString)
         )
     }
 
-    private fun createPendingIntentCancelFinish(  context: Context,
+    private fun createPendingIntentCancelFinish(
+        context: Context,
         intentString: String
     ): PendingIntent? {
 
         val alertIntent = Intent(context, BroadcastAlarmReceiver::class.java)
         alertIntent.putExtra(
-            AlarmsScheduler.DATA_SHARE_ID,intentString
+            AlarmsScheduler.DATA_SHARE_ID, intentString
         )
-        alertIntent.action =  AlarmsScheduler.ACTION_FIRED
-        alertIntent.putExtra(NOTIFY_TYPE ,alertNotify)
+        alertIntent.action = AlarmsScheduler.ACTION_FIRED
+        alertIntent.putExtra(NOTIFY_TYPE, alertNotify)
 
 
 
@@ -311,11 +345,11 @@ class BroadcastAlarmReceiver: BroadcastReceiver() {
 
 
     private fun createPendingIntent(
-        requestCode:Int,
+        requestCode: Int,
         context: Context,
         prayerName: String,
         prayerTime: String,
-        dataShare:String? = ""
+        dataShare: String? = ""
 
     ): PendingIntent? {
         val intent = Intent(context, MainActivity::class.java)

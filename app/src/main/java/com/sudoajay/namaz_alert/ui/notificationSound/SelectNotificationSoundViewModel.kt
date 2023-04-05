@@ -8,16 +8,19 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class SelectNotificationSoundViewModel @Inject constructor(application: Application) : AndroidViewModel(application) {
+class SelectNotificationSoundViewModel @Inject constructor(application: Application) :
+    AndroidViewModel(application) {
 
     var isSelectNotificationSoundProgress: MutableLiveData<Boolean> = MutableLiveData()
     var selectNotificationSoundList = mutableListOf<String>()
 
 
     init {
-        selectNotificationSoundList =  application.resources.getStringArray(R.array.setNotificationSound).toMutableList()
+        selectNotificationSoundList =
+            application.resources.getStringArray(R.array.setNotificationSound).toMutableList()
         loadHideProgress()
     }
+
     private fun loadHideProgress() {
         isSelectNotificationSoundProgress.value = true
     }

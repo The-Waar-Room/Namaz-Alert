@@ -1,19 +1,13 @@
 package com.sudoajay.namaz_alert.ui.background
 
-import android.app.NotificationManager
-import android.app.PendingIntent
-import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.TextView
-import androidx.core.app.NotificationCompat
 import androidx.fragment.app.FragmentActivity
 import com.sudoajay.namaz_alert.R
-import com.sudoajay.namaz_alert.ui.notification.AlertNotification
-import com.sudoajay.namaz_alert.ui.notification.NotificationChannels
 import com.sudoajay.namaz_alert.util.Helper
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -21,9 +15,9 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 
-class WrapperActivity  : FragmentActivity()  {
+class WrapperActivity : FragmentActivity() {
 
-    private lateinit var dataShare :List<String>
+    private lateinit var dataShare: List<String>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -33,7 +27,6 @@ class WrapperActivity  : FragmentActivity()  {
 
         turnScreenOn()
         updateLayout()
-
 
 
     }
@@ -48,13 +41,14 @@ class WrapperActivity  : FragmentActivity()  {
             WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON or
                     WindowManager.LayoutParams.FLAG_ALLOW_LOCK_WHILE_SCREEN_ON or
                     WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED or
-                    WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON)
+                    WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON
+        )
 
-            CoroutineScope(Dispatchers.Main).launch {
-                delay(1000 * 60)
-                finish()
+        CoroutineScope(Dispatchers.Main).launch {
+            delay(1000 * 60)
+            finish()
 
-            }
+        }
 
 
     }
@@ -94,22 +88,26 @@ class WrapperActivity  : FragmentActivity()  {
     }
 
 
-
     private fun setTitle() {
         val titleText = dataShare[0]
         title = titleText
         findViewById<TextView>(R.id.alarm_alert_label).text = titleText
     }
 
-    private fun setTime(){
-        findViewById<TextView>(R.id.digital_clock_time).text = Helper.convertTo12HrOnly(Helper.getCurrentTime())
-        findViewById<TextView>(R.id.digital_clock_am_pm).text = Helper.getAMOrPM(applicationContext,Helper.getCurrentTime())
+    private fun setTime() {
+        findViewById<TextView>(R.id.digital_clock_time).text =
+            Helper.convertTo12HrOnly(Helper.getCurrentTime())
+        findViewById<TextView>(R.id.digital_clock_am_pm).text =
+            Helper.getAMOrPM(applicationContext, Helper.getCurrentTime())
     }
 
-    private fun sendBroadCast(){
+    private fun sendBroadCast() {
         val cancelIntent = Intent(applicationContext, BroadcastAlarmReceiver::class.java)
-        cancelIntent.action= AlarmsScheduler.ACTION_CANCEL
-        cancelIntent.putExtra(AlarmsScheduler.DATA_SHARE_ID,intent.getStringExtra(AlarmsScheduler.DATA_SHARE_ID).toString())
+        cancelIntent.action = AlarmsScheduler.ACTION_CANCEL
+        cancelIntent.putExtra(
+            AlarmsScheduler.DATA_SHARE_ID,
+            intent.getStringExtra(AlarmsScheduler.DATA_SHARE_ID).toString()
+        )
         sendBroadcast(cancelIntent)
     }
 

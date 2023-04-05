@@ -29,14 +29,16 @@ class DailyPrayerAdapter @Inject constructor(
     }
 
 
-
     companion object {
         private val Person_COMPARATOR = object : DiffUtil.ItemCallback<DailyPrayerDB>() {
             override fun areItemsTheSame(oldItem: DailyPrayerDB, newItem: DailyPrayerDB): Boolean =
                 oldItem.id == newItem.id
 
             @SuppressLint("DiffUtilEquals")
-            override fun areContentsTheSame(oldItem: DailyPrayerDB, newItem: DailyPrayerDB): Boolean =
+            override fun areContentsTheSame(
+                oldItem: DailyPrayerDB,
+                newItem: DailyPrayerDB
+            ): Boolean =
                 oldItem == newItem
         }
     }

@@ -10,7 +10,7 @@ import com.sudoajay.namaz_alert.util.Toaster
 import javax.inject.Inject
 
 
-open class BaseFragment :Fragment() {
+open class BaseFragment : Fragment() {
     @Inject
     lateinit var protoManager: ProtoManager
 
@@ -24,12 +24,7 @@ open class BaseFragment :Fragment() {
         WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = isLight
 
 
-
     }
-
-
-
-
 
 
     fun throwToaster(value: String?) {
@@ -37,9 +32,7 @@ open class BaseFragment :Fragment() {
     }
 
 
-
-
-    companion object{
+    companion object {
         var fajrName = "Fajr"
         var dhuhrName = "Dhuhr"
         var asrName = "Asr"

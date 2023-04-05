@@ -1,6 +1,7 @@
 package com.sudoajay.namaz_alert.ui
 
-import android.content.*
+import android.content.Context
+import android.content.ContextWrapper
 import android.content.res.Configuration
 import android.content.res.Resources
 import android.os.Bundle
@@ -38,7 +39,7 @@ open class BaseActivity : AppCompatActivity() {
 
         val previousMode = Helper.getPreviousPhoneMode(applicationContext)
 
-        Log.e("BaseActivity", Helper.getTomorrowDate() + " Here we go   +   previousMode ${previousMode} Helper.getPhoneMode(previousMode)  ${ Helper.getPhoneMode(previousMode)}")
+        Log.e("BaseActivity", Helper.getTomorrowDate() + " Here we go   +   previousMode $previousMode Helper.getPhoneMode(previousMode)  ${ Helper.getPhoneMode(previousMode)}")
 
 
 
@@ -91,10 +92,6 @@ open class BaseActivity : AppCompatActivity() {
         const val settingShortcutId = "Setting"
         const val notificationSoundID = "NotificationSound"
         const val nextPrayerID = "NextPrayer"
-        const val phoneModeShortcutId = "phoneMode"
-        const val receiverId = "ReceiverId"
-        const val notificationCancelReceiver = "NotificationCancelReceiver"
-        const val CommandTAG = "COMMAND"
 
 
     }

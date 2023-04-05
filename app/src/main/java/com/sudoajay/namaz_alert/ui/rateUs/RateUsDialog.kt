@@ -35,7 +35,7 @@ class RateUsDialog : DialogFragment() {
 
 
         binding.rating.onRatingBarChangeListener =
-            OnRatingBarChangeListener { ratingBar, rating, fromUser ->
+            OnRatingBarChangeListener { _, rating, _ ->
                 if (rating >= 4.5f) {
                     googlePlayStoreRating()
                 } else {

@@ -170,15 +170,11 @@ class AlertNotification @Inject constructor(var context: Context) {
         const val NOTIFICATION_UPCOMING_STATE = 1
         const val NOTIFICATION_ALERT_STATE = 2
         const val NOTIFICATION_FinishCancel_STATE = 3
-        const val NOTIFICATION_ALERT_SETTING = 4
-        const val NOTIFICATION_ALERT_STOP = 5
-        const val NOTIFICATION_ALERT_Resume = 6
-        const val NOTIFICATION_SETTING = 7
-        const val NOTIFICATION_WRAPPER=8
+        const val NOTIFICATION_ALERT_STOP = 4
+        const val NOTIFICATION_ALERT_Resume = 5
+        const val NOTIFICATION_SETTING = 6
+        const val NOTIFICATION_WRAPPER=7
 
-
-        const val previousModeID = "PreviousModeID"
-        const val notificationAlertID = "NotificationAlertID"
 
         fun pendingIntentUpdateCurrentFlag(): Int {
             return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {

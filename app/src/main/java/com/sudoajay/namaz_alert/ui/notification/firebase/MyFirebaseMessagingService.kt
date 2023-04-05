@@ -27,7 +27,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
         val data = remoteMessage.data
         if (data.isNotEmpty() && !data.keys.contains("openUrl") && !data.keys.contains("OpenUrl")) {
-            scheduleJob(remoteMessage.data)
+            scheduleJob()
         } else {
             handleNotification(remoteMessage)
         }
@@ -52,7 +52,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
     }
 
 
-    private fun scheduleJob(data: MutableMap<String, String>) {
+    private fun scheduleJob() {
 
 
     }
@@ -80,7 +80,6 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
     @SuppressLint("UnspecifiedImmutableFlag")
     private fun createPendingIntent(link: String): PendingIntent? {
-        Log.e(TAG, "Here open marvel ${link} ")
         return if (link.isNotBlank()) {
 
             val intent = Intent(Intent.ACTION_VIEW)

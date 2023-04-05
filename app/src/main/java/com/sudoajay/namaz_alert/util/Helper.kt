@@ -4,6 +4,7 @@ import android.Manifest
 import android.app.NotificationManager
 import android.content.Context
 import android.content.SharedPreferences
+import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.media.AudioManager
 import android.os.Build
@@ -13,8 +14,8 @@ import androidx.preference.PreferenceManager
 import com.sudoajay.namaz_alert.R
 import com.sudoajay.namaz_alert.data.proto.ProtoManager
 import com.sudoajay.namaz_alert.data.repository.DailyPrayerRepository
+import com.sudoajay.namaz_alert.model.PhoneMode
 import com.sudoajay.namaz_alert.ui.BaseFragment
-import com.sudoajay.namaz_alert.ui.notification.NotificationChannels
 import java.io.File
 import java.text.DateFormat
 import java.text.SimpleDateFormat
@@ -28,11 +29,12 @@ class Helper {
 
         fun getLanguage(context: Context): String {
             return PreferenceManager
-                .getDefaultSharedPreferences(context).getString("changeLanguageValue", getLocalLanguage(context))
+                .getDefaultSharedPreferences(context)
+                .getString("changeLanguageValue", getLocalLanguage(context))
                 .toString()
         }
 
-        fun setLanguage(context: Context, value:String){
+        fun setLanguage(context: Context, value: String) {
             val prefs = PreferenceManager.getDefaultSharedPreferences(context)
             val editor: SharedPreferences.Editor = prefs.edit()
             editor.putString("changeLanguageValue", value)
@@ -41,11 +43,12 @@ class Helper {
 
         fun getPhoneMode(context: Context): String {
             return PreferenceManager
-                .getDefaultSharedPreferences(context).getString("PhoneMode", PhoneMode.Vibrate.toString())
+                .getDefaultSharedPreferences(context)
+                .getString("PhoneMode", PhoneMode.Vibrate.toString())
                 .toString()
         }
 
-        fun setPhoneMode(context: Context, value:String){
+        fun setPhoneMode(context: Context, value: String) {
             val prefs = PreferenceManager.getDefaultSharedPreferences(context)
             val editor: SharedPreferences.Editor = prefs.edit()
             editor.putString("PhoneMode", value)
@@ -54,11 +57,12 @@ class Helper {
 
         fun getPreviousPhoneMode(context: Context): String {
             return PreferenceManager
-                .getDefaultSharedPreferences(context).getString("PreviousPhoneMode", PhoneMode.Normal.toString())
+                .getDefaultSharedPreferences(context)
+                .getString("PreviousPhoneMode", PhoneMode.Normal.toString())
                 .toString()
         }
 
-        fun setPreviousPhoneMode(context: Context, value:String){
+        fun setPreviousPhoneMode(context: Context, value: String) {
             val prefs = PreferenceManager.getDefaultSharedPreferences(context)
             val editor: SharedPreferences.Editor = prefs.edit()
             editor.putString("PreviousPhoneMode", value)
@@ -70,7 +74,7 @@ class Helper {
                 .getDefaultSharedPreferences(context).getBoolean("IsAlarmMangerRunning", false)
         }
 
-        fun setIsAlarmMangerRunning(context: Context, value:Boolean){
+        fun setIsAlarmMangerRunning(context: Context, value: Boolean) {
             val prefs = PreferenceManager.getDefaultSharedPreferences(context)
             val editor: SharedPreferences.Editor = prefs.edit()
             editor.putBoolean("IsAlarmMangerRunning", value)
@@ -82,7 +86,7 @@ class Helper {
                 .getDefaultSharedPreferences(context).getBoolean("IsAlarmMangerCancel", false)
         }
 
-        fun setIsAlarmMangerCancel(context: Context, value:Boolean){
+        fun setIsAlarmMangerCancel(context: Context, value: Boolean) {
             val prefs = PreferenceManager.getDefaultSharedPreferences(context)
             val editor: SharedPreferences.Editor = prefs.edit()
             editor.putBoolean("IsAlarmMangerCancel", value)
@@ -90,13 +94,12 @@ class Helper {
         }
 
 
-
         fun IsPermissionAsked(context: Context): Boolean {
             return PreferenceManager
                 .getDefaultSharedPreferences(context).getBoolean("IsPermissionAsked", false)
         }
 
-        fun setIsPermissionAsked(context: Context, value:Boolean){
+        fun setIsPermissionAsked(context: Context, value: Boolean) {
             val prefs = PreferenceManager.getDefaultSharedPreferences(context)
             val editor: SharedPreferences.Editor = prefs.edit()
             editor.putBoolean("IsPermissionAsked", value)
@@ -105,10 +108,11 @@ class Helper {
 
         fun IsNotificationPermissionAsked(context: Context): Boolean {
             return PreferenceManager
-                .getDefaultSharedPreferences(context).getBoolean("IsNotificationPermissionAsked", false)
+                .getDefaultSharedPreferences(context)
+                .getBoolean("IsNotificationPermissionAsked", false)
         }
 
-        fun setIsNotificationPermissionAsked(context: Context, value:Boolean){
+        fun setIsNotificationPermissionAsked(context: Context, value: Boolean) {
             val prefs = PreferenceManager.getDefaultSharedPreferences(context)
             val editor: SharedPreferences.Editor = prefs.edit()
             editor.putBoolean("IsNotificationPermissionAsked", value)
@@ -120,7 +124,7 @@ class Helper {
                 .getDefaultSharedPreferences(context).getInt("NotificationRingtone", 0)
         }
 
-        fun setNotificationRingtone(context: Context, value:Int){
+        fun setNotificationRingtone(context: Context, value: Int) {
             val prefs = PreferenceManager.getDefaultSharedPreferences(context)
             val editor: SharedPreferences.Editor = prefs.edit()
             editor.putInt("NotificationRingtone", value)
@@ -135,23 +139,27 @@ class Helper {
 
             return if (lang in array) lang else "en"
         }
-        fun doNotDisturbPermissionAlreadyGiven(context: Context):Boolean{
+
+        fun doNotDisturbPermissionAlreadyGiven(context: Context): Boolean {
             val nm: NotificationManager =
                 context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-           return Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && nm.isNotificationPolicyAccessGranted
+            return Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && nm.isNotificationPolicyAccessGranted
         }
 
-        fun notificationPermissionAlreadyGiven(context: Context):Boolean{
-            return  Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU && ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED
+        fun notificationPermissionAlreadyGiven(context: Context): Boolean {
+            return Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU && ContextCompat.checkSelfPermission(
+                context,
+                Manifest.permission.POST_NOTIFICATIONS
+            ) == PackageManager.PERMISSION_GRANTED
         }
 
 
-            fun setRingerMode(context: Context ,ringerMode:Int){
+        fun setRingerMode(context: Context, ringerMode: Int) {
             val am = context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
             am.ringerMode = ringerMode
         }
 
-        fun doNotDisturbPermissionSupported():Boolean{
+        fun doNotDisturbPermissionSupported(): Boolean {
             return Build.VERSION.SDK_INT < Build.VERSION_CODES.M
         }
 
@@ -161,7 +169,7 @@ class Helper {
         }
 
 
-        fun notificationPermissionSupported():Boolean{
+        fun notificationPermissionSupported(): Boolean {
             return Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU
         }
 
@@ -198,15 +206,17 @@ class Helper {
 
         fun getAMOrPM(context: Context, time: String): String {
             val hour = time.split(":")[0]
-            Log.e("NewGapTime" , " new time getAMOrPM  ${time}")
-            return if (hour.toInt() < 12) context.getString(R.string.am_text) else context.getString(R.string.pm_text)
+            Log.e("NewGapTime", " new time getAMOrPM  ${time}")
+            return if (hour.toInt() < 12) context.getString(R.string.am_text) else context.getString(
+                R.string.pm_text
+            )
         }
 
-        fun convertTo12Hr(context: Context, time:String): String {
+        fun convertTo12Hr(context: Context, time: String): String {
             val inputFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
             val outputFormat = SimpleDateFormat("hh:mm", Locale.getDefault())
             val date = inputFormat.parse(time)
-            return date?.let { outputFormat.format(it) } + " ${getAMOrPM(context,time)}"
+            return date?.let { outputFormat.format(it) } + " ${getAMOrPM(context, time)}"
         }
 
         fun getTodayDate(): String {
@@ -221,11 +231,13 @@ class Helper {
             val formatDate = SimpleDateFormat("dd-MMM-yyyy", Locale.ENGLISH)
             return formatDate.format(gc.time).toString()
         }
+
         fun getCurrentTime(): String {
             val todayDate = Date() // sets date
             val formatDate = SimpleDateFormat("HH:mm", Locale.ENGLISH)
             return formatDate.format(todayDate)
         }
+
         fun getCurrentTimeWithSeconds(): String {
             val todayDate = Date() // sets date
             val formatDate = SimpleDateFormat("HH:mm:ss", Locale.ENGLISH)
@@ -278,12 +290,19 @@ class Helper {
             val diffMinutes = diff / (60 * 1000) % 60
             val diffHours = diff / (60 * 60 * 1000) % 24
 
-            return diffSeconds+(diffMinutes*60) + (diffHours * 60*60)
+            return diffSeconds + (diffMinutes * 60) + (diffHours * 60 * 60)
         }
 
         private fun getDateSecondFromString(time: String): Date? {
             val formatter: DateFormat = SimpleDateFormat("HH:mm:ss", Locale.ENGLISH)
             return formatter.parse(time)
         }
+
+        fun PackageManager.getPackageInfoCompat(packageName: String, flags: Int = 0): PackageInfo =
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                getPackageInfo(packageName, PackageManager.PackageInfoFlags.of(flags.toLong()))
+            } else {
+                @Suppress("DEPRECATION") getPackageInfo(packageName, flags)
+            }
     }
 }

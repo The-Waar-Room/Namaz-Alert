@@ -3,7 +3,6 @@ package com.sudoajay.namaz_alert.ui
 import android.app.Application
 import android.app.NotificationManager
 import android.os.Build
-import android.util.Log
 import com.sudoajay.namaz_alert.data.proto.ProtoManager
 import com.sudoajay.namaz_alert.data.repository.WebScrappingGoogle
 import com.sudoajay.namaz_alert.ui.background.AlarmMangerForTask
@@ -32,8 +31,9 @@ class MainApplication : Application() {
         getDataFromProtoDatastore()
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val notificationManager = getSystemService(NotificationManager::class.java) as NotificationManager
-            if(notificationManager.getNotificationChannel(NotificationChannels.UPCOMING_PRAYER_TIME) == null) {
+            val notificationManager =
+                getSystemService(NotificationManager::class.java) as NotificationManager
+            if (notificationManager.getNotificationChannel(NotificationChannels.UPCOMING_PRAYER_TIME) == null) {
                 NotificationChannels.notificationOnCreate(applicationContext)
             }
         }

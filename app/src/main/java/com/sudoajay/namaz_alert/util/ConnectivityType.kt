@@ -1,4 +1,3 @@
-
 package com.sudoajay.namaz_alert.util
 
 import android.content.Context

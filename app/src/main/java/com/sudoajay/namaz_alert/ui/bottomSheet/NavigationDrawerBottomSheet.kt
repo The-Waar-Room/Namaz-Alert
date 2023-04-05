@@ -1,8 +1,10 @@
 package com.sudoajay.namaz_alert.ui.bottomSheet
 
 import android.content.Intent
+import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +13,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.sudoajay.namaz_alert.R
 import com.sudoajay.namaz_alert.databinding.LayoutNavigationDrawerBottomSheetBinding
 import com.sudoajay.namaz_alert.ui.feedbackAndHelp.SendFeedbackAndHelp
+import com.sudoajay.namaz_alert.util.Helper.Companion.getPackageInfoCompat
 import com.sudoajay.namaz_alert.util.Toaster
 
 import javax.inject.Inject
@@ -34,25 +37,21 @@ class NavigationDrawerBottomSheet @Inject constructor() : BottomSheetDialogFragm
         )
         binding.navigation = this
 
-        binding.aboutMeTextView.text = getString(R.string.developer_name , getString(R.string.team_Name))
+        binding.aboutMeTextView.text =
+            getString(R.string.developer_name, getString(R.string.team_Name))
 
         return binding.root
     }
 
-    private fun callToast() =
-        Toaster.showToast(requireContext(), getString(R.string.workOnProgress_text))
 
 
-    fun rateUs() = callToast()
 
-    fun moreApp() = callToast()
 
     fun sendFeedback() {
         dismiss()
         startActivity(Intent(requireContext(), SendFeedbackAndHelp::class.java))
     }
 
-    fun shareApk() = shareApplication()
 
 
     fun developerPage() {
@@ -65,8 +64,7 @@ class NavigationDrawerBottomSheet @Inject constructor() : BottomSheetDialogFragm
     fun getVersionName(): String {
         var versionName = "1.0.0"
         try {
-            versionName = requireContext().packageManager
-                .getPackageInfo(requireContext().packageName, 0).versionName
+            versionName = requireContext().packageManager.getPackageInfoCompat(requireContext().packageName, 0).versionName.toString()
         } catch (e: PackageManager.NameNotFoundException) {
             e.printStackTrace()
         }
@@ -74,12 +72,15 @@ class NavigationDrawerBottomSheet @Inject constructor() : BottomSheetDialogFragm
     }
 
 
-    private fun shareApplication() {
-        val page = "https://github.com/SudoAjay/Marvel-Universe"
-        val i = Intent(Intent.ACTION_VIEW)
-        i.data = Uri.parse(page)
-        startActivity(i)
-    }
+
+
+
+
+
+
+
 
 }
+
+
 

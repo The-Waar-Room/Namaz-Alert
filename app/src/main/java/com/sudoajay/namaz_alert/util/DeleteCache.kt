@@ -9,7 +9,10 @@ internal object DeleteCache {
         try {
             val dir = context.cacheDir
             deleteWithFile(dir)
-            Toaster.showToast(context, context.getString(R.string.successfully_cache_data_is_deleted_text))
+            Toaster.showToast(
+                context,
+                context.getString(R.string.successfully_cache_data_is_deleted_text)
+            )
         } catch (e: Exception) {
             e.printStackTrace()
         }

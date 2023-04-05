@@ -10,7 +10,6 @@ import android.media.AudioAttributes
 import android.net.Uri
 import android.os.Build
 import android.provider.Settings
-import android.util.Log
 import androidx.annotation.RequiresApi
 import com.sudoajay.namaz_alert.R
 
@@ -23,8 +22,10 @@ object NotificationChannels {
         "com.sudoajay.namaz_alert.notifications.group_notification"
     private const val GROUP_SERVICE = "com.sudoajay.nblik.cloudmessaging.firebase_service"
     const val UPCOMING_PRAYER_TIME = "com.sudoajay.namaz_alert.notifications.upcoming.prayer_time"
-    const val ALERT_DEFAULT_PRAYER_TIME = "com.sudoajay.namaz_alert.notifications.alert.default_prayer_time"
-    const val ALERT_SOUND_PRAYER_TIME = "com.sudoajay.namaz_alert.notifications.alert.sound_prayer_time"
+    const val ALERT_DEFAULT_PRAYER_TIME =
+        "com.sudoajay.namaz_alert.notifications.alert.default_prayer_time"
+    const val ALERT_SOUND_PRAYER_TIME =
+        "com.sudoajay.namaz_alert.notifications.alert.sound_prayer_time"
 
     const val FINISH_CANCEL_PRAYER = "com.sudoajay.namaz_alert.notifications.finish.cancel.prayer"
     const val FireBase_PUSH_NOTIFICATION =
@@ -67,8 +68,8 @@ object NotificationChannels {
         )
 
         alertDefaultPrayerChannel.setSound(
-           Settings.System.DEFAULT_NOTIFICATION_URI ,
-           null
+            Settings.System.DEFAULT_NOTIFICATION_URI,
+            null
         )
 
         alertDefaultPrayerChannel.description = context.getString(R.string.notifications_alert_desc)
@@ -96,8 +97,8 @@ object NotificationChannels {
             .build()
 
         alertSoundPrayerChannel.setSound(
-           sound,
-         attributes
+            sound,
+            attributes
         )
 
         alertSoundPrayerChannel.description = context.getString(R.string.notifications_alert_desc)

@@ -35,7 +35,7 @@ class EditDailyPrayerFragment : BaseFragment() {
     private var _binding: FragmentEditDailyPrayerBinding? = null
     private val binding get() = _binding!!
 
-    private var prayerGapTime:String = ""
+    private var prayerGapTime: String = ""
     private var prayerName = fajrName
     private var prayerTime = ""
 
@@ -159,12 +159,11 @@ class EditDailyPrayerFragment : BaseFragment() {
                 setLeftHand(time)
 
 
-
                 val afterTime = prayerGapTime.split(":")[1].toInt()
                 setGapInProto(-gapTime, afterTime)
 
 
-                setRightHand(afterTime+ gapTime)
+                setRightHand(afterTime + gapTime)
 
                 throwToaster(getString(R.string.successfully_selected_text))
             }
@@ -177,8 +176,10 @@ class EditDailyPrayerFragment : BaseFragment() {
     private fun rightHandSidePickerCustom() {
 
         val beforeTime = prayerGapTime.split(":")[0].toInt()
-        val getAfterIncrement = binding.rightHandSideTextView.text.toString().replace("(\\s.+)".toRegex(), "").replace(":00","")
-            .filter { !it.isWhitespace() }.toInt()
+        val getAfterIncrement =
+            binding.rightHandSideTextView.text.toString().replace("(\\s.+)".toRegex(), "")
+                .replace(":00", "")
+                .filter { !it.isWhitespace() }.toInt()
         val d = AlertDialog.Builder(requireContext())
         val inflater = this.layoutInflater
         val dialogView = inflater.inflate(R.layout.layout_minute_picker_dialog, null)
@@ -192,13 +193,19 @@ class EditDailyPrayerFragment : BaseFragment() {
 
         d.setPositiveButton("Set") { _, i ->
 
-            Log.e("EditShow" , "  minutePicker.value  + beforeTime  " + (minutePicker.value  + beforeTime)  +  "  minutePicker ${minutePicker.value}  beforeTime $beforeTime ")
-            if(minutePicker.value  + beforeTime > 30 ) {
-                throwToaster(getString(R.string.you_cant_past_select_30min_text
-                ))
-            }else {
+            Log.e(
+                "EditShow",
+                "  minutePicker.value  + beforeTime  " + (minutePicker.value + beforeTime) + "  minutePicker ${minutePicker.value}  beforeTime $beforeTime "
+            )
+            if (minutePicker.value + beforeTime > 30) {
+                throwToaster(
+                    getString(
+                        R.string.you_cant_past_select_30min_text
+                    )
+                )
+            } else {
                 setRightHand(minute = minutePicker.value)
-                setGapInProto(beforeTime, (minutePicker.value  +beforeTime) )
+                setGapInProto(beforeTime, (minutePicker.value + beforeTime))
             }
         }
         d.setNegativeButton("Cancel") { dialogInterface, i -> }
@@ -213,7 +220,7 @@ class EditDailyPrayerFragment : BaseFragment() {
             fajrName -> {
                 binding.dailyPrayerTextView.text = getString(
                     R.string.fajr_namaz_time_text,
-                    convertTo12Hr(requireContext(),prayerTime)
+                    convertTo12Hr(requireContext(), prayerTime)
                 )
                 setImageViewHeight(230f)
             }
@@ -221,23 +228,23 @@ class EditDailyPrayerFragment : BaseFragment() {
             dhuhrName -> {
                 binding.dailyPrayerTextView.text = getString(
                     R.string.dhuhr_namaz_time_text,
-                    convertTo12Hr(requireContext(),prayerTime)
+                    convertTo12Hr(requireContext(), prayerTime)
                 )
                 setImageViewHeight(300f)
             }
 
             asrName -> binding.dailyPrayerTextView.text = getString(
                 R.string.asr_namaz_time_text,
-                convertTo12Hr(requireContext(),prayerTime)
+                convertTo12Hr(requireContext(), prayerTime)
             )
             maghribName -> binding.dailyPrayerTextView.text = getString(
                 R.string.maghrib_namaz_time_text,
-                convertTo12Hr(requireContext(),prayerTime)
+                convertTo12Hr(requireContext(), prayerTime)
             )
             else -> {
                 binding.dailyPrayerTextView.text = getString(
                     R.string.isha_namaz_time_text,
-                    convertTo12Hr(requireContext(),prayerTime)
+                    convertTo12Hr(requireContext(), prayerTime)
                 )
                 setImageViewHeight(280f)
             }
@@ -304,9 +311,9 @@ class EditDailyPrayerFragment : BaseFragment() {
         if (time == "") {
             val gapBeforePrayer = prayerGapTime.split(":")[0].toInt()
             newMinute = prayerGapTime.split(":")[1].toInt()
-            setRightHand(newMinute+ abs(gapBeforePrayer))
+            setRightHand(newMinute + abs(gapBeforePrayer))
             newTime = getMeIncrementTime(
-                 prayerTime.replace("(\\s.+)".toRegex(), ""),
+                prayerTime.replace("(\\s.+)".toRegex(), ""),
                 gapBeforePrayer
             )
         }
@@ -314,9 +321,11 @@ class EditDailyPrayerFragment : BaseFragment() {
 
 
 
-        Log.e("NewGapTime" , " new time ${newTime}")
         binding.leftHandSideTextView.text =
-            getString(R.string.left_hand_side_time_text, convertTo12Hr(requireContext(),newTime).lowercase())
+            getString(
+                R.string.left_hand_side_time_text,
+                convertTo12Hr(requireContext(), newTime).lowercase()
+            )
     }
 
     private fun setRightHand(minute: Int? = null) {
