@@ -158,7 +158,7 @@ class AlertNotification @Inject constructor(var context: Context) {
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         intent.putExtra(openMainActivityID, settingShortcutId)
         return PendingIntent.getActivity(
-            context, 0, intent,
+            context, NOTIFICATION_SETTING, intent,
             pendingIntentUpdateCurrentFlag()
         )
 
@@ -173,6 +173,8 @@ class AlertNotification @Inject constructor(var context: Context) {
         const val NOTIFICATION_ALERT_SETTING = 4
         const val NOTIFICATION_ALERT_STOP = 5
         const val NOTIFICATION_ALERT_Resume = 6
+        const val NOTIFICATION_SETTING = 7
+        const val NOTIFICATION_WRAPPER=8
 
 
         const val previousModeID = "PreviousModeID"

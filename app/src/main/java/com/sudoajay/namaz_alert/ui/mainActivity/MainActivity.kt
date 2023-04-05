@@ -1,11 +1,15 @@
 package com.sudoajay.namaz_alert.ui.mainActivity
 
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
+import androidx.core.app.NotificationCompat
 import androidx.core.os.bundleOf
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowInsetsControllerCompat
@@ -20,6 +24,9 @@ import com.sudoajay.namaz_alert.ui.BaseActivity
 import com.sudoajay.namaz_alert.ui.BaseFragment
 import com.sudoajay.namaz_alert.ui.background.AlarmMangerForTask
 import com.sudoajay.namaz_alert.ui.background.AlarmsScheduler
+import com.sudoajay.namaz_alert.ui.background.WrapperActivity
+import com.sudoajay.namaz_alert.ui.notification.AlertNotification
+import com.sudoajay.namaz_alert.ui.notification.NotificationChannels
 import com.sudoajay.namaz_alert.ui.setting.SettingsActivity
 import com.sudoajay.namaz_alert.util.Helper
 import dagger.hilt.android.AndroidEntryPoint
@@ -36,6 +43,9 @@ class MainActivity : BaseActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
     var isPermissionAsked = false
+    private lateinit var notificationCompat: NotificationCompat.Builder
+    private lateinit var  alertNotification : AlertNotification
+    private lateinit var notificationManager: NotificationManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,6 +54,10 @@ class MainActivity : BaseActivity() {
 
         installSplashScreen().setKeepOnScreenCondition { keepSplashOnScreen }
         Handler(Looper.getMainLooper()).postDelayed({ keepSplashOnScreen = false }, delay)
+
+        Log.e("ACTIVITYTAG", " i am heree  +   ${intent.getStringExtra(AlarmMangerForTask.prayerNameID)}   ${intent.getStringExtra(AlarmMangerForTask.prayerTimeID)} ${intent.getStringExtra(AlarmsScheduler.DATA_SHARE_ID)}    "   )
+
+
 
         isDarkTheme = isSystemDefaultOn(resources)
 
@@ -59,6 +73,11 @@ class MainActivity : BaseActivity() {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
+
+        alertNotification=AlertNotification(context = applicationContext)
+
+        notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+
 
         if (!intent.action.isNullOrEmpty()) {
             when (intent.action.toString()) {
@@ -80,6 +99,8 @@ class MainActivity : BaseActivity() {
             openSelectRingtone()
         } else if (intent.getStringExtra(AlarmMangerForTask.prayerNameID)?.isNotEmpty() == true) {
             openSpecificEditPrayer()
+            if(intent.getStringExtra(AlarmsScheduler.DATA_SHARE_ID)?.isNotEmpty() == true)
+                openNewNotification()
         }
 
         isPermissionAsked = Helper.IsPermissionAsked(applicationContext)
@@ -152,6 +173,58 @@ class MainActivity : BaseActivity() {
                 notDisturbPermissionBottomSheet.tag
             )
 
+    }
+
+
+    private fun openNewNotification(){
+        notificationManager.cancel(AlertNotification.NOTIFICATION_ALERT_STATE)
+
+        val phoneMode = Helper.getPhoneMode(context = applicationContext)
+        val notificationRingtone = Helper.getNotificationRingtone(applicationContext)
+        startNotificationAlert(phoneMode,notificationRingtone,intent.getStringExtra(AlarmsScheduler.DATA_SHARE_ID).toString())
+    }
+
+    private fun startNotificationAlert(
+        phoneMode: String,
+        notificationRingtone: Int, dataShare: String
+    ) {
+        createNotificationAlert( dataShare , notificationRingtone)
+        alertNotification.notifyCompat(
+            phoneMode,
+            notificationRingtone, notificationCompat,dataShare, notificationManager
+        )
+    }
+
+
+    private fun createNotificationAlert(
+        dataShare:String, notificationRingtone:Int
+    ) {
+        val arr = dataShare.split("||")
+
+        notificationCompat =
+            NotificationCompat.Builder(applicationContext,  if(notificationRingtone == 0)NotificationChannels.ALERT_DEFAULT_PRAYER_TIME else NotificationChannels.ALERT_SOUND_PRAYER_TIME )
+        notificationCompat.setSmallIcon(R.mipmap.ic_launcher)
+        notificationCompat.setContentIntent(createPendingIntent(applicationContext,  arr[0], arr[1] , dataShare))
+
+    }
+
+    private fun createPendingIntent(
+        context: Context,
+        prayerName: String,
+        prayerTime: String,
+        dataShare:String? = null
+
+    ): PendingIntent? {
+        val intent = Intent(context, MainActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        intent.putExtra(AlarmMangerForTask.prayerNameID, prayerName)
+        intent.putExtra(AlarmMangerForTask.prayerTimeID, prayerTime)
+        intent.putExtra(AlarmsScheduler.DATA_SHARE_ID, dataShare)
+
+        return PendingIntent.getActivity(
+            context, AlertNotification.NOTIFICATION_ALERT_STATE, intent,
+            PendingIntent.FLAG_MUTABLE
+        )
     }
 
 

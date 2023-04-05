@@ -10,9 +10,11 @@ import com.sudoajay.namaz_alert.ui.background.AlarmsScheduler.Companion.NOTIFY_T
 import com.sudoajay.namaz_alert.ui.background.AlarmsScheduler.Companion.alertNotify
 import com.sudoajay.namaz_alert.ui.mainActivity.MainActivity
 import com.sudoajay.namaz_alert.ui.notification.AlertNotification
+import com.sudoajay.namaz_alert.ui.notification.AlertNotification.Companion.NOTIFICATION_ALERT_Resume
 import com.sudoajay.namaz_alert.ui.notification.AlertNotification.Companion.NOTIFICATION_ALERT_STATE
 import com.sudoajay.namaz_alert.ui.notification.AlertNotification.Companion.NOTIFICATION_FinishCancel_STATE
 import com.sudoajay.namaz_alert.ui.notification.AlertNotification.Companion.NOTIFICATION_UPCOMING_STATE
+import com.sudoajay.namaz_alert.ui.notification.AlertNotification.Companion.NOTIFICATION_WRAPPER
 import com.sudoajay.namaz_alert.ui.notification.NotificationChannels
 import com.sudoajay.namaz_alert.ui.notification.UpComingNotification
 import com.sudoajay.namaz_alert.util.Helper
@@ -210,7 +212,7 @@ class BroadcastAlarmReceiver: BroadcastReceiver() {
                 NotificationChannels.UPCOMING_PRAYER_TIME
             )
         notificationCompat.setSmallIcon(R.mipmap.ic_launcher)
-        notificationCompat.setContentIntent(createPendingIntent(context = context,prayerName, prayerTime))
+        notificationCompat.setContentIntent(createPendingIntent(NOTIFICATION_UPCOMING_STATE,context = context,prayerName, prayerTime,""))
 
 
     }
@@ -231,10 +233,12 @@ class BroadcastAlarmReceiver: BroadcastReceiver() {
         context: Context,
        dataShare:String, notificationRingtone:Int
     ) {
+        val arr = dataShare.split("||")
+
         notificationCompat =
             NotificationCompat.Builder(context,  if(notificationRingtone == 0)NotificationChannels.ALERT_DEFAULT_PRAYER_TIME else NotificationChannels.ALERT_SOUND_PRAYER_TIME )
         notificationCompat.setSmallIcon(R.mipmap.ic_launcher)
-        notificationCompat.setContentIntent(createWrapperPendingIntent(context, dataShare ))
+        notificationCompat.setContentIntent(createPendingIntent(NOTIFICATION_ALERT_STATE,context,  arr[0], arr[1] , dataShare))
         notificationCompat.setFullScreenIntent(createWrapperPendingIntent(context,dataShare), true)
 
         
@@ -250,7 +254,7 @@ class BroadcastAlarmReceiver: BroadcastReceiver() {
         intent.putExtra(AlarmsScheduler.DATA_SHARE_ID, dataShare)
 
         return PendingIntent.getActivity(
-            context, 0, intent,
+            context, NOTIFICATION_WRAPPER, intent,
             PendingIntent.FLAG_MUTABLE
         )
     }
@@ -262,7 +266,6 @@ class BroadcastAlarmReceiver: BroadcastReceiver() {
         subTitle: String,
         intentString: String, isTaskFinish: Boolean
     ) {
-        Log.e("ForegroundServiceTAG", " startNotificationCancelFinish intentString $intentString  ")
 
         createNotificationCancelFinish(context,intentString, isTaskFinish)
         alertNotification.notifyCompatCancelAndFinish(
@@ -274,24 +277,22 @@ class BroadcastAlarmReceiver: BroadcastReceiver() {
         intentString: String, isTaskFinish: Boolean
     ) {
         val arr = intentString.split("||")
-        Log.e("ForegroundServiceTAG", " createNotificationCancelFinish intentString ${intentString}  ")
 
         notificationCompat =
             NotificationCompat.Builder(context, NotificationChannels.FINISH_CANCEL_PRAYER)
         notificationCompat.setSmallIcon(R.mipmap.ic_launcher)
 
         notificationCompat.setContentIntent(
-            if (isTaskFinish) createPendingIntent( context = context,
+            if (isTaskFinish) createPendingIntent( NOTIFICATION_FinishCancel_STATE,context = context,
                 arr[0],
-                arr[1]
-            ) else createPendingIntentCancelFinish(context,intentString)
+                arr[1],""
+            ) else createPendingIntentCancelFinish( context,intentString)
         )
     }
 
     private fun createPendingIntentCancelFinish(  context: Context,
         intentString: String
     ): PendingIntent? {
-        Log.e("ForegroundServiceTAG", " createPendingIntentCancelFinish intentString ${intentString}  ")
 
         val alertIntent = Intent(context, BroadcastAlarmReceiver::class.java)
         alertIntent.putExtra(
@@ -303,24 +304,30 @@ class BroadcastAlarmReceiver: BroadcastReceiver() {
 
 
         return PendingIntent.getBroadcast(
-            context, AlertNotification.NOTIFICATION_ALERT_Resume, alertIntent,
+            context, NOTIFICATION_ALERT_Resume, alertIntent,
             PendingIntent.FLAG_MUTABLE
         )
     }
 
 
     private fun createPendingIntent(
+        requestCode:Int,
         context: Context,
         prayerName: String,
-        prayerTime: String
+        prayerTime: String,
+        dataShare:String? = ""
+
     ): PendingIntent? {
         val intent = Intent(context, MainActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        intent.putExtra(AlarmsScheduler.DATA_SHARE_ID, dataShare)
         intent.putExtra(AlarmMangerForTask.prayerNameID, prayerName)
         intent.putExtra(AlarmMangerForTask.prayerTimeID, prayerTime)
 
+
+
         return PendingIntent.getActivity(
-            context, 0, intent,
+            context, requestCode, intent,
             PendingIntent.FLAG_MUTABLE
         )
     }

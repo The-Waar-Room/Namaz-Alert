@@ -23,22 +23,13 @@ import kotlinx.coroutines.launch
 
 class WrapperActivity  : FragmentActivity()  {
 
-
-
-    private lateinit var notificationCompat: NotificationCompat.Builder
-    private lateinit var  alertNotification : AlertNotification
-    private lateinit var notificationManager: NotificationManager
-
-
     private lateinit var dataShare :List<String>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         dataShare = intent.getStringExtra(AlarmsScheduler.DATA_SHARE_ID).toString().split("||")
 
-        alertNotification=AlertNotification(context = applicationContext)
 
-        notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
         turnScreenOn()
         updateLayout()
@@ -61,7 +52,6 @@ class WrapperActivity  : FragmentActivity()  {
 
             CoroutineScope(Dispatchers.Main).launch {
                 delay(1000 * 60)
-                openNewNotification()
                 finish()
 
             }
@@ -77,11 +67,11 @@ class WrapperActivity  : FragmentActivity()  {
         findViewById<Button>(R.id.alert_button_ok).run {
             requestFocus()
             setOnClickListener {
-                openNewNotification()
+
                 finish()
             }
             setOnLongClickListener {
-                openNewNotification()
+
                 finish()
                 true
             }
@@ -103,13 +93,7 @@ class WrapperActivity  : FragmentActivity()  {
 
     }
 
-    private fun openNewNotification(){
-        notificationManager.cancel(AlertNotification.NOTIFICATION_ALERT_STATE)
 
-        val phoneMode = Helper.getPhoneMode(context = applicationContext)
-        val notificationRingtone = Helper.getNotificationRingtone(applicationContext)
-        startNotificationAlert(phoneMode,notificationRingtone,intent.getStringExtra(AlarmsScheduler.DATA_SHARE_ID).toString())
-    }
 
     private fun setTitle() {
         val titleText = dataShare[0]
@@ -128,46 +112,6 @@ class WrapperActivity  : FragmentActivity()  {
         cancelIntent.putExtra(AlarmsScheduler.DATA_SHARE_ID,intent.getStringExtra(AlarmsScheduler.DATA_SHARE_ID).toString())
         sendBroadcast(cancelIntent)
     }
-
-    private fun startNotificationAlert(
-        phoneMode: String,
-        notificationRingtone: Int, dataShare: String
-    ) {
-        createNotificationAlert( dataShare)
-        alertNotification.notifyCompat(
-            phoneMode,
-            notificationRingtone, notificationCompat,dataShare, notificationManager
-        )
-    }
-
-
-    private fun createNotificationAlert(
-        dataShare:String
-    ) {
-        notificationCompat =
-            NotificationCompat.Builder(applicationContext, NotificationChannels.ALERT_DEFAULT_PRAYER_TIME  )
-        notificationCompat.setSmallIcon(R.mipmap.ic_launcher)
-        notificationCompat.setContentIntent(createWrapperPendingIntent(applicationContext, dataShare ))
-
-
-    }
-
-    private fun createWrapperPendingIntent(
-        context: Context,
-        dataShare:String
-
-    ): PendingIntent? {
-
-        val intent = Intent(context, WrapperActivity::class.java)
-        intent.putExtra(AlarmsScheduler.DATA_SHARE_ID, dataShare)
-
-        return PendingIntent.getActivity(
-            context, 0, intent,
-            PendingIntent.FLAG_MUTABLE
-        )
-    }
-
-
 
     /**
      * Interface for getting the instance of binder from our service class
