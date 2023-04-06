@@ -1,0 +1,130 @@
+<resources>
+
+	<string name="refresh_text" translatable="true">Обновлять</string>
+	<string name="send_feedback_text" translatable="true"> Отправить отзыв</string>
+	<string name="right_hand_side_time_text" translatable="true">%1$s: 00 мин.</string>
+	<string name="left_hand_side_time_text" translatable="true">%1$s</string>
+	<string name="minute_text" translatable="true">Минута</string>
+	<string name="hour_text" translatable="true">Час</string>
+	<string name="reset_text" translatable="true">Перезагрузить</string>
+	<string name="do_you_want_to_set_text" translatable="true">Вы действительно хотите установить время по умолчанию?</string>
+	<string name="am_text" translatable="true">являюсь</string>
+	<string name="pm_text" translatable="true">вечера</string>
+	<string name="successfully_selected_text" translatable="true">Успешно выбрал</string>
+	<string name="you_cant_select_30min_text" translatable="true"> Вы не можете выбрать мимо максимального предела 30 минут</string>
+	<string name="you_cant_past_select_30min_text" translatable="true"> Вы не можете выбрать последние 30 минут</string>
+	<string name="you_cant_select_text" translatable="true"> Вы не можете выбрать мимо максимального предела</string>
+	<string name="time_reset_successfully_text" translatable="true"> Время сброс успешно</string>
+	<string name="activate_at_text" translatable="true">Обмотайте телефон на молчании:</string>
+	<string name="activate_for_text" translatable="true">Молчаливая продолжительность:</string>
+	<string name="feedbackEditTextHint" translatable="true">Пожалуйста, напишите свой отзыв</string>
+	<string name="describe_your_issue_text" translatable="true">Опишите вашу проблему</string>
+	<string name="feedbackEditTextError" translatable="true">Пожалуйста, напишите что -нибудь в отзывах</string>
+	<string name="supportEditTextError" translatable="true">Пожалуйста, напишите что -нибудь.</string>
+	<string name="systemInfo_text" translatable="true">Информация о вашей системе будет отправлена ​​нашей команде разработчика</string>
+	<string name="add_screenshot_text" translatable="true">+ Добавить скриншот</string>
+	<string name="send_issue_text" translatable="true">Отправить выпуск</string>
+	<string name="feedback_about_app_text" translatable="true">Обратная связь о %1$s</string>
+	<string name="issue_in_app_text" translatable="true">Выпуск в %1$s</string>
+	<string name="wifi_text" translatable="true">Wi-Fi</string>
+	<string name="mobile_data_text" translatable="true">Мобильные данные</string>
+	<string name="vpn_text" translatable="true">VPN</string>
+	<string name="no_internet_text" translatable="true">Без интернета</string>
+	<string name="successfully_cache_data_is_deleted_text" translatable="true">Успешные данные кэша удаляются</string>
+	<string name="system_info_text" translatable="true"> Системная информация</string>
+	<string name="device_text" translatable="true">Устройство :</string>
+	<string name="os_api_level_text" translatable="true">Уровень API OS:</string>
+	<string name="language_text" translatable="true">Язык :</string>
+	<string name="total_memory_text" translatable="true">Общая память кучи:</string>
+	<string name="free_memory_text" translatable="true">Бесплатная память кучи:</string>
+	<string name="screen_Text" translatable="true">Размер экрана :</string>
+	<string name="network_type_text" translatable="true">Тип сети :</string>
+	<string name="app_version_text" translatable="true">Версия приложения:</string>
+	<string name="ok_text" translatable="true">ХОРОШО</string>
+	<string name="system_setting_text" translatable="true">Настройки системы</string>
+	<string name="clear_cache_text" translatable="true">Очистить кэш</string>
+	<string name="help_support_text" translatable="true">Помощь &amp; Поддержка</string>
+	<string name="privacy_policy_text" translatable="true">политика конфиденциальности</string>
+	<string name="more_info_text" translatable="true">Больше информации</string>
+	<string name="share_app_text" translatable="true">Поделиться приложением</string>
+	<string name="submit_review_text" translatable="true">добавить отзыв</string>
+	<string name="more_app_text" translatable="true">Больше приложений</string>
+	<string name="about_app_text" translatable="true">О приложении</string>
+	<string name="setting_text" translatable="true">Параметр</string>
+	<string name="shareMessage" translatable="true">Эй, проверьте это приложение, которое помогает вам удалить дубликаты и ненужные данные с телефона -</string>
+	<string name="normal_mode" translatable="true">Нормальный</string>
+	<string name="vibrate_mode" translatable="true">Вибрировать</string>
+	<string name="silent_mode" translatable="true">Тихий</string>
+	<string name="phone_mode_text" translatable="true">Телефон режим</string>
+	<string name="app_setting_text" translatable="true">Настройка приложения</string>
+	<string name="change_language_text" translatable="true">"Изменение языка "</string>
+	<string name="developer_name" translatable="true">Создано %1$s</string>
+	<string name="share_code_text" translatable="true">Поделиться кодом</string>
+	<string name="workOnProgress_text" translatable="true">Работать над прогрессом</string>
+	<string name="click_back_text" translatable="true">Нажмите снова, чтобы выйти</string>
+	<string name="yes_string" translatable="true">Да</string>
+	<string name="no_string" translatable="true">Нет</string>
+	<string name="notification_title_text" translatable="true">Оповещение о молитве: %1$s</string>
+	<string name="notification_context_title_text" translatable="true">%1$s. Расширить, чтобы увидеть больше</string>
+	<string name="notification_setting_text" translatable="true">Параметр</string>
+	<string name="notification_dismiss_text" translatable="true">Увольнять</string>
+	<string name="notification_ok_text" translatable="true">ХОРОШО</string>
+	<string name="alarm_alert_hold_the_button_text" translatable="true">Держите кнопку!</string>
+	<string name="cancel_the_notification_prayer" translatable="true">Вы отменили молитвенное расписание %1$s</string>
+	<string name="click_here_to_setup_text" translatable="true">Нажмите здесь, чтобы настроить снова</string>
+	<string name="your_device_will_be_text" translatable="true">Ваше устройство будет в режиме %1$s для следующих %2$s минут</string>
+	<string name="completed_the_notification_prayer" translatable="true">Вы закончили свой молитвенный график %1$s Namaz</string>
+	<string name="your_device_is_now_text" translatable="true">Ваше устройство теперь установлено в режиме %1$s</string>
+	<string name="default_ringtone_text" translatable="true">По умолчанию</string>
+	<string name="azan_in_islam_text" translatable="true">Азан в исламе</string>
+	<string name="notification_sound_text" translatable="true">Звук уведомления</string>
+	<string name="select_language_text" translatable="true">Выберите язык</string>
+	<string name="continue_text" translatable="true">Продолжать</string>
+	<string name="select_notification_sound_text" translatable="true">Звук уведомления</string>
+	<string name="require_do_not_disturb_permission_text" translatable="true">Приложение требует не беспокоить разрешение</string>
+	<string name="require_uses_do_not_disturb_permission_text" translatable="true">Приложение требует разрешения «Не мешать переключаться» в режим молчания или вибрации во время его активных сеансов.</string>
+	<string name="we_do_not_collect_text" translatable="true">Мы не собираем и не разделяем какую -либо личную или конфиденциальную информацию, предоставленную не мешать разрешению.</string>
+	<string name="all_information_provided_by_text" translatable="true">Вся информация, предоставленная не мешать разрешению, хранится локально на ваших устройствах и только отправляется нам с вашего согласия с целью устранения неполадок.</string>
+	<string name="allow_text" translatable="true">Позволять</string>
+	<string name="do_not_disturb_permission_text" translatable="true">DND разрешение</string>
+	<string name="permission_already_given_text" translatable="true">Разрешение уже дано</string>
+	<string name="sorry_this_feature_not_supported_text" translatable="true">Эта функция недоступна ниже Marshmello или Android версии 6</string>
+	<string name="notification_permission_text" translatable="true">Разрешение уведомления</string>
+	<string name="only_13_plus_permission_issue_text" translatable="true">Только 13 + проблема с разрешением на андроид</string>
+	<string name="open_internet_connection_text" translatable="true">Пожалуйста, позвольте Интернету принести текущее время молитвы Namaz.</string>
+	<string name="english_text" translatable="true">Английский</string>
+	<string name="hindi_text" translatable="true">хинди</string>
+	<string name="bengali_text" translatable="true">Бенгальский</string>
+	<string name="german_text" translatable="true">Немецкий</string>
+	<string name="spanish_text" translatable="true">испанский</string>
+	<string name="french_text" translatable="true">Французский</string>
+	<string name="portuguese_text" translatable="true">португальский</string>
+	<string name="indonesian_text" translatable="true">индонезийский</string>
+	<string name="italian_text" translatable="true">Итальянский</string>
+	<string name="japanese_text" translatable="true">Японский</string>
+	<string name="korean_text" translatable="true">Корейский</string>
+	<string name="nepali_text" translatable="true">Непальский</string>
+	<string name="dutch_text" translatable="true">Голландский</string>
+	<string name="punjabi_text" translatable="true">Пенджаби</string>
+	<string name="russian_text" translatable="true">Русский</string>
+	<string name="tamil_text" translatable="true">Тамильский</string>
+	<string name="telugu_text" translatable="true">телугу</string>
+	<string name="thai_text" translatable="true">Тайский</string>
+	<string name="turkish_text" translatable="true">турецкий</string>
+	<string name="vietnamese_text" translatable="true">вьетнамский</string>
+	<string name="chinese_text" translatable="true">Китайский</string>
+	<string name="you_are_a_sports_junkie_text" translatable="true">Ты правдивый верующий Аллах!</string>
+	<string name="wouldnt_you_love_to_stay_text" translatable="true">Разве вы не хотите предупреждать, когда пришло время для вашей молитвы намаз? Конечно, ты делай! Ты настоящий преданный. Нажмите кнопку «Получить уведомление» ниже и оставайтесь благословленными на своем духовном пути.</string>
+	<string name="skip_text" translatable="true">Пропускать</string>
+	<string name="get_notified_text" translatable="true">Получите уведомление</string>
+	<string name="no_qr_codeand_barcode_found_text" translatable="true">QR-код или штрих-код не найден на изображении</string>
+	<string name="permission_not_granted_by_the_user_text" translatable="true">Разрешения, не предоставленные пользователем.</string>
+	<string name="how_was_your_experience_text" translatable="true">Как прошел ваш опыт работы с этим приложением?</string>
+	<string name="no_thanks_text" translatable="true">Нет, спасибо</string>
+	<string name="lets_use_know_text" translatable="true">Дайте нам знать, что мы можем сделать, чтобы улучшить приложение?</string>
+	<string name="thanks_so_much_text" translatable="true">Спасибо!</string>
+	<string name="would_you_like_text" translatable="true">Хотите оценить его в Google Play Store?</string>
+	<string name="rate_text" translatable="true">Ставка</string>
+	<string name="cancel_text" translatable="true">Отмена</string>
+
+</resources>

@@ -151,7 +151,7 @@
     <string name="notification_setting_text" translatable="true">Setting</string>
     <string name="notification_dismiss_text" translatable="true">Dismiss</string>
     <string name="notification_ok_text" translatable="true">OK</string>
-    <string name="alarm_alert_hold_the_button_text">Hold the button!</string>
+    <string name="alarm_alert_hold_the_button_text" translatable="true">Hold the button!</string>
 
 
 
@@ -193,7 +193,7 @@
     <string name="sorry_this_feature_not_supported_text" translatable="true">This feature not available below Marshmello or Android Version 6</string>
     <string name="notification_permission_text" translatable="true">Notification Permission</string>
     <string name="only_13_plus_permission_issue_text" translatable="true">Only 13 + android permission issue</string>
-    <string name="open_internet_connection_text">Open your Internet So We Can Fetch The Namaz Time</string>
+    <string name="open_internet_connection_text" translatable="true">Please enable internet to fetch current Namaz prayer times.</string>
 
 
     <string name="english_text" translatable="true">English</string>
@@ -219,7 +219,7 @@
     <string name="chinese_text" translatable="true">Chinese</string>
 
 <!--    Push notification-->
-    <string name="you_are_a_sports_junkie_text" translatable="true">You\'re a true God believer!</string>
+    <string name="you_are_a_sports_junkie_text" translatable="true">You\'re a true Allah believer!</string>
     <string name="wouldnt_you_love_to_stay_text" translatable="true">Don\'t you want an alert when it\'s time for your Namaz Prayer? Sure you, do! You\'re a true devotee. Press the \'Get Notified\' button below and stay blessed on your spiritual path.</string>
     <string name="skip_text" translatable="true">Skip</string>
     <string name="get_notified_text" translatable="true">Get Notified</string>

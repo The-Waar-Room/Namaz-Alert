@@ -1,0 +1,130 @@
+<resources>
+
+	<string name="refresh_text" translatable="true">ताज़ा करना</string>
+	<string name="send_feedback_text" translatable="true"> प्रतिक्रिया भेजें</string>
+	<string name="right_hand_side_time_text" translatable="true">%1$s: 00 मिनट</string>
+	<string name="left_hand_side_time_text" translatable="true">%1$s</string>
+	<string name="minute_text" translatable="true">मिनट</string>
+	<string name="hour_text" translatable="true">घंटा</string>
+	<string name="reset_text" translatable="true">रीसेट</string>
+	<string name="do_you_want_to_set_text" translatable="true">क्या आप वास्तव में डिफ़ॉल्ट समय सेट करना चाहते हैं?</string>
+	<string name="am_text" translatable="true">पूर्वाह्न</string>
+	<string name="pm_text" translatable="true">बजे</string>
+	<string name="successfully_selected_text" translatable="true">सफलतापूर्वक चयनित</string>
+	<string name="you_cant_select_30min_text" translatable="true"> आप 30 मिनट की अधिकतम सीमा का चयन नहीं कर सकते</string>
+	<string name="you_cant_past_select_30min_text" translatable="true"> आप पिछले 30 मिनट का चयन नहीं कर सकते</string>
+	<string name="you_cant_select_text" translatable="true"> आप अधिकतम सीमा का चयन नहीं कर सकते</string>
+	<string name="time_reset_successfully_text" translatable="true"> समय सफलतापूर्वक रीसेट करें</string>
+	<string name="activate_at_text" translatable="true">फोन को चुप कराएं:</string>
+	<string name="activate_for_text" translatable="true">मूक अवधि:</string>
+	<string name="feedbackEditTextHint" translatable="true">कृपया अपनी प्रतिक्रिया लिखें</string>
+	<string name="describe_your_issue_text" translatable="true">अपने मामले का वर्णन करें</string>
+	<string name="feedbackEditTextError" translatable="true">कृपया प्रतिक्रिया में कुछ लिखें</string>
+	<string name="supportEditTextError" translatable="true">कृपया समस्या में कुछ लिखें</string>
+	<string name="systemInfo_text" translatable="true">आपकी सिस्टम जानकारी हमारी डेवलपर टीम को भेज दी जाएगी</string>
+	<string name="add_screenshot_text" translatable="true">+ स्क्रीनशॉट जोड़ें</string>
+	<string name="send_issue_text" translatable="true">मुद्दा भेजें</string>
+	<string name="feedback_about_app_text" translatable="true">%1$sके बारे में प्रतिक्रिया</string>
+	<string name="issue_in_app_text" translatable="true">%1$sमें अंक</string>
+	<string name="wifi_text" translatable="true">Wifi</string>
+	<string name="mobile_data_text" translatable="true">मोबाइल सामग्री</string>
+	<string name="vpn_text" translatable="true">वीपीएन</string>
+	<string name="no_internet_text" translatable="true">कोई इंटरनेट नहीं</string>
+	<string name="successfully_cache_data_is_deleted_text" translatable="true">सफलतापूर्वक कैश डेटा हटा दिया जाता है</string>
+	<string name="system_info_text" translatable="true"> व्यवस्था की सूचना</string>
+	<string name="device_text" translatable="true">उपकरण :</string>
+	<string name="os_api_level_text" translatable="true">ओएस एपीआई स्तर:</string>
+	<string name="language_text" translatable="true">भाषा :</string>
+	<string name="total_memory_text" translatable="true">कुल ढेर मेमोरी:</string>
+	<string name="free_memory_text" translatable="true">फ्री हीप मेमोरी:</string>
+	<string name="screen_Text" translatable="true">स्क्रीन का साईज़ :</string>
+	<string name="network_type_text" translatable="true">नेटवर्क प्रकार :</string>
+	<string name="app_version_text" translatable="true">एप्लिकेशन वेरीज़न :</string>
+	<string name="ok_text" translatable="true">ठीक</string>
+	<string name="system_setting_text" translatable="true">प्रणाली व्यवस्था</string>
+	<string name="clear_cache_text" translatable="true">कैश को साफ़ करें</string>
+	<string name="help_support_text" translatable="true">मदद &amp; समर्थन</string>
+	<string name="privacy_policy_text" translatable="true">गोपनीयता नीति</string>
+	<string name="more_info_text" translatable="true">और जानकारी</string>
+	<string name="share_app_text" translatable="true">ऐप शेयर करें</string>
+	<string name="submit_review_text" translatable="true">समीक्षा जमा करें</string>
+	<string name="more_app_text" translatable="true">और ऐप</string>
+	<string name="about_app_text" translatable="true">ऐप के बारे में</string>
+	<string name="setting_text" translatable="true">सेटिंग</string>
+	<string name="shareMessage" translatable="true">अरे, इस ऐप की जाँच करें जो आपको फोन से डुप्लिकेट और अनावश्यक डेटा को हटाने में मदद करता है -</string>
+	<string name="normal_mode" translatable="true">सामान्य</string>
+	<string name="vibrate_mode" translatable="true">कंपन</string>
+	<string name="silent_mode" translatable="true">चुपचाप</string>
+	<string name="phone_mode_text" translatable="true">फ़ोन मोड</string>
+	<string name="app_setting_text" translatable="true">ऐप सेटिंग</string>
+	<string name="change_language_text" translatable="true">"भाषा बदलें "</string>
+	<string name="developer_name" translatable="true">%1$sद्वारा बनाया गया</string>
+	<string name="share_code_text" translatable="true">शेयर कोड</string>
+	<string name="workOnProgress_text" translatable="true">प्रगति पर काम करें</string>
+	<string name="click_back_text" translatable="true">बाहर निकलने के लिए फिर से वापस क्लिक करें</string>
+	<string name="yes_string" translatable="true">हाँ</string>
+	<string name="no_string" translatable="true">नहीं</string>
+	<string name="notification_title_text" translatable="true">प्रार्थना चेतावनी: %1$s</string>
+	<string name="notification_context_title_text" translatable="true">%1$s। अधिक देखने के लिए विस्तार करें</string>
+	<string name="notification_setting_text" translatable="true">सेटिंग</string>
+	<string name="notification_dismiss_text" translatable="true">नकार देना</string>
+	<string name="notification_ok_text" translatable="true">ठीक</string>
+	<string name="alarm_alert_hold_the_button_text" translatable="true">बटन पकड़ो!</string>
+	<string name="cancel_the_notification_prayer" translatable="true">आपने %1$s नमाज प्रार्थना अनुसूची रद्द कर दी है</string>
+	<string name="click_here_to_setup_text" translatable="true">इसे फिर से सेट करने के लिए यहां क्लिक करें</string>
+	<string name="your_device_will_be_text" translatable="true">आपका डिवाइस अगले %2$s मिनट के लिए %1$s मोड में होगा</string>
+	<string name="completed_the_notification_prayer" translatable="true">आपने अपना %1$s नमाज प्रार्थना शेड्यूल पूरा कर लिया है</string>
+	<string name="your_device_is_now_text" translatable="true">आपका डिवाइस अब %1$s मोड पर सेट है</string>
+	<string name="default_ringtone_text" translatable="true">गलती करना</string>
+	<string name="azan_in_islam_text" translatable="true">इस्लाम में अज़ान</string>
+	<string name="notification_sound_text" translatable="true">सूचना ध्वनि</string>
+	<string name="select_language_text" translatable="true">भाषा चुने</string>
+	<string name="continue_text" translatable="true">जारी रखना</string>
+	<string name="select_notification_sound_text" translatable="true">सूचना ध्वनि</string>
+	<string name="require_do_not_disturb_permission_text" translatable="true">ऐप को अनुमति की आवश्यकता नहीं है</string>
+	<string name="require_uses_do_not_disturb_permission_text" translatable="true">ऐप को अपने सक्रिय सत्रों के दौरान मूक या कंपन मोड पर स्विच करने की अनुमति को परेशान नहीं करने की आवश्यकता है।</string>
+	<string name="we_do_not_collect_text" translatable="true">हम किसी भी व्यक्तिगत या संवेदनशील जानकारी को एकत्र या साझा नहीं करते हैं, जो अनुमति नहीं देता है।</string>
+	<string name="all_information_provided_by_text" translatable="true">डू नॉट डिस्टर्ब अनुमति द्वारा प्रदान की गई सभी जानकारी स्थानीय रूप से आपके उपकरणों पर रखी जाती है और केवल हमें समस्या निवारण उद्देश्य के लिए आपकी सहमति के साथ भेजा जाता है।</string>
+	<string name="allow_text" translatable="true">अनुमति देना</string>
+	<string name="do_not_disturb_permission_text" translatable="true">DND अनुमति</string>
+	<string name="permission_already_given_text" translatable="true">पहले से दी गई अनुमति</string>
+	<string name="sorry_this_feature_not_supported_text" translatable="true">यह सुविधा मार्शमेलो या एंड्रॉइड संस्करण 6 के नीचे उपलब्ध नहीं है</string>
+	<string name="notification_permission_text" translatable="true">अधिसूचना अनुमति</string>
+	<string name="only_13_plus_permission_issue_text" translatable="true">केवल 13 + एंड्रॉइड अनुमति समस्या</string>
+	<string name="open_internet_connection_text" translatable="true">कृपया वर्तमान नमाज प्रार्थना समय लाने के लिए इंटरनेट सक्षम करें।</string>
+	<string name="english_text" translatable="true">अंग्रेज़ी</string>
+	<string name="hindi_text" translatable="true">हिंदी</string>
+	<string name="bengali_text" translatable="true">बंगाली</string>
+	<string name="german_text" translatable="true">जर्मन</string>
+	<string name="spanish_text" translatable="true">स्पैनिश</string>
+	<string name="french_text" translatable="true">फ्रांसीसी</string>
+	<string name="portuguese_text" translatable="true">पुर्तगाली</string>
+	<string name="indonesian_text" translatable="true">इन्डोनेशियाई</string>
+	<string name="italian_text" translatable="true">इतालवी</string>
+	<string name="japanese_text" translatable="true">जापानी</string>
+	<string name="korean_text" translatable="true">कोरियाई</string>
+	<string name="nepali_text" translatable="true">नेपाली</string>
+	<string name="dutch_text" translatable="true">डच</string>
+	<string name="punjabi_text" translatable="true">पंजाबी</string>
+	<string name="russian_text" translatable="true">रूसी</string>
+	<string name="tamil_text" translatable="true">तामिल</string>
+	<string name="telugu_text" translatable="true">तेलुगू</string>
+	<string name="thai_text" translatable="true">थाई</string>
+	<string name="turkish_text" translatable="true">तुर्की</string>
+	<string name="vietnamese_text" translatable="true">वियतनामी</string>
+	<string name="chinese_text" translatable="true">चीनी</string>
+	<string name="you_are_a_sports_junkie_text" translatable="true">तुम एक सच्चे अल्लाह आस्तिक हो!</string>
+	<string name="wouldnt_you_love_to_stay_text" translatable="true">जब आप अपनी नमाज प्रार्थना के लिए समय हो तो क्या आप अलर्ट नहीं चाहते हैं? तुम अवश्य करो! तुम एक सच्चे भक्त हो। नीचे दिए गए \'सूचित\' बटन दबाएं और अपने आध्यात्मिक पथ पर धन्य रहें।</string>
+	<string name="skip_text" translatable="true">छोडना</string>
+	<string name="get_notified_text" translatable="true">सूचित किया गया</string>
+	<string name="no_qr_codeand_barcode_found_text" translatable="true">छवि में कोई क्यूआर-कोड या बारकोड नहीं मिला</string>
+	<string name="permission_not_granted_by_the_user_text" translatable="true">उपयोगकर्ता द्वारा अनुमति नहीं दी गई है।</string>
+	<string name="how_was_your_experience_text" translatable="true">इस ऐप के साथ आपका अनुभव कैसा रहा?</string>
+	<string name="no_thanks_text" translatable="true">जी नहीं, धन्यवाद</string>
+	<string name="lets_use_know_text" translatable="true">हमें बताएं कि हम ऐप को बेहतर बनाने के लिए क्या कर सकते हैं?</string>
+	<string name="thanks_so_much_text" translatable="true">बहुत - बहुत धन्यवाद!</string>
+	<string name="would_you_like_text" translatable="true">क्या आप इसे Google Play Store पर रेट करना चाहेंगे?</string>
+	<string name="rate_text" translatable="true">दर</string>
+	<string name="cancel_text" translatable="true">रद्द करना</string>
+
+</resources>
