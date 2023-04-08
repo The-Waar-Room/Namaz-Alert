@@ -39,7 +39,9 @@
         </activity>
 
         <activity android:name=".ui.BaseActivity" />
-        <activity android:name=".ui.feedbackAndHelp.SendFeedbackAndHelp"/>
+        <activity
+            android:theme="@style/AppTheme.NoActionBar"
+            android:name=".ui.feedbackAndHelp.SendFeedbackAndHelp"/>
         <activity
             android:name=".ui.setting.SettingsActivity"
             android:label="@string/setting_text"

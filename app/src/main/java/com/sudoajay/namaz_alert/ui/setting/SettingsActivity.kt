@@ -7,6 +7,8 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
+import android.window.OnBackInvokedDispatcher
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
@@ -43,6 +45,23 @@ class SettingsActivity : BaseActivity() {
 
         }
         setContentView(R.layout.activity_settings)
+        if (Build.VERSION.SDK_INT >= 33) {
+            onBackInvokedDispatcher.registerOnBackInvokedCallback(
+                OnBackInvokedDispatcher.PRIORITY_DEFAULT
+            ) {
+                onBackPressedButton()
+            }
+        } else {
+            onBackPressedDispatcher.addCallback(
+                this,
+                object : OnBackPressedCallback(true) {
+                    override fun handleOnBackPressed() {
+                        onBackPressedButton()
+                    }
+                })
+        }
+
+
         supportFragmentManager
             .beginTransaction()
             .replace(
@@ -51,12 +70,16 @@ class SettingsActivity : BaseActivity() {
             )
             .commit()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
 
-        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                onBack()
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                onBackPressedButton()
+                return true
             }
-        })
+        }
+        return super.onOptionsItemSelected(item)
     }
 
 
@@ -286,9 +309,10 @@ class SettingsActivity : BaseActivity() {
         }
     }
 
-    fun onBack() {
+    private fun onBackPressedButton() {
         val intent = Intent(applicationContext, MainActivity::class.java)
         startActivity(intent)
+        finish()
     }
 
 

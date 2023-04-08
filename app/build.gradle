@@ -22,7 +22,7 @@ plugins {
 
 android {
     compileSdk 33
-    buildToolsVersion "31.0.0"
+    buildToolsVersion "34.0.0"
     defaultConfig {
         applicationId "com.sudoajay.namaz_alert"
         minSdk 21
