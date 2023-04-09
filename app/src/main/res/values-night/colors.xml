@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--    App Theme Color-->
-    <color name="colorPrimaryDark">#101010</color>
     <color name="colorPrimary">#101010</color>
     <color name="colorAccent">#7DC4EC</color>
     <color name="appTheme">#367F7F</color>
@@ -13,8 +12,6 @@
     <color name="headingNormalTextColor">#dae1e7</color>
     <color name="whiteColor">#fff</color>
     <color name="fadeTextColor">#C4CBD0</color>
-
-    <color name="textLinkColor">#7DC4EC</color>
 
 
     <!--    Send Feedback // Reminder -->

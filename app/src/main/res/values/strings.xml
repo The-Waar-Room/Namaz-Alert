@@ -7,8 +7,6 @@
 
 
     <!--  MainActivity  Bottom Toolbar-->
-    <string name="search_optionMenu" translatable="false">Search</string>
-    <string name="refresh_optionMenu" translatable="false">Refresh</string>
     <string name="refresh_text" translatable="true">Refresh</string>
 
     <string name="send_feedback_text" translatable="true"> Send Feedback</string>
@@ -113,8 +111,6 @@
 
     <!--    Navigation Drawer Bottom Sheet-->
     <string name="developer_name" translatable="true">Created by %1$s</string>
-    <string name="share_code_text" translatable="true">Share Code</string>
-    <string name="workOnProgress_text" translatable="true">Work On Progress</string>
 
 
     <!--    Click back to exit-->
@@ -223,7 +219,6 @@
     <string name="wouldnt_you_love_to_stay_text" translatable="true">Don\'t you want an alert when it\'s time for your Namaz Prayer? Sure you, do! You\'re a true devotee. Press the \'Get Notified\' button below and stay blessed on your spiritual path.</string>
     <string name="skip_text" translatable="true">Skip</string>
     <string name="get_notified_text" translatable="true">Get Notified</string>
-    <string name="no_qr_codeand_barcode_found_text" translatable="true">No Qr-Code Or Barcode Found In The Image</string>
 
     <string name="permission_not_granted_by_the_user_text" translatable="true">Permissions not granted by the user.</string>
 

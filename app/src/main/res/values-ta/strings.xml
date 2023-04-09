@@ -59,9 +59,7 @@
 	<string name="app_setting_text" translatable="true">பயன்பாட்டு அமைப்பு</string>
 	<string name="change_language_text" translatable="true">"மொழியை மாற்றவும்"</string>
 	<string name="developer_name" translatable="true">%1$sஆல் உருவாக்கப்பட்டது</string>
-	<string name="share_code_text" translatable="true">குறியீட்டைப் பகிரவும்</string>
-	<string name="workOnProgress_text" translatable="true">முன்னேற்றம் குறித்த வேலை</string>
-	<string name="click_back_text" translatable="true">வெளியேற மீண்டும் கிளிக் செய்க</string>
+    <string name="click_back_text" translatable="true">வெளியேற மீண்டும் கிளிக் செய்க</string>
 	<string name="yes_string" translatable="true">ஆம்</string>
 	<string name="no_string" translatable="true">இல்லை</string>
 	<string name="notification_title_text" translatable="true">பிரார்த்தனை எச்சரிக்கை: %1$s</string>
@@ -117,8 +115,7 @@
 	<string name="wouldnt_you_love_to_stay_text" translatable="true">உங்கள் நமாஸ் பிரார்த்தனைக்கு நேரம் வரும்போது உங்களுக்கு எச்சரிக்கை வேண்டுமா? நிச்சயமாக நீங்கள், செய்யுங்கள்! நீங்கள் ஒரு உண்மையான பக்தர். கீழே உள்ள \'அறிவிக்கப்பட்ட\' பொத்தானை அழுத்தி, உங்கள் ஆன்மீக பாதையில் ஆசீர்வதிக்கப்படுங்கள்.</string>
 	<string name="skip_text" translatable="true">தவிர்க்கவும்</string>
 	<string name="get_notified_text" translatable="true">அறிவிக்க</string>
-	<string name="no_qr_codeand_barcode_found_text" translatable="true">படத்தில் QR-குறியீடு அல்லது பார்கோடு இல்லை</string>
-	<string name="permission_not_granted_by_the_user_text" translatable="true">பயனரால் வழங்கப்படாத அனுமதிகள்.</string>
+    <string name="permission_not_granted_by_the_user_text" translatable="true">பயனரால் வழங்கப்படாத அனுமதிகள்.</string>
 	<string name="how_was_your_experience_text" translatable="true">இந்த பயன்பாட்டில் உங்கள் அனுபவம் எப்படி இருந்தது?</string>
 	<string name="no_thanks_text" translatable="true">நன்றி இல்லை</string>
 	<string name="lets_use_know_text" translatable="true">பயன்பாட்டை மேம்படுத்த நாங்கள் என்ன செய்ய முடியும் என்பதை எங்களுக்குத் தெரியப்படுத்துங்கள்?</string>

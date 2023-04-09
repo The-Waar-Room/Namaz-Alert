@@ -59,9 +59,7 @@
 	<string name="app_setting_text" translatable="true">App -instelling</string>
 	<string name="change_language_text" translatable="true">"Taal veranderen"</string>
 	<string name="developer_name" translatable="true">Gemaakt door %1$s</string>
-	<string name="share_code_text" translatable="true">Deel code</string>
-	<string name="workOnProgress_text" translatable="true">Werk aan vooruitgang</string>
-	<string name="click_back_text" translatable="true">Klik nog een keer terug om af te sluiten</string>
+    <string name="click_back_text" translatable="true">Klik nog een keer terug om af te sluiten</string>
 	<string name="yes_string" translatable="true">Ja</string>
 	<string name="no_string" translatable="true">Nee</string>
 	<string name="notification_title_text" translatable="true">Gebedalarm: %1$s</string>
@@ -117,8 +115,7 @@
 	<string name="wouldnt_you_love_to_stay_text" translatable="true">Wil je geen waarschuwing als het tijd is voor je Namaz -gebed? Zeker jij, wel! Je bent een echte toegewijde. Druk op de onderstaande knop \'Meldt\' en blijf gezegend op uw spirituele pad.</string>
 	<string name="skip_text" translatable="true">Overslaan</string>
 	<string name="get_notified_text" translatable="true">Word op de hoogte</string>
-	<string name="no_qr_codeand_barcode_found_text" translatable="true">Geen QR-code of barcode gevonden in de afbeelding</string>
-	<string name="permission_not_granted_by_the_user_text" translatable="true">Machtigingen die de gebruiker niet verleenden.</string>
+    <string name="permission_not_granted_by_the_user_text" translatable="true">Machtigingen die de gebruiker niet verleenden.</string>
 	<string name="how_was_your_experience_text" translatable="true">Hoe was uw ervaring met deze app?</string>
 	<string name="no_thanks_text" translatable="true">Nee bedankt</string>
 	<string name="lets_use_know_text" translatable="true">Laat ons weten wat we kunnen doen om de app te verbeteren?</string>

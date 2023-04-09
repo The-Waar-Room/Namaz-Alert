@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimaryDark">#f2f2f2</color>
     <color name="colorPrimary">#f2f2f2</color>
     <color name="colorAccent">#0277BD</color>
     <color name="appTheme">#367F7F</color>
-    <color name="appThemeDark">#317272</color>
 
     //566c79 // 455862
     <color name="statusBarColor">#fcfcfc</color>
@@ -12,7 +10,6 @@
     <color name="bgBoxColor">#fcfcfc</color>
     <color name="headingNormalTextColor">#353131</color>
     <color name="whiteColor">#fff</color>
-    <color name="textLinkColor">#0277BD</color>
     <color name="fadeTextColor">#5C5757</color>
 
 
@@ -37,10 +34,6 @@
     <color name="divider">#E6E6E6</color>
 
 <!-- wrapper activity-->
-    <color name="dark_secondary">#4EAC9C</color>
-    <color name="dark_background">#131D23</color>
-    <color name="dark_ripple">#242D35</color>
-    <color name="dark_on_background">#ffdddddd</color>
 
     <!--    Rate us-->
     <color name="divider_color">#DCDCDC</color>

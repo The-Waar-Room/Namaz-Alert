@@ -59,9 +59,7 @@
 	<string name="app_setting_text" translatable="true">Cài đặt ứng dụng</string>
 	<string name="change_language_text" translatable="true">"Thay đổi ngôn ngữ "</string>
 	<string name="developer_name" translatable="true">Được tạo bởi %1$s</string>
-	<string name="share_code_text" translatable="true">Mã chia sẻ</string>
-	<string name="workOnProgress_text" translatable="true">Làm việc trên tiến trình</string>
-	<string name="click_back_text" translatable="true">Nhấp lại một lần nữa để thoát</string>
+    <string name="click_back_text" translatable="true">Nhấp lại một lần nữa để thoát</string>
 	<string name="yes_string" translatable="true">Đúng</string>
 	<string name="no_string" translatable="true">KHÔNG</string>
 	<string name="notification_title_text" translatable="true">Cảnh báo cầu nguyện: %1$s</string>
@@ -117,8 +115,7 @@
 	<string name="wouldnt_you_love_to_stay_text" translatable="true">Bạn không muốn một cảnh báo khi đến lúc cầu nguyện Namaz của bạn? Chắc chắn rằng bạn làm! Bạn là một người sùng đạo thực sự. Nhấn nút \'Nhận thông báo\' bên dưới và luôn được ban phước trên con đường tâm linh của bạn.</string>
 	<string name="skip_text" translatable="true">Nhảy</string>
 	<string name="get_notified_text" translatable="true">Nhận được thông báo</string>
-	<string name="no_qr_codeand_barcode_found_text" translatable="true">Không tìm thấy mã QR hoặc mã vạch trong hình ảnh</string>
-	<string name="permission_not_granted_by_the_user_text" translatable="true">Quyền không được cấp bởi người dùng.</string>
+    <string name="permission_not_granted_by_the_user_text" translatable="true">Quyền không được cấp bởi người dùng.</string>
 	<string name="how_was_your_experience_text" translatable="true">Trải nghiệm của bạn với ứng dụng này như thế nào?</string>
 	<string name="no_thanks_text" translatable="true">Không, cám ơn</string>
 	<string name="lets_use_know_text" translatable="true">Hãy cho chúng tôi biết những gì chúng tôi có thể làm để cải thiện ứng dụng?</string>

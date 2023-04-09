@@ -59,9 +59,7 @@
 	<string name="app_setting_text" translatable="true">การตั้งค่าแอพ</string>
 	<string name="change_language_text" translatable="true">"เปลี่ยนภาษา "</string>
 	<string name="developer_name" translatable="true">สร้างโดย %1$s</string>
-	<string name="share_code_text" translatable="true">แชร์รหัส</string>
-	<string name="workOnProgress_text" translatable="true">ทำงานเกี่ยวกับความคืบหน้า</string>
-	<string name="click_back_text" translatable="true">คลิกกลับอีกครั้งเพื่อออก</string>
+    <string name="click_back_text" translatable="true">คลิกกลับอีกครั้งเพื่อออก</string>
 	<string name="yes_string" translatable="true">ใช่</string>
 	<string name="no_string" translatable="true">เลขที่</string>
 	<string name="notification_title_text" translatable="true">การแจ้งเตือนการอธิษฐาน: %1$s</string>
@@ -117,8 +115,7 @@
 	<string name="wouldnt_you_love_to_stay_text" translatable="true">คุณไม่ต้องการการแจ้งเตือนเมื่อถึงเวลาสำหรับการสวดมนต์ Namaz ของคุณหรือไม่? แน่ใจว่าคุณทำ! คุณเป็นผู้นับถือศรัทธาที่แท้จริง กดปุ่ม \'Get Netified\' ด้านล่างและคงความสุขบนเส้นทางจิตวิญญาณของคุณ</string>
 	<string name="skip_text" translatable="true">ข้าม</string>
 	<string name="get_notified_text" translatable="true">ได้รับแจ้ง</string>
-	<string name="no_qr_codeand_barcode_found_text" translatable="true">ไม่พบรหัส QR หรือบาร์โค้ดในภาพ</string>
-	<string name="permission_not_granted_by_the_user_text" translatable="true">ผู้ใช้ไม่ได้รับอนุญาต</string>
+    <string name="permission_not_granted_by_the_user_text" translatable="true">ผู้ใช้ไม่ได้รับอนุญาต</string>
 	<string name="how_was_your_experience_text" translatable="true">ประสบการณ์ของคุณกับแอพนี้เป็นอย่างไรบ้าง?</string>
 	<string name="no_thanks_text" translatable="true">ไม่เป็นไรขอบคุณ</string>
 	<string name="lets_use_know_text" translatable="true">แจ้งให้เราทราบว่าเราจะทำอย่างไรเพื่อปรับปรุงแอพ?</string>

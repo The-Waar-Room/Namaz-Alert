@@ -6,6 +6,7 @@ plugins {
     id 'dagger.hilt.android.plugin'
     id 'kotlin-kapt'
 
+
     id 'kotlin-android'
     id 'kotlin-parcelize'
     // google services
@@ -22,7 +23,7 @@ plugins {
 
 android {
     compileSdk 33
-    buildToolsVersion "34.0.0"
+    buildToolsVersion "33.0.0"
     defaultConfig {
         applicationId "com.sudoajay.namaz_alert"
         minSdk 21
@@ -50,11 +51,11 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
 
             // Enables resource shrinking, which is performed by the
             // Android Gradle plugin.
-            shrinkResources false
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
         }

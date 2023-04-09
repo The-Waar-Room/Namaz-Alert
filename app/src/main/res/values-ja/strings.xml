@@ -59,9 +59,7 @@
 	<string name="app_setting_text" translatable="true">アプリ設定</string>
 	<string name="change_language_text" translatable="true">"言語を変えてください "</string>
 	<string name="developer_name" translatable="true">%1$sによって作成されました</string>
-	<string name="share_code_text" translatable="true">コードを共有します</string>
-	<string name="workOnProgress_text" translatable="true">進捗状況に取り組みます</string>
-	<string name="click_back_text" translatable="true">もう一度[再度]をクリックして終了します</string>
+    <string name="click_back_text" translatable="true">もう一度[再度]をクリックして終了します</string>
 	<string name="yes_string" translatable="true">はい</string>
 	<string name="no_string" translatable="true">いいえ</string>
 	<string name="notification_title_text" translatable="true">祈りの警告： %1$s</string>
@@ -117,8 +115,7 @@
 	<string name="wouldnt_you_love_to_stay_text" translatable="true">あなたのナマズの祈りの時が来たとき、あなたはアラートをしたくありませんか？確かに、やる！あなたは本当の信者です。下の「通知を取得する」ボタンを押して、あなたの霊的な道に恵まれてください。</string>
 	<string name="skip_text" translatable="true">スキップ</string>
 	<string name="get_notified_text" translatable="true">通知を受け取ります</string>
-	<string name="no_qr_codeand_barcode_found_text" translatable="true">画像にQRコードやバーコードは見つかりませんでした</string>
-	<string name="permission_not_granted_by_the_user_text" translatable="true">ユーザーによって付与されていない権限。</string>
+    <string name="permission_not_granted_by_the_user_text" translatable="true">ユーザーによって付与されていない権限。</string>
 	<string name="how_was_your_experience_text" translatable="true">このアプリの経験はどうでしたか？</string>
 	<string name="no_thanks_text" translatable="true">結構です</string>
 	<string name="lets_use_know_text" translatable="true">アプリを改善するために何ができるか教えてください。</string>

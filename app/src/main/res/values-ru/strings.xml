@@ -59,9 +59,7 @@
 	<string name="app_setting_text" translatable="true">Настройка приложения</string>
 	<string name="change_language_text" translatable="true">"Изменение языка "</string>
 	<string name="developer_name" translatable="true">Создано %1$s</string>
-	<string name="share_code_text" translatable="true">Поделиться кодом</string>
-	<string name="workOnProgress_text" translatable="true">Работать над прогрессом</string>
-	<string name="click_back_text" translatable="true">Нажмите снова, чтобы выйти</string>
+    <string name="click_back_text" translatable="true">Нажмите снова, чтобы выйти</string>
 	<string name="yes_string" translatable="true">Да</string>
 	<string name="no_string" translatable="true">Нет</string>
 	<string name="notification_title_text" translatable="true">Оповещение о молитве: %1$s</string>
@@ -117,8 +115,7 @@
 	<string name="wouldnt_you_love_to_stay_text" translatable="true">Разве вы не хотите предупреждать, когда пришло время для вашей молитвы намаз? Конечно, ты делай! Ты настоящий преданный. Нажмите кнопку «Получить уведомление» ниже и оставайтесь благословленными на своем духовном пути.</string>
 	<string name="skip_text" translatable="true">Пропускать</string>
 	<string name="get_notified_text" translatable="true">Получите уведомление</string>
-	<string name="no_qr_codeand_barcode_found_text" translatable="true">QR-код или штрих-код не найден на изображении</string>
-	<string name="permission_not_granted_by_the_user_text" translatable="true">Разрешения, не предоставленные пользователем.</string>
+    <string name="permission_not_granted_by_the_user_text" translatable="true">Разрешения, не предоставленные пользователем.</string>
 	<string name="how_was_your_experience_text" translatable="true">Как прошел ваш опыт работы с этим приложением?</string>
 	<string name="no_thanks_text" translatable="true">Нет, спасибо</string>
 	<string name="lets_use_know_text" translatable="true">Дайте нам знать, что мы можем сделать, чтобы улучшить приложение?</string>

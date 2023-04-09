@@ -2,17 +2,6 @@
 <resources>
 
     <!-- Card Curved For Discuss Chat -->
-    <style name="searchCategoryMaterialCardView" parent="@style/Widget.MaterialComponents.CardView">
-        <item name="shapeAppearanceOverlay">@style/cornerCutFromTopOnly</item>
-        <item name="cardBackgroundColor">@color/bgBoxColor</item>
-    </style>
-
-    <style name="cornerCutFromTopOnly" >
-        <item name="cornerSizeTopRight">25dp</item>
-        <item name="cornerSizeTopLeft">25dp</item>
-        <item name="cornerSizeBottomRight">0dp</item>
-        <item name="cornerSizeBottomLeft">0dp</item>
-    </style>
 
     <style name="homeScreenMaterialCardView" parent="@style/Widget.MaterialComponents.CardView">
         <item name="shapeAppearanceOverlay">@style/cornerCutHomeScreen</item>
@@ -25,42 +14,6 @@
         <item name="cornerSize">15dp</item>
     </style>
 
-    <style name="cornerCut" >
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">25dp</item>
-    </style>
-
-
-
-
-    <style name="profileRoundedShapeableImageView">
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">50%</item>
-    </style>
-
-
-    <style name="MySearchButton" parent="Widget.MaterialComponents.Button">
-        <item name="shapeAppearanceOverlay">@style/roundedImageViewRounded_SearchBox</item>
-        <item name="materialThemeOverlay">@style/showButtonThemeOverlay</item>
-    </style>
-    <style name="roundedImageViewRounded_SearchBox">
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">50%</item>
-    </style>
-
-    <style name="showButtonThemeOverlay">
-        <item name="colorPrimary">@android:color/white</item>
-    </style>
-
-
-    <style name="genderInViewEditProfile" parent="@style/Widget.MaterialComponents.CardView">
-        <item name="shapeAppearanceOverlay">@style/cornerCutFromTopOnly</item>
-<!--        <item name="cardBackgroundColor">@color/recommendationBoxColor</item>-->
-    </style>
-
-    <style name="CustomTabLayout" parent="Widget.Design.TabLayout">
-        <item name="tabTextColor">@color/headingNormalTextColor</item>
-    </style>
 
     <style name="ratingBarTheme" parent="Theme.AppCompat">
         <item name="colorControlNormal">@color/fadeTextColor</item>

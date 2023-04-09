@@ -59,9 +59,7 @@
 	<string name="app_setting_text" translatable="true">ਐਪ ਸੈਟਿੰਗ</string>
 	<string name="change_language_text" translatable="true">"ਭਾਸ਼ਾ ਬਦਲੋ"</string>
 	<string name="developer_name" translatable="true">%1$s ਦੁਆਰਾ ਬਣਾਇਆ ਗਿਆ</string>
-	<string name="share_code_text" translatable="true">ਸ਼ੇਅਰ ਕੋਡ</string>
-	<string name="workOnProgress_text" translatable="true">ਤਰੱਕੀ \'ਤੇ ਕੰਮ</string>
-	<string name="click_back_text" translatable="true">ਬਾਹਰ ਜਾਣ ਲਈ ਦੁਬਾਰਾ ਕਲਿਕ ਕਰੋ</string>
+    <string name="click_back_text" translatable="true">ਬਾਹਰ ਜਾਣ ਲਈ ਦੁਬਾਰਾ ਕਲਿਕ ਕਰੋ</string>
 	<string name="yes_string" translatable="true">ਹਾਂ</string>
 	<string name="no_string" translatable="true">ਨਹੀਂ</string>
 	<string name="notification_title_text" translatable="true">ਪ੍ਰਾਰਥਨਾ ਚੇਤਾਵਨੀ: %1$s</string>
@@ -117,8 +115,7 @@
 	<string name="wouldnt_you_love_to_stay_text" translatable="true">ਕੀ ਤੁਸੀਂ ਨਹੀਂ ਚਾਹੁੰਦੇ ਕਿ ਜਦੋਂ ਤੁਹਾਡੀ ਪਨਾਮ ਪ੍ਰਾਰਥਨਾ ਦਾ ਸਮਾਂ ਆ ਗਿਆ ਹੈ? ਯਕੀਨਨ ਤੁਸੀਂ, ਕਰਦੇ ਹੋ! ਤੁਸੀਂ ਸੱਚੇ ਸੁਆਗਤ ਹੋ. ਹੇਠਾਂ \'ਪ੍ਰਾਪਤ ਕਰੋ ਸੂਚਿਤ\' ਬਟਨ ਨੂੰ ਦਬਾਓ ਅਤੇ ਆਪਣੇ ਅਧਿਆਤਮਕ ਮਾਰਗ \'ਤੇ ਬਖਸ਼ਿਸ਼ ਕਰੋ.</string>
 	<string name="skip_text" translatable="true">ਛੱਡੋ</string>
 	<string name="get_notified_text" translatable="true">ਸੂਚਿਤ ਕਰੋ</string>
-	<string name="no_qr_codeand_barcode_found_text" translatable="true">ਕੋਈ ਵੀ ਕਿ R ਆਰ-ਕੋਡ ਜਾਂ ਬਾਰਕੋਡ ਚਿੱਤਰ ਵਿੱਚ ਨਹੀਂ ਮਿਲਿਆ</string>
-	<string name="permission_not_granted_by_the_user_text" translatable="true">ਇਜਾਜ਼ਤ ਉਪਭੋਗਤਾ ਦੁਆਰਾ ਨਹੀਂ ਦਿੱਤੀ ਗਈ.</string>
+    <string name="permission_not_granted_by_the_user_text" translatable="true">ਇਜਾਜ਼ਤ ਉਪਭੋਗਤਾ ਦੁਆਰਾ ਨਹੀਂ ਦਿੱਤੀ ਗਈ.</string>
 	<string name="how_was_your_experience_text" translatable="true">ਇਸ ਐਪ ਨਾਲ ਤੁਹਾਡਾ ਤਜਰਬਾ ਕਿਵੇਂ ਰਿਹਾ?</string>
 	<string name="no_thanks_text" translatable="true">ਨਹੀਂ ਧੰਨਵਾਦ</string>
 	<string name="lets_use_know_text" translatable="true">ਸਾਨੂੰ ਦੱਸੋ ਕਿ ਐਪ ਨੂੰ ਸੁਧਾਰਨ ਲਈ ਅਸੀਂ ਕੀ ਕਰ ਸਕਦੇ ਹਾਂ?</string>

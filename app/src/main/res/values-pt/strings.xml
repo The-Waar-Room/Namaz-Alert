@@ -59,9 +59,7 @@
 	<string name="app_setting_text" translatable="true">Configuração do aplicativo</string>
 	<string name="change_language_text" translatable="true">"Mudar idioma "</string>
 	<string name="developer_name" translatable="true">Criado por %1$s</string>
-	<string name="share_code_text" translatable="true">Código de compartilhamento</string>
-	<string name="workOnProgress_text" translatable="true">Trabalhar no progresso</string>
-	<string name="click_back_text" translatable="true">Clique novamente para sair</string>
+    <string name="click_back_text" translatable="true">Clique novamente para sair</string>
 	<string name="yes_string" translatable="true">Sim</string>
 	<string name="no_string" translatable="true">Não</string>
 	<string name="notification_title_text" translatable="true">Alerta de oração: %1$s</string>
@@ -117,8 +115,7 @@
 	<string name="wouldnt_you_love_to_stay_text" translatable="true">Você não quer um alerta quando chegar a hora da sua oração de Namaz? Com certeza! Você é um verdadeiro devoto. Pressione o botão \'Seja notificado\' abaixo e mantenha -se abençoado em seu caminho espiritual.</string>
 	<string name="skip_text" translatable="true">Pular</string>
 	<string name="get_notified_text" translatable="true">Seja notificado</string>
-	<string name="no_qr_codeand_barcode_found_text" translatable="true">Nenhum código QR ou código de barras encontrado na imagem</string>
-	<string name="permission_not_granted_by_the_user_text" translatable="true">Permissões não concedidas pelo usuário.</string>
+    <string name="permission_not_granted_by_the_user_text" translatable="true">Permissões não concedidas pelo usuário.</string>
 	<string name="how_was_your_experience_text" translatable="true">Como foi sua experiência com este aplicativo?</string>
 	<string name="no_thanks_text" translatable="true">Não, obrigado</string>
 	<string name="lets_use_know_text" translatable="true">Deixe -nos saber o que podemos fazer para melhorar o aplicativo?</string>

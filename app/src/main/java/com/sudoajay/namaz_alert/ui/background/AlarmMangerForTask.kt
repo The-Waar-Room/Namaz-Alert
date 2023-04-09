@@ -129,41 +129,42 @@ class AlarmMangerForTask @Inject constructor(var context: Context) {
                         getCurrentTimeWithSeconds(), "$startTime:00"
                     ) > 0)
                 ) {
-//                    alarmsScheduler.setInexactAlarm(
-//                        dataShare,
-//                        System.currentTimeMillis() + ( 1000 * 60 * (getDiffMinute(currentTime,startTime)-timeGapInEveryWhere)  )
-//                    )
-//
-//                    alarmsScheduler.setUpRTCAlarm(
-//                        dataShare,
-//                        alertNotify,
-//                        System.currentTimeMillis() + (1000 * 60 * (getDiffMinute(currentTime,startTime))  ),
-//                        pendingExactAlertAlarmRequestCode
-//                    )
-//                    alarmsScheduler.setUpRTCAlarm(
-//                        dataShare,
-//                        finishNotify,
-//                        System.currentTimeMillis() + (1000 * 60 * (getDiffMinute(currentTime,endTime))  ),
-//                        pendingExactFinishAlarmRequestCode
-//                    )
-
                     alarmsScheduler.setInexactAlarm(
                         dataShare,
-                        System.currentTimeMillis() + ( 1000 * 5   )
+                        System.currentTimeMillis() + ( 1000 * 60 * (getDiffMinute(currentTime,startTime)-timeGapInEveryWhere)  )
                     )
 
                     alarmsScheduler.setUpRTCAlarm(
                         dataShare,
                         alertNotify,
-                        System.currentTimeMillis() + (1000 * 10   ),
+                        System.currentTimeMillis() + (1000 * 60 * (getDiffMinute(currentTime,startTime))  ),
                         pendingExactAlertAlarmRequestCode
                     )
                     alarmsScheduler.setUpRTCAlarm(
                         dataShare,
                         finishNotify,
-                        System.currentTimeMillis() + (1000 * 90  ),
+                        System.currentTimeMillis() + (1000 * 60 * (getDiffMinute(currentTime,endTime))  ),
                         pendingExactFinishAlarmRequestCode
                     )
+
+
+//                    alarmsScheduler.setInexactAlarm(
+//                        dataShare,
+//                        System.currentTimeMillis() + ( 1000 * 5   )
+//                    )
+//
+//                    alarmsScheduler.setUpRTCAlarm(
+//                        dataShare,
+//                        alertNotify,
+//                        System.currentTimeMillis() + (1000 * 10   ),
+//                        pendingExactAlertAlarmRequestCode
+//                    )
+//                    alarmsScheduler.setUpRTCAlarm(
+//                        dataShare,
+//                        finishNotify,
+//                        System.currentTimeMillis() + (1000 * 90  ),
+//                        pendingExactFinishAlarmRequestCode
+//                    )
                 }
                 else {
                     alarmsScheduler.setInexactAlarmAlarmManger(

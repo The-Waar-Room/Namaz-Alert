@@ -59,9 +59,7 @@
 	<string name="app_setting_text" translatable="true">ऐप सेटिंग</string>
 	<string name="change_language_text" translatable="true">"भाषा बदलें "</string>
 	<string name="developer_name" translatable="true">%1$sद्वारा बनाया गया</string>
-	<string name="share_code_text" translatable="true">शेयर कोड</string>
-	<string name="workOnProgress_text" translatable="true">प्रगति पर काम करें</string>
-	<string name="click_back_text" translatable="true">बाहर निकलने के लिए फिर से वापस क्लिक करें</string>
+    <string name="click_back_text" translatable="true">बाहर निकलने के लिए फिर से वापस क्लिक करें</string>
 	<string name="yes_string" translatable="true">हाँ</string>
 	<string name="no_string" translatable="true">नहीं</string>
 	<string name="notification_title_text" translatable="true">प्रार्थना चेतावनी: %1$s</string>
@@ -117,8 +115,7 @@
 	<string name="wouldnt_you_love_to_stay_text" translatable="true">जब आप अपनी नमाज प्रार्थना के लिए समय हो तो क्या आप अलर्ट नहीं चाहते हैं? तुम अवश्य करो! तुम एक सच्चे भक्त हो। नीचे दिए गए \'सूचित\' बटन दबाएं और अपने आध्यात्मिक पथ पर धन्य रहें।</string>
 	<string name="skip_text" translatable="true">छोडना</string>
 	<string name="get_notified_text" translatable="true">सूचित किया गया</string>
-	<string name="no_qr_codeand_barcode_found_text" translatable="true">छवि में कोई क्यूआर-कोड या बारकोड नहीं मिला</string>
-	<string name="permission_not_granted_by_the_user_text" translatable="true">उपयोगकर्ता द्वारा अनुमति नहीं दी गई है।</string>
+    <string name="permission_not_granted_by_the_user_text" translatable="true">उपयोगकर्ता द्वारा अनुमति नहीं दी गई है।</string>
 	<string name="how_was_your_experience_text" translatable="true">इस ऐप के साथ आपका अनुभव कैसा रहा?</string>
 	<string name="no_thanks_text" translatable="true">जी नहीं, धन्यवाद</string>
 	<string name="lets_use_know_text" translatable="true">हमें बताएं कि हम ऐप को बेहतर बनाने के लिए क्या कर सकते हैं?</string>

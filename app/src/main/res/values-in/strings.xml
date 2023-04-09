@@ -59,9 +59,7 @@
 	<string name="app_setting_text" translatable="true">Pengaturan Aplikasi</string>
 	<string name="change_language_text" translatable="true">"Ganti BAHASA "</string>
 	<string name="developer_name" translatable="true">Dibuat oleh %1$s</string>
-	<string name="share_code_text" translatable="true">Bagikan Kode</string>
-	<string name="workOnProgress_text" translatable="true">Bekerja pada kemajuan</string>
-	<string name="click_back_text" translatable="true">Klik kembali lagi untuk keluar</string>
+    <string name="click_back_text" translatable="true">Klik kembali lagi untuk keluar</string>
 	<string name="yes_string" translatable="true">Ya</string>
 	<string name="no_string" translatable="true">TIDAK</string>
 	<string name="notification_title_text" translatable="true">Peringatan Doa: %1$s</string>
@@ -117,8 +115,7 @@
 	<string name="wouldnt_you_love_to_stay_text" translatable="true">Apakah Anda tidak ingin peringatan kapan saatnya untuk doa namaz Anda? Yakin kamu, lakukan! Anda seorang penyembah sejati. Tekan tombol \'dapatkan pemberitahuan\' di bawah ini dan tetap diberkati di jalur spiritual Anda.</string>
 	<string name="skip_text" translatable="true">Melewati</string>
 	<string name="get_notified_text" translatable="true">Dapatkan pemberitahuan</string>
-	<string name="no_qr_codeand_barcode_found_text" translatable="true">Tidak ada kode qR atau barcode yang ditemukan di gambar</string>
-	<string name="permission_not_granted_by_the_user_text" translatable="true">Izin yang tidak diberikan oleh pengguna.</string>
+    <string name="permission_not_granted_by_the_user_text" translatable="true">Izin yang tidak diberikan oleh pengguna.</string>
 	<string name="how_was_your_experience_text" translatable="true">Bagaimana pengalaman Anda dengan aplikasi ini?</string>
 	<string name="no_thanks_text" translatable="true">Tidak, terima kasih</string>
 	<string name="lets_use_know_text" translatable="true">Beri tahu kami apa yang dapat kami lakukan untuk meningkatkan aplikasi?</string>

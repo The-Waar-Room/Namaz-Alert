@@ -59,9 +59,7 @@
 	<string name="app_setting_text" translatable="true">App -Einstellung</string>
 	<string name="change_language_text" translatable="true">"Sprache ändern "</string>
 	<string name="developer_name" translatable="true">Erstellt von %1$s</string>
-	<string name="share_code_text" translatable="true">Code teilen</string>
-	<string name="workOnProgress_text" translatable="true">Arbeiten am Fortschritt</string>
-	<string name="click_back_text" translatable="true">Klicken Sie erneut zurück, um zu beenden</string>
+    <string name="click_back_text" translatable="true">Klicken Sie erneut zurück, um zu beenden</string>
 	<string name="yes_string" translatable="true">Ja</string>
 	<string name="no_string" translatable="true">NEIN</string>
 	<string name="notification_title_text" translatable="true">Gebetswarnung: %1$s</string>
@@ -117,8 +115,7 @@
 	<string name="wouldnt_you_love_to_stay_text" translatable="true">Willst du nicht eine Warnung, wenn es Zeit für dein Namaz -Gebet ist? Natürlich tust du das! Du bist ein echter Anhänger. Drücken Sie unten auf den Taste "Benachrichtigt" und bleiben Sie auf Ihrem spirituellen Weg gesegnet.</string>
 	<string name="skip_text" translatable="true">Überspringen</string>
 	<string name="get_notified_text" translatable="true">Benachrichtigt werden</string>
-	<string name="no_qr_codeand_barcode_found_text" translatable="true">Kein QR-Code oder Barcode im Bild gefunden</string>
-	<string name="permission_not_granted_by_the_user_text" translatable="true">Vom Benutzer nicht erteilte Berechtigungen.</string>
+    <string name="permission_not_granted_by_the_user_text" translatable="true">Vom Benutzer nicht erteilte Berechtigungen.</string>
 	<string name="how_was_your_experience_text" translatable="true">Wie war Ihre Erfahrung mit dieser App?</string>
 	<string name="no_thanks_text" translatable="true">Nein danke</string>
 	<string name="lets_use_know_text" translatable="true">Lassen Sie uns wissen, was wir tun können, um die App zu verbessern?</string>

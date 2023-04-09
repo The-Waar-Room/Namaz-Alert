@@ -59,9 +59,7 @@
 	<string name="app_setting_text" translatable="true">অ্যাপ সেটিং</string>
 	<string name="change_language_text" translatable="true">"ভাষা পরিবর্তন করুন "</string>
 	<string name="developer_name" translatable="true">%1$sদ্বারা নির্মিত</string>
-	<string name="share_code_text" translatable="true">শেয়ার কোড</string>
-	<string name="workOnProgress_text" translatable="true">অগ্রগতি কাজ</string>
-	<string name="click_back_text" translatable="true">প্রস্থান করতে আবার ফিরে ক্লিক করুন</string>
+    <string name="click_back_text" translatable="true">প্রস্থান করতে আবার ফিরে ক্লিক করুন</string>
 	<string name="yes_string" translatable="true">হ্যাঁ</string>
 	<string name="no_string" translatable="true">না</string>
 	<string name="notification_title_text" translatable="true">প্রার্থনা সতর্কতা: %1$s</string>
@@ -117,8 +115,7 @@
 	<string name="wouldnt_you_love_to_stay_text" translatable="true">আপনার নামাজ প্রার্থনার সময় যখন আপনি কোনও সতর্কতা চান না? নিশ্চিত করুন যে আপনি না! আপনি একজন সত্যিকারের ভক্ত নীচে \'বিজ্ঞপ্তি\' বোতামটি টিপুন এবং আপনার আধ্যাত্মিক পথে আশীর্বাদ থাকুন।</string>
 	<string name="skip_text" translatable="true">এড়িয়ে যান</string>
 	<string name="get_notified_text" translatable="true">বিজ্ঞপ্তি পান</string>
-	<string name="no_qr_codeand_barcode_found_text" translatable="true">চিত্রটিতে কোনও কিউআর-কোড বা বারকোড পাওয়া যায় নি</string>
-	<string name="permission_not_granted_by_the_user_text" translatable="true">অনুমতিগুলি ব্যবহারকারীর দ্বারা অনুমোদিত নয়।</string>
+    <string name="permission_not_granted_by_the_user_text" translatable="true">অনুমতিগুলি ব্যবহারকারীর দ্বারা অনুমোদিত নয়।</string>
 	<string name="how_was_your_experience_text" translatable="true">এই অ্যাপ্লিকেশনটির সাথে আপনার অভিজ্ঞতা কেমন ছিল?</string>
 	<string name="no_thanks_text" translatable="true">না ধন্যবাদ</string>
 	<string name="lets_use_know_text" translatable="true">অ্যাপ্লিকেশনটি উন্নত করতে আমরা কী করতে পারি তা আমাদের জানান?</string>
