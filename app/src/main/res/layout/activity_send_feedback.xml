@@ -6,7 +6,7 @@
     <data>
         <variable
             name="activity"
-            type="com.sudoajay.namaz_alert.ui.feedbackAndHelp.SendFeedbackAndHelp" />
+            type="com.sudoajay.triumph_path.ui.feedbackAndHelp.SendFeedbackAndHelp" />
     </data>
 
     <ScrollView

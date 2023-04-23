@@ -7,7 +7,7 @@
 
         <variable
             name="fragment"
-            type="com.sudoajay.namaz_alert.ui.editDailyPrayer.EditDailyPrayerFragment" />
+            type="com.sudoajay.triumph_path.ui.editDailyPrayer.EditDailyPrayerFragment" />
 
     </data>
 

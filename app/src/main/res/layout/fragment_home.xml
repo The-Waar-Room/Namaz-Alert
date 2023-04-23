@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.sudoajay.namaz_alert.ui.home.DailyPrayerViewModel" />
+            type="com.sudoajay.triumph_path.ui.home.DailyPrayerViewModel" />
 
     </data>
 

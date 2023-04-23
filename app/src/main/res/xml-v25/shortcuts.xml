@@ -9,8 +9,8 @@
         android:shortcutDisabledMessage="@string/shortcut_notification_sound_text">
         <intent
             android:action="NotificationSound"
-            android:targetPackage="com.sudoajay.namaz_alert"
-            android:targetClass="com.sudoajay.namaz_alert.ui.mainActivity.MainActivity" />
+            android:targetPackage="com.sudoajay.triumph_path"
+            android:targetClass="com.sudoajay.triumph_path.ui.mainActivity.MainActivity" />
     </shortcut>
 
     <shortcut
@@ -22,8 +22,8 @@
         android:shortcutDisabledMessage="@string/shortcut_phone_mode_text">
         <intent
             android:action="VibrateMode"
-            android:targetPackage="com.sudoajay.namaz_alert"
-            android:targetClass="com.sudoajay.namaz_alert.ui.mainActivity.MainActivity" />
+            android:targetPackage="com.sudoajay.triumph_path"
+            android:targetClass="com.sudoajay.triumph_path.ui.mainActivity.MainActivity" />
     </shortcut>
 
     <shortcut
@@ -35,8 +35,8 @@
         android:shortcutDisabledMessage="@string/shortcut_next_prayer_text">
         <intent
             android:action="NextPrayer"
-            android:targetPackage="com.sudoajay.namaz_alert"
-            android:targetClass="com.sudoajay.namaz_alert.ui.mainActivity.MainActivity" />
+            android:targetPackage="com.sudoajay.triumph_path"
+            android:targetClass="com.sudoajay.triumph_path.ui.mainActivity.MainActivity" />
     </shortcut>
 
 </shortcuts>

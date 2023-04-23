@@ -9,7 +9,7 @@
 
         <variable
             name="bottomSheet"
-            type="com.sudoajay.namaz_alert.ui.bottomSheet.DoNotDisturbPermissionBottomSheet" />
+            type="com.sudoajay.triumph_path.ui.bottomSheet.DoNotDisturbPermissionBottomSheet" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

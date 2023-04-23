@@ -7,7 +7,7 @@
 
         <variable
             name="fragment"
-            type="com.sudoajay.namaz_alert.ui.notification.NotificationPermissionFragment" />
+            type="com.sudoajay.triumph_path.ui.notification.NotificationPermissionFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -6,7 +6,7 @@
     <data>
         <variable
             name="dialog"
-            type="com.sudoajay.namaz_alert.ui.feedbackAndHelp.SystemInfoDialog" />
+            type="com.sudoajay.triumph_path.ui.feedbackAndHelp.SystemInfoDialog" />
     </data>
 
     <LinearLayout

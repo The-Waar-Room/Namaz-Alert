@@ -6,10 +6,10 @@
     <data>
         <variable
             name="selectLanguageViewModel"
-            type="com.sudoajay.namaz_alert.ui.notificationSound.SelectNotificationSoundViewModel" />
+            type="com.sudoajay.triumph_path.ui.notificationSound.SelectNotificationSoundViewModel" />
         <variable
             name="fragment"
-            type="com.sudoajay.namaz_alert.ui.notificationSound.SelectNotificationSoundFragment" />
+            type="com.sudoajay.triumph_path.ui.notificationSound.SelectNotificationSoundFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

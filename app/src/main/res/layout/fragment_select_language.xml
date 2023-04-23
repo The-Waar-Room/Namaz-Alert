@@ -7,11 +7,11 @@
 
         <variable
             name="selectLanguageViewModel"
-            type="com.sudoajay.namaz_alert.ui.language.SelectLanguageViewModel" />
+            type="com.sudoajay.triumph_path.ui.language.SelectLanguageViewModel" />
 
         <variable
             name="fragment"
-            type="com.sudoajay.namaz_alert.ui.language.SelectLanguageFragment" />
+            type="com.sudoajay.triumph_path.ui.language.SelectLanguageFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

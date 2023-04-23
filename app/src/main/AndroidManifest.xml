@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.sudoajay.namaz_alert">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.sudoajay.triumph_path">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.VIBRATE" />
@@ -15,9 +16,12 @@
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
 
+<!--No add -->
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID" tools:node="remove"/>
+
 
     <application
-        android:name=".ui.MainApplication"
+        android:name="com.sudoajay.triumph_path.ui.MainApplication"
         android:allowBackup="true"
         android:fullBackupOnly="false"
         android:icon="@mipmap/ic_launcher"
@@ -26,7 +30,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MySplash">
         <activity
-            android:name=".ui.mainActivity.MainActivity"
+            android:name="com.sudoajay.triumph_path.ui.mainActivity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -38,17 +42,17 @@
                 android:resource="@xml/shortcuts" />
         </activity>
 
-        <activity android:name=".ui.BaseActivity" />
+        <activity android:name="com.sudoajay.triumph_path.ui.BaseActivity" />
         <activity
             android:theme="@style/AppTheme.NoActionBar"
-            android:name=".ui.feedbackAndHelp.SendFeedbackAndHelp"/>
+            android:name="com.sudoajay.triumph_path.ui.feedbackAndHelp.SendFeedbackAndHelp"/>
         <activity
-            android:name=".ui.setting.SettingsActivity"
+            android:name="com.sudoajay.triumph_path.ui.setting.SettingsActivity"
             android:label="@string/setting_text"
             android:theme="@style/SettingAppTheme" />
 
         <activity
-            android:name=".ui.background.WrapperActivity"
+            android:name="com.sudoajay.triumph_path.ui.background.WrapperActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|navigation"
             android:excludeFromRecents="true"
             android:launchMode="singleInstance"
@@ -61,7 +65,7 @@
 
 
         <receiver
-            android:name=".ui.background.BroadcastAlarmReceiver"
+            android:name="com.sudoajay.triumph_path.ui.background.BroadcastAlarmReceiver"
             android:exported="false">
         <intent-filter>
                 <action android:name="${applicationId}.ACTION_FIRED" />
@@ -77,7 +81,7 @@
         </receiver>
 
         <service
-            android:name=".ui.notification.firebase.MyFirebaseMessagingService"
+            android:name="com.sudoajay.triumph_path.ui.notification.firebase.MyFirebaseMessagingService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />

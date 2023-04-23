@@ -9,7 +9,7 @@
 
         <variable
             name="navigation"
-            type="com.sudoajay.namaz_alert.ui.bottomSheet.NavigationDrawerBottomSheet" />
+            type="com.sudoajay.triumph_path.ui.bottomSheet.NavigationDrawerBottomSheet" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

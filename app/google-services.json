@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:825220150866:android:89ea86b8c9ac5778cc918b",
+        "mobilesdk_app_id": "1:825220150866:android:e208b4048a31f2a6cc918b",
         "android_client_info": {
-          "package_name": "com.sudoajay.namaz_alert"
+          "package_name": "com.sudoajay.triumph_path"
         }
       },
       "oauth_client": [

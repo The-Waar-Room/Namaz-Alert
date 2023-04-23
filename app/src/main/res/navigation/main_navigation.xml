@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_firebasePushNotificationFragment"
-        android:name="com.sudoajay.namaz_alert.ui.notification.NotificationPermissionFragment"
+        android:name="com.sudoajay.triumph_path.ui.notification.NotificationPermissionFragment"
         android:label="FirebasePushNotificationFragment"
         tools:layout="@layout/fragment_notification_permission">
 
@@ -22,7 +22,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.sudoajay.namaz_alert.ui.home.HomeFragment"
+        android:name="com.sudoajay.triumph_path.ui.home.HomeFragment"
         android:label="HomeFragment"
         tools:layout="@layout/fragment_home">
         <action
@@ -49,7 +49,7 @@
     </fragment>
     <fragment
         android:id="@+id/editDailyPrayerFragment"
-        android:name="com.sudoajay.namaz_alert.ui.editDailyPrayer.EditDailyPrayerFragment"
+        android:name="com.sudoajay.triumph_path.ui.editDailyPrayer.EditDailyPrayerFragment"
         android:label="EditDailyPrayerFragment"
         tools:layout="@layout/fragment_edit_daily_prayer">
         <argument
@@ -69,12 +69,12 @@
     </fragment>
     <fragment
         android:id="@+id/selectLanguageFragment"
-        android:name="com.sudoajay.namaz_alert.ui.language.SelectLanguageFragment"
+        android:name="com.sudoajay.triumph_path.ui.language.SelectLanguageFragment"
         android:label="SelectLanguageFragment"
         tools:layout="@layout/fragment_select_language" />
     <fragment
         android:id="@+id/selectRingtoneFragment"
-        android:name="com.sudoajay.namaz_alert.ui.notificationSound.SelectNotificationSoundFragment"
+        android:name="com.sudoajay.triumph_path.ui.notificationSound.SelectNotificationSoundFragment"
         android:label="SelectRingtoneFragment"
         tools:layout="@layout/fragment_select_notification_sound"/>
 </navigation>
