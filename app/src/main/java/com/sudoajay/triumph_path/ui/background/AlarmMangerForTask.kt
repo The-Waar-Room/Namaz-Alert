@@ -129,23 +129,23 @@ class AlarmMangerForTask @Inject constructor(var context: Context) {
                         getCurrentTimeWithSeconds(), "$startTime:00"
                     ) > 0)
                 ) {
-                    alarmsScheduler.setInexactAlarm(
-                        dataShare,
-                        System.currentTimeMillis() + ( 1000 * 60 * (getDiffMinute(currentTime,startTime)-timeGapInEveryWhere)  )
-                    )
-
-                    alarmsScheduler.setUpRTCAlarm(
-                        dataShare,
-                        alertNotify,
-                        System.currentTimeMillis() + (1000 * 60 * (getDiffMinute(currentTime,startTime))  ),
-                        pendingExactAlertAlarmRequestCode
-                    )
-                    alarmsScheduler.setUpRTCAlarm(
-                        dataShare,
-                        finishNotify,
-                        System.currentTimeMillis() + (1000 * 60 * (getDiffMinute(currentTime,endTime))  ),
-                        pendingExactFinishAlarmRequestCode
-                    )
+//                    alarmsScheduler.setInexactAlarm(
+//                        dataShare,
+//                        System.currentTimeMillis() + ( 1000 * 60 * (getDiffMinute(currentTime,startTime)-timeGapInEveryWhere)  )
+//                    )
+//
+//                    alarmsScheduler.setUpRTCAlarm(
+//                        dataShare,
+//                        alertNotify,
+//                        System.currentTimeMillis() + (1000 * 60 * (getDiffMinute(currentTime,startTime))  ),
+//                        pendingExactAlertAlarmRequestCode
+//                    )
+//                    alarmsScheduler.setUpRTCAlarm(
+//                        dataShare,
+//                        finishNotify,
+//                        System.currentTimeMillis() + (1000 * 60 * (getDiffMinute(currentTime,endTime))  ),
+//                        pendingExactFinishAlarmRequestCode
+//                    )
 
 
 //                    alarmsScheduler.setInexactAlarm(
@@ -162,7 +162,7 @@ class AlarmMangerForTask @Inject constructor(var context: Context) {
 //                    alarmsScheduler.setUpRTCAlarm(
 //                        dataShare,
 //                        finishNotify,
-//                        System.currentTimeMillis() + (1000 * 90  ),
+//                        System.currentTimeMillis() + (1000 * 30  ),
 //                        pendingExactFinishAlarmRequestCode
 //                    )
                 }
@@ -220,13 +220,13 @@ class AlarmMangerForTask @Inject constructor(var context: Context) {
                 context.applicationContext,
                 pendingExactFinishAlarmRequestCode,
                 intent,
-                PendingIntent.FLAG_NO_CREATE
+                PendingIntent.FLAG_NO_CREATE or PendingIntent.FLAG_IMMUTABLE
             )
             isBackupServiceAlarmSet = PendingIntent.getBroadcast(
                 context.applicationContext,
                 pendingExactFinishAlarmRequestCode,
                 intent,
-                PendingIntent.FLAG_NO_CREATE
+                PendingIntent.FLAG_NO_CREATE or PendingIntent.FLAG_IMMUTABLE
             ) != null
         }
 

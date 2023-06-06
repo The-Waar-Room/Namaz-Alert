@@ -11,7 +11,7 @@
 	<string name="am_text" translatable="true">是</string>
 	<string name="pm_text" translatable="true">下午</string>
 	<string name="successfully_selected_text" translatable="true">成功选择</string>
-	<string name="you_cant_select_30min_text" translatable="true"> 您无法选择超过30分钟的最大限制</string>
+	<string name="you_cant_select_30min_text" translatable="true"> 您无法选择超过2小时的最大限制</string>
 	<string name="you_cant_past_select_30min_text" translatable="true"> 您不能选择过去的30分钟</string>
 	<string name="you_cant_select_text" translatable="true"> 您无法选择超过最大限制</string>
 	<string name="time_reset_successfully_text" translatable="true"> 时间成功重置</string>
@@ -59,7 +59,7 @@
 	<string name="app_setting_text" translatable="true">应用程序设置</string>
 	<string name="change_language_text" translatable="true">“改变语言 ”</string>
 	<string name="developer_name" translatable="true">由 %1$s创建</string>
-    <string name="click_back_text" translatable="true">单击再次退出</string>
+	<string name="click_back_text" translatable="true">单击再次退出</string>
 	<string name="yes_string" translatable="true">是的</string>
 	<string name="no_string" translatable="true">不</string>
 	<string name="notification_title_text" translatable="true">祈祷警报： %1$s</string>
@@ -111,11 +111,15 @@
 	<string name="turkish_text" translatable="true">土耳其</string>
 	<string name="vietnamese_text" translatable="true">越南人</string>
 	<string name="chinese_text" translatable="true">中国人</string>
+	<string name="arabic_text" translatable="true">阿拉伯</string>
+	<string name="hebrew_text" translatable="true">希伯来语</string>
+	<string name="persian_text" translatable="true">波斯语</string>
+	<string name="urdu_text" translatable="true">乌尔都语</string>
 	<string name="you_are_a_sports_junkie_text" translatable="true">你是真正的真主信徒！</string>
 	<string name="wouldnt_you_love_to_stay_text" translatable="true">当您的纳马兹祈祷时，您不想警报吗？当然，你做！你是一个真正的奉献者。按下“获取通知”按钮，并在您的精神道路上保持幸福。</string>
 	<string name="skip_text" translatable="true">跳过</string>
 	<string name="get_notified_text" translatable="true">通知</string>
-    <string name="permission_not_granted_by_the_user_text" translatable="true">用户未授予的权限。</string>
+	<string name="permission_not_granted_by_the_user_text" translatable="true">用户未授予的权限。</string>
 	<string name="how_was_your_experience_text" translatable="true">您对此应用的经历如何？</string>
 	<string name="no_thanks_text" translatable="true">不，谢谢</string>
 	<string name="lets_use_know_text" translatable="true">让我们知道我们可以做些什么来改进该应用程序？</string>

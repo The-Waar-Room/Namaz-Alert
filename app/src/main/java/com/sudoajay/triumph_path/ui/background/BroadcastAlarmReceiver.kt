@@ -64,7 +64,7 @@ class BroadcastAlarmReceiver : BroadcastReceiver() {
                     Helper.setIsAlarmMangerCancel(context, false)
                     val notificationRingtone = Helper.getNotificationRingtone(context)
                     val phoneMode = Helper.getPhoneMode(context = context)
-                    Helper.setPreviousPhoneMode(context, previousMode)
+                    Helper.setPreviousPhoneMode(context, phoneMode)
 
 
 

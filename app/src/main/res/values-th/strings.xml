@@ -11,7 +11,7 @@
 	<string name="am_text" translatable="true">เช้า</string>
 	<string name="pm_text" translatable="true">น.</string>
 	<string name="successfully_selected_text" translatable="true">เลือกสำเร็จ</string>
-	<string name="you_cant_select_30min_text" translatable="true"> คุณไม่สามารถเลือกผ่านขีด จำกัด สูงสุด 30 นาที</string>
+	<string name="you_cant_select_30min_text" translatable="true"> คุณไม่สามารถเลือกผ่านขีด จำกัด สูงสุด 2 ชั่วโมง</string>
 	<string name="you_cant_past_select_30min_text" translatable="true"> คุณไม่สามารถเลือกได้ 30 นาทีที่ผ่านมา</string>
 	<string name="you_cant_select_text" translatable="true"> คุณไม่สามารถเลือกผ่านขีด จำกัด สูงสุดได้</string>
 	<string name="time_reset_successfully_text" translatable="true"> รีเซ็ตเวลาสำเร็จ</string>
@@ -59,7 +59,7 @@
 	<string name="app_setting_text" translatable="true">การตั้งค่าแอพ</string>
 	<string name="change_language_text" translatable="true">"เปลี่ยนภาษา "</string>
 	<string name="developer_name" translatable="true">สร้างโดย %1$s</string>
-    <string name="click_back_text" translatable="true">คลิกกลับอีกครั้งเพื่อออก</string>
+	<string name="click_back_text" translatable="true">คลิกกลับอีกครั้งเพื่อออก</string>
 	<string name="yes_string" translatable="true">ใช่</string>
 	<string name="no_string" translatable="true">เลขที่</string>
 	<string name="notification_title_text" translatable="true">การแจ้งเตือนการอธิษฐาน: %1$s</string>
@@ -82,7 +82,7 @@
 	<string name="require_do_not_disturb_permission_text" translatable="true">แอปต้องการอย่ารบกวนการอนุญาต</string>
 	<string name="require_uses_do_not_disturb_permission_text" translatable="true">แอพต้องการการอนุญาตให้ไม่รบกวนเพื่อเปลี่ยนไปใช้โหมดเงียบหรือสั่นสะเทือนในระหว่างเซสชันที่ใช้งานอยู่</string>
 	<string name="we_do_not_collect_text" translatable="true">เราไม่รวบรวมหรือแบ่งปันข้อมูลส่วนบุคคลหรือที่ละเอียดอ่อนใด ๆ ที่ได้รับจากอย่ารบกวนการอนุญาต</string>
-	<string name="all_information_provided_by_text" translatable="true">ข้อมูลทั้งหมดที่ได้รับจากอย่ารบกวนการอนุญาตจะถูกเก็บไว้ในอุปกรณ์ของคุณและจะถูกส่งถึงเราด้วยความยินยอมของคุณเพื่อจุดประสงค์ในการแก้ไขปัญหา</string>
+	<string name="all_information_provided_by_text" translatable="true">ข้อมูลทั้งหมดที่ได้รับจากอย่ารบกวนการอนุญาตจะถูกเก็บไว้ในเครื่องบนอุปกรณ์ของคุณและจะถูกส่งถึงเราด้วยความยินยอมของคุณเพื่อจุดประสงค์ในการแก้ไขปัญหา</string>
 	<string name="allow_text" translatable="true">อนุญาต</string>
 	<string name="do_not_disturb_permission_text" translatable="true">การอนุญาต DND</string>
 	<string name="permission_already_given_text" translatable="true">ได้รับอนุญาตแล้ว</string>
@@ -111,11 +111,15 @@
 	<string name="turkish_text" translatable="true">ตุรกี</string>
 	<string name="vietnamese_text" translatable="true">เวียดนาม</string>
 	<string name="chinese_text" translatable="true">ชาวจีน</string>
+	<string name="arabic_text" translatable="true">ภาษาอาหรับ</string>
+	<string name="hebrew_text" translatable="true">ภาษาฮีบรู</string>
+	<string name="persian_text" translatable="true">ชาวเปอร์เซีย</string>
+	<string name="urdu_text" translatable="true">ภาษาอูรดู</string>
 	<string name="you_are_a_sports_junkie_text" translatable="true">คุณเป็นผู้เชื่ออัลลอฮ์ที่แท้จริง!</string>
 	<string name="wouldnt_you_love_to_stay_text" translatable="true">คุณไม่ต้องการการแจ้งเตือนเมื่อถึงเวลาสำหรับการสวดมนต์ Namaz ของคุณหรือไม่? แน่ใจว่าคุณทำ! คุณเป็นผู้นับถือศรัทธาที่แท้จริง กดปุ่ม \'Get Netified\' ด้านล่างและคงความสุขบนเส้นทางจิตวิญญาณของคุณ</string>
 	<string name="skip_text" translatable="true">ข้าม</string>
 	<string name="get_notified_text" translatable="true">ได้รับแจ้ง</string>
-    <string name="permission_not_granted_by_the_user_text" translatable="true">ผู้ใช้ไม่ได้รับอนุญาต</string>
+	<string name="permission_not_granted_by_the_user_text" translatable="true">ผู้ใช้ไม่ได้รับอนุญาต</string>
 	<string name="how_was_your_experience_text" translatable="true">ประสบการณ์ของคุณกับแอพนี้เป็นอย่างไรบ้าง?</string>
 	<string name="no_thanks_text" translatable="true">ไม่เป็นไรขอบคุณ</string>
 	<string name="lets_use_know_text" translatable="true">แจ้งให้เราทราบว่าเราจะทำอย่างไรเพื่อปรับปรุงแอพ?</string>

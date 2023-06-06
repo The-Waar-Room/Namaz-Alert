@@ -11,7 +11,7 @@
 	<string name="am_text" translatable="true">là</string>
 	<string name="pm_text" translatable="true">buổi chiều</string>
 	<string name="successfully_selected_text" translatable="true">Được chọn thành công</string>
-	<string name="you_cant_select_30min_text" translatable="true"> Bạn không thể chọn qua giới hạn tối đa là 30 phút</string>
+	<string name="you_cant_select_30min_text" translatable="true"> Bạn không thể chọn qua giới hạn tối đa là 2 giờ</string>
 	<string name="you_cant_past_select_30min_text" translatable="true"> Bạn không thể chọn 30 phút qua</string>
 	<string name="you_cant_select_text" translatable="true"> Bạn không thể chọn qua giới hạn tối đa</string>
 	<string name="time_reset_successfully_text" translatable="true"> Đặt lại thời gian thành công</string>
@@ -59,7 +59,7 @@
 	<string name="app_setting_text" translatable="true">Cài đặt ứng dụng</string>
 	<string name="change_language_text" translatable="true">"Thay đổi ngôn ngữ "</string>
 	<string name="developer_name" translatable="true">Được tạo bởi %1$s</string>
-    <string name="click_back_text" translatable="true">Nhấp lại một lần nữa để thoát</string>
+	<string name="click_back_text" translatable="true">Nhấp lại một lần nữa để thoát</string>
 	<string name="yes_string" translatable="true">Đúng</string>
 	<string name="no_string" translatable="true">KHÔNG</string>
 	<string name="notification_title_text" translatable="true">Cảnh báo cầu nguyện: %1$s</string>
@@ -82,7 +82,7 @@
 	<string name="require_do_not_disturb_permission_text" translatable="true">Ứng dụng yêu cầu không làm phiền sự cho phép</string>
 	<string name="require_uses_do_not_disturb_permission_text" translatable="true">Ứng dụng cần không làm phiền sự cho phép để chuyển sang chế độ im lặng hoặc rung trong các phiên hoạt động của nó.</string>
 	<string name="we_do_not_collect_text" translatable="true">Chúng tôi không thu thập hoặc chia sẻ bất kỳ thông tin cá nhân hoặc nhạy cảm nào được cung cấp bởi không làm phiền sự cho phép.</string>
-	<string name="all_information_provided_by_text" translatable="true">Tất cả thông tin được cung cấp bởi không làm phiền sự cho phép được giữ cục bộ trên thiết bị của bạn và chỉ được gửi cho chúng tôi với sự đồng ý của bạn cho mục đích khắc phục sự cố.</string>
+	<string name="all_information_provided_by_text" translatable="true">Tất cả thông tin được cung cấp bởi không làm phiền sự cho phép được lưu giữ cục bộ trên thiết bị của bạn và chỉ được gửi cho chúng tôi với sự đồng ý của bạn cho mục đích khắc phục sự cố.</string>
 	<string name="allow_text" translatable="true">Cho phép</string>
 	<string name="do_not_disturb_permission_text" translatable="true">Sự cho phép DND</string>
 	<string name="permission_already_given_text" translatable="true">Quyền đã được đưa ra</string>
@@ -111,11 +111,15 @@
 	<string name="turkish_text" translatable="true">Thổ Nhĩ Kỳ</string>
 	<string name="vietnamese_text" translatable="true">Tiếng Việt</string>
 	<string name="chinese_text" translatable="true">người Trung Quốc</string>
+	<string name="arabic_text" translatable="true">tiếng Ả Rập</string>
+	<string name="hebrew_text" translatable="true">Tiếng Do Thái</string>
+	<string name="persian_text" translatable="true">Ba Tư</string>
+	<string name="urdu_text" translatable="true">Tiếng Urdu</string>
 	<string name="you_are_a_sports_junkie_text" translatable="true">Bạn là một tín đồ của Allah thực sự!</string>
 	<string name="wouldnt_you_love_to_stay_text" translatable="true">Bạn không muốn một cảnh báo khi đến lúc cầu nguyện Namaz của bạn? Chắc chắn rằng bạn làm! Bạn là một người sùng đạo thực sự. Nhấn nút \'Nhận thông báo\' bên dưới và luôn được ban phước trên con đường tâm linh của bạn.</string>
 	<string name="skip_text" translatable="true">Nhảy</string>
 	<string name="get_notified_text" translatable="true">Nhận được thông báo</string>
-    <string name="permission_not_granted_by_the_user_text" translatable="true">Quyền không được cấp bởi người dùng.</string>
+	<string name="permission_not_granted_by_the_user_text" translatable="true">Quyền không được cấp bởi người dùng.</string>
 	<string name="how_was_your_experience_text" translatable="true">Trải nghiệm của bạn với ứng dụng này như thế nào?</string>
 	<string name="no_thanks_text" translatable="true">Không, cám ơn</string>
 	<string name="lets_use_know_text" translatable="true">Hãy cho chúng tôi biết những gì chúng tôi có thể làm để cải thiện ứng dụng?</string>

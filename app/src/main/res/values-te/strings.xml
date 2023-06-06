@@ -11,7 +11,7 @@
 	<string name="am_text" translatable="true">am</string>
 	<string name="pm_text" translatable="true">PM</string>
 	<string name="successfully_selected_text" translatable="true">విజయవంతంగా ఎంపిక చేయబడింది</string>
-	<string name="you_cant_select_30min_text" translatable="true"> మీరు గరిష్ట పరిమితిని 30 నిమిషాలు ఎంచుకోలేరు</string>
+	<string name="you_cant_select_30min_text" translatable="true"> మీరు గరిష్ట పరిమితిని 2 గంటలు ఎంచుకోలేరు</string>
 	<string name="you_cant_past_select_30min_text" translatable="true"> మీరు గత 30 నిమిషాలు ఎంచుకోలేరు</string>
 	<string name="you_cant_select_text" translatable="true"> మీరు గరిష్ట పరిమితిని ఎంచుకోలేరు</string>
 	<string name="time_reset_successfully_text" translatable="true"> సమయం విజయవంతంగా రీసెట్ చేయండి</string>
@@ -59,7 +59,7 @@
 	<string name="app_setting_text" translatable="true">అనువర్తన సెట్టింగ్</string>
 	<string name="change_language_text" translatable="true">"భాష మార్చు "</string>
 	<string name="developer_name" translatable="true">%1$sచేత సృష్టించబడింది</string>
-    <string name="click_back_text" translatable="true">నిష్క్రమించడానికి మళ్ళీ తిరిగి క్లిక్ చేయండి</string>
+	<string name="click_back_text" translatable="true">నిష్క్రమించడానికి మళ్ళీ తిరిగి క్లిక్ చేయండి</string>
 	<string name="yes_string" translatable="true">అవును</string>
 	<string name="no_string" translatable="true">లేదు</string>
 	<string name="notification_title_text" translatable="true">ప్రార్థన హెచ్చరిక: %1$s</string>
@@ -111,11 +111,15 @@
 	<string name="turkish_text" translatable="true">టర్కిష్</string>
 	<string name="vietnamese_text" translatable="true">వియత్నామీస్</string>
 	<string name="chinese_text" translatable="true">చైనీస్</string>
+	<string name="arabic_text" translatable="true">అరబిక్</string>
+	<string name="hebrew_text" translatable="true">హీబ్రూ</string>
+	<string name="persian_text" translatable="true">పెర్షియన్</string>
+	<string name="urdu_text" translatable="true">ఉర్దూ</string>
 	<string name="you_are_a_sports_junkie_text" translatable="true">మీరు నిజమైన అల్లాహ్ నమ్మినవారు!</string>
 	<string name="wouldnt_you_love_to_stay_text" translatable="true">మీ నమాజ్ ప్రార్థనకు సమయం వచ్చినప్పుడు మీకు హెచ్చరిక అక్కరలేదు? మీరు ఖచ్చితంగా! మీరు నిజమైన భక్తుడు. దిగువ \'గెట్ నోటీఫైడ్\' బటన్‌ను నొక్కండి మరియు మీ ఆధ్యాత్మిక మార్గంలో ఆశీర్వదించండి.</string>
 	<string name="skip_text" translatable="true">దాటవేయి</string>
 	<string name="get_notified_text" translatable="true">తెలియజేయండి</string>
-    <string name="permission_not_granted_by_the_user_text" translatable="true">వినియోగదారులు మంజూరు చేయలేదు.</string>
+	<string name="permission_not_granted_by_the_user_text" translatable="true">వినియోగదారులు మంజూరు చేయలేదు.</string>
 	<string name="how_was_your_experience_text" translatable="true">ఈ అనువర్తనంతో మీ అనుభవం ఎలా ఉంది?</string>
 	<string name="no_thanks_text" translatable="true">ధన్యవాదాలు</string>
 	<string name="lets_use_know_text" translatable="true">అనువర్తనాన్ని మెరుగుపరచడానికి మేము ఏమి చేయగలమో మాకు తెలియజేయండి?</string>

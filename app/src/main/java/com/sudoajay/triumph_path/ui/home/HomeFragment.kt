@@ -70,7 +70,7 @@ class HomeFragment : BaseFragment() {
         setupToolbar()
         setUpView()
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU && !Helper.IsNotificationPermissionAsked(
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU && !Helper.isNotificationPermissionAsked(
                 requireContext()
             )
         ) {

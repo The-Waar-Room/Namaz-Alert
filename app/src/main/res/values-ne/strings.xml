@@ -11,7 +11,7 @@
 	<string name="am_text" translatable="true">छु</string>
 	<string name="pm_text" translatable="true">सुगम</string>
 	<string name="successfully_selected_text" translatable="true">सफलतापूर्वक चयन गरियो</string>
-	<string name="you_cant_select_30min_text" translatable="true"> तपाईं min0 मिनेट को अधिकतम सीमा को लागी चयन गर्न सक्नुहुन्न</string>
+	<string name="you_cant_select_30min_text" translatable="true"> तपाईं 2 घण्टाको अधिकतम सीमा चयन गर्न सक्नुहुन्न</string>
 	<string name="you_cant_past_select_30min_text" translatable="true"> तपाईं min0 मिनेट को लागी चयन गर्न सक्नुहुन्न</string>
 	<string name="you_cant_select_text" translatable="true"> तपाईं अधिकतम सीमा चयन गर्न सक्नुहुन्न</string>
 	<string name="time_reset_successfully_text" translatable="true"> समय सफलतापूर्वक रिसेट गर्नुहोस्</string>
@@ -59,7 +59,7 @@
 	<string name="app_setting_text" translatable="true">अनुप्रयोग सेटिंग</string>
 	<string name="change_language_text" translatable="true">"भाषा परिवर्तन गर्नुहोस्"</string>
 	<string name="developer_name" translatable="true">%1$s द्वारा सिर्जना गरिएको</string>
-    <string name="click_back_text" translatable="true">बाहिर निस्कन फेरि पछाडि क्लिक गर्नुहोस्</string>
+	<string name="click_back_text" translatable="true">बाहिर निस्कन फेरि पछाडि क्लिक गर्नुहोस्</string>
 	<string name="yes_string" translatable="true">हुन्छ</string>
 	<string name="no_string" translatable="true">छैन</string>
 	<string name="notification_title_text" translatable="true">प्रार्थना चेतावनी: %1$s</string>
@@ -111,11 +111,15 @@
 	<string name="turkish_text" translatable="true">टर्की</string>
 	<string name="vietnamese_text" translatable="true">भियतनामी</string>
 	<string name="chinese_text" translatable="true">चीनियाँ</string>
+	<string name="arabic_text" translatable="true">अरबी</string>
+	<string name="hebrew_text" translatable="true">हिब्रू</string>
+	<string name="persian_text" translatable="true">फारसी</string>
+	<string name="urdu_text" translatable="true">उर्दू</string>
 	<string name="you_are_a_sports_junkie_text" translatable="true">तपाईं एक वास्तविक अल्लाह विश्वासी हुनुहुन्छ!</string>
 	<string name="wouldnt_you_love_to_stay_text" translatable="true">के तपाईं आफ्नो नामाजार प्रार्थनाको समय यत्तिको समय हो भने के तपाईं एक सतर्क चाहनुहुन्न? निश्चित गर्नुहोस्, गर्नुहोस्, गर्नुहोस्! तपाईं एक वास्तविक भक्त हुनुहुन्छ। तल \'सूचित\' बटन थिच्नुहोस् र तपाईंको आध्यात्मिक मार्गमा धन्यबाद दिनुहोस्।</string>
 	<string name="skip_text" translatable="true">स्कीप खेल्नु</string>
 	<string name="get_notified_text" translatable="true">सूचित हुनुहोस्</string>
-    <string name="permission_not_granted_by_the_user_text" translatable="true">अनुमतिहरू प्रयोगकर्ता द्वारा प्रदान गरिएको छैन।</string>
+	<string name="permission_not_granted_by_the_user_text" translatable="true">अनुमतिहरू प्रयोगकर्ता द्वारा प्रदान गरिएको छैन।</string>
 	<string name="how_was_your_experience_text" translatable="true">यस अनुप्रयोगको साथ तपाईंको अनुभव कस्तो रह्यो?</string>
 	<string name="no_thanks_text" translatable="true">धन्यवाद छैन</string>
 	<string name="lets_use_know_text" translatable="true">हामीलाई थाहा दिनुहोस् अनुप्रयोग सुधार गर्न हामी के गर्न सक्छौं?</string>

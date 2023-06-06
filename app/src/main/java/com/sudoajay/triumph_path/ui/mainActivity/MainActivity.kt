@@ -33,6 +33,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import kotlin.math.log
 
 
 @AndroidEntryPoint
@@ -107,7 +108,7 @@ class MainActivity : BaseActivity() {
                 openNewNotification()
         }
 
-        isPermissionAsked = Helper.IsPermissionAsked(applicationContext)
+        isPermissionAsked = Helper.isPermissionAsked(applicationContext)
         showPermissionAskedDrawer()
 
 
@@ -166,6 +167,10 @@ class MainActivity : BaseActivity() {
     }
 
     private fun showPermissionAskedDrawer() {
+        Log.e("ITag", " Build.VERSION.SDK_INT >= Build.VERSION_CODES.M " +(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) +
+                " -- isPermissionAsked "+ !isPermissionAsked + " ----- " + !(Helper.doNotDisturbPermissionAlreadyGiven(
+            applicationContext
+        )))
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !isPermissionAsked && !(Helper.doNotDisturbPermissionAlreadyGiven(
                 applicationContext
             ))

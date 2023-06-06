@@ -11,7 +11,7 @@
 	<string name="am_text" translatable="true">являюсь</string>
 	<string name="pm_text" translatable="true">вечера</string>
 	<string name="successfully_selected_text" translatable="true">Успешно выбрал</string>
-	<string name="you_cant_select_30min_text" translatable="true"> Вы не можете выбрать мимо максимального предела 30 минут</string>
+	<string name="you_cant_select_30min_text" translatable="true"> Вы не можете выбрать мимо максимального предела 2 часа</string>
 	<string name="you_cant_past_select_30min_text" translatable="true"> Вы не можете выбрать последние 30 минут</string>
 	<string name="you_cant_select_text" translatable="true"> Вы не можете выбрать мимо максимального предела</string>
 	<string name="time_reset_successfully_text" translatable="true"> Время сброс успешно</string>
@@ -59,7 +59,7 @@
 	<string name="app_setting_text" translatable="true">Настройка приложения</string>
 	<string name="change_language_text" translatable="true">"Изменение языка "</string>
 	<string name="developer_name" translatable="true">Создано %1$s</string>
-    <string name="click_back_text" translatable="true">Нажмите снова, чтобы выйти</string>
+	<string name="click_back_text" translatable="true">Нажмите снова, чтобы выйти</string>
 	<string name="yes_string" translatable="true">Да</string>
 	<string name="no_string" translatable="true">Нет</string>
 	<string name="notification_title_text" translatable="true">Оповещение о молитве: %1$s</string>
@@ -111,11 +111,15 @@
 	<string name="turkish_text" translatable="true">турецкий</string>
 	<string name="vietnamese_text" translatable="true">вьетнамский</string>
 	<string name="chinese_text" translatable="true">Китайский</string>
+	<string name="arabic_text" translatable="true">арабский</string>
+	<string name="hebrew_text" translatable="true">иврит</string>
+	<string name="persian_text" translatable="true">Персидский</string>
+	<string name="urdu_text" translatable="true">Урду</string>
 	<string name="you_are_a_sports_junkie_text" translatable="true">Ты правдивый верующий Аллах!</string>
 	<string name="wouldnt_you_love_to_stay_text" translatable="true">Разве вы не хотите предупреждать, когда пришло время для вашей молитвы намаз? Конечно, ты делай! Ты настоящий преданный. Нажмите кнопку «Получить уведомление» ниже и оставайтесь благословленными на своем духовном пути.</string>
 	<string name="skip_text" translatable="true">Пропускать</string>
 	<string name="get_notified_text" translatable="true">Получите уведомление</string>
-    <string name="permission_not_granted_by_the_user_text" translatable="true">Разрешения, не предоставленные пользователем.</string>
+	<string name="permission_not_granted_by_the_user_text" translatable="true">Разрешения, не предоставленные пользователем.</string>
 	<string name="how_was_your_experience_text" translatable="true">Как прошел ваш опыт работы с этим приложением?</string>
 	<string name="no_thanks_text" translatable="true">Нет, спасибо</string>
 	<string name="lets_use_know_text" translatable="true">Дайте нам знать, что мы можем сделать, чтобы улучшить приложение?</string>

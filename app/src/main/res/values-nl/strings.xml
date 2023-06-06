@@ -11,7 +11,7 @@
 	<string name="am_text" translatable="true">ben</string>
 	<string name="pm_text" translatable="true">p.m</string>
 	<string name="successfully_selected_text" translatable="true">Succesvol geselecteerd</string>
-	<string name="you_cant_select_30min_text" translatable="true"> U kunt niet boven de maximale limiet van 30 minuten selecteren</string>
+	<string name="you_cant_select_30min_text" translatable="true"> U kunt niet boven de maximale limiet van 2 uur selecteren</string>
 	<string name="you_cant_past_select_30min_text" translatable="true"> U kunt niet na 30 minuten selecteren</string>
 	<string name="you_cant_select_text" translatable="true"> U kunt niet voorbij de maximale limiet selecteren</string>
 	<string name="time_reset_successfully_text" translatable="true"> Tijd reset succesvol</string>
@@ -59,7 +59,7 @@
 	<string name="app_setting_text" translatable="true">App -instelling</string>
 	<string name="change_language_text" translatable="true">"Taal veranderen"</string>
 	<string name="developer_name" translatable="true">Gemaakt door %1$s</string>
-    <string name="click_back_text" translatable="true">Klik nog een keer terug om af te sluiten</string>
+	<string name="click_back_text" translatable="true">Klik nog een keer terug om af te sluiten</string>
 	<string name="yes_string" translatable="true">Ja</string>
 	<string name="no_string" translatable="true">Nee</string>
 	<string name="notification_title_text" translatable="true">Gebedalarm: %1$s</string>
@@ -111,11 +111,15 @@
 	<string name="turkish_text" translatable="true">Turks</string>
 	<string name="vietnamese_text" translatable="true">Vietnamees</string>
 	<string name="chinese_text" translatable="true">Chinese</string>
+	<string name="arabic_text" translatable="true">Arabisch</string>
+	<string name="hebrew_text" translatable="true">Hebreeuws</string>
+	<string name="persian_text" translatable="true">Perzisch</string>
+	<string name="urdu_text" translatable="true">Urdu</string>
 	<string name="you_are_a_sports_junkie_text" translatable="true">Je bent een echte Allah -gelovige!</string>
 	<string name="wouldnt_you_love_to_stay_text" translatable="true">Wil je geen waarschuwing als het tijd is voor je Namaz -gebed? Zeker jij, wel! Je bent een echte toegewijde. Druk op de onderstaande knop \'Meldt\' en blijf gezegend op uw spirituele pad.</string>
 	<string name="skip_text" translatable="true">Overslaan</string>
 	<string name="get_notified_text" translatable="true">Word op de hoogte</string>
-    <string name="permission_not_granted_by_the_user_text" translatable="true">Machtigingen die de gebruiker niet verleenden.</string>
+	<string name="permission_not_granted_by_the_user_text" translatable="true">Machtigingen die de gebruiker niet verleenden.</string>
 	<string name="how_was_your_experience_text" translatable="true">Hoe was uw ervaring met deze app?</string>
 	<string name="no_thanks_text" translatable="true">Nee bedankt</string>
 	<string name="lets_use_know_text" translatable="true">Laat ons weten wat we kunnen doen om de app te verbeteren?</string>

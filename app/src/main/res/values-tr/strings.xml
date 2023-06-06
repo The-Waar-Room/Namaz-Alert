@@ -11,7 +11,7 @@
 	<string name="am_text" translatable="true">Ben</string>
 	<string name="pm_text" translatable="true">öğleden sonra</string>
 	<string name="successfully_selected_text" translatable="true">Başarıyla seçildi</string>
-	<string name="you_cant_select_30min_text" translatable="true"> Maksimum 30 dakika sınırını seçemezsiniz</string>
+	<string name="you_cant_select_30min_text" translatable="true"> Maksimum 2 saatlik sınırını seçemezsiniz</string>
 	<string name="you_cant_past_select_30min_text" translatable="true"> Geçmiş 30 dakika seçemezsiniz</string>
 	<string name="you_cant_select_text" translatable="true"> Maksimum limiti geçmiş seçemezsiniz</string>
 	<string name="time_reset_successfully_text" translatable="true"> Zaman Sıfırla Başarılı Bir</string>
@@ -59,7 +59,7 @@
 	<string name="app_setting_text" translatable="true">Uygulama Ayarı</string>
 	<string name="change_language_text" translatable="true">"Dili değiştir "</string>
 	<string name="developer_name" translatable="true">%1$starafından oluşturuldu</string>
-    <string name="click_back_text" translatable="true">Çıkmak için tekrar tekrar tıklayın</string>
+	<string name="click_back_text" translatable="true">Çıkmak için tekrar tekrar tıklayın</string>
 	<string name="yes_string" translatable="true">Evet</string>
 	<string name="no_string" translatable="true">HAYIR</string>
 	<string name="notification_title_text" translatable="true">Dua Uyarısı: %1$s</string>
@@ -111,11 +111,15 @@
 	<string name="turkish_text" translatable="true">Türkçe</string>
 	<string name="vietnamese_text" translatable="true">Vietnam</string>
 	<string name="chinese_text" translatable="true">Çince</string>
+	<string name="arabic_text" translatable="true">Arapça</string>
+	<string name="hebrew_text" translatable="true">İbranice</string>
+	<string name="persian_text" translatable="true">Farsça</string>
+	<string name="urdu_text" translatable="true">Urdu</string>
 	<string name="you_are_a_sports_junkie_text" translatable="true">Sen gerçek bir Allah inanansın!</string>
 	<string name="wouldnt_you_love_to_stay_text" translatable="true">Namaz duanızın zamanı geldiğinde bir uyarı istemiyor musunuz? Tabii sen, yap! Sen gerçek bir adanmışsın. Aşağıdaki \'Bilgilendirme Al\' düğmesine basın ve manevi yolunuzda kutsanmış kalın.</string>
 	<string name="skip_text" translatable="true">Atlamak</string>
 	<string name="get_notified_text" translatable="true">Haberdar ol</string>
-    <string name="permission_not_granted_by_the_user_text" translatable="true">Kullanıcı tarafından verilmeyen izinler.</string>
+	<string name="permission_not_granted_by_the_user_text" translatable="true">Kullanıcı tarafından verilmeyen izinler.</string>
 	<string name="how_was_your_experience_text" translatable="true">Bu uygulama ile deneyiminiz nasıldı?</string>
 	<string name="no_thanks_text" translatable="true">Hayır, teşekkürler</string>
 	<string name="lets_use_know_text" translatable="true">Uygulamayı geliştirmek için neler yapabileceğimizi bize bildirin?</string>

@@ -7,13 +7,12 @@ buildscript {
         Retrofit = '2.9.0'
         Okhttp = '4.9.3'
         kotlin = '1.4.30'
-        Dagger_Hilt = '2.40.5'
+        Dagger_Hilt = '2.45'
         Android_Hilt = '1.0.0-alpha03'
         NavVersion = '2.5.3'
         Coroutine = '1.6.1'
-        Lifecycle = '2.5.1'
+        Lifecycle = '2.6.1'
         SwipeRefreshLayout = '1.1.0'
-        PreferencesDataStore = '1.0.0'
         ProtoDataStore = '1.0.0'
         Protobuf = '3.19.1'
         WorkManger = "2.8.0"
@@ -26,12 +25,12 @@ buildscript {
 
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.4.1'
-        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.21'
+        classpath 'com.android.tools.build:gradle:8.0.2'
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.20'
         classpath("com.google.dagger:hilt-android-gradle-plugin:$Dagger_Hilt")
         classpath 'com.google.gms:google-services:4.3.15'
         classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.21'
-        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.9.4'
+        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.9.5'
 
         classpath("androidx.navigation:navigation-safe-args-gradle-plugin:$NavVersion")
 

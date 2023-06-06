@@ -11,7 +11,7 @@
 	<string name="am_text" translatable="true">ਸਵੇਰੇ</string>
 	<string name="pm_text" translatable="true">ਪ੍ਰਧਾਨ ਮੰਤਰੀ</string>
 	<string name="successfully_selected_text" translatable="true">ਸਫਲਤਾਪੂਰਵਕ ਚੁਣਿਆ ਗਿਆ</string>
-	<string name="you_cant_select_30min_text" translatable="true"> ਤੁਸੀਂ 30 ਮਿੰਟ ਦੀ ਵੱਧ ਤੋਂ ਵੱਧ ਸੀਮਾ ਨੂੰ ਰੋਕ ਨਹੀਂ ਸਕਦੇ</string>
+	<string name="you_cant_select_30min_text" translatable="true"> ਤੁਸੀਂ 2 ਘੰਟੇ ਦੀ ਵੱਧ ਤੋਂ ਵੱਧ ਸੀਮਾ ਨੂੰ ਨਹੀਂ ਚੁਣ ਸਕਦੇ</string>
 	<string name="you_cant_past_select_30min_text" translatable="true"> ਤੁਸੀਂ ਪਿਛਲੇ 30 ਮਿੰਟ ਦੀ ਚੋਣ ਨਹੀਂ ਕਰ ਸਕਦੇ</string>
 	<string name="you_cant_select_text" translatable="true"> ਤੁਸੀਂ ਵੱਧ ਤੋਂ ਵੱਧ ਸੀਮਾ ਨੂੰ ਚੁਣ ਨਹੀਂ ਸਕਦੇ</string>
 	<string name="time_reset_successfully_text" translatable="true"> ਸਫਲਤਾਪੂਰਵਕ ਸਮਾਂ ਰੀਸੈਟ ਕਰੋ</string>
@@ -59,7 +59,7 @@
 	<string name="app_setting_text" translatable="true">ਐਪ ਸੈਟਿੰਗ</string>
 	<string name="change_language_text" translatable="true">"ਭਾਸ਼ਾ ਬਦਲੋ"</string>
 	<string name="developer_name" translatable="true">%1$s ਦੁਆਰਾ ਬਣਾਇਆ ਗਿਆ</string>
-    <string name="click_back_text" translatable="true">ਬਾਹਰ ਜਾਣ ਲਈ ਦੁਬਾਰਾ ਕਲਿਕ ਕਰੋ</string>
+	<string name="click_back_text" translatable="true">ਬਾਹਰ ਜਾਣ ਲਈ ਦੁਬਾਰਾ ਕਲਿਕ ਕਰੋ</string>
 	<string name="yes_string" translatable="true">ਹਾਂ</string>
 	<string name="no_string" translatable="true">ਨਹੀਂ</string>
 	<string name="notification_title_text" translatable="true">ਪ੍ਰਾਰਥਨਾ ਚੇਤਾਵਨੀ: %1$s</string>
@@ -111,11 +111,15 @@
 	<string name="turkish_text" translatable="true">ਤੁਰਕੀ</string>
 	<string name="vietnamese_text" translatable="true">ਵੀਅਤਨਾਮੀ</string>
 	<string name="chinese_text" translatable="true">ਚੀਨੀ</string>
+	<string name="arabic_text" translatable="true">ਅਰਬੀ</string>
+	<string name="hebrew_text" translatable="true">ਇਬਰਾਨੀ</string>
+	<string name="persian_text" translatable="true">ਫ਼ਾਰਸੀ</string>
+	<string name="urdu_text" translatable="true">ਉਰਦੂ</string>
 	<string name="you_are_a_sports_junkie_text" translatable="true">ਤੁਸੀਂ ਇੱਕ ਸੱਚੇ ਅੱਲ੍ਹਾ ਵਿਸ਼ਵਾਸੀ ਹੋ!</string>
 	<string name="wouldnt_you_love_to_stay_text" translatable="true">ਕੀ ਤੁਸੀਂ ਨਹੀਂ ਚਾਹੁੰਦੇ ਕਿ ਜਦੋਂ ਤੁਹਾਡੀ ਪਨਾਮ ਪ੍ਰਾਰਥਨਾ ਦਾ ਸਮਾਂ ਆ ਗਿਆ ਹੈ? ਯਕੀਨਨ ਤੁਸੀਂ, ਕਰਦੇ ਹੋ! ਤੁਸੀਂ ਸੱਚੇ ਸੁਆਗਤ ਹੋ. ਹੇਠਾਂ \'ਪ੍ਰਾਪਤ ਕਰੋ ਸੂਚਿਤ\' ਬਟਨ ਨੂੰ ਦਬਾਓ ਅਤੇ ਆਪਣੇ ਅਧਿਆਤਮਕ ਮਾਰਗ \'ਤੇ ਬਖਸ਼ਿਸ਼ ਕਰੋ.</string>
 	<string name="skip_text" translatable="true">ਛੱਡੋ</string>
 	<string name="get_notified_text" translatable="true">ਸੂਚਿਤ ਕਰੋ</string>
-    <string name="permission_not_granted_by_the_user_text" translatable="true">ਇਜਾਜ਼ਤ ਉਪਭੋਗਤਾ ਦੁਆਰਾ ਨਹੀਂ ਦਿੱਤੀ ਗਈ.</string>
+	<string name="permission_not_granted_by_the_user_text" translatable="true">ਇਜਾਜ਼ਤ ਉਪਭੋਗਤਾ ਦੁਆਰਾ ਨਹੀਂ ਦਿੱਤੀ ਗਈ.</string>
 	<string name="how_was_your_experience_text" translatable="true">ਇਸ ਐਪ ਨਾਲ ਤੁਹਾਡਾ ਤਜਰਬਾ ਕਿਵੇਂ ਰਿਹਾ?</string>
 	<string name="no_thanks_text" translatable="true">ਨਹੀਂ ਧੰਨਵਾਦ</string>
 	<string name="lets_use_know_text" translatable="true">ਸਾਨੂੰ ਦੱਸੋ ਕਿ ਐਪ ਨੂੰ ਸੁਧਾਰਨ ਲਈ ਅਸੀਂ ਕੀ ਕਰ ਸਕਦੇ ਹਾਂ?</string>

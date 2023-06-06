@@ -34,6 +34,8 @@
     <string name="minute_text" translatable="true">Minute</string>
     <string name="hour_text" translatable="true">Hour</string>
     <string name="reset_text" translatable="true">Reset</string>
+    <string name="set_text"  translatable="true" >Set</string>
+
 
     <string name="do_you_want_to_set_text" translatable="true">Do you really want to set the default time?</string>
 
@@ -41,7 +43,7 @@
     <string name="pm_text" translatable="true">pm</string>
 
     <string name="successfully_selected_text" translatable="true">Successfully Selected</string>
-    <string name="you_cant_select_30min_text" translatable="true"> You can\'t select past the maximum limit of 30 mins</string>
+    <string name="you_cant_select_30min_text" translatable="true"> You can\'t select past the maximum limit of 2 hour</string>
     <string name="you_cant_past_select_30min_text" translatable="true"> You can\'t select past 30 mins</string>
 
     <string name="you_cant_select_text" translatable="true"> You can\'t select past the maximum limit </string>
@@ -100,6 +102,7 @@
     <string name="more_app_text" translatable="true">More Apps</string>
     <string name="about_app_text" translatable="true">About App</string>
     <string name="setting_text" translatable="true">Setting</string>
+
     <string name="shareMessage" translatable="true">Hey, check This App which helps you to Delete Duplicate and Unnecessary Data from the phone -</string>
     <string name="normal_mode" translatable="true">Normal</string>
     <string name="vibrate_mode" translatable="true">Vibrate</string>
@@ -214,6 +217,12 @@
     <string name="vietnamese_text" translatable="true">Vietnamese</string>
     <string name="chinese_text" translatable="true">Chinese</string>
 
+    <string name="arabic_text" translatable="true">Arabic</string>
+    <string name="hebrew_text" translatable="true">Hebrew</string>
+    <string name="persian_text" translatable="true">Persian</string>
+    <string name="urdu_text" translatable="true">Urdu</string>
+
+
 <!--    Push notification-->
     <string name="you_are_a_sports_junkie_text" translatable="true">You\'re a true Allah believer!</string>
     <string name="wouldnt_you_love_to_stay_text" translatable="true">Don\'t you want an alert when it\'s time for your Namaz Prayer? Sure you, do! You\'re a true devotee. Press the \'Get Notified\' button below and stay blessed on your spiritual path.</string>
@@ -230,6 +239,12 @@
     <string name="would_you_like_text" translatable="true">Would you like to rate it on Google Play Store?</string>
     <string name="rate_text" translatable="true">Rate</string>
     <string name="cancel_text" translatable="true">Cancel</string>
+
+
+<!--    Edit daily prayer Fragment -->
+
+
+
 
 
 

@@ -14,7 +14,7 @@ plugins {
 //    Nav fragment args
     id 'androidx.navigation.safeargs'
 //    ProtoBuf
-    id "com.google.protobuf" version "0.8.17"
+    id "com.google.protobuf" version '0.9.0'
 
     //  crashlytics
     id 'com.google.firebase.crashlytics'
@@ -28,8 +28,8 @@ android {
         applicationId "com.sudoajay.triumph_path"
         minSdk 21
         targetSdk 33
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.1"
         vectorDrawables.useSupportLibrary true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -61,12 +61,12 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     kotlinOptions {
         freeCompilerArgs += "-opt-in=kotlin.RequiresOptIn"
-        jvmTarget = '1.8'
+        jvmTarget = '17'
     }
 
 
@@ -84,18 +84,19 @@ android {
         dataBinding = true
 
     }
+    namespace 'com.sudoajay.triumph_path'
 
 }
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.core:core-ktx:1.10.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.8.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
     //    Splash Screen
-    implementation "androidx.core:core-splashscreen:1.0.0"
+    implementation "androidx.core:core-splashscreen:1.0.1"
 
 
 // SwipeRefreshLayout
@@ -105,7 +106,6 @@ dependencies {
     implementation("com.google.dagger:hilt-android:$Dagger_Hilt")
     implementation 'androidx.test:core-ktx:1.5.0'
     kapt("com.google.dagger:hilt-compiler:$Dagger_Hilt")
-    implementation("androidx.hilt:hilt-lifecycle-viewmodel:$Android_Hilt")
     kapt("androidx.hilt:hilt-compiler:$Android_Hilt")
 
 //    Navigation
@@ -137,7 +137,7 @@ dependencies {
 
 
 //    Firebase
-    implementation platform('com.google.firebase:firebase-bom:29.3.1')
+    implementation platform('com.google.firebase:firebase-bom:31.4.0')
     implementation 'com.google.firebase:firebase-analytics-ktx'
     //    Firebase Cloud Messaging
     implementation 'com.google.firebase:firebase-messaging-ktx'
@@ -150,8 +150,7 @@ dependencies {
     implementation 'androidx.preference:preference-ktx:1.2.0'
 
 //    Proto Data store
-    implementation("androidx.datastore:datastore-preferences:$PreferencesDataStore")
-    implementation("androidx.datastore:datastore-core:$ProtoDataStore")
+    implementation "androidx.datastore:datastore:$ProtoDataStore"
     implementation("com.google.protobuf:protobuf-javalite:$Protobuf")
 
     // WorkManager dependency

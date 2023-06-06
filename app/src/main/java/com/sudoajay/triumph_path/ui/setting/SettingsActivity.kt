@@ -70,6 +70,8 @@ class SettingsActivity : BaseActivity() {
             )
             .commit()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        supportActionBar?.title = getString(R.string.setting_text)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

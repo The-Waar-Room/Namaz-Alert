@@ -127,7 +127,7 @@ class EditDailyPrayerFragment : BaseFragment() {
         val minutePicker = dialogView.findViewById<NumberPicker>(R.id.dialog_minute_picker)
 
         hourPicker.maxValue = currentHour
-        hourPicker.minValue = currentHour - 1
+        hourPicker.minValue = currentHour - 2
         hourPicker.value = exactHour
         hourPicker.wrapSelectorWheel = true
 
@@ -137,13 +137,13 @@ class EditDailyPrayerFragment : BaseFragment() {
         minutePicker.wrapSelectorWheel = true
 
 
-        d.setPositiveButton("Set") { _, _ ->
+        d.setPositiveButton(getString(R.string.set_text)) { _, _ ->
 
             val selectedHour = hourPicker.value
             val selectedMinute = minutePicker.value
 
             val gapTime =
-                if (currentHour == selectedHour && currentMinute - selectedMinute >= 0) currentMinute - selectedMinute else 60 + (currentMinute - selectedMinute)
+                if (currentHour == selectedHour && currentMinute - selectedMinute >= 0) currentMinute - selectedMinute else (currentHour-selectedHour)*60 + (currentMinute - selectedMinute)
             Log.e(
                 "NewTag",
                 "gapTime  - $gapTime  currentMinute $currentMinute selectedMinute $selectedMinute  currentHour $currentHour selectedHour $selectedHour"
@@ -152,7 +152,7 @@ class EditDailyPrayerFragment : BaseFragment() {
             if ((currentHour == selectedHour && currentMinute < selectedMinute)) {
                 throwToaster(getString(R.string.you_cant_select_text))
 
-            } else if (gapTime > 30) {
+            } else if (gapTime > 120) {
                 throwToaster(getString(R.string.you_cant_select_30min_text))
             } else {
                 val time = "$selectedHour:$selectedMinute"
@@ -168,7 +168,7 @@ class EditDailyPrayerFragment : BaseFragment() {
                 throwToaster(getString(R.string.successfully_selected_text))
             }
         }
-        d.setNegativeButton("Cancel") { _, _ -> }
+        d.setNegativeButton(getString(R.string.cancel_text)) { _, _ -> }
         val alertDialog = d.create()
         alertDialog.show()
     }
@@ -176,10 +176,13 @@ class EditDailyPrayerFragment : BaseFragment() {
     private fun rightHandSidePickerCustom() {
 
         val beforeTime = prayerGapTime.split(":")[0].toInt()
+
+        Log.e("ITAG" , " " + binding.rightHandSideTextView.text.toString())
+
+
         val getAfterIncrement =
-            binding.rightHandSideTextView.text.toString().replace("(\\s.+)".toRegex(), "")
-                .replace(":00", "")
-                .filter { !it.isWhitespace() }.toInt()
+            binding.rightHandSideTextView.text.toString().split(":")[0].replace("(\\s.+)".toRegex(), "").toInt()
+        Log.e("ITAG" , " getAfterIncrement $getAfterIncrement")
         val d = AlertDialog.Builder(requireContext())
         val inflater = this.layoutInflater
         val dialogView = inflater.inflate(R.layout.layout_minute_picker_dialog, null)
@@ -191,7 +194,7 @@ class EditDailyPrayerFragment : BaseFragment() {
         minutePicker.value = getAfterIncrement
         minutePicker.wrapSelectorWheel = false
 
-        d.setPositiveButton("Set") { _, i ->
+        d.setPositiveButton(getString(R.string.set_text)) { _, i ->
 
             Log.e(
                 "EditShow",
@@ -208,7 +211,7 @@ class EditDailyPrayerFragment : BaseFragment() {
                 setGapInProto(beforeTime, (minutePicker.value + beforeTime))
             }
         }
-        d.setNegativeButton("Cancel") { dialogInterface, i -> }
+        d.setNegativeButton(getString(R.string.cancel_text)) { dialogInterface, i -> }
         val alertDialog = d.create()
         alertDialog.show()
     }

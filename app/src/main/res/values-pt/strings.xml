@@ -11,7 +11,7 @@
 	<string name="am_text" translatable="true">sou</string>
 	<string name="pm_text" translatable="true">PM</string>
 	<string name="successfully_selected_text" translatable="true">Selecionado com sucesso</string>
-	<string name="you_cant_select_30min_text" translatable="true"> Você não pode selecionar além do limite máximo de 30 minutos</string>
+	<string name="you_cant_select_30min_text" translatable="true"> Você não pode selecionar além do limite máximo de 2 horas</string>
 	<string name="you_cant_past_select_30min_text" translatable="true"> Você não pode selecionar 30 minutos depois</string>
 	<string name="you_cant_select_text" translatable="true"> Você não pode selecionar além do limite máximo</string>
 	<string name="time_reset_successfully_text" translatable="true"> Redefinição de tempo com sucesso</string>
@@ -59,7 +59,7 @@
 	<string name="app_setting_text" translatable="true">Configuração do aplicativo</string>
 	<string name="change_language_text" translatable="true">"Mudar idioma "</string>
 	<string name="developer_name" translatable="true">Criado por %1$s</string>
-    <string name="click_back_text" translatable="true">Clique novamente para sair</string>
+	<string name="click_back_text" translatable="true">Clique novamente para sair</string>
 	<string name="yes_string" translatable="true">Sim</string>
 	<string name="no_string" translatable="true">Não</string>
 	<string name="notification_title_text" translatable="true">Alerta de oração: %1$s</string>
@@ -111,11 +111,15 @@
 	<string name="turkish_text" translatable="true">turco</string>
 	<string name="vietnamese_text" translatable="true">vietnamita</string>
 	<string name="chinese_text" translatable="true">chinês</string>
+	<string name="arabic_text" translatable="true">árabe</string>
+	<string name="hebrew_text" translatable="true">hebraico</string>
+	<string name="persian_text" translatable="true">persa</string>
+	<string name="urdu_text" translatable="true">urdu</string>
 	<string name="you_are_a_sports_junkie_text" translatable="true">Você é um verdadeiro crente Allah!</string>
 	<string name="wouldnt_you_love_to_stay_text" translatable="true">Você não quer um alerta quando chegar a hora da sua oração de Namaz? Com certeza! Você é um verdadeiro devoto. Pressione o botão \'Seja notificado\' abaixo e mantenha -se abençoado em seu caminho espiritual.</string>
 	<string name="skip_text" translatable="true">Pular</string>
 	<string name="get_notified_text" translatable="true">Seja notificado</string>
-    <string name="permission_not_granted_by_the_user_text" translatable="true">Permissões não concedidas pelo usuário.</string>
+	<string name="permission_not_granted_by_the_user_text" translatable="true">Permissões não concedidas pelo usuário.</string>
 	<string name="how_was_your_experience_text" translatable="true">Como foi sua experiência com este aplicativo?</string>
 	<string name="no_thanks_text" translatable="true">Não, obrigado</string>
 	<string name="lets_use_know_text" translatable="true">Deixe -nos saber o que podemos fazer para melhorar o aplicativo?</string>

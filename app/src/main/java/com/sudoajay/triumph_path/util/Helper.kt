@@ -75,6 +75,10 @@ class Helper {
         }
 
         fun setIsAlarmMangerRunning(context: Context, value: Boolean) {
+
+
+            Log.e("ITag", " setIsAlarmMangerRunning $value " + " --- ${isAlarmMangerRunning(context)} " + " --- ${isPermissionAsked(context)}"   )
+
             val prefs = PreferenceManager.getDefaultSharedPreferences(context)
             val editor: SharedPreferences.Editor = prefs.edit()
             editor.putBoolean("IsAlarmMangerRunning", value)
@@ -94,25 +98,28 @@ class Helper {
         }
 
 
-        fun IsPermissionAsked(context: Context): Boolean {
+        fun isPermissionAsked(context: Context): Boolean {
+
             return PreferenceManager
                 .getDefaultSharedPreferences(context).getBoolean("IsPermissionAsked", false)
         }
 
         fun setIsPermissionAsked(context: Context, value: Boolean) {
+            Log.e("ITag", " setIsNotificationPermissionAsked $value")
             val prefs = PreferenceManager.getDefaultSharedPreferences(context)
             val editor: SharedPreferences.Editor = prefs.edit()
             editor.putBoolean("IsPermissionAsked", value)
             editor.apply()
         }
 
-        fun IsNotificationPermissionAsked(context: Context): Boolean {
+        fun isNotificationPermissionAsked(context: Context): Boolean {
             return PreferenceManager
                 .getDefaultSharedPreferences(context)
                 .getBoolean("IsNotificationPermissionAsked", false)
         }
 
         fun setIsNotificationPermissionAsked(context: Context, value: Boolean) {
+
             val prefs = PreferenceManager.getDefaultSharedPreferences(context)
             val editor: SharedPreferences.Editor = prefs.edit()
             editor.putBoolean("IsNotificationPermissionAsked", value)
