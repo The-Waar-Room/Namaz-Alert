@@ -1,5 +1,6 @@
 package com.sudoajay.triumph_path.ui.background
 
+import android.annotation.SuppressLint
 import android.app.AlarmManager
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -46,6 +47,7 @@ class AlarmMangerForTask @Inject constructor(var context: Context) {
 
     lateinit var webScrappingGoogle: WebScrappingGoogle
 
+    @SuppressLint("CheckResult")
     suspend fun startWorker() {
         protoManager = ProtoManager(context)
         alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
@@ -78,7 +80,7 @@ class AlarmMangerForTask @Inject constructor(var context: Context) {
                         getCurrentTime(),
                         timeGapInEveryWhere
                     )
-                }  getCurrentTime() + ${getCurrentTime()}   +"
+                }  getCurrentTime() + ${getCurrentTime()}  timeGapInEveryWhere $timeGapInEveryWhere   +"
             )
             if (doesDatabaseExist(context, dailyPrayerRepository)) {
                 val currentTime = getCurrentTime()
@@ -100,11 +102,11 @@ class AlarmMangerForTask @Inject constructor(var context: Context) {
                 )
                 val arrayIncrement = prayerGapTime.split(":")
                 val startTime = getMeIncrementTime(dailyPrayerDB.Time, (arrayIncrement[0].toInt()))
-                val endTime = getMeIncrementTime(dailyPrayerDB.Time, arrayIncrement[1].toInt())
+                val endTime = getMeIncrementTime(dailyPrayerDB.Time, arrayIncrement[0].toInt()+arrayIncrement[1].toInt())
                 val diffTime =
-                    (arrayIncrement[1].toInt() + abs(arrayIncrement[0].toInt())).toString()
+                    (abs(arrayIncrement[1].toInt())).toString()
 
-                Log.e("WorkManger", "diffTime $diffTime ")
+                Log.e("WorkManger", " startTime $startTime endTime $endTime diffTime $diffTime ")
 
                 Helper.setIsAlarmMangerRunning(context,true)
 
@@ -129,23 +131,23 @@ class AlarmMangerForTask @Inject constructor(var context: Context) {
                         getCurrentTimeWithSeconds(), "$startTime:00"
                     ) > 0)
                 ) {
-//                    alarmsScheduler.setInexactAlarm(
-//                        dataShare,
-//                        System.currentTimeMillis() + ( 1000 * 60 * (getDiffMinute(currentTime,startTime)-timeGapInEveryWhere)  )
-//                    )
-//
-//                    alarmsScheduler.setUpRTCAlarm(
-//                        dataShare,
-//                        alertNotify,
-//                        System.currentTimeMillis() + (1000 * 60 * (getDiffMinute(currentTime,startTime))  ),
-//                        pendingExactAlertAlarmRequestCode
-//                    )
-//                    alarmsScheduler.setUpRTCAlarm(
-//                        dataShare,
-//                        finishNotify,
-//                        System.currentTimeMillis() + (1000 * 60 * (getDiffMinute(currentTime,endTime))  ),
-//                        pendingExactFinishAlarmRequestCode
-//                    )
+                    alarmsScheduler.setInexactAlarm(
+                        dataShare,
+                        System.currentTimeMillis() + ( 1000 * 60 * (getDiffMinute(currentTime,startTime)-timeGapInEveryWhere)  )
+                    )
+
+                    alarmsScheduler.setUpRTCAlarm(
+                        dataShare,
+                        alertNotify,
+                        System.currentTimeMillis() + (1000 * 60 * (getDiffMinute(currentTime,startTime))  ),
+                        pendingExactAlertAlarmRequestCode
+                    )
+                    alarmsScheduler.setUpRTCAlarm(
+                        dataShare,
+                        finishNotify,
+                        System.currentTimeMillis() + (1000 * 60 * (getDiffMinute(currentTime,endTime))  ),
+                        pendingExactFinishAlarmRequestCode
+                    )
 
 
 //                    alarmsScheduler.setInexactAlarm(

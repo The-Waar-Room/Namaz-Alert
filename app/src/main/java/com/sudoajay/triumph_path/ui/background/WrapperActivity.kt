@@ -1,13 +1,20 @@
 package com.sudoajay.triumph_path.ui.background
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.TextView
+import androidx.core.content.ContextCompat
+import androidx.core.view.WindowInsetsControllerCompat
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentActivity
 import com.sudoajay.triumph_path.R
+import com.sudoajay.triumph_path.databinding.ActivityMainBinding
+import com.sudoajay.triumph_path.databinding.ActivityWrapperBinding
+import com.sudoajay.triumph_path.ui.BaseFragment
 import com.sudoajay.triumph_path.util.Helper
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -16,6 +23,8 @@ import kotlinx.coroutines.launch
 
 
 class WrapperActivity : FragmentActivity() {
+
+    private lateinit var binding: ActivityWrapperBinding
 
     private lateinit var dataShare: List<String>
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,9 +65,22 @@ class WrapperActivity : FragmentActivity() {
 
     private fun updateLayout() {
 
-        setContentView(R.layout.activity_wrapper)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_wrapper)
 
-        findViewById<Button>(R.id.alert_button_ok).run {
+        changeStatusBarColor(
+            ContextCompat.getColor(
+                applicationContext,
+                getColor()
+            ), false
+        )
+
+        binding.mainConstraintLayout.background =
+            ContextCompat.getDrawable(applicationContext, getColor())
+        binding.itemBgImage.setImageResource(getDrawableImage())
+        binding.view.background = ContextCompat.getDrawable(applicationContext, getDrawableView())
+
+
+        binding.alertButtonOk.run {
             requestFocus()
             setOnClickListener {
 
@@ -70,7 +92,7 @@ class WrapperActivity : FragmentActivity() {
                 true
             }
         }
-        findViewById<Button>(R.id.alert_button_dismiss).run {
+        binding.alertButtonDismiss.run {
             setOnClickListener {
                 text = getString(R.string.alarm_alert_hold_the_button_text)
             }
@@ -87,17 +109,26 @@ class WrapperActivity : FragmentActivity() {
 
     }
 
+    fun Activity.changeStatusBarColor(color: Int, isLight: Boolean) {
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        window.statusBarColor = color
+
+        WindowInsetsControllerCompat(window, window.decorView).isAppearanceLightStatusBars = isLight
+
+
+    }
+
 
     private fun setTitle() {
         val titleText = dataShare[0]
         title = titleText
-        findViewById<TextView>(R.id.alarm_alert_label).text = titleText
+       binding.alarmAlertLabel.text = titleText
     }
 
     private fun setTime() {
-        findViewById<TextView>(R.id.digital_clock_time).text =
+        binding.digitalClockTime.text =
             Helper.convertTo12HrOnly(Helper.getCurrentTime())
-        findViewById<TextView>(R.id.digital_clock_am_pm).text =
+        binding.digitalClockAmPm.text =
             Helper.getAMOrPM(applicationContext, Helper.getCurrentTime())
     }
 
@@ -109,6 +140,36 @@ class WrapperActivity : FragmentActivity() {
             intent.getStringExtra(AlarmsScheduler.DATA_SHARE_ID).toString()
         )
         sendBroadcast(cancelIntent)
+    }
+
+    private fun getColor(): Int {
+        return when (dataShare[0]) {
+            BaseFragment.fajrName -> R.color.fajr_color
+            BaseFragment.dhuhrName -> R.color.dhuhr_color
+            BaseFragment.asrName -> R.color.asr_color
+            BaseFragment.maghribName -> R.color.maghrib_color
+            else -> R.color.isha_color
+        }
+    }
+
+    private fun getDrawableView(): Int {
+        return when (dataShare[0]) {
+            BaseFragment.fajrName -> R.drawable.fajr_bg_gradient_drawable
+            BaseFragment.dhuhrName -> R.drawable.dhuhr_bg_gradient_drawable
+            BaseFragment.asrName -> R.drawable.asr_bg_gradient_drawable
+            BaseFragment.maghribName -> R.drawable.maghrib_bg_gradient_drawable
+            else -> R.drawable.isha_bg_gradient_drawable
+        }
+    }
+
+    private fun getDrawableImage(): Int {
+        return when (dataShare[0]) {
+            BaseFragment.fajrName -> R.drawable.fajr_image
+            BaseFragment.dhuhrName -> R.drawable.dhuhr_image
+            BaseFragment.asrName -> R.drawable.asr_image
+            BaseFragment.maghribName -> R.drawable.maghrib_image
+            else -> R.drawable.isha_image
+        }
     }
 
     /**

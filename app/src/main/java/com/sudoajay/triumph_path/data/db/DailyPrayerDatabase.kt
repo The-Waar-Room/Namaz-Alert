@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 
-@Database(entities = [DailyPrayerDB::class], version = 2, exportSchema = false)
+@Database(entities = [DailyPrayerDB::class], version = 1, exportSchema = false)
 abstract class DailyPrayerDatabase : RoomDatabase() {
 
     abstract fun dailyPrayerDoa(): DailyPrayerDoa

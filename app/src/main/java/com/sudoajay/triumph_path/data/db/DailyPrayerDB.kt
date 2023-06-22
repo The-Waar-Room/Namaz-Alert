@@ -1,13 +1,13 @@
 package com.sudoajay.triumph_path.data.db
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "DailyPrayerTable")
 class DailyPrayerDB(
-    @PrimaryKey @field:SerializedName("id") var id: Long?,
-    @field:SerializedName("date") val Date: String,
-    @field:SerializedName("name") val Name: String,
-    @field:SerializedName("time") val Time: String
+    @PrimaryKey @ColumnInfo("id") var id: Long?,
+   @ColumnInfo("date") val Date: String,
+   @ColumnInfo("name") val Name: String,
+   @ColumnInfo("time") val Time: String
 )

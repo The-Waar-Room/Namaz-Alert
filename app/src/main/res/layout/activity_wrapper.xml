@@ -15,101 +15,159 @@
      limitations under the License.
 -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <RelativeLayout
+    <data>
 
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mainConstraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="3">
+        android:layout_height="match_parent"
+        android:background="@color/dhuhr_color">
+
 
         <LinearLayout
+            android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center|center_horizontal"
-            android:orientation="vertical">
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/item_BgImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5">
 
-            <TextView
-                android:id="@+id/alarm_alert_label"
+            <RelativeLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center|center_horizontal"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/alarm_alert_label"
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="0px"
+                        android:layout_weight="1"
+                        android:clickable="false"
+                        android:fontFamily="@font/nunito_bold"
+                        android:gravity="center|center_horizontal"
+                        android:paddingTop="8dip"
+                        android:paddingBottom="8dip"
+                        android:textColor="@color/whiteColor"
+                        android:textSize="35sp"
+                        android:textStyle="bold"
+                        tools:text="Fajr" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0px"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal">
+
+                        <TextView
+                            android:id="@+id/digital_clock_time"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="70sp"
+                            android:paddingStart="50dp"
+                            android:paddingEnd="00dp"
+
+                            android:fontFamily="@font/nunito"
+                            android:textColor="@color/whiteColor"
+                            android:textStyle="normal"
+                            tools:text="12:00" />
+
+                        <TextView
+                            android:id="@+id/digital_clock_am_pm"
+                            android:layout_width="40dip"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/whiteColor"
+                            android:fontFamily="@font/nunito_bold"
+                            android:gravity="bottom|center_horizontal"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            tools:text="AM" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/alert_text_snooze"
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="0px"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/nunito_bold"
+                        android:textStyle="normal"
+                        android:textColor="@color/whiteColor"
+                        android:clickable="false"
+                        android:paddingEnd="10dp"
+                        android:paddingStart="0dp"
+                        android:text="@string/notification_ok_text"
+                        android:textSize="32sp" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/alert_button_ok"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginBottom="10dp" />
+            </RelativeLayout>
+
+
+            <Button
+                android:id="@+id/alert_button_dismiss"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="0px"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginBottom="10dp"
                 android:layout_weight="1"
-                android:clickable="false"
-                android:gravity="center|center_horizontal"
-                android:paddingTop="8dip"
-                android:paddingBottom="8dip"
-                tools:text="Fajr"
+                android:paddingStart="5dp"
+                android:paddingEnd="0dp"
+                android:fontFamily="@font/nunito_bold"
+                android:textStyle="normal"
+                android:textColor="@color/whiteColor"
+                android:text="@string/notification_dismiss_text"
                 android:textSize="32sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0px"
-                android:layout_weight="1"
-                android:gravity="center_horizontal">
-
-                <TextView
-                    android:id="@+id/digital_clock_time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-thin"
-                    android:textSize="100sp"
-                    android:textStyle="normal"
-                    tools:text="12:00"/>
-
-                <TextView
-                    android:id="@+id/digital_clock_am_pm"
-                    android:layout_width="40dip"
-                    android:layout_height="wrap_content"
-                    android:gravity="bottom|center_horizontal"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    tools:text="AM"/>
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/alert_text_snooze"
-                style="?android:attr/buttonBarButtonStyle"
-                android:layout_width="match_parent"
-                android:layout_height="0px"
-                android:layout_weight="1"
-                android:clickable="false"
-                android:text="@string/notification_ok_text"
-                android:textSize="24sp" />
         </LinearLayout>
 
-        <Button
-            android:id="@+id/alert_button_ok"
-            style="?android:attr/buttonBarButtonStyle"
+        <ImageView
+            android:id="@+id/item_BgImage"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginBottom="10dp" />
-    </RelativeLayout>
+            android:layout_height="250dp"
+            android:contentDescription="@string/app_name"
+            android:scaleType="fitXY"
+            android:src="@drawable/dhuhr_image"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dip"
-        android:layout_marginLeft="16dip"
-        android:layout_marginRight="16dip"
-        android:background="?android:attr/dividerHorizontal" />
-
-    <Button
-        android:id="@+id/alert_button_dismiss"
-        style="?android:attr/buttonBarButtonStyle"
-        android:layout_width="match_parent"
-        android:layout_height="0px"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginBottom="10dp"
-        android:layout_weight="1"
-        android:text="@string/notification_dismiss_text"
-        android:textSize="24sp" />
-</LinearLayout>
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="@drawable/dhuhr_bg_gradient_drawable"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/item_BgImage" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
