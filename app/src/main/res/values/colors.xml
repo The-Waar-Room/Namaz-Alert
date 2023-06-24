@@ -15,16 +15,15 @@
     <color name="greenColorHeading">#317272</color>
 
 
-
-
-
-
     <!--    -->
     <color name="fajr_color">#65BEFF</color>
-    <color name="dhuhr_color">#ED7430</color> //ED7430 FFA113
+    <color name="dhuhr_color">#ED7430</color>
+    //ED7430 FFA113
     <color name="asr_color">#FF6A6A</color>
-    <color name="maghrib_color">#5A79BB</color> //5A79BB FFA113
-    <color name="isha_color">#8DC1F4</color> //8DC1F4  930696
+    <color name="maghrib_color">#5A79BB</color>
+    //5A79BB FFA113
+    <color name="isha_color">#8DC1F4</color>
+    //8DC1F4 930696
 
     <!--    Send Feedback-->
     <color name="boxTextColor">#757575</color>
@@ -34,13 +33,19 @@
     <color name="dialogBgColorInfo">#2546ABEB</color>
     <color name="systemInfoBgColor">#f2f2f2</color>
 
-<!--    Drawer Bottom Sheet-->
+    <!--    Drawer Bottom Sheet-->
     <color name="divider">#E6E6E6</color>
 
-<!-- wrapper activity-->
+    <!-- wrapper activity-->
 
     <!--    Rate us-->
     <color name="divider_color">#DCDCDC</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="light_blue_900">#FF01579B</color>
+    <color name="light_blue_A200">#FF40C4FF</color>
+    <color name="light_blue_A400">#FF00B0FF</color>
+    <color name="black_overlay">#66000000</color>
+
 
 
 </resources>

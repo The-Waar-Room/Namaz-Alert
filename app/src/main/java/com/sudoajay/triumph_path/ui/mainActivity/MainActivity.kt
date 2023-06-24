@@ -11,7 +11,6 @@ import android.os.Looper
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.os.bundleOf
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
@@ -49,11 +48,11 @@ class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        var keepSplashOnScreen = true
-        val delay = 1000L
-
-        installSplashScreen().setKeepOnScreenCondition { keepSplashOnScreen }
-        Handler(Looper.getMainLooper()).postDelayed({ keepSplashOnScreen = false }, delay)
+//        var keepSplashOnScreen = true
+//        val delay = 1000L
+//
+//        installSplashScreen().setKeepOnScreenCondition { keepSplashOnScreen }
+//        Handler(Looper.getMainLooper()).postDelayed({ keepSplashOnScreen = false }, delay)
 
         Log.e(
             "ACTIVITYTAG",

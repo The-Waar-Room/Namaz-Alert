@@ -22,12 +22,12 @@ plugins {
 }
 
 android {
-    compileSdk 33
+    compileSdk 34
     buildToolsVersion "33.0.0"
     defaultConfig {
         applicationId "com.sudoajay.triumph_path"
         minSdk 21
-        targetSdk 33
+        targetSdk 34
         versionCode 2
         versionName "1.1"
         vectorDrawables.useSupportLibrary true
@@ -90,13 +90,14 @@ android {
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.10.0'
+    implementation 'androidx.core:core-ktx:1.10.1'
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
-    //    Splash Screen
-    implementation "androidx.core:core-splashscreen:1.0.1"
+//    //    Splash Screen
+//    implementation "androidx.core:core-splashscreen:1.0.1"
+
 
 
 // SwipeRefreshLayout
@@ -105,6 +106,7 @@ dependencies {
 //    DependencyInjection
     implementation("com.google.dagger:hilt-android:$Dagger_Hilt")
     implementation 'androidx.test:core-ktx:1.5.0'
+    implementation 'androidx.core:core-ktx:+'
     kapt("com.google.dagger:hilt-compiler:$Dagger_Hilt")
     kapt("androidx.hilt:hilt-compiler:$Android_Hilt")
 
@@ -163,8 +165,8 @@ dependencies {
 
 
 
-//    External library
-//    implementation 'com.airbnb.android:lottie:5.0.3'
+//    External Lottie is a mobile library that parses Adobe After Effects animations exported as json with Bodymovin and renders them natively on mobile!
+    implementation 'com.airbnb.android:lottie:6.0.0'
 
 
     testImplementation 'junit:junit:4.13.2'

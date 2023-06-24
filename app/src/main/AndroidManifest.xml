@@ -4,70 +4,68 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.VIBRATE" />
-
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
-
-
     <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
-    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
-
-<!--No add -->
-    <uses-permission android:name="com.google.android.gms.permission.AD_ID" tools:node="remove"/>
-
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" /> <!-- No add -->
+    <uses-permission
+        android:name="com.google.android.gms.permission.AD_ID"
+        tools:node="remove" />
 
     <application
-        android:name="com.sudoajay.triumph_path.ui.MainApplication"
+        android:name=".ui.MainApplication"
         android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupOnly="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MySplash"
-        android:dataExtractionRules="@xml/data_extraction_rules">
+        android:theme="@style/AppTheme.NoActionBar">
         <activity
-            android:name="com.sudoajay.triumph_path.ui.mainActivity.MainActivity"
-            android:exported="true">
+            android:name=".ui.splashScreen.SplashScreenActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="true"
+            android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.mainActivity.MainActivity"
+            android:exported="true">
             <meta-data
                 android:name="android.app.shortcuts"
                 android:resource="@xml/shortcuts" />
         </activity>
-
-        <activity android:name="com.sudoajay.triumph_path.ui.BaseActivity" />
+        <activity android:name=".ui.BaseActivity" />
         <activity
-            android:theme="@style/AppTheme.NoActionBar"
-            android:name="com.sudoajay.triumph_path.ui.feedbackAndHelp.SendFeedbackAndHelp"/>
+            android:name=".ui.feedbackAndHelp.SendFeedbackAndHelp"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.sudoajay.triumph_path.ui.setting.SettingsActivity"
+            android:name=".ui.setting.SettingsActivity"
             android:label="@string/setting_text"
             android:theme="@style/SettingAppTheme" />
-
         <activity
-            android:name="com.sudoajay.triumph_path.ui.background.WrapperActivity"
+            android:name=".ui.background.WrapperActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|navigation"
             android:excludeFromRecents="true"
             android:launchMode="singleInstance"
             android:taskAffinity=""
-            android:theme="@style/AlarmAlertFullScreenLightTheme"/>
+            android:theme="@style/AlarmAlertFullScreenLightTheme" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-
         <receiver
-            android:name="com.sudoajay.triumph_path.ui.background.BroadcastAlarmReceiver"
+            android:name=".ui.background.BroadcastAlarmReceiver"
             android:exported="false">
-        <intent-filter>
+            <intent-filter>
                 <action android:name="${applicationId}.ACTION_FIRED" />
                 <action android:name="${applicationId}.ACTION_CANCEL_NOTIFICATION" />
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
@@ -76,24 +74,25 @@
                 <action android:name="android.intent.action.TIMEZONE_CHANGED" />
                 <action android:name="android.intent.action.LOCALE_CHANGED" />
                 <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
 
         <service
-            android:name="com.sudoajay.triumph_path.ui.notification.firebase.MyFirebaseMessagingService"
+            android:name=".ui.notification.firebase.MyFirebaseMessagingService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
 
-        <meta-data android:name="com.google.firebase.messaging.default_notification_icon"
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@mipmap/ic_launcher" />
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/appTheme" />
-
     </application>
 
 </manifest>

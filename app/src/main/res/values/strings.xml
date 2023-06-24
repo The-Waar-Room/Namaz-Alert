@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">TriumphPath</string>
+    <string name="app_name" translatable="false">Triumph Path</string>
     <string name="team_Name" translatable="false">Weekend Creator Studio</string>
     <string name="rating_link_text" translatable="false">https://play.google.com/store/apps/details?id=com.sudoajay.qr_and_barcode_scanner</string>
     <string name="privacy_link_text" translatable="false">https://sudoajay.github.io/qr-and-barcode-scanner_privacy%20copy.html</string>
@@ -34,7 +34,7 @@
     <string name="minute_text" translatable="true">Minute</string>
     <string name="hour_text" translatable="true">Hour</string>
     <string name="reset_text" translatable="true">Reset</string>
-    <string name="set_text"  translatable="true" >Set</string>
+    <string name="set_text" translatable="true">Set</string>
 
 
     <string name="do_you_want_to_set_text" translatable="true">Do you really want to set the default time?</string>
@@ -63,39 +63,38 @@
     <string name="supportEditTextError" translatable="true">Please write something in issue</string>
     <string name="systemInfo_text" translatable="true">Your System Info will be send to our developer team</string>
     <string name="add_screenshot_text" translatable="true">+ Add Screenshot</string>
-    <string name="send_issue_text"  translatable="true">Send Issue</string>
-    <string name="feedback_about_app_text"  translatable="true">FeedBack about %1$s</string>
-    <string name="issue_in_app_text"  translatable="true">Issue in %1$s</string>
+    <string name="send_issue_text" translatable="true">Send Issue</string>
+    <string name="feedback_about_app_text" translatable="true">FeedBack about %1$s</string>
+    <string name="issue_in_app_text" translatable="true">Issue in %1$s</string>
 
     <!--    Network Provider-->
-    <string name="wifi_text"  translatable="true">Wifi</string>
+    <string name="wifi_text" translatable="true">Wifi</string>
     <string name="mobile_data_text" translatable="true">Mobile Data</string>
-    <string name="vpn_text"  translatable="true">Vpn</string>
+    <string name="vpn_text" translatable="true">Vpn</string>
     <string name="no_internet_text" translatable="true">No Internet</string>
 
     <!--    Delete cache-->
-    <string name="successfully_cache_data_is_deleted_text"  translatable="true">Successfully Cache Data Is Deleted</string>
+    <string name="successfully_cache_data_is_deleted_text" translatable="true">Successfully Cache Data Is Deleted</string>
 
 
     <!--    System Info-->
-    <string name="system_info_text"  translatable="true"> System Info </string>
-    <string name="device_text"  translatable="true">Device : </string>
-    <string name="os_api_level_text"  translatable="true">Os Api Level : </string>
-    <string name="language_text"  translatable="true">Language : </string>
-    <string name="total_memory_text"  translatable="true">Total Heap Memory : </string>
-    <string name="free_memory_text"  translatable="true">Free Heap Memory : </string>
-    <string name="screen_Text"  translatable="true">Screen Size : </string>
-    <string name="network_type_text"  translatable="true">Network Type : </string>
-    <string name="app_version_text"  translatable="true">App Version : </string>
-    <string name="ok_text"  translatable="true">OK</string>
-
+    <string name="system_info_text" translatable="true"> System Info </string>
+    <string name="device_text" translatable="true">Device : </string>
+    <string name="os_api_level_text" translatable="true">Os Api Level : </string>
+    <string name="language_text" translatable="true">Language : </string>
+    <string name="total_memory_text" translatable="true">Total Heap Memory : </string>
+    <string name="free_memory_text" translatable="true">Free Heap Memory : </string>
+    <string name="screen_Text" translatable="true">Screen Size : </string>
+    <string name="network_type_text" translatable="true">Network Type : </string>
+    <string name="app_version_text" translatable="true">App Version : </string>
+    <string name="ok_text" translatable="true">OK</string>
 
 
     <!--    Setting Preference-->
-    <string name="system_setting_text"  translatable="true">System Settings</string>
-    <string name="clear_cache_text"  translatable="true">Clear Cache</string>
-    <string name="help_support_text"  translatable="true">Help &amp; Support</string>
-    <string name="privacy_policy_text"  translatable="true">Privacy Policy</string>
+    <string name="system_setting_text" translatable="true">System Settings</string>
+    <string name="clear_cache_text" translatable="true">Clear Cache</string>
+    <string name="help_support_text" translatable="true">Help &amp; Support</string>
+    <string name="privacy_policy_text" translatable="true">Privacy Policy</string>
     <string name="more_info_text" translatable="true">More Info</string>
     <string name="share_app_text" translatable="true">Share App</string>
     <string name="submit_review_text" translatable="true">Submit Review</string>
@@ -137,7 +136,7 @@
 
     <string name="notifications_finish_prayer_time" translatable="false">Finish Or Cancel Prayer</string>
     <string name="firebase_channel_id" translatable="false">Firebase Push Notification</string>
-    <string name="notifications_group_service"  translatable="false">Firebase Service control</string>
+    <string name="notifications_group_service" translatable="false">Firebase Service control</string>
 
 
     <string name="notifications_upcoming_desc" translatable="false">Notifications to interact with UpComing  Prayer Time</string>
@@ -151,7 +150,6 @@
     <string name="notification_dismiss_text" translatable="true">Dismiss</string>
     <string name="notification_ok_text" translatable="true">OK</string>
     <string name="alarm_alert_hold_the_button_text" translatable="true">Hold the button!</string>
-
 
 
     <string name="notification_turn_off_text" translatable="false">Turn Off</string>
@@ -170,7 +168,6 @@
 
     <string name="upcoming_notification_title_text" translatable="false">Turn Off Your Upcoming Prayer ?</string>
     <string name="upcoming_notification_context_title_text" translatable="false">%1$s %2$s</string>
-
 
 
     <!--    Select langauge-->
@@ -223,7 +220,7 @@
     <string name="urdu_text" translatable="true">Urdu</string>
 
 
-<!--    Push notification-->
+    <!--    Push notification-->
     <string name="you_are_a_sports_junkie_text" translatable="true">You\'re a true Allah believer!</string>
     <string name="wouldnt_you_love_to_stay_text" translatable="true">Don\'t you want an alert when it\'s time for your Namaz Prayer? Sure you, do! You\'re a true devotee. Press the \'Get Notified\' button below and stay blessed on your spiritual path.</string>
     <string name="skip_text" translatable="true">Skip</string>
@@ -241,11 +238,7 @@
     <string name="cancel_text" translatable="true">Cancel</string>
 
 
-<!--    Edit daily prayer Fragment -->
-
-
-
-
+    <!--    Edit daily prayer Fragment -->
 
 
 </resources>

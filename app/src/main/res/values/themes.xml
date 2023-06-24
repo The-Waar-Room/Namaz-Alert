@@ -7,7 +7,7 @@
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:statusBarColor">@color/statusBarColor</item>
         <item name="android:navigationBarColor">@color/colorPrimary</item>
-<!--        <item name="android:windowTranslucentStatus">true</item>-->
+        <!--        <item name="android:windowTranslucentStatus">true</item>-->
 
 
     </style>
@@ -29,16 +29,17 @@
         <item name="android:windowNoTitle">true</item>
     </style>
 
+    <style name="AppTheme.NoActionBar.Fullscreen" parent="AppTheme.NoActionBar">
+        <item name="android:actionBarStyle">
+            @style/Widget.AppTheme.NoActionBar.ActionBar.Fullscreen
+        </item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowBackground">@null</item>
+    </style>
 
-    <style name="Theme.MySplash" parent="Theme.SplashScreen">
-        <item name="windowSplashScreenBackground">@color/bgBoxColor</item>
-        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher_foreground</item>
-        <item name="windowSplashScreenAnimationDuration">800</item>
-        <item name="postSplashScreenTheme">@style/AppTheme.NoActionBar</item>
-
-        <!-- Status bar and Nav bar configs -->
-        <item name="android:statusBarColor" >@color/bgBoxColor</item>
-        <item name="android:navigationBarColor">@color/bgBoxColor</item>
+    <style name="ThemeOverlay.NamazAlert.FullscreenContainer" parent="">
+        <item name="fullscreenBackgroundColor">@color/light_blue_600</item>
+        <item name="fullscreenTextColor">@color/light_blue_A200</item>
     </style>
 
 </resources>

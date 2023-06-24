@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.MySplash" parent="Theme.SplashScreen">
-        <item name="windowSplashScreenBackground">@color/bgBoxColor</item>
-        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher_foreground</item>
-        <item name="windowSplashScreenAnimationDuration">800</item>
-        <item name="postSplashScreenTheme">@style/AppTheme.NoActionBar</item>
 
-        <!-- Status bar and Nav bar configs -->
-        <item name="android:statusBarColor">@color/bgBoxColor</item>
-        <item name="android:navigationBarColor">@color/mainBgColor</item>
-        <item name="android:windowLightStatusBar">false</item>
-    </style>
 </resources>
