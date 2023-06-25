@@ -14,6 +14,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.lifecycle.withCreated
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sudoajay.triumph_path.R
@@ -30,6 +31,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 
@@ -44,7 +46,7 @@ class HomeFragment : BaseFragment() {
     private var doubleBackToExitPressedOnce = false
 
 
-    private lateinit var dailyPrayerAdapter: DailyPrayerAdapter
+//    private lateinit var dailyPrayerAdapter: DailyPrayerAdapter
 
     @Inject
     lateinit var navigationDrawerBottomSheet: NavigationDrawerBottomSheet
@@ -109,14 +111,17 @@ class HomeFragment : BaseFragment() {
                         showNavigationDrawer()
                         true
                     }
+
                     R.id.refresh_optionMenu -> {
                         refreshData()
                         true
                     }
+
                     R.id.setting_optionMenu -> {
                         openSetting()
                         true
                     }
+
                     else -> false
                 }
             }
@@ -138,15 +143,15 @@ class HomeFragment : BaseFragment() {
 
         //         Setup BottomAppBar Navigation Setup
 
-        dailyPrayerAdapter = DailyPrayerAdapter {
-            parentFragment?.findNavController()?.navigate(
-                R.id.action_homeFragment_to_editDailyPrayerFragment,
-                bundleOf(
-                    editDailyPrayerNameKey to it.Name,
-                    editDailyPrayerTimeKey to it.Time
-                )
-            )
-        }
+//        dailyPrayerAdapter = DailyPrayerAdapter {
+//            parentFragment?.findNavController()?.navigate(
+//                R.id.action_homeFragment_to_editDailyPrayerFragment,
+//                bundleOf(
+//                    editDailyPrayerNameKey to it.Name,
+//                    editDailyPrayerTimeKey to it.Time
+//                )
+//            )
+//        }
 
 
         callRecyclerDate()
@@ -155,22 +160,120 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun callRecyclerDate() {
-        binding.recyclerView.apply {
-            this.layoutManager = LinearLayoutManager(requireContext())
-            adapter = dailyPrayerAdapter
-        }
-        lifecycleScope.launch {
-            dailyPrayerViewModel.getPagingGsonSourceWithNetwork().collectLatest {
+//        binding.recyclerView.apply {
+//            this.layoutManager = LinearLayoutManager(requireContext())
+//            adapter = dailyPrayerAdapter
+//        }
+        lifecycleScope.launch(Dispatchers.IO) {
+//            dailyPrayerViewModel.getPagingGsonSourceWithDataBase().collectLatest {
+//                dailyPrayerViewModel.isLoadData.postValue(false)
+////                dailyPrayerAdapter.submitData(it)
+//
+//            }
+
+            dailyPrayerViewModel.getAllDataFromDataBase().collectLatest {
+
+                when (it.Name) {
+                    fajrName -> {
+                        binding.include.itemTextView1.text = getString(
+                            R.string.fajr_time_text,
+                            Helper.convertTo12Hr(requireContext(), it.Time)
+                        )
+
+                        binding.include.cardView1.setOnClickListener { view ->
+                            parentFragment?.findNavController()?.navigate(
+                                R.id.action_homeFragment_to_editDailyPrayerFragment,
+                                bundleOf(
+                                    editDailyPrayerNameKey to it.Name,
+                                    editDailyPrayerTimeKey to it.Time
+                                )
+                            )
+                        }
+
+
+                    }
+
+                    dhuhrName -> {
+                        binding.include.itemTextView2.text = getString(
+                            R.string.dhuhr_time_text,
+
+                            Helper.convertTo12Hr(requireContext(), it.Time)
+                        )
+
+                        binding.include.cardView2.setOnClickListener { view ->
+                            parentFragment?.findNavController()?.navigate(
+                                R.id.action_homeFragment_to_editDailyPrayerFragment,
+                                bundleOf(
+                                    editDailyPrayerNameKey to it.Name,
+                                    editDailyPrayerTimeKey to it.Time
+                                )
+                            )
+                        }
+                    }
+                    asrName -> {
+                        binding.include.itemTextView3.text = getString(
+                            R.string.asr_time_text,
+
+                            Helper.convertTo12Hr(requireContext(), it.Time)
+                        )
+
+                        binding.include.cardView3.setOnClickListener { view ->
+                            parentFragment?.findNavController()?.navigate(
+                                R.id.action_homeFragment_to_editDailyPrayerFragment,
+                                bundleOf(
+                                    editDailyPrayerNameKey to it.Name,
+                                    editDailyPrayerTimeKey to it.Time
+                                )
+                            )
+                        }
+                    }
+                    maghribName -> {
+                        binding.include.itemTextView4.text = getString(
+                            R.string.maghrib_time_text,
+                            Helper.convertTo12Hr(requireContext(), it.Time)
+                        )
+
+                        binding.include.cardView4.setOnClickListener { view ->
+                            parentFragment?.findNavController()?.navigate(
+                                R.id.action_homeFragment_to_editDailyPrayerFragment,
+                                bundleOf(
+                                    editDailyPrayerNameKey to it.Name,
+                                    editDailyPrayerTimeKey to it.Time
+                                )
+                            )
+                        }
+                    }
+                    ishaName -> {
+                        binding.include.itemTextView5.text = getString(
+                            R.string.isha_time_text,
+                            Helper.convertTo12Hr(requireContext(), it.Time)
+                        )
+
+                        binding.include.cardView5.setOnClickListener { view ->
+                            parentFragment?.findNavController()?.navigate(
+                                R.id.action_homeFragment_to_editDailyPrayerFragment,
+                                bundleOf(
+                                    editDailyPrayerNameKey to it.Name,
+                                    editDailyPrayerTimeKey to it.Time
+                                )
+                            )
+                        }
+                    }
+                }
                 dailyPrayerViewModel.isLoadData.postValue(false)
-                dailyPrayerAdapter.submitData(it)
             }
+
+
+
 
             lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 // this block is automatically executed when moving into
                 // the started state, and cancelled when stopping.
                 while (dailyPrayerViewModel.isLoadData.value == true) {
                     // the function to repeat
-                    throwToaster(getString(R.string.open_internet_connection_text))
+                    withContext(Dispatchers.Main) {
+                        throwToaster(getString(R.string.open_internet_connection_text))
+                    }
 
                     delay(1000 * 60 * 2) // 2 min
 
@@ -207,9 +310,10 @@ class HomeFragment : BaseFragment() {
         CoroutineScope(Dispatchers.Main).launch {
             binding.swipeRefresh.isRefreshing = true
             delay(1000 * 2) // 2 sec
-            dailyPrayerAdapter.refresh()
+//            dailyPrayerAdapter.refresh()
             binding.swipeRefresh.isRefreshing = false
             dailyPrayerViewModel.isLoadData.value = true
+            callRecyclerDate()
         }
     }
 

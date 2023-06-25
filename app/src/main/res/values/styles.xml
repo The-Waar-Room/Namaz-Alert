@@ -5,11 +5,11 @@
 
     <style name="homeScreenMaterialCardView" parent="@style/Widget.MaterialComponents.CardView">
         <item name="shapeAppearanceOverlay">@style/cornerCutHomeScreen</item>
-<!--        <item name="cardBackgroundColor">@color/recommendationBoxColor</item>-->
+        <!--        <item name="cardBackgroundColor">@color/recommendationBoxColor</item>-->
     </style>
 
 
-    <style name="cornerCutHomeScreen" >
+    <style name="cornerCutHomeScreen">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">15dp</item>
     </style>
@@ -20,6 +20,14 @@
         <item name="colorControlActivated">@color/appTheme</item>
     </style>
 
+    <style name="Widget.AppTheme.NoActionBar.ActionBar.Fullscreen" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/black_overlay</item>
+    </style>
+
+    <style name="Widget.AppTheme.NoActionBar.ButtonBar.Fullscreen" parent="">
+        <item name="android:background">@color/black_overlay</item>
+        <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
+    </style>
 
 
 </resources>

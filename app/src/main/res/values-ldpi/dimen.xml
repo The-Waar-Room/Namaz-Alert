@@ -5,6 +5,6 @@
     <dimen name="materialCardView_Height">60dp</dimen>
     <dimen name="imageview_width">200dp</dimen>
     <dimen name="textSize">18sp</dimen>
-    <dimen name="marginUpAndDown">6dp</dimen>
+    <dimen name="marginUpAndDown">5dp</dimen>
 
 </resources>

@@ -5,7 +5,7 @@
     <!--    Prayer Item-->
     <dimen name="materialCardView_Height">80dp</dimen>
     <dimen name="imageview_width">240dp</dimen>
-    <dimen name="textSize">20sp</dimen>
-    <dimen name="marginUpAndDown">8dp</dimen>
+    <dimen name="textSize">24sp</dimen>
+    <dimen name="marginUpAndDown">10dp</dimen>
 
 </resources>
