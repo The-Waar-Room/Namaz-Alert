@@ -1,5 +1,6 @@
 package com.sudoajay.triumph_path.ui.editDailyPrayer
 
+import android.R.string
 import android.os.Bundle
 import android.util.Log
 import android.util.TypedValue
@@ -25,7 +26,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
-import kotlin.math.abs
 
 
 @AndroidEntryPoint
@@ -109,6 +109,7 @@ class EditDailyPrayerFragment : BaseFragment() {
         val arrayTime = exactTime.split(":")
 
 
+
         val exactHour = arrayTime[0].toInt()
         val exactMinute = arrayTime[1].toInt()
 
@@ -125,10 +126,59 @@ class EditDailyPrayerFragment : BaseFragment() {
 
         val hourPicker = dialogView.findViewById<NumberPicker>(R.id.dialog_hour_picker)
         val minutePicker = dialogView.findViewById<NumberPicker>(R.id.dialog_minute_picker)
+        val numbers = mutableListOf<Int>()
 
-        hourPicker.maxValue = currentHour +2
-        hourPicker.minValue = currentHour - 2
-        hourPicker.value = exactHour + if ( currentHour+2 >= 12 && exactHour <= 2   ) -1 else 0
+        if(currentHour+2 > 12) {
+
+            for (i in (currentHour-2)..(currentHour+2)) {
+
+                numbers.add(if(i > 12) i % 12 else i)
+                Log.e(
+                    "NewTag",
+                    "numbers  - $numbers  i $i "
+                )
+            }
+            hourPicker.displayedValues = numbers.map { it.toString()  }.toTypedArray()
+            //set the min value
+            hourPicker.minValue=1
+            hourPicker.maxValue=numbers.size
+            hourPicker.value = numbers.indexOf(exactHour)+1
+
+            Log.e(
+                "NewTag",
+                "numbers.indexOf(exactHour)+1  - ${numbers.indexOf(exactHour)+1}  numbers.size $numbers.size "
+            )
+        }else if(currentHour-2 <= 0){
+            for (i in (currentHour-2)..(currentHour+2)) {
+
+                numbers.add(if(i <= 0) 12+i else i)
+                Log.e(
+                    "NewTag",
+                    "numbers  - $numbers  i $i "
+                )
+            }
+            hourPicker.displayedValues = numbers.map { it.toString()  }.toTypedArray()
+            //set the min value
+            hourPicker.minValue=1
+            hourPicker.maxValue=numbers.size
+            hourPicker.value = numbers.indexOf(exactHour)+1
+
+            Log.e(
+                "NewTag",
+                "numbers.indexOf(exactHour)+1  - ${numbers.indexOf(exactHour)+1}  numbers.size $numbers.size "
+            )
+
+        }
+        else{
+            hourPicker.maxValue = currentHour +2
+            hourPicker.minValue = currentHour - 2
+            hourPicker.value = exactHour
+        }
+
+
+//        hourPicker.value = exactHour + if ( currentHour+2 >= 12 && exactHour <= 2   ) -1 else 0
+
+
         hourPicker.wrapSelectorWheel = false
 
         Log.e(
@@ -143,7 +193,17 @@ class EditDailyPrayerFragment : BaseFragment() {
 
         d.setPositiveButton(getString(R.string.set_text)) { _, _ ->
 
-            val selectedHour = hourPicker.value
+
+            val selectedHour = if(currentHour+2 > 12)
+                if(currentHour+numbers[hourPicker.value-1]  - currentHour <= 4) currentHour+numbers[hourPicker.value-1]
+                else  numbers[hourPicker.value-1]
+            else if(currentHour-2 <= 0)
+                if(numbers[hourPicker.value-1]-12 >= -4 ) numbers[hourPicker.value-1]-12
+                else  numbers[hourPicker.value-1]
+            else hourPicker.value
+
+
+
             val selectedMinute = minutePicker.value
 
             val gapTime =
