@@ -40,7 +40,7 @@ class HomeFragment : BaseFragment() {
     private var isDarkTheme: Boolean = false
 
     private var _binding: FragmentHomeBinding? = null
-    private val binding get() = _binding!!
+    private val binding get() = _binding
 
     private val dailyPrayerViewModel: DailyPrayerViewModel by viewModels()
     private var doubleBackToExitPressedOnce = false
@@ -67,8 +67,8 @@ class HomeFragment : BaseFragment() {
 
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        binding.viewModel = dailyPrayerViewModel
-        binding.lifecycleOwner = this
+        binding?.viewModel = dailyPrayerViewModel
+        binding?.lifecycleOwner = this
         setupToolbar()
         setUpView()
 
@@ -80,7 +80,7 @@ class HomeFragment : BaseFragment() {
         }
 
 
-        return binding.root
+        return binding!!.root
     }
 
     private fun openNotifyMe() {
@@ -132,12 +132,12 @@ class HomeFragment : BaseFragment() {
 
 
     private fun setUpView() {
-        binding.swipeRefresh.setColorSchemeResources(R.color.appTheme)
-        binding.swipeRefresh.setProgressBackgroundColorSchemeColor(
+        binding?.swipeRefresh?.setColorSchemeResources(R.color.appTheme)
+        binding?.swipeRefresh?.setProgressBackgroundColorSchemeColor(
             ContextCompat.getColor(requireContext(), R.color.statusBarColor)
         )
 
-        binding.swipeRefresh.setOnRefreshListener {
+        binding?.swipeRefresh?.setOnRefreshListener {
             refreshData()
         }
 
@@ -175,12 +175,12 @@ class HomeFragment : BaseFragment() {
 
                 when (it.Name) {
                     fajrName -> {
-                        binding.include.itemTextView1.text = getString(
+                        binding?.include?.itemTextView1?.text = getString(
                             R.string.fajr_time_text,
                             Helper.convertTo12Hr(requireContext(), it.Time)
                         )
 
-                        binding.include.cardView1.setOnClickListener { view ->
+                        binding?.include?.cardView1?.setOnClickListener { view ->
                             parentFragment?.findNavController()?.navigate(
                                 R.id.action_homeFragment_to_editDailyPrayerFragment,
                                 bundleOf(
@@ -194,13 +194,13 @@ class HomeFragment : BaseFragment() {
                     }
 
                     dhuhrName -> {
-                        binding.include.itemTextView2.text = getString(
+                        binding?.include?.itemTextView2?.text = getString(
                             R.string.dhuhr_time_text,
 
                             Helper.convertTo12Hr(requireContext(), it.Time)
                         )
 
-                        binding.include.cardView2.setOnClickListener { view ->
+                        binding?.include?.cardView2?.setOnClickListener { view ->
                             parentFragment?.findNavController()?.navigate(
                                 R.id.action_homeFragment_to_editDailyPrayerFragment,
                                 bundleOf(
@@ -211,13 +211,13 @@ class HomeFragment : BaseFragment() {
                         }
                     }
                     asrName -> {
-                        binding.include.itemTextView3.text = getString(
+                        binding?.include?.itemTextView3?.text = getString(
                             R.string.asr_time_text,
 
                             Helper.convertTo12Hr(requireContext(), it.Time)
                         )
 
-                        binding.include.cardView3.setOnClickListener { view ->
+                        binding?.include?.cardView3?.setOnClickListener { view ->
                             parentFragment?.findNavController()?.navigate(
                                 R.id.action_homeFragment_to_editDailyPrayerFragment,
                                 bundleOf(
@@ -228,12 +228,12 @@ class HomeFragment : BaseFragment() {
                         }
                     }
                     maghribName -> {
-                        binding.include.itemTextView4.text = getString(
+                        binding?.include?.itemTextView4?.text = getString(
                             R.string.maghrib_time_text,
                             Helper.convertTo12Hr(requireContext(), it.Time)
                         )
 
-                        binding.include.cardView4.setOnClickListener { view ->
+                        binding?.include?.cardView4?.setOnClickListener { view ->
                             parentFragment?.findNavController()?.navigate(
                                 R.id.action_homeFragment_to_editDailyPrayerFragment,
                                 bundleOf(
@@ -244,12 +244,12 @@ class HomeFragment : BaseFragment() {
                         }
                     }
                     ishaName -> {
-                        binding.include.itemTextView5.text = getString(
+                        binding?.include?.itemTextView5?.text = getString(
                             R.string.isha_time_text,
                             Helper.convertTo12Hr(requireContext(), it.Time)
                         )
 
-                        binding.include.cardView5.setOnClickListener { view ->
+                        binding?.include?.cardView5?.setOnClickListener { view ->
                             parentFragment?.findNavController()?.navigate(
                                 R.id.action_homeFragment_to_editDailyPrayerFragment,
                                 bundleOf(
@@ -288,7 +288,7 @@ class HomeFragment : BaseFragment() {
     private fun setupToolbar() {
         // The other option is using val toolbar = findViewById(R.id.toolvar)
         // and add as parameter instead of the binding option
-        (activity as AppCompatActivity).setSupportActionBar(binding.bottomAppBar)
+        (activity as AppCompatActivity).setSupportActionBar(binding?.bottomAppBar)
         (activity as AppCompatActivity).supportActionBar?.setDisplayShowTitleEnabled(false)
     }
 
@@ -308,10 +308,10 @@ class HomeFragment : BaseFragment() {
 
     private fun refreshData() {
         CoroutineScope(Dispatchers.Main).launch {
-            binding.swipeRefresh.isRefreshing = true
+            binding?.swipeRefresh?.isRefreshing = true
             delay(1000 * 2) // 2 sec
 //            dailyPrayerAdapter.refresh()
-            binding.swipeRefresh.isRefreshing = false
+            binding?.swipeRefresh?.isRefreshing = false
             dailyPrayerViewModel.isLoadData.value = true
             callRecyclerDate()
         }

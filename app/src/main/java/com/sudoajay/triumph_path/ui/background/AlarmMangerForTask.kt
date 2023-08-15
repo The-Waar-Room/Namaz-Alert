@@ -93,6 +93,7 @@ class AlarmMangerForTask @Inject constructor(var context: Context) {
                 val waitFor = CoroutineScope(Dispatchers.IO).async {
                     prayerGapTime = getPrayerGapTime(dailyPrayerDB.Name, protoManager)
                     return@async prayerGapTime
+
                 }
                 waitFor.await()
 
