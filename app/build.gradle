@@ -23,7 +23,6 @@ plugins {
 
 android {
     compileSdk 34
-    buildToolsVersion "33.0.0"
     defaultConfig {
         applicationId "com.sudoajay.triumph_path"
         minSdk 21
@@ -34,30 +33,30 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    signingConfigs {
-        release {
-            storeFile file('/home/sudoajay/Dropbox/Important file  (Android)/key.jks')
-            storePassword 'ajaysinghrock'
-            keyAlias 'key0'
-            keyPassword 'ajaysinghrock'
-        }
-        debug {
-            storeFile file('/home/sudoajay/Dropbox/Important file  (Android)/key.jks')
-            storePassword 'ajaysinghrock'
-            keyAlias 'key0'
-            keyPassword 'ajaysinghrock'
-        }
-    }
+//    signingConfigs {
+//        release {
+//            storeFile file('/home/sudoajay/Documents/Important file  (Android)/key.jks')
+//            storePassword 'ajaysinghrock'
+//            keyAlias 'key0'
+//            keyPassword 'ajaysinghrock'
+//        }
+//        debug {
+//            storeFile file('/home/sudoajay/Documents/Important file  (Android)/key.jks')
+//            storePassword 'ajaysinghrock'
+//            keyAlias 'key0'
+//            keyPassword 'ajaysinghrock'
+//        }
+//    }
 
     buildTypes {
         release {
-            minifyEnabled true
+            minifyEnabled false
 
             // Enables resource shrinking, which is performed by the
             // Android Gradle plugin.
-            shrinkResources true
+            shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
+//            signingConfig signingConfigs.release
         }
     }
     compileOptions {
